@@ -1,12 +1,13 @@
-MicroPython Module Reference
-============================
+MicroPython Modules
+===================
 
-This page contains auto-generated API reference documentation [#f1]_.
+This page contains auto-generated module documentation.
 
 .. toctree::
    :titlesonly:
+   :maxdepth: 1
 
-   {% for page in pages|selectattr("is_top_level_object") %}
+   {% for page in pages|selectattr("is_top_level_object")|sort %}
    {{ page.include_path }}
    {% endfor %}
 

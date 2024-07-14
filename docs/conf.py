@@ -65,9 +65,11 @@ autoapi_member_order = "groupwise"
 autoapi_generate_api_docs = True
 # Whether to generate API documentation. If this is False, documentation should be generated though the Directives.
 
-autoapi_keep_files = (
-    True  # Keep the AutoAPI generated files on the filesystem after the run. Useful for debugging.
-)
+# Keep the AutoAPI generated files on the filesystem after the run. Useful for debugging.
+autoapi_keep_files = False
+
+# onfigure customizable templates for the AutoAPI extension.
+autoapi_template_dir = (Path(__file__).parent / "autoapi_templates").absolute().as_posix()
 
 if "exclude_patterns" not in globals():
     exclude_patterns = ["autoapi_templates"]
@@ -75,25 +77,38 @@ else:
     exclude_patterns.append("autoapi_templates")
 
 # add all stubs to the autoapi_dirs
+SKIP_MODULES = [
+    "__pycache__",
+    "__builtins__",  # Does not exists, used by pyright to resolve custom builtins
+]
+
+
 stub_path = Path(__file__).parent / "stubs"
+stub_modules = sorted(
+    [p for p in stub_path.glob("*") if p.stem not in SKIP_MODULES and p.is_dir()],
+    key=lambda x: x.stem,
+)
+autoapi_dirs: List[Path] = stub_modules
 
-autoapi_dirs: List[Path] = [stub_path]
+# -----------------------------------------------------------------------------
+lone_pyi = [p for p in stub_path.glob("*.pyi") if p.stem not in SKIP_MODULES]
+if lone_pyi:
+    print("WARNING, lone .pyi stubs will not be processed", lone_pyi)
 
-# Explicit
-# autoapi_dirs.extend(
-#     [p for p in stub_path.glob("*") if p.is_dir() and p.stem not in ["__pycache__"]]
-# )
+# -----------------------------------------------------------------------------
+# HTML post processing
 
 from bs4 import BeautifulSoup  # BeautifulSoup is used for easier HTML parsing and manipulation
 from sphinx.application import Sphinx
 
 
-def replace_typeshed_incomplete(app, exception):
+def replace_typeshed_incomplete(app: Sphinx, exception):
     """
     Replace all ocurrences of "_typeshed.Incomplete" with "Incomplete" in the generated HTML files.
     """
     if exception is None:  # Only proceed if the build completed successfully
         output_dir = Path(app.outdir)  # Get the output directory where the HTML files are located
+        print(f"Replacing _typeshed.Incomplete in HTML files in {output_dir}")
         for file_path in output_dir.glob("**/*.html"):
             with open(file_path, "r", encoding="utf-8") as f:
                 html_content = f.read()
@@ -104,6 +119,7 @@ def replace_typeshed_incomplete(app, exception):
 
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(html_str)
+        print("Replacement complete")
 
 
 def setup(app: Sphinx):
