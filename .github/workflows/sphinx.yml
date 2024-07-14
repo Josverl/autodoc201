@@ -17,7 +17,10 @@ jobs:
       - name: Sphinx build
         run: |
           cd docs
-          sphinx-build . _build
+          sphinx-build -M html . _build 
+          # force ignored folder
+          git add _build -f
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
