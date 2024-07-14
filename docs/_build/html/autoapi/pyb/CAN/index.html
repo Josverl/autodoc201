@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+
+<html data-content_root="../../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>pyb.CAN — API documentation test 1 documentation</title>
+<link href="../../../_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/alabaster.css?v=12dfc556" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/graphviz.css?v=fd3f3429" rel="stylesheet" type="text/css"/>
+<script src="../../../_static/documentation_options.js?v=29a6c3e3"></script>
+<script src="../../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<link href="../../../genindex.html" rel="index" title="Index"/>
+<link href="../../../search.html" rel="search" title="Search"/>
+<link href="../DAC/index.html" rel="next" title="pyb.DAC"/>
+<link href="../Accel/index.html" rel="prev" title="pyb.Accel"/>
+<link href="../../../_static/custom.css" rel="stylesheet" type="text/css"/>
+</head><body>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
+<section id="module-pyb.CAN">
+<span id="pyb-can"></span><h1>pyb.CAN<a class="headerlink" href="#module-pyb.CAN" title="Link to this heading">¶</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyb.CAN.CAN" title="pyb.CAN.CAN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CAN</span></code></a></p></td>
+<td><p>Construct a CAN object on the given bus.  <em>bus</em> can be 1-2, or <code class="docutils literal notranslate"><span class="pre">'YA'</span></code> or <code class="docutils literal notranslate"><span class="pre">'YB'</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyb.CAN.CAN">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyb.CAN.</span></span><span class="sig-name descname"><span class="pre">CAN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baudrate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">328125</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prescaler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firstbit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">MSB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ti</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyb.CAN.CAN" title="Link to this definition">¶</a></dt>
+<dd><p>Construct a CAN object on the given bus.  <em>bus</em> can be 1-2, or <code class="docutils literal notranslate"><span class="pre">'YA'</span></code> or <code class="docutils literal notranslate"><span class="pre">'YB'</span></code>.
+With no additional parameters, the CAN object is created but not
+initialised (it has the settings from the last initialisation of
+the bus, if any).  If extra arguments are given, the bus is initialised.
+See <a class="reference internal" href="#pyb.CAN.CAN.init" title="pyb.CAN.CAN.init"><code class="xref py py-meth docutils literal notranslate"><span class="pre">CAN.init()</span></code></a> for parameters of initialisation.</p>
+<p>The physical pins of the CAN buses are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CAN(1)</span></code> is on <code class="docutils literal notranslate"><span class="pre">YA</span></code>: <code class="docutils literal notranslate"><span class="pre">(RX,</span> <span class="pre">TX)</span> <span class="pre">=</span> <span class="pre">(Y3,</span> <span class="pre">Y4)</span> <span class="pre">=</span> <span class="pre">(PB8,</span> <span class="pre">PB9)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CAN(2)</span></code> is on <code class="docutils literal notranslate"><span class="pre">YB</span></code>: <code class="docutils literal notranslate"><span class="pre">(RX,</span> <span class="pre">TX)</span> <span class="pre">=</span> <span class="pre">(Y5,</span> <span class="pre">Y6)</span> <span class="pre">=</span> <span class="pre">(PB12,</span> <span class="pre">PB13)</span></code></p></li>
+</ul>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.any">
+<span class="sig-name descname"><span class="pre">any</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fifo</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bool" title="(in Python v3.5)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#pyb.CAN.CAN.any" title="Link to this definition">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if any message waiting on the FIFO, else <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.clearfilter">
+<span class="sig-name descname"><span class="pre">clearfilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bank</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extframe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pyb.CAN.CAN.clearfilter" title="Link to this definition">¶</a></dt>
+<dd><p>Clear and disables a filter bank:</p>
+<ul class="simple">
+<li><p><em>bank</em> is the classic CAN controller filter bank, or CAN FD filter index, to clear.</p></li>
+<li><p><em>extframe</em> For CAN FD controllers, if True, clear an extended filter (configured with extframe=True),
+otherwise the clear a standard identifier (configured with extframe=False).</p></li>
+</ul>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.deinit">
+<span class="sig-name descname"><span class="pre">deinit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pyb.CAN.CAN.deinit" title="Link to this definition">¶</a></dt>
+<dd><p>Turn off the CAN bus.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.info">
+<span class="sig-name descname"><span class="pre">info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#pyb.CAN.CAN.info" title="Link to this definition">¶</a></dt>
+<dd><p>Get information about the controller’s error states and TX and RX buffers.
+If <em>list</em> is provided then it should be a list object with at least 8 entries,
+which will be filled in with the information.  Otherwise a new list will be
+created and filled in.  In both cases the return value of the method is the
+populated list.</p>
+<p>The values in the list are:</p>
+<ul class="simple">
+<li><p>TEC value</p></li>
+<li><p>REC value</p></li>
+<li><p>number of times the controller enterted the Error Warning state (wrapped
+around to 0 after 65535)</p></li>
+<li><p>number of times the controller enterted the Error Passive state (wrapped
+around to 0 after 65535)</p></li>
+<li><p>number of times the controller enterted the Bus Off state (wrapped
+around to 0 after 65535)</p></li>
+<li><p>number of pending TX messages</p></li>
+<li><p>number of pending RX messages on fifo 0</p></li>
+<li><p>number of pending RX messages on fifo 1</p></li>
+</ul>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prescaler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sjw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bs1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bs2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_restart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baudrate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_filter_banks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brs_sjw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brs_bs1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brs_bs2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brs_baudrate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brs_sample_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">75</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pyb.CAN.CAN.init" title="Link to this definition">¶</a></dt>
+<dd><p>Initialise the CAN bus with the given parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>mode</em> is one of:  NORMAL, LOOPBACK, SILENT, SILENT_LOOPBACK</p></li>
+<li><p><em>prescaler</em> is the value by which the CAN input clock is divided to generate the
+nominal bit time quanta. The prescaler can be a value between 1 and 1024 inclusive
+for classic CAN, and between 1 and 512 inclusive for CAN FD.</p></li>
+<li><p><em>sjw</em> is the resynchronisation jump width in units of time quanta for nominal bits;
+it can be a value between 1 and 4 inclusive for classic CAN, and between 1 and 128 inclusive for CAN FD.</p></li>
+<li><p><em>bs1</em> defines the location of the sample point in units of the time quanta for nominal bits;
+it can be a value between 1 and 16 inclusive for classic CAN, and between 2 and 256 inclusive for CAN FD.</p></li>
+<li><p><em>bs2</em> defines the location of the transmit point in units of the time quanta for nominal bits;
+it can be a value between 1 and 8 inclusive for classic CAN, and between 2 and 128 inclusive for CAN FD.</p></li>
+<li><p><em>auto_restart</em> sets whether the controller will automatically try and restart
+communications after entering the bus-off state; if this is disabled then
+<a class="reference internal" href="#pyb.CAN.CAN.restart" title="pyb.CAN.CAN.restart"><code class="xref py py-meth docutils literal notranslate"><span class="pre">restart()</span></code></a> can be used to leave the bus-off state</p></li>
+<li><p><em>baudrate</em> if a baudrate other than 0 is provided, this function will try to automatically
+calculate the CAN nominal bit time (overriding <em>prescaler</em>, <em>bs1</em> and <em>bs2</em>) that satisfies
+both the baudrate and the desired <em>sample_point</em>.</p></li>
+<li><p><em>sample_point</em> given in a percentage of the nominal bit time, the <em>sample_point</em> specifies the position
+of the bit sample with respect to the whole nominal bit time. The default <em>sample_point</em> is 75%.</p></li>
+<li><p><em>num_filter_banks</em> for classic CAN, this is the number of banks that will be assigned to CAN(1),
+the rest of the 28 are assigned to CAN(2).</p></li>
+<li><p><em>brs_prescaler</em> is the value by which the CAN FD input clock is divided to generate the
+data bit time quanta. The prescaler can be a value between 1 and 32 inclusive.</p></li>
+<li><p><em>brs_sjw</em> is the resynchronisation jump width in units of time quanta for data bits;
+it can be a value between 1 and 16 inclusive</p></li>
+<li><p><em>brs_bs1</em> defines the location of the sample point in units of the time quanta for data bits;
+it can be a value between 1 and 32 inclusive</p></li>
+<li><p><em>brs_bs2</em> defines the location of the transmit point in units of the time quanta for data bits;
+it can be a value between 1 and 16 inclusive</p></li>
+<li><p><em>brs_baudrate</em> if a baudrate other than 0 is provided, this function will try to automatically
+calculate the CAN data bit time (overriding <em>brs_prescaler</em>, <em>brs_bs1</em> and <em>brs_bs2</em>) that satisfies
+both the baudrate and the desired <em>brs_sample_point</em>.</p></li>
+<li><p><em>brs_sample_point</em> given in a percentage of the data bit time, the <em>brs_sample_point</em> specifies the position
+of the bit sample with respect to the whole data bit time. The default <em>brs_sample_point</em> is 75%.</p></li>
+</ul>
+</div></blockquote>
+<p>The time quanta tq is the basic unit of time for the CAN bus.  tq is the CAN
+prescaler value divided by PCLK1 (the frequency of internal peripheral bus 1);
+see <a class="reference internal" href="../index.html#pyb.freq" title="pyb.freq"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyb.freq()</span></code></a> to determine PCLK1.</p>
+<p>A single bit is made up of the synchronisation segment, which is always 1 tq.
+Then follows bit segment 1, then bit segment 2.  The sample point is after bit
+segment 1 finishes.  The transmit point is after bit segment 2 finishes.
+The baud rate will be 1/bittime, where the bittime is 1 + BS1 + BS2 multiplied
+by the time quanta tq.</p>
+<p>For example, with PCLK1=42MHz, prescaler=100, sjw=1, bs1=6, bs2=8, the value of
+tq is 2.38 microseconds.  The bittime is 35.7 microseconds, and the baudrate
+is 28kHz.</p>
+<p>See page 680 of the STM32F405 datasheet for more details.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.recv">
+<span class="sig-name descname"><span class="pre">recv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fifo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5000</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Tuple</span></span></span><a class="headerlink" href="#pyb.CAN.CAN.recv" title="Link to this definition">¶</a></dt>
+<dd><p>Receive data on the bus:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>fifo</em> is an integer, which is the FIFO to receive on</p></li>
+<li><p><em>list</em> is an optional list object to be used as the return value</p></li>
+<li><p><em>timeout</em> is the timeout in milliseconds to wait for the receive.</p></li>
+</ul>
+</div></blockquote>
+<p>Return value: A tuple containing five values.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The id of the message.</p></li>
+<li><p>A boolean that indicates if the message ID is standard or extended.</p></li>
+<li><p>A boolean that indicates if the message is an RTR message.</p></li>
+<li><p>The FMI (Filter Match Index) value.</p></li>
+<li><p>An array containing the data.</p></li>
+</ul>
+</div></blockquote>
+<p>If <em>list</em> is <code class="docutils literal notranslate"><span class="pre">None</span></code> then a new tuple will be allocated, as well as a new
+bytes object to contain the data (as the fifth element in the tuple).</p>
+<p>If <em>list</em> is not <code class="docutils literal notranslate"><span class="pre">None</span></code> then it should be a list object with a least five
+elements.  The fifth element should be a memoryview object which is created
+from either a bytearray or an array of type ‘B’ or ‘b’, and this array must
+have enough room for at least 8 bytes.  The list object will then be
+populated with the first four return values above, and the memoryview object
+will be resized inplace to the size of the data and filled in with that data.
+The same list and memoryview objects can be reused in subsequent calls to
+this method, providing a way of receiving data without using the heap.
+For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buf</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">memoryview</span><span class="p">(</span><span class="n">buf</span><span class="p">)]</span>
+<span class="c1"># No heap memory is allocated in the following call</span>
+<span class="n">can</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">lst</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.restart">
+<span class="sig-name descname"><span class="pre">restart</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#pyb.CAN.CAN.restart" title="Link to this definition">¶</a></dt>
+<dd><p>Force a software restart of the CAN controller without resetting its
+configuration.</p>
+<p>If the controller enters the bus-off state then it will no longer participate
+in bus activity.  If the controller is not configured to automatically restart
+(see <a class="reference internal" href="#pyb.CAN.CAN.init" title="pyb.CAN.CAN.init"><code class="xref py py-meth docutils literal notranslate"><span class="pre">init()</span></code></a>) then this method can be used to trigger a restart,
+and the controller will follow the CAN protocol to leave the bus-off state and
+go into the error active state.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.rxcallback">
+<span class="sig-name descname"><span class="pre">rxcallback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fifo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fun</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pyb.CAN.CAN.rxcallback" title="Link to this definition">¶</a></dt>
+<dd><p>Register a function to be called when a message is accepted into a empty fifo:</p>
+<ul class="simple">
+<li><p><em>fifo</em> is the receiving fifo.</p></li>
+<li><p><em>fun</em> is the function to be called when the fifo becomes non empty.</p></li>
+</ul>
+<p>The callback function takes two arguments the first is the can object it self the second is
+a integer that indicates the reason for the callback.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Reason</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>A message has been accepted into a empty FIFO.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>The FIFO is full</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>A message has been lost due to a full FIFO</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example use of rxcallback:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cb0</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">reason</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">'cb0'</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">reason</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">'pending'</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">reason</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">'full'</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">reason</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">'overflow'</span><span class="p">)</span>
+
+<span class="n">can</span> <span class="o">=</span> <span class="n">CAN</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">CAN</span><span class="o">.</span><span class="n">LOOPBACK</span><span class="p">)</span>
+<span class="n">can</span><span class="o">.</span><span class="n">rxcallback</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cb0</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rtr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extframe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fdf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pyb.CAN.CAN.send" title="Link to this definition">¶</a></dt>
+<dd><p>Send a message on the bus:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>data</em> is the data to send (an integer to send, or a buffer object).</p></li>
+<li><p><em>id</em> is the id of the message to be sent.</p></li>
+<li><p><em>timeout</em> is the timeout in milliseconds to wait for the send.</p></li>
+<li><p><em>rtr</em> is a boolean that specifies if the message shall be sent as
+a remote transmission request.  If <em>rtr</em> is True then only the length
+of <em>data</em> is used to fill in the DLC slot of the frame; the actual
+bytes in <em>data</em> are unused.</p></li>
+<li><p><em>extframe</em> if True the frame will have an extended identifier (29 bits),
+otherwise a standard identifier (11 bits) is used.</p></li>
+<li><p><em>fdf</em> for CAN FD controllers, if set to True, the frame will have an FD
+frame format, which supports data payloads up to 64 bytes.</p></li>
+<li><p><em>brs</em> for CAN FD controllers, if set to True, the bitrate switching mode
+is enabled, in which the data phase is transmitted at a different bitrate.
+See <a class="reference internal" href="#pyb.CAN.CAN.init" title="pyb.CAN.CAN.init"><code class="xref py py-meth docutils literal notranslate"><span class="pre">CAN.init()</span></code></a> for the data bit timing configuration parameters.</p></li>
+</ul>
+<p>If timeout is 0 the message is placed in a buffer in one of three hardware
+buffers and the method returns immediately. If all three buffers are in use
+an exception is thrown. If timeout is not 0, the method waits until the
+message is transmitted. If the message can’t be transmitted within the
+specified time an exception is thrown.</p>
+</div></blockquote>
+<p>Return value: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.setfilter">
+<span class="sig-name descname"><span class="pre">setfilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bank</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fifo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rtr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extframe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pyb.CAN.CAN.setfilter" title="Link to this definition">¶</a></dt>
+<dd><p>Configure a filter bank:</p>
+<ul class="simple">
+<li><p><em>bank</em> is the classic CAN controller filter bank, or CAN FD filter index, to configure.</p></li>
+<li><p><em>mode</em> is the mode the filter should operate in, see the tables below.</p></li>
+<li><p><em>fifo</em> is which fifo (0 or 1) a message should be stored in, if it is accepted by this filter.</p></li>
+<li><p><em>params</em> is an array of values the defines the filter. The contents of the array depends on the <em>mode</em> argument.</p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><em>mode</em></p></th>
+<th class="head"><p>Contents of <em>params</em> array for classic CAN controller</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CAN.LIST16</p></td>
+<td><p>Four 16 bit ids that will be accepted</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAN.LIST32</p></td>
+<td><p>Two 32 bit ids that will be accepted</p></td>
+</tr>
+<tr class="row-even"><td><p>CAN.MASK16</p></td>
+<td><dl>
+<dt>Two 16 bit id/mask pairs. E.g. (1, 3, 4, 4)</dt><dd><div class="line-block">
+<div class="line">The first pair, 1 and 3 will accept all ids</div>
+<div class="line">that have bit 0 = 1 and bit 1 = 0.</div>
+<div class="line">The second pair, 4 and 4, will accept all ids</div>
+<div class="line">that have bit 2 = 1.</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CAN.MASK32</p></td>
+<td><p>As with CAN.MASK16 but with only one 32 bit id/mask pair.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><em>mode</em></p></th>
+<th class="head"><p>Contents of <em>params</em> array for CAN FD controller</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CAN.RANGE</p></td>
+<td><p>Two ids that represent a range of accepted ids.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAN.DUAL</p></td>
+<td><p>Two ids that will be accepted. For example (1, 2)</p></td>
+</tr>
+<tr class="row-even"><td><p>CAN.MASK</p></td>
+<td><p>One filter ID and a mask. For example (0x111, 0x7FF)</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><em>rtr</em> For classic CAN controllers, this is an array of booleans that states if
+a filter should accept a remote transmission request message. If this argument
+is not given then it defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code> for all entries. The length of the
+array depends on the <em>mode</em> argument. For CAN FD, this argument is ignored.</p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><em>mode</em></p></th>
+<th class="head"><p>length of <em>rtr</em> array</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CAN.LIST16</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAN.LIST32</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>CAN.MASK16</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAN.MASK32</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><em>extframe</em> If True the frame will have an extended identifier (29 bits),
+otherwise a standard identifier (11 bits) is used.</p></li>
+</ul>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.state">
+<span class="sig-name descname"><span class="pre">state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#pyb.CAN.CAN.state" title="Link to this definition">¶</a></dt>
+<dd><p>Return the state of the controller.  The return value can be one of:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CAN.STOPPED</span></code> – the controller is completely off and reset;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CAN.ERROR_ACTIVE</span></code> – the controller is on and in the Error Active state
+(both TEC and REC are less than 96);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CAN.ERROR_WARNING</span></code> – the controller is on and in the Error Warning state
+(at least one of TEC or REC is 96 or greater);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CAN.ERROR_PASSIVE</span></code> – the controller is on and in the Error Passive state
+(at least one of TEC or REC is 128 or greater);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CAN.BUS_OFF</span></code> – the controller is on but not participating in bus activity
+(TEC overflowed beyond 255).</p></li>
+</ul>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.BUS_OFF">
+<span class="sig-name descname"><span class="pre">BUS_OFF</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.CAN.CAN.BUS_OFF" title="Link to this definition">¶</a></dt>
+<dd><p>Possible states of the CAN controller returned from <a class="reference internal" href="#pyb.CAN.CAN.state" title="pyb.CAN.CAN.state"><code class="xref py py-meth docutils literal notranslate"><span class="pre">state()</span></code></a>.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.DUAL">
+<span class="sig-name descname"><span class="pre">DUAL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.CAN.CAN.DUAL" title="Link to this definition">¶</a></dt>
+<dd><p>The operation mode of a filter used in <a class="reference internal" href="#pyb.CAN.CAN.setfilter" title="pyb.CAN.CAN.setfilter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setfilter()</span></code></a> for CAN FD.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.ERROR_ACTIVE">
+<span class="sig-name descname"><span class="pre">ERROR_ACTIVE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.CAN.CAN.ERROR_ACTIVE" title="Link to this definition">¶</a></dt>
+<dd><p>Possible states of the CAN controller returned from <a class="reference internal" href="#pyb.CAN.CAN.state" title="pyb.CAN.CAN.state"><code class="xref py py-meth docutils literal notranslate"><span class="pre">state()</span></code></a>.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.ERROR_PASSIVE">
+<span class="sig-name descname"><span class="pre">ERROR_PASSIVE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.CAN.CAN.ERROR_PASSIVE" title="Link to this definition">¶</a></dt>
+<dd><p>Possible states of the CAN controller returned from <a class="reference internal" href="#pyb.CAN.CAN.state" title="pyb.CAN.CAN.state"><code class="xref py py-meth docutils literal notranslate"><span class="pre">state()</span></code></a>.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.ERROR_WARNING">
+<span class="sig-name descname"><span class="pre">ERROR_WARNING</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.CAN.CAN.ERROR_WARNING" title="Link to this definition">¶</a></dt>
+<dd><p>Possible states of the CAN controller returned from <a class="reference internal" href="#pyb.CAN.CAN.state" title="pyb.CAN.CAN.state"><code class="xref py py-meth docutils literal notranslate"><span class="pre">state()</span></code></a>.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.LIST16">
+<span class="sig-name descname"><span class="pre">LIST16</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.CAN.CAN.LIST16" title="Link to this definition">¶</a></dt>
+<dd><p>The operation mode of a filter used in <a class="reference internal" href="#pyb.CAN.CAN.setfilter" title="pyb.CAN.CAN.setfilter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setfilter()</span></code></a> for classic CAN.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.LIST32">
+<span class="sig-name descname"><span class="pre">LIST32</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.CAN.CAN.LIST32" title="Link to this definition">¶</a></dt>
+<dd><p>The operation mode of a filter used in <a class="reference internal" href="#pyb.CAN.CAN.setfilter" title="pyb.CAN.CAN.setfilter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setfilter()</span></code></a> for classic CAN.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.LOOPBACK">
+<span class="sig-name descname"><span class="pre">LOOPBACK</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.CAN.CAN.LOOPBACK" title="Link to this definition">¶</a></dt>
+<dd><p>The mode of the CAN bus used in <a class="reference internal" href="#pyb.CAN.CAN.init" title="pyb.CAN.CAN.init"><code class="xref py py-meth docutils literal notranslate"><span class="pre">init()</span></code></a>.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.MASK">
+<span class="sig-name descname"><span class="pre">MASK</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.CAN.CAN.MASK" title="Link to this definition">¶</a></dt>
+<dd><p>The operation mode of a filter used in <a class="reference internal" href="#pyb.CAN.CAN.setfilter" title="pyb.CAN.CAN.setfilter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setfilter()</span></code></a> for CAN FD.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.MASK16">
+<span class="sig-name descname"><span class="pre">MASK16</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.CAN.CAN.MASK16" title="Link to this definition">¶</a></dt>
+<dd><p>The operation mode of a filter used in <a class="reference internal" href="#pyb.CAN.CAN.setfilter" title="pyb.CAN.CAN.setfilter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setfilter()</span></code></a> for classic CAN.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.MASK32">
+<span class="sig-name descname"><span class="pre">MASK32</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.CAN.CAN.MASK32" title="Link to this definition">¶</a></dt>
+<dd><p>The operation mode of a filter used in <a class="reference internal" href="#pyb.CAN.CAN.setfilter" title="pyb.CAN.CAN.setfilter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setfilter()</span></code></a> for classic CAN.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.NORMAL">
+<span class="sig-name descname"><span class="pre">NORMAL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.CAN.CAN.NORMAL" title="Link to this definition">¶</a></dt>
+<dd><p>The mode of the CAN bus used in <a class="reference internal" href="#pyb.CAN.CAN.init" title="pyb.CAN.CAN.init"><code class="xref py py-meth docutils literal notranslate"><span class="pre">init()</span></code></a>.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.RANGE">
+<span class="sig-name descname"><span class="pre">RANGE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.CAN.CAN.RANGE" title="Link to this definition">¶</a></dt>
+<dd><p>The operation mode of a filter used in <a class="reference internal" href="#pyb.CAN.CAN.setfilter" title="pyb.CAN.CAN.setfilter"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setfilter()</span></code></a> for CAN FD.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.SILENT">
+<span class="sig-name descname"><span class="pre">SILENT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.CAN.CAN.SILENT" title="Link to this definition">¶</a></dt>
+<dd><p>The mode of the CAN bus used in <a class="reference internal" href="#pyb.CAN.CAN.init" title="pyb.CAN.CAN.init"><code class="xref py py-meth docutils literal notranslate"><span class="pre">init()</span></code></a>.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.SILENT_LOOPBACK">
+<span class="sig-name descname"><span class="pre">SILENT_LOOPBACK</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.CAN.CAN.SILENT_LOOPBACK" title="Link to this definition">¶</a></dt>
+<dd><p>The mode of the CAN bus used in <a class="reference internal" href="#pyb.CAN.CAN.init" title="pyb.CAN.CAN.init"><code class="xref py py-meth docutils literal notranslate"><span class="pre">init()</span></code></a>.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.CAN.CAN.STOPPED">
+<span class="sig-name descname"><span class="pre">STOPPED</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.CAN.CAN.STOPPED" title="Link to this definition">¶</a></dt>
+<dd><p>Possible states of the CAN controller returned from <a class="reference internal" href="#pyb.CAN.CAN.state" title="pyb.CAN.CAN.state"><code class="xref py py-meth docutils literal notranslate"><span class="pre">state()</span></code></a>.</p>
+</dd></dl>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+<div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">API documentation test</a></h1>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../library/index.html">LiBrary!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bar.html">bar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">MicroPython Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../_asyncio/index.html">_asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_rp2/index.html">_rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_thread/index.html">_thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../array/index.html">array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asyncio/index.html">asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../binascii/index.html">binascii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bluetooth/index.html">bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../btree/index.html">btree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cmath/index.html">cmath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collections/index.html">collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cryptolib/index.html">cryptolib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../deflate/index.html">deflate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../errno/index.html">errno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../esp/index.html">esp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../esp32/index.html">esp32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../espnow/index.html">espnow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../framebuf/index.html">framebuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gc/index.html">gc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gzip/index.html">gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hashlib/index.html">hashlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../heapq/index.html">heapq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../io/index.html">io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../json/index.html">json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lcd160cr/index.html">lcd160cr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../machine/index.html">machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/index.html">math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../micropython/index.html">micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../neopixel/index.html">neopixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../network/index.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../openamp/index.html">openamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../os/index.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform/index.html">platform</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">pyb</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../ADC/index.html">pyb.ADC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Accel/index.html">pyb.Accel</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">pyb.CAN</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#pyb.CAN.CAN"><code class="docutils literal notranslate"><span class="pre">CAN</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.any"><code class="docutils literal notranslate"><span class="pre">CAN.any()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.clearfilter"><code class="docutils literal notranslate"><span class="pre">CAN.clearfilter()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.deinit"><code class="docutils literal notranslate"><span class="pre">CAN.deinit()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.info"><code class="docutils literal notranslate"><span class="pre">CAN.info()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.init"><code class="docutils literal notranslate"><span class="pre">CAN.init()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.recv"><code class="docutils literal notranslate"><span class="pre">CAN.recv()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.restart"><code class="docutils literal notranslate"><span class="pre">CAN.restart()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.rxcallback"><code class="docutils literal notranslate"><span class="pre">CAN.rxcallback()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.send"><code class="docutils literal notranslate"><span class="pre">CAN.send()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.setfilter"><code class="docutils literal notranslate"><span class="pre">CAN.setfilter()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.state"><code class="docutils literal notranslate"><span class="pre">CAN.state()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.BUS_OFF"><code class="docutils literal notranslate"><span class="pre">CAN.BUS_OFF</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.DUAL"><code class="docutils literal notranslate"><span class="pre">CAN.DUAL</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.ERROR_ACTIVE"><code class="docutils literal notranslate"><span class="pre">CAN.ERROR_ACTIVE</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.ERROR_PASSIVE"><code class="docutils literal notranslate"><span class="pre">CAN.ERROR_PASSIVE</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.ERROR_WARNING"><code class="docutils literal notranslate"><span class="pre">CAN.ERROR_WARNING</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.LIST16"><code class="docutils literal notranslate"><span class="pre">CAN.LIST16</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.LIST32"><code class="docutils literal notranslate"><span class="pre">CAN.LIST32</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.LOOPBACK"><code class="docutils literal notranslate"><span class="pre">CAN.LOOPBACK</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.MASK"><code class="docutils literal notranslate"><span class="pre">CAN.MASK</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.MASK16"><code class="docutils literal notranslate"><span class="pre">CAN.MASK16</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.MASK32"><code class="docutils literal notranslate"><span class="pre">CAN.MASK32</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.NORMAL"><code class="docutils literal notranslate"><span class="pre">CAN.NORMAL</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.RANGE"><code class="docutils literal notranslate"><span class="pre">CAN.RANGE</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.SILENT"><code class="docutils literal notranslate"><span class="pre">CAN.SILENT</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.SILENT_LOOPBACK"><code class="docutils literal notranslate"><span class="pre">CAN.SILENT_LOOPBACK</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.CAN.CAN.STOPPED"><code class="docutils literal notranslate"><span class="pre">CAN.STOPPED</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../DAC/index.html">pyb.DAC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ExtInt/index.html">pyb.ExtInt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Flash/index.html">pyb.Flash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../I2C/index.html">pyb.I2C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LCD/index.html">pyb.LCD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LED/index.html">pyb.LED</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Pin/index.html">pyb.Pin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../RTC/index.html">pyb.RTC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SPI/index.html">pyb.SPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Servo/index.html">pyb.Servo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Switch/index.html">pyb.Switch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Timer/index.html">pyb.Timer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../UART/index.html">pyb.UART</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../USB_HID/index.html">pyb.USB_HID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../USB_VCP/index.html">pyb.USB_VCP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../random/index.html">random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../rp2/index.html">rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../select/index.html">select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../socket/index.html">socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ssl/index.html">ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stm/index.html">stm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../struct/index.html">struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sys/index.html">sys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../uctypes/index.html">uctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vfs/index.html">vfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wipy/index.html">wipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zephyr/index.html">zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zlib/index.html">zlib</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+<li><a href="../../../index.html">Documentation overview</a><ul>
+<li><a href="../../index.html">MicroPython Modules</a><ul>
+<li><a href="../index.html">pyb</a><ul>
+<li>Previous: <a href="../Accel/index.html" title="previous chapter">pyb.Accel</a></li>
+<li>Next: <a href="../DAC/index.html" title="next chapter">pyb.DAC</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<search id="searchbox" role="search" style="display: none">
+<h3 id="searchlabel">Quick search</h3>
+<div class="searchformwrapper">
+<form action="../../../search.html" class="search" method="get">
+<input aria-labelledby="searchlabel" autocapitalize="off" autocomplete="off" autocorrect="off" name="q" spellcheck="false" type="text"/>
+<input type="submit" value="Go"/>
+</form>
+</div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="footer">
+      ©2024, Jos Verlinde.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../../_sources/autoapi/pyb/CAN/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+</body>
+</html>

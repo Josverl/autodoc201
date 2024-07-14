@@ -1,0 +1,191 @@
+network.WLANWiPy
+================
+
+.. py:module:: network.WLANWiPy
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   network.WLANWiPy.WLANWiPy
+
+
+Module Contents
+---------------
+
+.. py:class:: WLANWiPy(id=0, *args, **kwargs)
+
+      Create a WLAN object, and optionally configure it. See `init()` for params of configuration.
+
+   .. note::
+
+      The ``WLAN`` constructor is special in the sense that if no arguments besides the id are given,
+      it will return the already existing ``WLAN`` instance without re-configuring it. This is
+      because ``WLAN`` is a system feature of the WiPy. If the already existing instance is not
+      initialized it will do the same as the other constructors an will initialize it with default
+      values.
+
+
+   .. py:method:: antenna(antenna: Optional[Any] = None) -> _typeshed.Incomplete
+
+      Get or set the antenna type (external or internal).
+
+
+
+   .. py:method:: auth(auth: Optional[Any] = None) -> _typeshed.Incomplete
+
+      Get or set the authentication type when in AP mode.
+
+
+
+   .. py:method:: channel(channel: Optional[Any] = None) -> _typeshed.Incomplete
+
+      Get or set the channel (only applicable in AP mode).
+
+
+
+   .. py:method:: connect(ssid, *, auth=None, bssid=None, timeout=None) -> None
+
+      Connect to a WiFi access point using the given SSID, and other security
+      parameters.
+
+         - *auth* is a tuple with (sec, key). Security can be ``None``, ``WLAN.WEP``,
+           ``WLAN.WPA`` or ``WLAN.WPA2``. The key is a string with the network password.
+           If ``sec`` is ``WLAN.WEP`` the key must be a string representing hexadecimal
+           values (e.g. 'ABC1DE45BF').
+         - *bssid* is the MAC address of the AP to connect to. Useful when there are several
+           APs with the same ssid.
+         - *timeout* is the maximum time in milliseconds to wait for the connection to succeed.
+
+
+
+   .. py:method:: disconnect() -> None
+
+      Disconnect from the WiFi access point.
+
+
+
+   .. py:method:: ifconfig(if_id=0, config: Union[str, Tuple] = 'dhcp') -> Tuple
+
+      With no parameters given returns a 4-tuple of *(ip, subnet_mask, gateway, DNS_server)*.
+
+      if ``'dhcp'`` is passed as a parameter then the DHCP client is enabled and the IP params
+      are negotiated with the AP.
+
+      If the 4-tuple config is given then a static IP is configured. For instance::
+
+         wlan.ifconfig(config=('192.168.0.4', '255.255.255.0', '192.168.0.1', '8.8.8.8'))
+
+
+
+   .. py:method:: init(mode, *, ssid, auth, channel, antenna) -> _typeshed.Incomplete
+
+      Set or get the WiFi network processor configuration.
+
+      Arguments are:
+
+        - *mode* can be either ``WLAN.STA`` or ``WLAN.AP``.
+        - *ssid* is a string with the ssid name. Only needed when mode is ``WLAN.AP``.
+        - *auth* is a tuple with (sec, key). Security can be ``None``, ``WLAN.WEP``,
+          ``WLAN.WPA`` or ``WLAN.WPA2``. The key is a string with the network password.
+          If ``sec`` is ``WLAN.WEP`` the key must be a string representing hexadecimal
+          values (e.g. 'ABC1DE45BF'). Only needed when mode is ``WLAN.AP``.
+        - *channel* a number in the range 1-11. Only needed when mode is ``WLAN.AP``.
+        - *antenna* selects between the internal and the external antenna. Can be either
+          ``WLAN.INT_ANT`` or ``WLAN.EXT_ANT``.
+
+      For example, you can do::
+
+         # create and configure as an access point
+         wlan.init(mode=WLAN.AP, ssid='wipy-wlan', auth=(WLAN.WPA2,'www.wipy.io'), channel=7, antenna=WLAN.INT_ANT)
+
+      or::
+
+         # configure as an station
+         wlan.init(mode=WLAN.STA)
+
+
+
+   .. py:method:: irq(*, handler, wake) -> _typeshed.Incomplete
+
+      Create a callback to be triggered when a WLAN event occurs during ``machine.SLEEP``
+      mode. Events are triggered by socket activity or by WLAN connection/disconnection.
+
+          - *handler* is the function that gets called when the IRQ is triggered.
+          - *wake* must be ``machine.SLEEP``.
+
+      Returns an IRQ object.
+
+
+
+   .. py:method:: isconnected() -> bool
+
+      In case of STA mode, returns ``True`` if connected to a WiFi access point and has a valid IP address.
+      In AP mode returns ``True`` when a station is connected, ``False`` otherwise.
+
+
+
+   .. py:method:: mac(mac_addr: Optional[Any] = None) -> bytes
+
+      Get or set a 6-byte long bytes object with the MAC address.
+
+
+
+   .. py:method:: mode(mode: Optional[Any] = None) -> _typeshed.Incomplete
+
+      Get or set the WLAN mode.
+
+
+
+   .. py:method:: scan() -> List[Tuple]
+
+      Performs a network scan and returns a list of named tuples with (ssid, bssid, sec, channel, rssi).
+      Note that channel is always ``None`` since this info is not provided by the WiPy.
+
+
+
+   .. py:method:: ssid(ssid: Optional[Any] = None) -> _typeshed.Incomplete
+
+      Get or set the SSID when in AP mode.
+
+
+
+   .. py:attribute:: AP
+      :type:  _typeshed.Incomplete
+
+      selects the WLAN mode
+
+
+
+   .. py:attribute:: EXT_ANT
+      :type:  _typeshed.Incomplete
+
+      selects the antenna type
+
+
+
+   .. py:attribute:: INT_ANT
+      :type:  _typeshed.Incomplete
+
+
+   .. py:attribute:: STA
+      :type:  _typeshed.Incomplete
+
+
+   .. py:attribute:: WEP
+      :type:  _typeshed.Incomplete
+
+
+   .. py:attribute:: WPA
+      :type:  _typeshed.Incomplete
+
+
+   .. py:attribute:: WPA2
+      :type:  _typeshed.Incomplete
+
+      selects the network security
+
+
+

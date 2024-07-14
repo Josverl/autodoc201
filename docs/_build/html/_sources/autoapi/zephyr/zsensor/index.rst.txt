@@ -1,0 +1,180 @@
+zephyr.zsensor
+==============
+
+.. py:module:: zephyr.zsensor
+
+.. autoapi-nested-parse::
+
+   Zephyr sensor bindings.
+
+   MicroPython module: https://docs.micropython.org/en/v1.23.0/library/zsensor.html
+
+   The ``zsensor`` module contains a class for using sensors with Zephyr.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   zephyr.zsensor.ACCEL_X
+   zephyr.zsensor.ACCEL_Y
+   zephyr.zsensor.ACCEL_Z
+   zephyr.zsensor.ALTITUDE
+   zephyr.zsensor.DIE_TEMP
+   zephyr.zsensor.GYRO_X
+   zephyr.zsensor.GYRO_Y
+   zephyr.zsensor.GYRO_Z
+   zephyr.zsensor.HUMIDITY
+   zephyr.zsensor.LIGHT
+   zephyr.zsensor.MAGN_X
+   zephyr.zsensor.MAGN_Y
+   zephyr.zsensor.MAGN_Z
+   zephyr.zsensor.PRESS
+   zephyr.zsensor.PROX
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   zephyr.zsensor.Sensor
+
+
+Module Contents
+---------------
+
+.. py:class:: Sensor(device_name)
+
+   Device names are defined in the devicetree for your board.
+   For example, the device name for the accelerometer in the FRDM-k64f board is "FXOS8700".
+
+
+   .. py:method:: get_float(sensor_channel) -> float
+
+      Returns the value of the sensor measurement sample as a float.
+
+
+
+   .. py:method:: get_int(sensor_channel) -> int
+
+      Returns only the integer value of the measurement sample.
+      (Ex. value of ``(1, 500000)`` returns as ``1``)
+
+
+
+   .. py:method:: get_micros(sensor_channel) -> _typeshed.Incomplete
+
+      Returns the value of the sensor measurement sample in millionths.
+      (Ex. value of ``(1, 500000)`` returns as ``1500000``)
+
+
+
+   .. py:method:: get_millis(sensor_channel) -> _typeshed.Incomplete
+
+      Returns the value of sensor measurement sample in thousandths.
+      (Ex. value of ``(1, 500000)`` returns as ``1500``)
+
+
+
+   .. py:method:: measure() -> _typeshed.Incomplete
+
+      Obtains a measurement sample from the sensor device using Zephyr sensor_sample_fetch and
+      stores it in an internal driver buffer as a useful value, a pair of (integer part of value,
+      fractional part of value in 1-millionths).
+      Returns none if successful or OSError value if failure.
+
+
+
+.. py:data:: ACCEL_X
+   :type:  _typeshed.Incomplete
+
+   Acceleration on the X axis, in m/s^2.
+
+
+.. py:data:: ACCEL_Y
+   :type:  _typeshed.Incomplete
+
+   Acceleration on the Y axis, in m/s^2.
+
+
+.. py:data:: ACCEL_Z
+   :type:  _typeshed.Incomplete
+
+   Acceleration on the Z axis, in m/s^2.
+
+
+.. py:data:: ALTITUDE
+   :type:  _typeshed.Incomplete
+
+   Altitude, in meters.
+
+
+.. py:data:: DIE_TEMP
+   :type:  _typeshed.Incomplete
+
+   Device die temperature in degrees Celsius.
+
+
+.. py:data:: GYRO_X
+   :type:  _typeshed.Incomplete
+
+   Angular velocity around the X axis, in radians/s.
+
+
+.. py:data:: GYRO_Y
+   :type:  _typeshed.Incomplete
+
+   Angular velocity around the Y axis, in radians/s.
+
+
+.. py:data:: GYRO_Z
+   :type:  _typeshed.Incomplete
+
+   Angular velocity around the Z axis, in radians/s.
+
+
+.. py:data:: HUMIDITY
+   :type:  _typeshed.Incomplete
+
+   Humidity, in percent.
+
+
+.. py:data:: LIGHT
+   :type:  _typeshed.Incomplete
+
+   Illuminance in visible spectrum, in lux.
+
+
+.. py:data:: MAGN_X
+   :type:  _typeshed.Incomplete
+
+   Magnetic field on the X axis, in Gauss.
+
+
+.. py:data:: MAGN_Y
+   :type:  _typeshed.Incomplete
+
+   Magnetic field on the Y axis, in Gauss.
+
+
+.. py:data:: MAGN_Z
+   :type:  _typeshed.Incomplete
+
+   Magnetic field on the Z axis, in Gauss.
+
+
+.. py:data:: PRESS
+   :type:  _typeshed.Incomplete
+
+   Pressure in kilopascal.
+
+
+.. py:data:: PROX
+   :type:  _typeshed.Incomplete
+
+   Proximity. Dimensionless. A value of 1 indicates that an object is close.
+
+

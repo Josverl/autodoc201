@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>sys — API documentation test 1 documentation</title>
+<link href="../../_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="../../_static/alabaster.css?v=12dfc556" rel="stylesheet" type="text/css"/>
+<link href="../../_static/graphviz.css?v=fd3f3429" rel="stylesheet" type="text/css"/>
+<script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="../time/index.html" rel="next" title="time"/>
+<link href="../struct/index.html" rel="prev" title="struct"/>
+<link href="../../_static/custom.css" rel="stylesheet" type="text/css"/>
+</head><body>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
+<section id="module-sys">
+<span id="sys"></span><h1>sys<a class="headerlink" href="#module-sys" title="Link to this heading">¶</a></h1>
+<p>System specific functions.</p>
+<p>MicroPython module: <a class="reference external" href="https://docs.micropython.org/en/v1.23.0/library/sys.html">https://docs.micropython.org/en/v1.23.0/library/sys.html</a></p>
+<p>CPython module: <a class="reference external" href="https://docs.python.org/3.5/library/sys.html#module-sys" title="(in Python v3.5)"><code class="docutils literal notranslate"><span class="pre">sys</span></code></a> <a class="reference external" href="https://docs.python.org/3/library/sys.html">https://docs.python.org/3/library/sys.html</a> .</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sys.argv" title="sys.argv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">argv</span></code></a></p></td>
+<td><p>A mutable list of arguments the current program was started with.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sys.byteorder" title="sys.byteorder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">byteorder</span></code></a></p></td>
+<td><p>The byte order of the system (<code class="docutils literal notranslate"><span class="pre">"little"</span></code> or <code class="docutils literal notranslate"><span class="pre">"big"</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sys.implementation" title="sys.implementation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">implementation</span></code></a></p></td>
+<td><p>Object with information about the current Python implementation. For</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sys.maxsize" title="sys.maxsize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">maxsize</span></code></a></p></td>
+<td><p>Maximum value which a native integer type can hold on the current platform,</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sys.modules" title="sys.modules"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modules</span></code></a></p></td>
+<td><p>Dictionary of loaded modules. On some ports, it may not include builtin</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sys.path" title="sys.path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">path</span></code></a></p></td>
+<td><p>A mutable list of directories to search for imported modules.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sys.platform" title="sys.platform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">platform</span></code></a></p></td>
+<td><p>The platform that MicroPython is running on. For OS/RTOS ports, this is</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sys.ps1" title="sys.ps1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ps1</span></code></a></p></td>
+<td><p>Mutable attributes holding strings, which are used for the REPL prompt.  The defaults</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sys.ps2" title="sys.ps2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ps2</span></code></a></p></td>
+<td><p>Mutable attributes holding strings, which are used for the REPL prompt.  The defaults</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sys.stderr" title="sys.stderr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stderr</span></code></a></p></td>
+<td><p>Standard error <a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-stream" title="(in MicroPython vlatest)"><code class="xref any docutils literal notranslate"><span class="pre">stream</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sys.stdin" title="sys.stdin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stdin</span></code></a></p></td>
+<td><p>Standard input <a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-stream" title="(in MicroPython vlatest)"><code class="xref any docutils literal notranslate"><span class="pre">stream</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sys.stdout" title="sys.stdout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stdout</span></code></a></p></td>
+<td><p>Standard output <a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-stream" title="(in MicroPython vlatest)"><code class="xref any docutils literal notranslate"><span class="pre">stream</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sys.tracebacklimit" title="sys.tracebacklimit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tracebacklimit</span></code></a></p></td>
+<td><p>A mutable attribute holding an integer value which is the maximum number of traceback</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sys.version" title="sys.version"><code class="xref py py-obj docutils literal notranslate"><span class="pre">version</span></code></a></p></td>
+<td><p>Python language version that this implementation conforms to, as a string.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sys.version_info" title="sys.version_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">version_info</span></code></a></p></td>
+<td><p>Python language version that this implementation conforms to, as a tuple of ints.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sys.atexit" title="sys.atexit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">atexit</span></code></a>(→ Incomplete)</p></td>
+<td><p>Register <em>func</em> to be called upon termination.  <em>func</em> must be a callable</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sys.exit" title="sys.exit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit</span></code></a>(→ Incomplete)</p></td>
+<td><p>Terminate current program with a given exit code. Underlyingly, this</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sys.print_exception" title="sys.print_exception"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_exception</span></code></a>(→ None)</p></td>
+<td><p>Print exception with a traceback to a file-like object <em>file</em> (or</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#sys.settrace" title="sys.settrace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">settrace</span></code></a>(→ None)</p></td>
+<td><p>Enable tracing of bytecode execution.  For details see the <a href="#id1"><span class="problematic" id="id2">`</span></a>CPython</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="sys.atexit">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">atexit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#sys.atexit" title="Link to this definition">¶</a></dt>
+<dd><p>Register <em>func</em> to be called upon termination.  <em>func</em> must be a callable
+that takes no arguments, or <code class="docutils literal notranslate"><span class="pre">None</span></code> to disable the call.  The <code class="docutils literal notranslate"><span class="pre">atexit</span></code>
+function will return the previous value set by this function, which is
+initially <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>Difference to CPython</p>
+<blockquote>
+<div><p>This function is a MicroPython extension intended to provide similar
+functionality to the <a class="reference external" href="https://docs.python.org/3.5/library/atexit.html#module-atexit" title="(in Python v3.5)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">atexit</span></code></a> module in CPython.</p>
+</div></blockquote>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="sys.exit">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">exit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">retval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#sys.exit" title="Link to this definition">¶</a></dt>
+<dd><p>Terminate current program with a given exit code. Underlyingly, this
+function raise as <a class="reference external" href="https://docs.python.org/3.5/library/exceptions.html#SystemExit" title="(in Python v3.5)"><code class="xref any docutils literal notranslate"><span class="pre">SystemExit</span></code></a> exception. If an argument is given, its
+value given as an argument to <a class="reference external" href="https://docs.python.org/3.5/library/exceptions.html#SystemExit" title="(in Python v3.5)"><code class="xref any docutils literal notranslate"><span class="pre">SystemExit</span></code></a>.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="sys.print_exception">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">print_exception</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">stdout</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#sys.print_exception" title="Link to this definition">¶</a></dt>
+<dd><p>Print exception with a traceback to a file-like object <em>file</em> (or
+<a class="reference internal" href="#sys.stdout" title="sys.stdout"><code class="xref any py py-data docutils literal notranslate"><span class="pre">sys.stdout</span></code></a> by default).</p>
+<p>Difference to CPython</p>
+<blockquote>
+<div><p>This is simplified version of a function which appears in the
+<code class="docutils literal notranslate"><span class="pre">traceback</span></code> module in CPython. Unlike <code class="docutils literal notranslate"><span class="pre">traceback.print_exception()</span></code>,
+this function takes just exception value instead of exception type,
+exception value, and traceback object; <em>file</em> argument should be
+positional; further arguments are not supported. CPython-compatible
+<code class="docutils literal notranslate"><span class="pre">traceback</span></code> module can be found in <a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-micropython-lib" title="(in MicroPython vlatest)"><code class="xref any docutils literal notranslate"><span class="pre">micropython-lib</span></code></a>.</p>
+</div></blockquote>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="sys.settrace">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">settrace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tracefunc</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#sys.settrace" title="Link to this definition">¶</a></dt>
+<dd><p>Enable tracing of bytecode execution.  For details see the <a href="#id3"><span class="problematic" id="id4">`</span></a>CPython
+documentation <a href="#id5"><span class="problematic" id="id6">`</span></a>&lt;<a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.settrace">https://docs.python.org/3/library/sys.html#sys.settrace</a>&gt;.</p>
+<p>This function requires a custom MicroPython build as it is typically not
+present in pre-built firmware (due to it affecting performance).  The relevant
+configuration option is <em>MICROPY_PY_SYS_SETTRACE</em>.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="sys.argv">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">argv</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span></em><a class="headerlink" href="#sys.argv" title="Link to this definition">¶</a></dt>
+<dd><p>A mutable list of arguments the current program was started with.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="sys.byteorder">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">byteorder</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#sys.byteorder" title="Link to this definition">¶</a></dt>
+<dd><p>The byte order of the system (<code class="docutils literal notranslate"><span class="pre">"little"</span></code> or <code class="docutils literal notranslate"><span class="pre">"big"</span></code>).</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="sys.implementation">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">implementation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#sys.implementation" title="Link to this definition">¶</a></dt>
+<dd><p>Object with information about the current Python implementation. For
+MicroPython, it has following attributes:</p>
+<ul class="simple">
+<li><p><em>name</em> - string “micropython”</p></li>
+<li><p><em>version</em> - tuple (major, minor, micro, releaselevel), e.g. (1, 22, 0, ‘’)</p></li>
+<li><p><em>_machine</em> - string describing the underlying machine</p></li>
+<li><p><em>_mpy</em> - supported mpy file-format version (optional attribute)</p></li>
+</ul>
+<p>This object is the recommended way to distinguish MicroPython from other
+Python implementations (note that it still may not exist in the very
+minimal ports).</p>
+<p>Starting with version 1.22.0-preview, the fourth node <em>releaselevel</em> in
+<em>implementation.version</em> is either an empty string or <code class="docutils literal notranslate"><span class="pre">"preview"</span></code>.</p>
+<p>Difference to CPython</p>
+<p>CPython mandates more attributes for this object, but the actual useful
+bare minimum is implemented in MicroPython.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="sys.maxsize">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">maxsize</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></em><a class="headerlink" href="#sys.maxsize" title="Link to this definition">¶</a></dt>
+<dd><p>Maximum value which a native integer type can hold on the current platform,
+or maximum value representable by MicroPython integer type, if it’s smaller
+than platform max value (that is the case for MicroPython ports without
+long int support).</p>
+<p>This attribute is useful for detecting “bitness” of a platform (32-bit vs
+64-bit, etc.). It’s recommended to not compare this attribute to some
+value directly, but instead count number of bits in it:</p>
+<p>bits = 0
+v = sys.maxsize
+while v:
+bits += 1
+v &gt;&gt;= 1
+if bits &gt; 32:
+# 64-bit (or more) platform</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="sys.modules">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">modules</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span></em><a class="headerlink" href="#sys.modules" title="Link to this definition">¶</a></dt>
+<dd><p>Dictionary of loaded modules. On some ports, it may not include builtin
+modules.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="sys.path">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span></em><a class="headerlink" href="#sys.path" title="Link to this definition">¶</a></dt>
+<dd><p>A mutable list of directories to search for imported modules.</p>
+<p>Difference to CPython</p>
+<p>On MicroPython, an entry with the value <code class="docutils literal notranslate"><span class="pre">".frozen"</span></code> will indicate that import
+should search <a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-frozen-module" title="(in MicroPython vlatest)"><span class="xref std std-term">frozen modules</span></a> at that point in the search.
+If no frozen module is found then search will <em>not</em> look for a directory called
+<code class="docutils literal notranslate"><span class="pre">.frozen</span></code>, instead it will continue with the next entry in <code class="docutils literal notranslate"><span class="pre">sys.path</span></code>.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="sys.platform">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">platform</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#sys.platform" title="Link to this definition">¶</a></dt>
+<dd><p>The platform that MicroPython is running on. For OS/RTOS ports, this is
+usually an identifier of the OS, e.g. <code class="docutils literal notranslate"><span class="pre">"linux"</span></code>. For baremetal ports it
+is an identifier of a board, e.g. <code class="docutils literal notranslate"><span class="pre">"pyboard"</span></code> for the original MicroPython
+reference board. It thus can be used to distinguish one board from another.
+If you need to check whether your program runs on MicroPython (vs other
+Python implementation), use <a class="reference internal" href="#sys.implementation" title="sys.implementation"><code class="xref any py py-data docutils literal notranslate"><span class="pre">sys.implementation</span></code></a> instead.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="sys.ps1">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">ps1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#sys.ps1" title="Link to this definition">¶</a></dt>
+<dd><p>Mutable attributes holding strings, which are used for the REPL prompt.  The defaults
+give the standard Python prompt of <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">...</span></code>.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="sys.ps2">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">ps2</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#sys.ps2" title="Link to this definition">¶</a></dt>
+<dd><p>Mutable attributes holding strings, which are used for the REPL prompt.  The defaults
+give the standard Python prompt of <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">...</span></code>.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="sys.stderr">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">stderr</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#sys.stderr" title="Link to this definition">¶</a></dt>
+<dd><p>Standard error <a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-stream" title="(in MicroPython vlatest)"><code class="xref any docutils literal notranslate"><span class="pre">stream</span></code></a>.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="sys.stdin">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">stdin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#sys.stdin" title="Link to this definition">¶</a></dt>
+<dd><p>Standard input <a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-stream" title="(in MicroPython vlatest)"><code class="xref any docutils literal notranslate"><span class="pre">stream</span></code></a>.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="sys.stdout">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">stdout</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#sys.stdout" title="Link to this definition">¶</a></dt>
+<dd><p>Standard output <a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-stream" title="(in MicroPython vlatest)"><code class="xref any docutils literal notranslate"><span class="pre">stream</span></code></a>.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="sys.tracebacklimit">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">tracebacklimit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></em><a class="headerlink" href="#sys.tracebacklimit" title="Link to this definition">¶</a></dt>
+<dd><p>A mutable attribute holding an integer value which is the maximum number of traceback
+entries to store in an exception.  Set to 0 to disable adding tracebacks.  Defaults
+to 1000.</p>
+<p>Note: this is not available on all ports.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="sys.version">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">version</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><span class="pre">str</span></a></em><a class="headerlink" href="#sys.version" title="Link to this definition">¶</a></dt>
+<dd><p>Python language version that this implementation conforms to, as a string.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="sys.version_info">
+<span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">version_info</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span></em><a class="headerlink" href="#sys.version_info" title="Link to this definition">¶</a></dt>
+<dd><p>Python language version that this implementation conforms to, as a tuple of ints.</p>
+<p>Difference to CPython</p>
+<p>Only the first three version numbers (major, minor, micro) are supported and
+they can be referenced only by index, not by name.</p>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+<div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">API documentation test</a></h1>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">LiBrary!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bar.html">bar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MicroPython Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../_asyncio/index.html">_asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_rp2/index.html">_rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_thread/index.html">_thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../array/index.html">array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asyncio/index.html">asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binascii/index.html">binascii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../btree/index.html">btree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cmath/index.html">cmath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collections/index.html">collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cryptolib/index.html">cryptolib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deflate/index.html">deflate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../errno/index.html">errno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp/index.html">esp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp32/index.html">esp32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../espnow/index.html">espnow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framebuf/index.html">framebuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gc/index.html">gc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gzip/index.html">gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hashlib/index.html">hashlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heapq/index.html">heapq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/index.html">io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../json/index.html">json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lcd160cr/index.html">lcd160cr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machine/index.html">machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math/index.html">math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../micropython/index.html">micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neopixel/index.html">neopixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openamp/index.html">openamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os/index.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/index.html">platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyb/index.html">pyb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../random/index.html">random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rp2/index.html">rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../select/index.html">select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../socket/index.html">socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ssl/index.html">ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stm/index.html">stm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../struct/index.html">struct</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">sys</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sys.atexit"><code class="docutils literal notranslate"><span class="pre">atexit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.exit"><code class="docutils literal notranslate"><span class="pre">exit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.print_exception"><code class="docutils literal notranslate"><span class="pre">print_exception()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.settrace"><code class="docutils literal notranslate"><span class="pre">settrace()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.argv"><code class="docutils literal notranslate"><span class="pre">argv</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.byteorder"><code class="docutils literal notranslate"><span class="pre">byteorder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.implementation"><code class="docutils literal notranslate"><span class="pre">implementation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.maxsize"><code class="docutils literal notranslate"><span class="pre">maxsize</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.modules"><code class="docutils literal notranslate"><span class="pre">modules</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.path"><code class="docutils literal notranslate"><span class="pre">path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.platform"><code class="docutils literal notranslate"><span class="pre">platform</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.ps1"><code class="docutils literal notranslate"><span class="pre">ps1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.ps2"><code class="docutils literal notranslate"><span class="pre">ps2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.stderr"><code class="docutils literal notranslate"><span class="pre">stderr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.stdin"><code class="docutils literal notranslate"><span class="pre">stdin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.stdout"><code class="docutils literal notranslate"><span class="pre">stdout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.tracebacklimit"><code class="docutils literal notranslate"><span class="pre">tracebacklimit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.version"><code class="docutils literal notranslate"><span class="pre">version</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sys.version_info"><code class="docutils literal notranslate"><span class="pre">version_info</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uctypes/index.html">uctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vfs/index.html">vfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wipy/index.html">wipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zephyr/index.html">zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlib/index.html">zlib</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+<li><a href="../../index.html">Documentation overview</a><ul>
+<li><a href="../index.html">MicroPython Modules</a><ul>
+<li>Previous: <a href="../struct/index.html" title="previous chapter">struct</a></li>
+<li>Next: <a href="../time/index.html" title="next chapter">time</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<search id="searchbox" role="search" style="display: none">
+<h3 id="searchlabel">Quick search</h3>
+<div class="searchformwrapper">
+<form action="../../search.html" class="search" method="get">
+<input aria-labelledby="searchlabel" autocapitalize="off" autocomplete="off" autocorrect="off" name="q" spellcheck="false" type="text"/>
+<input type="submit" value="Go"/>
+</form>
+</div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="footer">
+      ©2024, Jos Verlinde.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/autoapi/sys/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>random — API documentation test 1 documentation</title>
+<link href="../../_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="../../_static/alabaster.css?v=12dfc556" rel="stylesheet" type="text/css"/>
+<link href="../../_static/graphviz.css?v=fd3f3429" rel="stylesheet" type="text/css"/>
+<script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="../rp2/index.html" rel="next" title="rp2"/>
+<link href="../pyb/USB_VCP/index.html" rel="prev" title="pyb.USB_VCP"/>
+<link href="../../_static/custom.css" rel="stylesheet" type="text/css"/>
+</head><body>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
+<section id="module-random">
+<span id="random"></span><h1>random<a class="headerlink" href="#module-random" title="Link to this heading">¶</a></h1>
+<p>Random numbers.</p>
+<p>MicroPython module: <a class="reference external" href="https://docs.micropython.org/en/v1.23.0/library/random.html">https://docs.micropython.org/en/v1.23.0/library/random.html</a></p>
+<p>This module implements a pseudo-random number generator (PRNG).</p>
+<p>CPython module: <a class="reference external" href="https://docs.python.org/3.5/library/random.html#module-random" title="(in Python v3.5)"><code class="docutils literal notranslate"><span class="pre">random</span></code></a> <a class="reference external" href="https://docs.python.org/3/library/random.html">https://docs.python.org/3/library/random.html</a> . .</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following notation is used for intervals:</p>
+<ul class="simple">
+<li><p>() are open interval brackets and do not include their endpoints.
+For example, (0, 1) means greater than 0 and less than 1.
+In set notation: (0, 1) = {x | 0 &lt; x &lt; 1}.</p></li>
+<li><p>[] are closed interval brackets which include all their limit points.
+For example, [0, 1] means greater than or equal to 0 and less than
+or equal to 1.
+In set notation: [0, 1] = {x | 0 &lt;= x &lt;= 1}.</p></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a class="reference internal" href="#random.randrange" title="random.randrange"><code class="xref py py-func docutils literal notranslate"><span class="pre">randrange()</span></code></a>, <a class="reference internal" href="#random.randint" title="random.randint"><code class="xref py py-func docutils literal notranslate"><span class="pre">randint()</span></code></a> and <a class="reference internal" href="#random.choice" title="random.choice"><code class="xref py py-func docutils literal notranslate"><span class="pre">choice()</span></code></a> functions are only
+available if the <code class="docutils literal notranslate"><span class="pre">MICROPY_PY_RANDOM_EXTRA_FUNCS</span></code> configuration option is
+enabled.</p>
+</div>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#random.choice" title="random.choice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">choice</span></code></a>(→ Incomplete)</p></td>
+<td><p>Chooses and returns one item at random from <em>sequence</em> (tuple, list or</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#random.getrandbits" title="random.getrandbits"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getrandbits</span></code></a>(→ int)</p></td>
+<td><p>Return an integer with <em>n</em> random bits (0 &lt;= n &lt;= 32).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#random.randint" title="random.randint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">randint</span></code></a>(→ int)</p></td>
+<td><p>Return a random integer in the range [<em>a</em>, <em>b</em>].</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#random.random" title="random.random"><code class="xref py py-obj docutils literal notranslate"><span class="pre">random</span></code></a>(→ int)</p></td>
+<td><p>Return a random floating point number in the range [0.0, 1.0).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#random.randrange" title="random.randrange"><code class="xref py py-obj docutils literal notranslate"><span class="pre">randrange</span></code></a>(→ int)</p></td>
+<td><p>The first form returns a random integer from the range [0, <em>stop</em>).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#random.seed" title="random.seed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">seed</span></code></a>(→ None)</p></td>
+<td><p>Initialise the random number generator module with the seed <em>n</em> which should</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#random.uniform" title="random.uniform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">uniform</span></code></a>(→ int)</p></td>
+<td><p>Return a random floating point number N such that <em>a</em> &lt;= N &lt;= <em>b</em> for <em>a</em> &lt;= <em>b</em>,</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="random.choice">
+<span class="sig-prename descclassname"><span class="pre">random.</span></span><span class="sig-name descname"><span class="pre">choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sequence</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#random.choice" title="Link to this definition">¶</a></dt>
+<dd><p>Chooses and returns one item at random from <em>sequence</em> (tuple, list or
+any object that supports the subscript operation).</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="random.getrandbits">
+<span class="sig-prename descclassname"><span class="pre">random.</span></span><span class="sig-name descname"><span class="pre">getrandbits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#random.getrandbits" title="Link to this definition">¶</a></dt>
+<dd><p>Return an integer with <em>n</em> random bits (0 &lt;= n &lt;= 32).</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="random.randint">
+<span class="sig-prename descclassname"><span class="pre">random.</span></span><span class="sig-name descname"><span class="pre">randint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#random.randint" title="Link to this definition">¶</a></dt>
+<dd><p>Return a random integer in the range [<em>a</em>, <em>b</em>].</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="random.random">
+<span class="sig-prename descclassname"><span class="pre">random.</span></span><span class="sig-name descname"><span class="pre">random</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#random.random" title="Link to this definition">¶</a></dt>
+<dd><p>Return a random floating point number in the range [0.0, 1.0).</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="random.randrange">
+<span class="sig-prename descclassname"><span class="pre">random.</span></span><span class="sig-name descname"><span class="pre">randrange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#random.randrange" title="Link to this definition">¶</a></dt>
+<dd><p>The first form returns a random integer from the range [0, <em>stop</em>).
+The second form returns a random integer from the range [<em>start</em>, <em>stop</em>).
+The third form returns a random integer from the range [<em>start</em>, <em>stop</em>) in
+steps of <em>step</em>.  For instance, calling <code class="docutils literal notranslate"><span class="pre">randrange(1,</span> <span class="pre">10,</span> <span class="pre">2)</span></code> will
+return odd numbers between 1 and 9 inclusive.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="random.seed">
+<span class="sig-prename descclassname"><span class="pre">random.</span></span><span class="sig-name descname"><span class="pre">seed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#random.seed" title="Link to this definition">¶</a></dt>
+<dd><p>Initialise the random number generator module with the seed <em>n</em> which should
+be an integer.  When no argument (or <code class="docutils literal notranslate"><span class="pre">None</span></code>) is passed in it will (if
+supported by the port) initialise the PRNG with a true random number
+(usually a hardware generated random number).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">None</span></code> case only works if <code class="docutils literal notranslate"><span class="pre">MICROPY_PY_RANDOM_SEED_INIT_FUNC</span></code> is
+enabled by the port, otherwise it raises <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="random.uniform">
+<span class="sig-prename descclassname"><span class="pre">random.</span></span><span class="sig-name descname"><span class="pre">uniform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#random.uniform" title="Link to this definition">¶</a></dt>
+<dd><p>Return a random floating point number N such that <em>a</em> &lt;= N &lt;= <em>b</em> for <em>a</em> &lt;= <em>b</em>,
+and <em>b</em> &lt;= N &lt;= <em>a</em> for <em>b</em> &lt; <em>a</em>.</p>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+<div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">API documentation test</a></h1>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">LiBrary!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bar.html">bar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MicroPython Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../_asyncio/index.html">_asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_rp2/index.html">_rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_thread/index.html">_thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../array/index.html">array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asyncio/index.html">asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binascii/index.html">binascii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../btree/index.html">btree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cmath/index.html">cmath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collections/index.html">collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cryptolib/index.html">cryptolib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deflate/index.html">deflate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../errno/index.html">errno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp/index.html">esp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp32/index.html">esp32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../espnow/index.html">espnow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framebuf/index.html">framebuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gc/index.html">gc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gzip/index.html">gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hashlib/index.html">hashlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heapq/index.html">heapq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/index.html">io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../json/index.html">json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lcd160cr/index.html">lcd160cr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machine/index.html">machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math/index.html">math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../micropython/index.html">micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neopixel/index.html">neopixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openamp/index.html">openamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os/index.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/index.html">platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyb/index.html">pyb</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">random</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#random.choice"><code class="docutils literal notranslate"><span class="pre">choice()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#random.getrandbits"><code class="docutils literal notranslate"><span class="pre">getrandbits()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#random.randint"><code class="docutils literal notranslate"><span class="pre">randint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#random.random"><code class="docutils literal notranslate"><span class="pre">random()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#random.randrange"><code class="docutils literal notranslate"><span class="pre">randrange()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#random.seed"><code class="docutils literal notranslate"><span class="pre">seed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#random.uniform"><code class="docutils literal notranslate"><span class="pre">uniform()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rp2/index.html">rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../select/index.html">select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../socket/index.html">socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ssl/index.html">ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stm/index.html">stm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../struct/index.html">struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sys/index.html">sys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uctypes/index.html">uctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vfs/index.html">vfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wipy/index.html">wipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zephyr/index.html">zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlib/index.html">zlib</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+<li><a href="../../index.html">Documentation overview</a><ul>
+<li><a href="../index.html">MicroPython Modules</a><ul>
+<li>Previous: <a href="../pyb/USB_VCP/index.html" title="previous chapter">pyb.USB_VCP</a></li>
+<li>Next: <a href="../rp2/index.html" title="next chapter">rp2</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<search id="searchbox" role="search" style="display: none">
+<h3 id="searchlabel">Quick search</h3>
+<div class="searchformwrapper">
+<form action="../../search.html" class="search" method="get">
+<input aria-labelledby="searchlabel" autocapitalize="off" autocomplete="off" autocorrect="off" name="q" spellcheck="false" type="text"/>
+<input type="submit" value="Go"/>
+</form>
+</div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="footer">
+      ©2024, Jos Verlinde.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/autoapi/random/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>errno — API documentation test 1 documentation</title>
+<link href="../../_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="../../_static/alabaster.css?v=12dfc556" rel="stylesheet" type="text/css"/>
+<link href="../../_static/graphviz.css?v=fd3f3429" rel="stylesheet" type="text/css"/>
+<script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="../esp/index.html" rel="next" title="esp"/>
+<link href="../deflate/index.html" rel="prev" title="deflate"/>
+<link href="../../_static/custom.css" rel="stylesheet" type="text/css"/>
+</head><body>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
+<section id="module-errno">
+<span id="errno"></span><h1>errno<a class="headerlink" href="#module-errno" title="Link to this heading">¶</a></h1>
+<p>System error codes.</p>
+<p>MicroPython module: <a class="reference external" href="https://docs.micropython.org/en/v1.23.0/library/errno.html">https://docs.micropython.org/en/v1.23.0/library/errno.html</a></p>
+<p>CPython module: <a class="reference external" href="https://docs.python.org/3.5/library/errno.html#module-errno" title="(in Python v3.5)"><code class="docutils literal notranslate"><span class="pre">errno</span></code></a> <a class="reference external" href="https://docs.python.org/3/library/errno.html">https://docs.python.org/3/library/errno.html</a> .</p>
+<p>This module provides access to symbolic error codes for <a class="reference external" href="https://docs.python.org/3.5/library/exceptions.html#OSError" title="(in Python v3.5)"><code class="xref any docutils literal notranslate"><span class="pre">OSError</span></code></a> exception.
+A particular inventory of codes depends on <a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-MicroPython-port" title="(in MicroPython vlatest)"><span class="xref std std-term">MicroPython port</span></a>.</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#errno.EAGAIN" title="errno.EAGAIN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EAGAIN</span></code></a></p></td>
+<td><p>Error codes, based on ANSI C/POSIX standard. All error codes start with</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#errno.EEXIST" title="errno.EEXIST"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EEXIST</span></code></a></p></td>
+<td><p>Error codes, based on ANSI C/POSIX standard. All error codes start with</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#errno.errorcode" title="errno.errorcode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">errorcode</span></code></a></p></td>
+<td><p>Dictionary mapping numeric error codes to strings with symbolic error</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading">¶</a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EAGAIN">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EAGAIN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#errno.EAGAIN" title="Link to this definition">¶</a></dt>
+<dd><p>Error codes, based on ANSI C/POSIX standard. All error codes start with
+“E”. As mentioned above, inventory of the codes depends on
+<a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-MicroPython-port" title="(in MicroPython vlatest)"><span class="xref std std-term">MicroPython port</span></a>. Errors are usually accessible as <code class="docutils literal notranslate"><span class="pre">exc.errno</span></code>
+where <code class="docutils literal notranslate"><span class="pre">exc</span></code> is an instance of <a class="reference external" href="https://docs.python.org/3.5/library/exceptions.html#OSError" title="(in Python v3.5)"><code class="xref any docutils literal notranslate"><span class="pre">OSError</span></code></a>. Usage example:</p>
+<p>try:
+os.mkdir(“my_dir”)
+except OSError as exc:
+if exc.errno == errno.EEXIST:
+print(“Directory already exists”)</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.EEXIST">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">EEXIST</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#errno.EEXIST" title="Link to this definition">¶</a></dt>
+<dd><p>Error codes, based on ANSI C/POSIX standard. All error codes start with
+“E”. As mentioned above, inventory of the codes depends on
+<a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-MicroPython-port" title="(in MicroPython vlatest)"><span class="xref std std-term">MicroPython port</span></a>. Errors are usually accessible as <code class="docutils literal notranslate"><span class="pre">exc.errno</span></code>
+where <code class="docutils literal notranslate"><span class="pre">exc</span></code> is an instance of <a class="reference external" href="https://docs.python.org/3.5/library/exceptions.html#OSError" title="(in Python v3.5)"><code class="xref any docutils literal notranslate"><span class="pre">OSError</span></code></a>. Usage example:</p>
+<p>try:
+os.mkdir(“my_dir”)
+except OSError as exc:
+if exc.errno == errno.EEXIST:
+print(“Directory already exists”)</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="errno.errorcode">
+<span class="sig-prename descclassname"><span class="pre">errno.</span></span><span class="sig-name descname"><span class="pre">errorcode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span></em><a class="headerlink" href="#errno.errorcode" title="Link to this definition">¶</a></dt>
+<dd><p>Dictionary mapping numeric error codes to strings with symbolic error
+code (see above):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">errno</span><span class="o">.</span><span class="n">errorcode</span><span class="p">[</span><span class="n">errno</span><span class="o">.</span><span class="n">EEXIST</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>EEXIST</p>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+<div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">API documentation test</a></h1>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">LiBrary!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bar.html">bar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MicroPython Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../_asyncio/index.html">_asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_rp2/index.html">_rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_thread/index.html">_thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../array/index.html">array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asyncio/index.html">asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binascii/index.html">binascii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../btree/index.html">btree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cmath/index.html">cmath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collections/index.html">collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cryptolib/index.html">cryptolib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deflate/index.html">deflate</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">errno</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#errno.EAGAIN"><code class="docutils literal notranslate"><span class="pre">EAGAIN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#errno.EEXIST"><code class="docutils literal notranslate"><span class="pre">EEXIST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#errno.errorcode"><code class="docutils literal notranslate"><span class="pre">errorcode</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../esp/index.html">esp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp32/index.html">esp32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../espnow/index.html">espnow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framebuf/index.html">framebuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gc/index.html">gc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gzip/index.html">gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hashlib/index.html">hashlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heapq/index.html">heapq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/index.html">io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../json/index.html">json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lcd160cr/index.html">lcd160cr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machine/index.html">machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math/index.html">math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../micropython/index.html">micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neopixel/index.html">neopixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openamp/index.html">openamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os/index.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/index.html">platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyb/index.html">pyb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../random/index.html">random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rp2/index.html">rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../select/index.html">select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../socket/index.html">socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ssl/index.html">ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stm/index.html">stm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../struct/index.html">struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sys/index.html">sys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uctypes/index.html">uctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vfs/index.html">vfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wipy/index.html">wipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zephyr/index.html">zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlib/index.html">zlib</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+<li><a href="../../index.html">Documentation overview</a><ul>
+<li><a href="../index.html">MicroPython Modules</a><ul>
+<li>Previous: <a href="../deflate/index.html" title="previous chapter">deflate</a></li>
+<li>Next: <a href="../esp/index.html" title="next chapter">esp</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<search id="searchbox" role="search" style="display: none">
+<h3 id="searchlabel">Quick search</h3>
+<div class="searchformwrapper">
+<form action="../../search.html" class="search" method="get">
+<input aria-labelledby="searchlabel" autocapitalize="off" autocomplete="off" autocorrect="off" name="q" spellcheck="false" type="text"/>
+<input type="submit" value="Go"/>
+</form>
+</div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="footer">
+      ©2024, Jos Verlinde.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/autoapi/errno/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+</body>
+</html>

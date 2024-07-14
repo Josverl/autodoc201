@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>network — API documentation test 1 documentation</title>
+<link href="../../_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="../../_static/alabaster.css?v=12dfc556" rel="stylesheet" type="text/css"/>
+<link href="../../_static/graphviz.css?v=fd3f3429" rel="stylesheet" type="text/css"/>
+<script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="LAN/index.html" rel="next" title="network.LAN"/>
+<link href="../neopixel/index.html" rel="prev" title="neopixel"/>
+<link href="../../_static/custom.css" rel="stylesheet" type="text/css"/>
+</head><body>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
+<section id="module-network">
+<span id="network"></span><h1>network<a class="headerlink" href="#module-network" title="Link to this heading">¶</a></h1>
+<p>Network configuration.</p>
+<p>MicroPython module: <a class="reference external" href="https://docs.micropython.org/en/v1.23.0/library/network.html">https://docs.micropython.org/en/v1.23.0/library/network.html</a></p>
+<p>This module provides network drivers and routing configuration. To use this
+module, a MicroPython variant/build with network capabilities must be installed.
+Network drivers for specific hardware are available within this module and are
+used to configure hardware network interface(s). Network services provided
+by configured interfaces are then available for use via the <a class="reference internal" href="../socket/index.html#module-socket" title="socket"><code class="xref py py-mod docutils literal notranslate"><span class="pre">socket</span></code></a>
+module.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># connect/ show IP config a specific network interface</span>
+<span class="c1"># see below for examples of specific drivers</span>
+<span class="kn">import</span> <span class="nn">network</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="n">nic</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">Driver</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">nic</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
+    <span class="n">nic</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Waiting for connection..."</span><span class="p">)</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">nic</span><span class="o">.</span><span class="n">isconnected</span><span class="p">():</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nic</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">())</span>
+
+<span class="c1"># now use socket as usual</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="n">addr</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">getaddrinfo</span><span class="p">(</span><span class="s1">'micropython.org'</span><span class="p">,</span> <span class="mi">80</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
+<span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="sa">b</span><span class="s1">'GET / HTTP/1.1</span>
+</pre></div>
+</div>
+<p>Host: micropython.org</p>
+<dl class="simple">
+<dt>‘)</dt><dd><p>data = s.recv(1000)
+s.close()</p>
+</dd>
+</dl>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="LAN/index.html">network.LAN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WIZNET5K/index.html">network.WIZNET5K</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WLAN/index.html">network.WLAN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WLANWiPy/index.html">network.WLANWiPy</a></li>
+</ul>
+</div>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#network.AbstractNIC" title="network.AbstractNIC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AbstractNIC</span></code></a></p></td>
+<td><p>Instantiate a network interface object. Parameters are network interface</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="network.AbstractNIC">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">network.</span></span><span class="sig-name descname"><span class="pre">AbstractNIC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#network.AbstractNIC" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.5/library/abc.html#abc.ABC" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Instantiate a network interface object. Parameters are network interface
+dependent. If there are more than one interface of the same type, the first
+parameter should be <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#id" title="(in Python v3.5)"><code class="xref any docutils literal notranslate"><span class="pre">id</span></code></a>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="network.AbstractNIC.active">
+<span class="sig-name descname"><span class="pre">active</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_active</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#network.AbstractNIC.active" title="Link to this definition">¶</a></dt>
+<dd><p>Activate (“up”) or deactivate (“down”) the network interface, if
+a boolean argument is passed. Otherwise, query current state if
+no argument is provided. Most other methods require an active
+interface (behaviour of calling them on inactive interface is
+undefined).</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="network.AbstractNIC.config">
+<span class="sig-name descname"><span class="pre">config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#network.AbstractNIC.config" title="Link to this definition">¶</a></dt>
+<dd><p>Get or set general network interface parameters. These methods allow to work
+with additional parameters beyond standard IP configuration (as dealt with by
+<a class="reference internal" href="#network.AbstractNIC.ifconfig" title="network.AbstractNIC.ifconfig"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ifconfig()</span></code></a>). These include network-specific and hardware-specific
+parameters. For setting parameters, the keyword argument
+syntax should be used, and multiple parameters can be set at once. For
+querying, a parameter name should be quoted as a string, and only one
+parameter can be queried at a time:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set WiFi access point name (formally known as SSID) and WiFi channel</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">ssid</span><span class="o">=</span><span class="s1">'My AP'</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="c1"># Query params one by one</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s1">'ssid'</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s1">'channel'</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="network.AbstractNIC.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#network.AbstractNIC.connect" title="Link to this definition">¶</a></dt>
+<dd><p>Connect the interface to a network. This method is optional, and
+available only for interfaces which are not “always connected”.
+If no parameters are given, connect to the default (or the only)
+service. If a single parameter is given, it is the primary identifier
+of a service to connect to. It may be accompanied by a key
+(password) required to access said service. There can be further
+arbitrary keyword-only parameters, depending on the networking medium
+type and/or particular device. Parameters can be used to: a)
+specify alternative service identifier types; b) provide additional
+connection parameters. For various medium types, there are different
+sets of predefined/recommended parameters, among them:</p>
+<ul class="simple">
+<li><p>WiFi: <em>bssid</em> keyword to connect to a specific BSSID (MAC address)</p></li>
+</ul>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="network.AbstractNIC.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#network.AbstractNIC.disconnect" title="Link to this definition">¶</a></dt>
+<dd><p>Disconnect from network.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="network.AbstractNIC.ifconfig">
+<span class="sig-name descname"><span class="pre">ifconfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configtuple</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Tuple</span></span></span><a class="headerlink" href="#network.AbstractNIC.ifconfig" title="Link to this definition">¶</a></dt>
+<dd><p>Get/set IP-level network interface parameters: IP address, subnet mask,
+gateway and DNS server. When called with no arguments, this method returns
+a 4-tuple with the above information. To set the above values, pass a
+4-tuple with the required information.  For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nic</span><span class="o">.</span><span class="n">ifconfig</span><span class="p">((</span><span class="s1">'192.168.0.4'</span><span class="p">,</span> <span class="s1">'255.255.255.0'</span><span class="p">,</span> <span class="s1">'192.168.0.1'</span><span class="p">,</span> <span class="s1">'8.8.8.8'</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="network.AbstractNIC.isconnected">
+<span class="sig-name descname"><span class="pre">isconnected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bool" title="(in Python v3.5)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#network.AbstractNIC.isconnected" title="Link to this definition">¶</a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if connected to network, otherwise returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="network.AbstractNIC.scan">
+<span class="sig-name descname"><span class="pre">scan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#network.AbstractNIC.scan" title="Link to this definition">¶</a></dt>
+<dd><p>Scan for the available network services/connections. Returns a
+list of tuples with discovered service parameters. For various
+network media, there are different variants of predefined/
+recommended tuple formats, among them:</p>
+<ul class="simple">
+<li><p>WiFi: (ssid, bssid, channel, RSSI, security, hidden). There
+may be further fields, specific to a particular device.</p></li>
+</ul>
+<p>The function may accept additional keyword arguments to filter scan
+results (e.g. scan for a particular service, on a particular channel,
+for services of a particular set, etc.), and to affect scan
+duration and other parameters. Where possible, parameter names
+should match those in connect().</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="network.AbstractNIC.status">
+<span class="sig-name descname"><span class="pre">status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#network.AbstractNIC.status" title="Link to this definition">¶</a></dt>
+<dd><p>Query dynamic status information of the interface.  When called with no
+argument the return value describes the network link status.  Otherwise
+<em>param</em> should be a string naming the particular status parameter to
+retrieve.</p>
+<p>The return types and values are dependent on the network
+medium/technology.  Some of the parameters that may be supported are:</p>
+<ul class="simple">
+<li><p>WiFi STA: use <code class="docutils literal notranslate"><span class="pre">'rssi'</span></code> to retrieve the RSSI of the AP signal</p></li>
+<li><p>WiFi AP: use <code class="docutils literal notranslate"><span class="pre">'stations'</span></code> to retrieve a list of all the STAs
+connected to the AP.  The list contains tuples of the form
+(MAC, RSSI).</p></li>
+</ul>
+</dd></dl>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+<div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">API documentation test</a></h1>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">LiBrary!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bar.html">bar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MicroPython Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../_asyncio/index.html">_asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_rp2/index.html">_rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_thread/index.html">_thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../array/index.html">array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asyncio/index.html">asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binascii/index.html">binascii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../btree/index.html">btree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cmath/index.html">cmath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collections/index.html">collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cryptolib/index.html">cryptolib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deflate/index.html">deflate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../errno/index.html">errno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp/index.html">esp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp32/index.html">esp32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../espnow/index.html">espnow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framebuf/index.html">framebuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gc/index.html">gc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gzip/index.html">gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hashlib/index.html">hashlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heapq/index.html">heapq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/index.html">io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../json/index.html">json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lcd160cr/index.html">lcd160cr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machine/index.html">machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math/index.html">math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../micropython/index.html">micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neopixel/index.html">neopixel</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="LAN/index.html">network.LAN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WIZNET5K/index.html">network.WIZNET5K</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WLAN/index.html">network.WLAN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="WLANWiPy/index.html">network.WLANWiPy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#network.AbstractNIC"><code class="docutils literal notranslate"><span class="pre">AbstractNIC</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#network.AbstractNIC.active"><code class="docutils literal notranslate"><span class="pre">AbstractNIC.active()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#network.AbstractNIC.config"><code class="docutils literal notranslate"><span class="pre">AbstractNIC.config()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#network.AbstractNIC.connect"><code class="docutils literal notranslate"><span class="pre">AbstractNIC.connect()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#network.AbstractNIC.disconnect"><code class="docutils literal notranslate"><span class="pre">AbstractNIC.disconnect()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#network.AbstractNIC.ifconfig"><code class="docutils literal notranslate"><span class="pre">AbstractNIC.ifconfig()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#network.AbstractNIC.isconnected"><code class="docutils literal notranslate"><span class="pre">AbstractNIC.isconnected()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#network.AbstractNIC.scan"><code class="docutils literal notranslate"><span class="pre">AbstractNIC.scan()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#network.AbstractNIC.status"><code class="docutils literal notranslate"><span class="pre">AbstractNIC.status()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../openamp/index.html">openamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os/index.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/index.html">platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyb/index.html">pyb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../random/index.html">random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rp2/index.html">rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../select/index.html">select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../socket/index.html">socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ssl/index.html">ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stm/index.html">stm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../struct/index.html">struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sys/index.html">sys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uctypes/index.html">uctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vfs/index.html">vfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wipy/index.html">wipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zephyr/index.html">zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlib/index.html">zlib</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+<li><a href="../../index.html">Documentation overview</a><ul>
+<li><a href="../index.html">MicroPython Modules</a><ul>
+<li>Previous: <a href="../neopixel/index.html" title="previous chapter">neopixel</a></li>
+<li>Next: <a href="LAN/index.html" title="next chapter">network.LAN</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<search id="searchbox" role="search" style="display: none">
+<h3 id="searchlabel">Quick search</h3>
+<div class="searchformwrapper">
+<form action="../../search.html" class="search" method="get">
+<input aria-labelledby="searchlabel" autocapitalize="off" autocomplete="off" autocorrect="off" name="q" spellcheck="false" type="text"/>
+<input type="submit" value="Go"/>
+</form>
+</div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="footer">
+      ©2024, Jos Verlinde.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/autoapi/network/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+</body>
+</html>

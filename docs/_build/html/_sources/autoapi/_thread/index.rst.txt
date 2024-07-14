@@ -1,0 +1,64 @@
+_thread
+=======
+
+.. py:module:: _thread
+
+.. autoapi-nested-parse::
+
+   Multithreading support.
+
+   MicroPython module: https://docs.micropython.org/en/v1.23.0/library/_thread.html
+
+   CPython module: :mod:`python:_thread` https://docs.python.org/3/library/_thread.html .
+
+   This module implements multithreading support.
+
+   This module is highly experimental and its API is not yet fully settled
+   and not yet described in this documentation.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   _thread.LockType
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   _thread.allocate_lock
+   _thread.exit
+   _thread.get_ident
+   _thread.stack_size
+   _thread.start_new_thread
+
+
+Package Contents
+----------------
+
+.. py:class:: LockType(*argv, **kwargs)
+
+   .. py:method:: acquire(*args, **kwargs) -> _typeshed.Incomplete
+
+
+   .. py:method:: locked(*args, **kwargs) -> _typeshed.Incomplete
+
+
+   .. py:method:: release(*args, **kwargs) -> _typeshed.Incomplete
+
+
+.. py:function:: allocate_lock(*args, **kwargs) -> _typeshed.Incomplete
+
+.. py:function:: exit(*args, **kwargs) -> _typeshed.Incomplete
+
+.. py:function:: get_ident(*args, **kwargs) -> _typeshed.Incomplete
+
+.. py:function:: stack_size(*args, **kwargs) -> _typeshed.Incomplete
+
+.. py:function:: start_new_thread(*args, **kwargs) -> _typeshed.Incomplete
+

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html data-content_root="../../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>machine.I2C — API documentation test 1 documentation</title>
+<link href="../../../_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/alabaster.css?v=12dfc556" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/graphviz.css?v=fd3f3429" rel="stylesheet" type="text/css"/>
+<script src="../../../_static/documentation_options.js?v=29a6c3e3"></script>
+<script src="../../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<link href="../../../genindex.html" rel="index" title="Index"/>
+<link href="../../../search.html" rel="search" title="Search"/>
+<link href="../I2S/index.html" rel="next" title="machine.I2S"/>
+<link href="../ADCWiPy/index.html" rel="prev" title="machine.ADCWiPy"/>
+<link href="../../../_static/custom.css" rel="stylesheet" type="text/css"/>
+</head><body>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
+<section id="module-machine.I2C">
+<span id="machine-i2c"></span><h1>machine.I2C<a class="headerlink" href="#module-machine.I2C" title="Link to this heading">¶</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#machine.I2C.I2C" title="machine.I2C.I2C"><code class="xref py py-obj docutils literal notranslate"><span class="pre">I2C</span></code></a></p></td>
+<td><p>Construct and return a new I2C object using the following parameters:</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#machine.I2C.SoftI2C" title="machine.I2C.SoftI2C"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SoftI2C</span></code></a></p></td>
+<td><p>Construct a new software I2C object.  The parameters are:</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="machine.I2C.I2C">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">machine.I2C.</span></span><span class="sig-name descname"><span class="pre">I2C</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../Pin/index.html#machine.Pin.Pin" title="machine.Pin.Pin"><span class="pre">machine.Pin.Pin</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sda</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../Pin/index.html#machine.Pin.Pin" title="machine.Pin.Pin"><span class="pre">machine.Pin.Pin</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#machine.I2C.I2C" title="Link to this definition">¶</a></dt>
+<dd><p>Construct and return a new I2C object using the following parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>id</em> identifies a particular I2C peripheral.  Allowed values for
+depend on the particular port/board</p></li>
+<li><p><em>scl</em> should be a pin object specifying the pin to use for SCL.</p></li>
+<li><p><em>sda</em> should be a pin object specifying the pin to use for SDA.</p></li>
+<li><p><em>freq</em> should be an integer which sets the maximum frequency
+for SCL.</p></li>
+<li><p><em>timeout</em> is the maximum time in microseconds to allow for I2C
+transactions.  This parameter is not allowed on some ports.</p></li>
+</ul>
+</div></blockquote>
+<p>Note that some ports/boards will have default values of <em>scl</em> and <em>sda</em>
+that can be changed in this constructor.  Others will have fixed values
+of <em>scl</em> and <em>sda</em> that cannot be changed.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.I2C.I2C.deinit">
+<span class="sig-name descname"><span class="pre">deinit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#machine.I2C.I2C.deinit" title="Link to this definition">¶</a></dt>
+<dd><p>Turn off the I2C bus.</p>
+<p>Availability: WiPy.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.I2C.I2C.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sda</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400000</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#machine.I2C.I2C.init" title="Link to this definition">¶</a></dt>
+<dd><p>Initialise the I2C bus with the given arguments:</p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li><p><em>scl</em> is a pin object for the SCL line</p></li>
+<li><p><em>sda</em> is a pin object for the SDA line</p></li>
+<li><p><em>freq</em> is the SCL clock rate</p></li>
+</ul>
+</div></blockquote>
+<p>In the case of hardware I2C the actual clock frequency may be lower than the
+requested frequency. This is dependent on the platform hardware. The actual
+rate may be determined by printing the I2C object.</p>
+</div></blockquote>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.I2C.I2C.readfrom">
+<span class="sig-name descname"><span class="pre">readfrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bytes" title="(in Python v3.5)"><span class="pre">bytes</span></a></span></span><a class="headerlink" href="#machine.I2C.I2C.readfrom" title="Link to this definition">¶</a></dt>
+<dd><p>Read <em>nbytes</em> from the peripheral specified by <em>addr</em>.
+If <em>stop</em> is true then a STOP condition is generated at the end of the transfer.
+Returns a <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bytes" title="(in Python v3.5)"><code class="xref any docutils literal notranslate"><span class="pre">bytes</span></code></a> object with the data read.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.I2C.I2C.readfrom_into">
+<span class="sig-name descname"><span class="pre">readfrom_into</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#machine.I2C.I2C.readfrom_into" title="Link to this definition">¶</a></dt>
+<dd><p>Read into <em>buf</em> from the peripheral specified by <em>addr</em>.
+The number of bytes read will be the length of <em>buf</em>.
+If <em>stop</em> is true then a STOP condition is generated at the end of the transfer.</p>
+<p>The method returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.I2C.I2C.readfrom_mem">
+<span class="sig-name descname"><span class="pre">readfrom_mem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memaddr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbytes</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addrsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bytes" title="(in Python v3.5)"><span class="pre">bytes</span></a></span></span><a class="headerlink" href="#machine.I2C.I2C.readfrom_mem" title="Link to this definition">¶</a></dt>
+<dd><p>Read <em>nbytes</em> from the peripheral specified by <em>addr</em> starting from the memory
+address specified by <em>memaddr</em>.
+The argument <em>addrsize</em> specifies the address size in bits.
+Returns a <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bytes" title="(in Python v3.5)"><code class="xref any docutils literal notranslate"><span class="pre">bytes</span></code></a> object with the data read.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.I2C.I2C.readfrom_mem_into">
+<span class="sig-name descname"><span class="pre">readfrom_mem_into</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memaddr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addrsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#machine.I2C.I2C.readfrom_mem_into" title="Link to this definition">¶</a></dt>
+<dd><p>Read into <em>buf</em> from the peripheral specified by <em>addr</em> starting from the
+memory address specified by <em>memaddr</em>.  The number of bytes read is the
+length of <em>buf</em>.
+The argument <em>addrsize</em> specifies the address size in bits (on ESP8266
+this argument is not recognised and the address size is always 8 bits).</p>
+<p>The method returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.I2C.I2C.readinto">
+<span class="sig-name descname"><span class="pre">readinto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nack</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#machine.I2C.I2C.readinto" title="Link to this definition">¶</a></dt>
+<dd><p>Reads bytes from the bus and stores them into <em>buf</em>.  The number of bytes
+read is the length of <em>buf</em>.  An ACK will be sent on the bus after
+receiving all but the last byte.  After the last byte is received, if <em>nack</em>
+is true then a NACK will be sent, otherwise an ACK will be sent (and in this
+case the peripheral assumes more bytes are going to be read in a later call).</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.I2C.I2C.scan">
+<span class="sig-name descname"><span class="pre">scan</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="headerlink" href="#machine.I2C.I2C.scan" title="Link to this definition">¶</a></dt>
+<dd><p>Scan all I2C addresses between 0x08 and 0x77 inclusive and return a list of
+those that respond.  A device responds if it pulls the SDA line low after
+its address (including a write bit) is sent on the bus.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.I2C.I2C.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#machine.I2C.I2C.start" title="Link to this definition">¶</a></dt>
+<dd><p>Generate a START condition on the bus (SDA transitions to low while SCL is high).</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.I2C.I2C.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#machine.I2C.I2C.stop" title="Link to this definition">¶</a></dt>
+<dd><p>Generate a STOP condition on the bus (SDA transitions to high while SCL is high).</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.I2C.I2C.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buf</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#machine.I2C.I2C.write" title="Link to this definition">¶</a></dt>
+<dd><p>Write the bytes from <em>buf</em> to the bus.  Checks that an ACK is received
+after each byte and stops transmitting the remaining bytes if a NACK is
+received.  The function returns the number of ACKs that were received.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.I2C.I2C.writeto">
+<span class="sig-name descname"><span class="pre">writeto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#machine.I2C.I2C.writeto" title="Link to this definition">¶</a></dt>
+<dd><p>Write the bytes from <em>buf</em> to the peripheral specified by <em>addr</em>.  If a
+NACK is received following the write of a byte from <em>buf</em> then the
+remaining bytes are not sent.  If <em>stop</em> is true then a STOP condition is
+generated at the end of the transfer, even if a NACK is received.
+The function returns the number of ACKs that were received.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.I2C.I2C.writeto_mem">
+<span class="sig-name descname"><span class="pre">writeto_mem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memaddr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addrsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#machine.I2C.I2C.writeto_mem" title="Link to this definition">¶</a></dt>
+<dd><p>Write <em>buf</em> to the peripheral specified by <em>addr</em> starting from the
+memory address specified by <em>memaddr</em>.
+The argument <em>addrsize</em> specifies the address size in bits (on ESP8266
+this argument is not recognised and the address size is always 8 bits).</p>
+<p>The method returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.I2C.I2C.writevto">
+<span class="sig-name descname"><span class="pre">writevto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#machine.I2C.I2C.writevto" title="Link to this definition">¶</a></dt>
+<dd><p>Write the bytes contained in <em>vector</em> to the peripheral specified by <em>addr</em>.
+<em>vector</em> should be a tuple or list of objects with the buffer protocol.
+The <em>addr</em> is sent once and then the bytes from each object in <em>vector</em>
+are written out sequentially.  The objects in <em>vector</em> may be zero bytes
+in length in which case they don’t contribute to the output.</p>
+<p>If a NACK is received following the write of a byte from one of the
+objects in <em>vector</em> then the remaining bytes, and any remaining objects,
+are not sent.  If <em>stop</em> is true then a STOP condition is generated at
+the end of the transfer, even if a NACK is received.  The function
+returns the number of ACKs that were received.</p>
+</dd></dl>
+</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="machine.I2C.SoftI2C">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">machine.I2C.</span></span><span class="sig-name descname"><span class="pre">SoftI2C</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sda</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#machine.I2C.SoftI2C" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#machine.I2C.I2C" title="machine.I2C.I2C"><code class="xref py py-obj docutils literal notranslate"><span class="pre">I2C</span></code></a></p>
+<p>Construct a new software I2C object.  The parameters are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>scl</em> should be a pin object specifying the pin to use for SCL.</p></li>
+<li><p><em>sda</em> should be a pin object specifying the pin to use for SDA.</p></li>
+<li><p><em>freq</em> should be an integer which sets the maximum frequency
+for SCL.</p></li>
+<li><p><em>timeout</em> is the maximum time in microseconds to wait for clock
+stretching (SCL held low by another device on the bus), after
+which an <code class="docutils literal notranslate"><span class="pre">OSError(ETIMEDOUT)</span></code> exception is raised.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+<div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">API documentation test</a></h1>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../library/index.html">LiBrary!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bar.html">bar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">MicroPython Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../_asyncio/index.html">_asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_rp2/index.html">_rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_thread/index.html">_thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../array/index.html">array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asyncio/index.html">asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../binascii/index.html">binascii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bluetooth/index.html">bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../btree/index.html">btree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cmath/index.html">cmath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collections/index.html">collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cryptolib/index.html">cryptolib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../deflate/index.html">deflate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../errno/index.html">errno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../esp/index.html">esp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../esp32/index.html">esp32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../espnow/index.html">espnow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../framebuf/index.html">framebuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gc/index.html">gc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gzip/index.html">gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hashlib/index.html">hashlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../heapq/index.html">heapq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../io/index.html">io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../json/index.html">json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lcd160cr/index.html">lcd160cr</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">machine</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../ADC/index.html">machine.ADC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ADCBlock/index.html">machine.ADCBlock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ADCWiPy/index.html">machine.ADCWiPy</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">machine.I2C</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#machine.I2C.I2C"><code class="docutils literal notranslate"><span class="pre">I2C</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="#machine.I2C.I2C.deinit"><code class="docutils literal notranslate"><span class="pre">I2C.deinit()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#machine.I2C.I2C.init"><code class="docutils literal notranslate"><span class="pre">I2C.init()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#machine.I2C.I2C.readfrom"><code class="docutils literal notranslate"><span class="pre">I2C.readfrom()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#machine.I2C.I2C.readfrom_into"><code class="docutils literal notranslate"><span class="pre">I2C.readfrom_into()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#machine.I2C.I2C.readfrom_mem"><code class="docutils literal notranslate"><span class="pre">I2C.readfrom_mem()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#machine.I2C.I2C.readfrom_mem_into"><code class="docutils literal notranslate"><span class="pre">I2C.readfrom_mem_into()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#machine.I2C.I2C.readinto"><code class="docutils literal notranslate"><span class="pre">I2C.readinto()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#machine.I2C.I2C.scan"><code class="docutils literal notranslate"><span class="pre">I2C.scan()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#machine.I2C.I2C.start"><code class="docutils literal notranslate"><span class="pre">I2C.start()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#machine.I2C.I2C.stop"><code class="docutils literal notranslate"><span class="pre">I2C.stop()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#machine.I2C.I2C.write"><code class="docutils literal notranslate"><span class="pre">I2C.write()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#machine.I2C.I2C.writeto"><code class="docutils literal notranslate"><span class="pre">I2C.writeto()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#machine.I2C.I2C.writeto_mem"><code class="docutils literal notranslate"><span class="pre">I2C.writeto_mem()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#machine.I2C.I2C.writevto"><code class="docutils literal notranslate"><span class="pre">I2C.writevto()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="#machine.I2C.SoftI2C"><code class="docutils literal notranslate"><span class="pre">SoftI2C</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../I2S/index.html">machine.I2S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PWM/index.html">machine.PWM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Pin/index.html">machine.Pin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../RTC/index.html">machine.RTC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SD/index.html">machine.SD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SDCard/index.html">machine.SDCard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SPI/index.html">machine.SPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Signal/index.html">machine.Signal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Timer/index.html">machine.Timer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../TimerWiPy/index.html">machine.TimerWiPy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../UART/index.html">machine.UART</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../USBDevice/index.html">machine.USBDevice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../WDT/index.html">machine.WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/index.html">math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../micropython/index.html">micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../neopixel/index.html">neopixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../network/index.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../openamp/index.html">openamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../os/index.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform/index.html">platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pyb/index.html">pyb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../random/index.html">random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../rp2/index.html">rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../select/index.html">select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../socket/index.html">socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ssl/index.html">ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stm/index.html">stm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../struct/index.html">struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sys/index.html">sys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../uctypes/index.html">uctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vfs/index.html">vfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wipy/index.html">wipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zephyr/index.html">zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zlib/index.html">zlib</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+<li><a href="../../../index.html">Documentation overview</a><ul>
+<li><a href="../../index.html">MicroPython Modules</a><ul>
+<li><a href="../index.html">machine</a><ul>
+<li>Previous: <a href="../ADCWiPy/index.html" title="previous chapter">machine.ADCWiPy</a></li>
+<li>Next: <a href="../I2S/index.html" title="next chapter">machine.I2S</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<search id="searchbox" role="search" style="display: none">
+<h3 id="searchlabel">Quick search</h3>
+<div class="searchformwrapper">
+<form action="../../../search.html" class="search" method="get">
+<input aria-labelledby="searchlabel" autocapitalize="off" autocomplete="off" autocorrect="off" name="q" spellcheck="false" type="text"/>
+<input type="submit" value="Go"/>
+</form>
+</div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="footer">
+      ©2024, Jos Verlinde.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../../_sources/autoapi/machine/I2C/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html data-content_root="../../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>pyb.Pin — API documentation test 1 documentation</title>
+<link href="../../../_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/alabaster.css?v=12dfc556" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/graphviz.css?v=fd3f3429" rel="stylesheet" type="text/css"/>
+<script src="../../../_static/documentation_options.js?v=29a6c3e3"></script>
+<script src="../../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<link href="../../../genindex.html" rel="index" title="Index"/>
+<link href="../../../search.html" rel="search" title="Search"/>
+<link href="../RTC/index.html" rel="next" title="pyb.RTC"/>
+<link href="../LED/index.html" rel="prev" title="pyb.LED"/>
+<link href="../../../_static/custom.css" rel="stylesheet" type="text/css"/>
+</head><body>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
+<section id="module-pyb.Pin">
+<span id="pyb-pin"></span><h1>pyb.Pin<a class="headerlink" href="#module-pyb.Pin" title="Link to this heading">¶</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyb.Pin.Pin" title="pyb.Pin.Pin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Pin</span></code></a></p></td>
+<td><p>Create a new Pin object associated with the id.  If additional arguments are given,</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyb.Pin.pinaf" title="pyb.Pin.pinaf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pinaf</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyb.Pin.Pin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyb.Pin.</span></span><span class="sig-name descname"><span class="pre">Pin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyb.Pin.Pin" title="Link to this definition">¶</a></dt>
+<dd><p>Create a new Pin object associated with the id.  If additional arguments are given,
+they are used to initialise the pin.  See <code class="xref py py-meth docutils literal notranslate"><span class="pre">pin.init()</span></code>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#pyb.Pin.Pin.__str__" title="Link to this definition">¶</a></dt>
+<dd><p>Return a string describing the pin object.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.af">
+<span class="sig-name descname"><span class="pre">af</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#pyb.Pin.Pin.af" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the currently configured alternate-function of the pin. The
+integer returned will match one of the allowed constants for the af
+argument to the init function.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.af_list">
+<span class="sig-name descname"><span class="pre">af_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="headerlink" href="#pyb.Pin.Pin.af_list" title="Link to this definition">¶</a></dt>
+<dd><p>Returns an array of alternate functions available for this pin.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.debug">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bool" title="(in Python v3.5)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#pyb.Pin.Pin.debug" title="Link to this definition">¶</a></dt>
+<dd><p>Get or set the debugging state (<code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> for on or off).</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#pyb.Pin.Pin.dict" title="Link to this definition">¶</a></dt>
+<dd><p>Get or set the pin mapper dictionary.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.gpio">
+<span class="sig-name descname"><span class="pre">gpio</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#pyb.Pin.Pin.gpio" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the base address of the GPIO block associated with this pin.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pull</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PULL_NONE</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pyb.Pin.Pin.init" title="Link to this definition">¶</a></dt>
+<dd><p>Initialise the pin:</p>
+<blockquote>
+<div><ul>
+<li><p><em>mode</em> can be one of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.IN</span></code> - configure the pin for input;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.OUT_PP</span></code> - configure the pin for output, with push-pull control;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.OUT_OD</span></code> - configure the pin for output, with open-drain control;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.ALT</span></code> - configure the pin for alternate function, input or output;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.AF_PP</span></code> - configure the pin for alternate function, push-pull;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.AF_OD</span></code> - configure the pin for alternate function, open-drain;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.ANALOG</span></code> - configure the pin for analog.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><em>pull</em> can be one of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.PULL_NONE</span></code> - no pull up or down resistors;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.PULL_UP</span></code> - enable the pull-up resistor;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pin.PULL_DOWN</span></code> - enable the pull-down resistor.</p></li>
+</ul>
+</div></blockquote>
+<p>When a pin has the <code class="docutils literal notranslate"><span class="pre">Pin.PULL_UP</span></code> or <code class="docutils literal notranslate"><span class="pre">Pin.PULL_DOWN</span></code> pull-mode enabled,
+that pin has an effective 40k Ohm resistor pulling it to 3V3 or GND
+respectively (except pin Y5 which has 11k Ohm resistors).</p>
+</li>
+<li><p><em>value</em> if not None will set the port output value before enabling the pin.</p></li>
+<li><p><em>alt</em> can be used when mode is <code class="docutils literal notranslate"><span class="pre">Pin.ALT</span></code> , <code class="docutils literal notranslate"><span class="pre">Pin.AF_PP</span></code> or <code class="docutils literal notranslate"><span class="pre">Pin.AF_OD</span></code> to
+set the index or name of one of the alternate functions associated with a pin.
+This arg was previously called <em>af</em> which can still be used if needed.</p></li>
+</ul>
+</div></blockquote>
+<p>Returns: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.mapper">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fun</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#pyb.Pin.Pin.mapper" title="Link to this definition">¶</a></dt>
+<dd><p>Get or set the pin mapper function.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.mode">
+<span class="sig-name descname"><span class="pre">mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#pyb.Pin.Pin.mode" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the currently configured mode of the pin. The integer returned
+will match one of the allowed constants for the mode argument to the init
+function.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#pyb.Pin.Pin.name" title="Link to this definition">¶</a></dt>
+<dd><p>Get the pin name.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.names">
+<span class="sig-name descname"><span class="pre">names</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#pyb.Pin.Pin.names" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the cpu and board names for this pin.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.pin">
+<span class="sig-name descname"><span class="pre">pin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#pyb.Pin.Pin.pin" title="Link to this definition">¶</a></dt>
+<dd><p>Get the pin number.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.port">
+<span class="sig-name descname"><span class="pre">port</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#pyb.Pin.Pin.port" title="Link to this definition">¶</a></dt>
+<dd><p>Get the pin port.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.pull">
+<span class="sig-name descname"><span class="pre">pull</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#pyb.Pin.Pin.pull" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the currently configured pull of the pin. The integer returned
+will match one of the allowed constants for the pull argument to the init
+function.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.value">
+<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#pyb.Pin.Pin.value" title="Link to this definition">¶</a></dt>
+<dd><p>Get or set the digital logic level of the pin:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>With no argument, return 0 or 1 depending on the logic level of the pin.</p></li>
+<li><p>With <code class="docutils literal notranslate"><span class="pre">value</span></code> given, set the logic level of the pin.  <code class="docutils literal notranslate"><span class="pre">value</span></code> can be
+anything that converts to a boolean.  If it converts to <code class="docutils literal notranslate"><span class="pre">True</span></code>, the pin
+is set high, otherwise it is set low.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.AF_OD">
+<span class="sig-name descname"><span class="pre">AF_OD</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.Pin.Pin.AF_OD" title="Link to this definition">¶</a></dt>
+<dd><p>initialise the pin to alternate-function mode with an open-drain drive</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.AF_PP">
+<span class="sig-name descname"><span class="pre">AF_PP</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.Pin.Pin.AF_PP" title="Link to this definition">¶</a></dt>
+<dd><p>initialise the pin to alternate-function mode with a push-pull drive</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.ALT">
+<span class="sig-name descname"><span class="pre">ALT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.Pin.Pin.ALT" title="Link to this definition">¶</a></dt>
+<dd><p>initialise the pin to alternate-function mode for input or output</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.ANALOG">
+<span class="sig-name descname"><span class="pre">ANALOG</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.Pin.Pin.ANALOG" title="Link to this definition">¶</a></dt>
+<dd><p>initialise the pin to analog mode</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.IN">
+<span class="sig-name descname"><span class="pre">IN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.Pin.Pin.IN" title="Link to this definition">¶</a></dt>
+<dd><p>initialise the pin to input mode</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.OUT_OD">
+<span class="sig-name descname"><span class="pre">OUT_OD</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.Pin.Pin.OUT_OD" title="Link to this definition">¶</a></dt>
+<dd><p>initialise the pin to output mode with an open-drain drive</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.OUT_PP">
+<span class="sig-name descname"><span class="pre">OUT_PP</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.Pin.Pin.OUT_PP" title="Link to this definition">¶</a></dt>
+<dd><p>initialise the pin to output mode with a push-pull drive</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.PULL_DOWN">
+<span class="sig-name descname"><span class="pre">PULL_DOWN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.Pin.Pin.PULL_DOWN" title="Link to this definition">¶</a></dt>
+<dd><p>enable the pull-down resistor on the pin</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.PULL_NONE">
+<span class="sig-name descname"><span class="pre">PULL_NONE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.Pin.Pin.PULL_NONE" title="Link to this definition">¶</a></dt>
+<dd><p>don’t enable any pull up or down resistors on the pin</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.Pin.Pin.PULL_UP">
+<span class="sig-name descname"><span class="pre">PULL_UP</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#pyb.Pin.Pin.PULL_UP" title="Link to this definition">¶</a></dt>
+<dd><p>enable the pull-up resistor on the pin</p>
+</dd></dl>
+</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyb.Pin.pinaf">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyb.Pin.</span></span><span class="sig-name descname"><span class="pre">pinaf</span></span><a class="headerlink" href="#pyb.Pin.pinaf" title="Link to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.pinaf.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#pyb.Pin.pinaf.__str__" title="Link to this definition">¶</a></dt>
+<dd><p>Return a string describing the alternate function.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.pinaf.index">
+<span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#pyb.Pin.pinaf.index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the alternate function index.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.pinaf.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#pyb.Pin.pinaf.name" title="Link to this definition">¶</a></dt>
+<dd><p>Return the name of the alternate function.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.Pin.pinaf.reg">
+<span class="sig-name descname"><span class="pre">reg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#pyb.Pin.pinaf.reg" title="Link to this definition">¶</a></dt>
+<dd><p>Return the base register associated with the peripheral assigned to this
+alternate function. For example, if the alternate function were TIM2_CH3
+this would return stm.TIM2</p>
+</dd></dl>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+<div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">API documentation test</a></h1>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../library/index.html">LiBrary!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bar.html">bar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">MicroPython Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../_asyncio/index.html">_asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_rp2/index.html">_rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_thread/index.html">_thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../array/index.html">array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asyncio/index.html">asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../binascii/index.html">binascii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bluetooth/index.html">bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../btree/index.html">btree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cmath/index.html">cmath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collections/index.html">collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cryptolib/index.html">cryptolib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../deflate/index.html">deflate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../errno/index.html">errno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../esp/index.html">esp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../esp32/index.html">esp32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../espnow/index.html">espnow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../framebuf/index.html">framebuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gc/index.html">gc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gzip/index.html">gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hashlib/index.html">hashlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../heapq/index.html">heapq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../io/index.html">io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../json/index.html">json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lcd160cr/index.html">lcd160cr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../machine/index.html">machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/index.html">math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../micropython/index.html">micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../neopixel/index.html">neopixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../network/index.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../openamp/index.html">openamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../os/index.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform/index.html">platform</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">pyb</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../ADC/index.html">pyb.ADC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Accel/index.html">pyb.Accel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CAN/index.html">pyb.CAN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../DAC/index.html">pyb.DAC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ExtInt/index.html">pyb.ExtInt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Flash/index.html">pyb.Flash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../I2C/index.html">pyb.I2C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LCD/index.html">pyb.LCD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LED/index.html">pyb.LED</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">pyb.Pin</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#pyb.Pin.Pin"><code class="docutils literal notranslate"><span class="pre">Pin</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.__str__"><code class="docutils literal notranslate"><span class="pre">Pin.__str__()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.af"><code class="docutils literal notranslate"><span class="pre">Pin.af()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.af_list"><code class="docutils literal notranslate"><span class="pre">Pin.af_list()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.debug"><code class="docutils literal notranslate"><span class="pre">Pin.debug()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.dict"><code class="docutils literal notranslate"><span class="pre">Pin.dict()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.gpio"><code class="docutils literal notranslate"><span class="pre">Pin.gpio()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.init"><code class="docutils literal notranslate"><span class="pre">Pin.init()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.mapper"><code class="docutils literal notranslate"><span class="pre">Pin.mapper()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.mode"><code class="docutils literal notranslate"><span class="pre">Pin.mode()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.name"><code class="docutils literal notranslate"><span class="pre">Pin.name()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.names"><code class="docutils literal notranslate"><span class="pre">Pin.names()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.pin"><code class="docutils literal notranslate"><span class="pre">Pin.pin()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.port"><code class="docutils literal notranslate"><span class="pre">Pin.port()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.pull"><code class="docutils literal notranslate"><span class="pre">Pin.pull()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.value"><code class="docutils literal notranslate"><span class="pre">Pin.value()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.AF_OD"><code class="docutils literal notranslate"><span class="pre">Pin.AF_OD</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.AF_PP"><code class="docutils literal notranslate"><span class="pre">Pin.AF_PP</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.ALT"><code class="docutils literal notranslate"><span class="pre">Pin.ALT</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.ANALOG"><code class="docutils literal notranslate"><span class="pre">Pin.ANALOG</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.IN"><code class="docutils literal notranslate"><span class="pre">Pin.IN</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.OUT_OD"><code class="docutils literal notranslate"><span class="pre">Pin.OUT_OD</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.OUT_PP"><code class="docutils literal notranslate"><span class="pre">Pin.OUT_PP</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.PULL_DOWN"><code class="docutils literal notranslate"><span class="pre">Pin.PULL_DOWN</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.PULL_NONE"><code class="docutils literal notranslate"><span class="pre">Pin.PULL_NONE</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.Pin.PULL_UP"><code class="docutils literal notranslate"><span class="pre">Pin.PULL_UP</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="#pyb.Pin.pinaf"><code class="docutils literal notranslate"><span class="pre">pinaf</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.pinaf.__str__"><code class="docutils literal notranslate"><span class="pre">pinaf.__str__()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.pinaf.index"><code class="docutils literal notranslate"><span class="pre">pinaf.index()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.pinaf.name"><code class="docutils literal notranslate"><span class="pre">pinaf.name()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.Pin.pinaf.reg"><code class="docutils literal notranslate"><span class="pre">pinaf.reg()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../RTC/index.html">pyb.RTC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SPI/index.html">pyb.SPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Servo/index.html">pyb.Servo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Switch/index.html">pyb.Switch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Timer/index.html">pyb.Timer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../UART/index.html">pyb.UART</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../USB_HID/index.html">pyb.USB_HID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../USB_VCP/index.html">pyb.USB_VCP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../random/index.html">random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../rp2/index.html">rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../select/index.html">select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../socket/index.html">socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ssl/index.html">ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stm/index.html">stm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../struct/index.html">struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sys/index.html">sys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../uctypes/index.html">uctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vfs/index.html">vfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wipy/index.html">wipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zephyr/index.html">zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zlib/index.html">zlib</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+<li><a href="../../../index.html">Documentation overview</a><ul>
+<li><a href="../../index.html">MicroPython Modules</a><ul>
+<li><a href="../index.html">pyb</a><ul>
+<li>Previous: <a href="../LED/index.html" title="previous chapter">pyb.LED</a></li>
+<li>Next: <a href="../RTC/index.html" title="next chapter">pyb.RTC</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<search id="searchbox" role="search" style="display: none">
+<h3 id="searchlabel">Quick search</h3>
+<div class="searchformwrapper">
+<form action="../../../search.html" class="search" method="get">
+<input aria-labelledby="searchlabel" autocapitalize="off" autocomplete="off" autocorrect="off" name="q" spellcheck="false" type="text"/>
+<input type="submit" value="Go"/>
+</form>
+</div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="footer">
+      ©2024, Jos Verlinde.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../../_sources/autoapi/pyb/Pin/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+</body>
+</html>

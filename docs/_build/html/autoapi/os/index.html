@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>os — API documentation test 1 documentation</title>
+<link href="../../_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="../../_static/alabaster.css?v=12dfc556" rel="stylesheet" type="text/css"/>
+<link href="../../_static/graphviz.css?v=fd3f3429" rel="stylesheet" type="text/css"/>
+<script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="../platform/index.html" rel="next" title="platform"/>
+<link href="../openamp/index.html" rel="prev" title="openamp"/>
+<link href="../../_static/custom.css" rel="stylesheet" type="text/css"/>
+</head><body>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
+<section id="module-os">
+<span id="os"></span><h1>os<a class="headerlink" href="#module-os" title="Link to this heading">¶</a></h1>
+<p>Basic “operating system” services.</p>
+<p>MicroPython module: <a class="reference external" href="https://docs.micropython.org/en/v1.23.0/library/os.html">https://docs.micropython.org/en/v1.23.0/library/os.html</a></p>
+<p>CPython module: <a class="reference external" href="https://docs.python.org/3.5/library/os.html#module-os" title="(in Python v3.5)"><code class="docutils literal notranslate"><span class="pre">os</span></code></a> <a class="reference external" href="https://docs.python.org/3/library/os.html">https://docs.python.org/3/library/os.html</a> .</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">os</span></code> module contains functions for filesystem access and mounting,
+terminal redirection and duplication, and the <code class="docutils literal notranslate"><span class="pre">uname</span></code> and <code class="docutils literal notranslate"><span class="pre">urandom</span></code>
+functions.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#os.VfsFat" title="os.VfsFat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VfsFat</span></code></a></p></td>
+<td><p>See <a class="reference internal" href="../vfs/index.html#vfs.VfsFat" title="vfs.VfsFat"><code class="xref any py py-class docutils literal notranslate"><span class="pre">vfs.VfsFat</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#os.VfsLfs1" title="os.VfsLfs1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VfsLfs1</span></code></a></p></td>
+<td><p>See <a class="reference internal" href="../vfs/index.html#vfs.VfsLfs1" title="vfs.VfsLfs1"><code class="xref any py py-class docutils literal notranslate"><span class="pre">vfs.VfsLfs1</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#os.VfsLfs2" title="os.VfsLfs2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VfsLfs2</span></code></a></p></td>
+<td><p>See <a class="reference internal" href="../vfs/index.html#vfs.VfsLfs2" title="vfs.VfsLfs2"><code class="xref any py py-class docutils literal notranslate"><span class="pre">vfs.VfsLfs2</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#os.VfsPosix" title="os.VfsPosix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VfsPosix</span></code></a></p></td>
+<td><p>See <a class="reference internal" href="../vfs/index.html#vfs.VfsPosix" title="vfs.VfsPosix"><code class="xref any py py-class docutils literal notranslate"><span class="pre">vfs.VfsPosix</span></code></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#os.chdir" title="os.chdir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">chdir</span></code></a>(→ Incomplete)</p></td>
+<td><p>Change current directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#os.dupterm" title="os.dupterm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dupterm</span></code></a>(→ IO)</p></td>
+<td><p>Duplicate or switch the MicroPython terminal (the REPL) on the given <a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-stream" title="(in MicroPython vlatest)"><code class="xref any docutils literal notranslate"><span class="pre">stream</span></code></a>-like</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#os.getcwd" title="os.getcwd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getcwd</span></code></a>(→ Incomplete)</p></td>
+<td><p>Get the current directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#os.ilistdir" title="os.ilistdir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ilistdir</span></code></a>(→ Iterator[Tuple])</p></td>
+<td><p>This function returns an iterator which then yields tuples corresponding to</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#os.listdir" title="os.listdir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">listdir</span></code></a>(→ Incomplete)</p></td>
+<td><p>With no argument, list the current directory.  Otherwise list the given directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#os.mkdir" title="os.mkdir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mkdir</span></code></a>(→ Incomplete)</p></td>
+<td><p>Create a new directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#os.mount" title="os.mount"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mount</span></code></a>(→ Incomplete)</p></td>
+<td><p>See <a class="reference internal" href="../vfs/index.html#vfs.mount" title="vfs.mount"><code class="xref any py py-func docutils literal notranslate"><span class="pre">vfs.mount</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#os.remove" title="os.remove"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove</span></code></a>(→ None)</p></td>
+<td><p>Remove a file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#os.rename" title="os.rename"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rename</span></code></a>(→ None)</p></td>
+<td><p>Rename a file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#os.rmdir" title="os.rmdir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rmdir</span></code></a>(→ None)</p></td>
+<td><p>Remove a directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#os.stat" title="os.stat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stat</span></code></a>(→ Incomplete)</p></td>
+<td><p>Get the status of a file or directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#os.statvfs" title="os.statvfs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">statvfs</span></code></a>(→ Tuple)</p></td>
+<td><p>Get the status of a filesystem.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#os.sync" title="os.sync"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sync</span></code></a>(→ None)</p></td>
+<td><p>Sync all filesystems.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#os.umount" title="os.umount"><code class="xref py py-obj docutils literal notranslate"><span class="pre">umount</span></code></a>(→ Incomplete)</p></td>
+<td><p>See <a class="reference internal" href="../vfs/index.html#vfs.umount" title="vfs.umount"><code class="xref any py py-func docutils literal notranslate"><span class="pre">vfs.umount</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#os.uname" title="os.uname"><code class="xref py py-obj docutils literal notranslate"><span class="pre">uname</span></code></a>(→ uname_result)</p></td>
+<td><p>Return a tuple (possibly a named tuple) containing information about the</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#os.urandom" title="os.urandom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">urandom</span></code></a>(→ bytes)</p></td>
+<td><p>Return a bytes object with <em>n</em> random bytes. Whenever possible, it is</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="os.VfsFat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">VfsFat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_dev</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#os.VfsFat" title="Link to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../vfs/index.html#vfs.VfsFat" title="vfs.VfsFat"><code class="xref any py py-class docutils literal notranslate"><span class="pre">vfs.VfsFat</span></code></a>.</p>
+</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="os.VfsLfs1">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">VfsLfs1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_dev</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lookahead</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#os.VfsLfs1" title="Link to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../vfs/index.html#vfs.VfsLfs1" title="vfs.VfsLfs1"><code class="xref any py py-class docutils literal notranslate"><span class="pre">vfs.VfsLfs1</span></code></a>.</p>
+</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="os.VfsLfs2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">VfsLfs2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_dev</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lookahead</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mtime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#os.VfsLfs2" title="Link to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../vfs/index.html#vfs.VfsLfs2" title="vfs.VfsLfs2"><code class="xref any py py-class docutils literal notranslate"><span class="pre">vfs.VfsLfs2</span></code></a>.</p>
+</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="os.VfsPosix">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">VfsPosix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#os.VfsPosix" title="Link to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../vfs/index.html#vfs.VfsPosix" title="vfs.VfsPosix"><code class="xref any py py-class docutils literal notranslate"><span class="pre">vfs.VfsPosix</span></code></a>.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="os.chdir">
+<span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">chdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#os.chdir" title="Link to this definition">¶</a></dt>
+<dd><p>Change current directory.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="os.dupterm">
+<span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">dupterm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream_object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">IO</span></span></span><a class="headerlink" href="#os.dupterm" title="Link to this definition">¶</a></dt>
+<dd><p>Duplicate or switch the MicroPython terminal (the REPL) on the given <a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-stream" title="(in MicroPython vlatest)"><code class="xref any docutils literal notranslate"><span class="pre">stream</span></code></a>-like
+object. The <em>stream_object</em> argument must be a native stream object, or derive
+from <code class="docutils literal notranslate"><span class="pre">io.IOBase</span></code> and implement the <code class="docutils literal notranslate"><span class="pre">readinto()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">write()</span></code> methods.  The stream should be in non-blocking mode and
+<code class="docutils literal notranslate"><span class="pre">readinto()</span></code> should return <code class="docutils literal notranslate"><span class="pre">None</span></code> if there is no data available for reading.</p>
+<p>After calling this function all terminal output is repeated on this stream,
+and any input that is available on the stream is passed on to the terminal input.</p>
+<p>The <em>index</em> parameter should be a non-negative integer and specifies which
+duplication slot is set.  A given port may implement more than one slot (slot 0
+will always be available) and in that case terminal input and output is
+duplicated on all the slots that are set.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">None</span></code> is passed as the <em>stream_object</em> then duplication is cancelled on
+the slot given by <em>index</em>.</p>
+<p>The function returns the previous stream-like object in the given slot.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="os.getcwd">
+<span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">getcwd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#os.getcwd" title="Link to this definition">¶</a></dt>
+<dd><p>Get the current directory.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="os.ilistdir">
+<span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">ilistdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#os.ilistdir" title="Link to this definition">¶</a></dt>
+<dd><p>This function returns an iterator which then yields tuples corresponding to
+the entries in the directory that it is listing.  With no argument it lists the
+current directory, otherwise it lists the directory given by <em>dir</em>.</p>
+<p>The tuples have the form <em>(name, type, inode[, size])</em>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>name</em> is a string (or bytes if <em>dir</em> is a bytes object) and is the name of
+the entry;</p></li>
+<li><p><em>type</em> is an integer that specifies the type of the entry, with 0x4000 for
+directories and 0x8000 for regular files;</p></li>
+<li><p><em>inode</em> is an integer corresponding to the inode of the file, and may be 0
+for filesystems that don’t have such a notion.</p></li>
+<li><p>Some platforms may return a 4-tuple that includes the entry’s <em>size</em>.  For
+file entries, <em>size</em> is an integer representing the size of the file
+or -1 if unknown.  Its meaning is currently undefined for directory
+entries.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="os.listdir">
+<span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">listdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#os.listdir" title="Link to this definition">¶</a></dt>
+<dd><p>With no argument, list the current directory.  Otherwise list the given directory.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="os.mkdir">
+<span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">mkdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#os.mkdir" title="Link to this definition">¶</a></dt>
+<dd><p>Create a new directory.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="os.mount">
+<span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">mount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fsobj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mount_point</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readonly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#os.mount" title="Link to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../vfs/index.html#vfs.mount" title="vfs.mount"><code class="xref any py py-func docutils literal notranslate"><span class="pre">vfs.mount</span></code></a>.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="os.remove">
+<span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#os.remove" title="Link to this definition">¶</a></dt>
+<dd><p>Remove a file.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="os.rename">
+<span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#os.rename" title="Link to this definition">¶</a></dt>
+<dd><p>Rename a file.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="os.rmdir">
+<span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">rmdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#os.rmdir" title="Link to this definition">¶</a></dt>
+<dd><p>Remove a directory.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="os.stat">
+<span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">stat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#os.stat" title="Link to this definition">¶</a></dt>
+<dd><p>Get the status of a file or directory.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="os.statvfs">
+<span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">statvfs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Tuple</span></span></span><a class="headerlink" href="#os.statvfs" title="Link to this definition">¶</a></dt>
+<dd><p>Get the status of a filesystem.</p>
+<p>Returns a tuple with the filesystem information in the following order:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">f_bsize</span></code> – file system block size</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_frsize</span></code> – fragment size</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_blocks</span></code> – size of fs in f_frsize units</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_bfree</span></code> – number of free blocks</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_bavail</span></code> – number of free blocks for unprivileged users</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_files</span></code> – number of inodes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_ffree</span></code> – number of free inodes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_favail</span></code> – number of free inodes for unprivileged users</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_flag</span></code> – mount flags</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_namemax</span></code> – maximum filename length</p></li>
+</ul>
+</div></blockquote>
+<p>Parameters related to inodes: <code class="docutils literal notranslate"><span class="pre">f_files</span></code>, <code class="docutils literal notranslate"><span class="pre">f_ffree</span></code>, <code class="docutils literal notranslate"><span class="pre">f_avail</span></code>
+and the <code class="docutils literal notranslate"><span class="pre">f_flags</span></code> parameter may return <code class="docutils literal notranslate"><span class="pre">0</span></code> as they can be unavailable
+in a port-specific implementation.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="os.sync">
+<span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">sync</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#os.sync" title="Link to this definition">¶</a></dt>
+<dd><p>Sync all filesystems.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="os.umount">
+<span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">umount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mount_point</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#os.umount" title="Link to this definition">¶</a></dt>
+<dd><p>See <a class="reference internal" href="../vfs/index.html#vfs.umount" title="vfs.umount"><code class="xref any py py-func docutils literal notranslate"><span class="pre">vfs.umount</span></code></a>.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="os.uname">
+<span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">uname</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">uname_result</span></span></span><a class="headerlink" href="#os.uname" title="Link to this definition">¶</a></dt>
+<dd><p>Return a tuple (possibly a named tuple) containing information about the
+underlying machine and/or its operating system.  The tuple has five fields
+in the following order, each of them being a string:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sysname</span></code> – the name of the underlying system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nodename</span></code> – the network name (can be the same as <code class="docutils literal notranslate"><span class="pre">sysname</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">release</span></code> – the version of the underlying system</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">version</span></code> – the MicroPython version and build date</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">machine</span></code> – an identifier for the underlying hardware (eg board, CPU)</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="os.urandom">
+<span class="sig-prename descclassname"><span class="pre">os.</span></span><span class="sig-name descname"><span class="pre">urandom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bytes" title="(in Python v3.5)"><span class="pre">bytes</span></a></span></span><a class="headerlink" href="#os.urandom" title="Link to this definition">¶</a></dt>
+<dd><p>Return a bytes object with <em>n</em> random bytes. Whenever possible, it is
+generated by the hardware random number generator.</p>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+<div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">API documentation test</a></h1>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">LiBrary!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bar.html">bar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MicroPython Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../_asyncio/index.html">_asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_rp2/index.html">_rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_thread/index.html">_thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../array/index.html">array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asyncio/index.html">asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binascii/index.html">binascii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../btree/index.html">btree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cmath/index.html">cmath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collections/index.html">collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cryptolib/index.html">cryptolib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deflate/index.html">deflate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../errno/index.html">errno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp/index.html">esp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp32/index.html">esp32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../espnow/index.html">espnow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framebuf/index.html">framebuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gc/index.html">gc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gzip/index.html">gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hashlib/index.html">hashlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heapq/index.html">heapq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/index.html">io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../json/index.html">json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lcd160cr/index.html">lcd160cr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machine/index.html">machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math/index.html">math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../micropython/index.html">micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neopixel/index.html">neopixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openamp/index.html">openamp</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">os</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#os.VfsFat"><code class="docutils literal notranslate"><span class="pre">VfsFat</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.VfsLfs1"><code class="docutils literal notranslate"><span class="pre">VfsLfs1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.VfsLfs2"><code class="docutils literal notranslate"><span class="pre">VfsLfs2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.VfsPosix"><code class="docutils literal notranslate"><span class="pre">VfsPosix</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.chdir"><code class="docutils literal notranslate"><span class="pre">chdir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.dupterm"><code class="docutils literal notranslate"><span class="pre">dupterm()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.getcwd"><code class="docutils literal notranslate"><span class="pre">getcwd()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.ilistdir"><code class="docutils literal notranslate"><span class="pre">ilistdir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.listdir"><code class="docutils literal notranslate"><span class="pre">listdir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.mkdir"><code class="docutils literal notranslate"><span class="pre">mkdir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.mount"><code class="docutils literal notranslate"><span class="pre">mount()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.rename"><code class="docutils literal notranslate"><span class="pre">rename()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.rmdir"><code class="docutils literal notranslate"><span class="pre">rmdir()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.stat"><code class="docutils literal notranslate"><span class="pre">stat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.statvfs"><code class="docutils literal notranslate"><span class="pre">statvfs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.sync"><code class="docutils literal notranslate"><span class="pre">sync()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.umount"><code class="docutils literal notranslate"><span class="pre">umount()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.uname"><code class="docutils literal notranslate"><span class="pre">uname()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#os.urandom"><code class="docutils literal notranslate"><span class="pre">urandom()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/index.html">platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyb/index.html">pyb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../random/index.html">random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rp2/index.html">rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../select/index.html">select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../socket/index.html">socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ssl/index.html">ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stm/index.html">stm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../struct/index.html">struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sys/index.html">sys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uctypes/index.html">uctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vfs/index.html">vfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wipy/index.html">wipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zephyr/index.html">zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlib/index.html">zlib</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+<li><a href="../../index.html">Documentation overview</a><ul>
+<li><a href="../index.html">MicroPython Modules</a><ul>
+<li>Previous: <a href="../openamp/index.html" title="previous chapter">openamp</a></li>
+<li>Next: <a href="../platform/index.html" title="next chapter">platform</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<search id="searchbox" role="search" style="display: none">
+<h3 id="searchlabel">Quick search</h3>
+<div class="searchformwrapper">
+<form action="../../search.html" class="search" method="get">
+<input aria-labelledby="searchlabel" autocapitalize="off" autocomplete="off" autocorrect="off" name="q" spellcheck="false" type="text"/>
+<input type="submit" value="Go"/>
+</form>
+</div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="footer">
+      ©2024, Jos Verlinde.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/autoapi/os/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+</body>
+</html>

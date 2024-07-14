@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html data-content_root="../../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>rp2.DMA — API documentation test 1 documentation</title>
+<link href="../../../_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/alabaster.css?v=12dfc556" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/graphviz.css?v=fd3f3429" rel="stylesheet" type="text/css"/>
+<script src="../../../_static/documentation_options.js?v=29a6c3e3"></script>
+<script src="../../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<link href="../../../genindex.html" rel="index" title="Index"/>
+<link href="../../../search.html" rel="search" title="Search"/>
+<link href="../Flash/index.html" rel="next" title="rp2.Flash"/>
+<link href="../index.html" rel="prev" title="rp2"/>
+<link href="../../../_static/custom.css" rel="stylesheet" type="text/css"/>
+</head><body>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
+<section id="module-rp2.DMA">
+<span id="rp2-dma"></span><h1>rp2.DMA<a class="headerlink" href="#module-rp2.DMA" title="Link to this heading">¶</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rp2.DMA.DMA" title="rp2.DMA.DMA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DMA</span></code></a></p></td>
+<td><p>Claim one of the DMA controller channels for exclusive use.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rp2.DMA.DMA">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rp2.DMA.</span></span><span class="sig-name descname"><span class="pre">DMA</span></span><a class="headerlink" href="#rp2.DMA.DMA" title="Link to this definition">¶</a></dt>
+<dd><p>Claim one of the DMA controller channels for exclusive use.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rp2.DMA.DMA.active">
+<span class="sig-name descname"><span class="pre">active</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#rp2.DMA.DMA.active" title="Link to this definition">¶</a></dt>
+<dd><p>Gets or sets whether the DMA channel is currently running.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span><span class="o">.</span><span class="n">active</span><span class="p">()</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="n">sm</span><span class="o">.</span><span class="n">active</span><span class="p">():</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rp2.DMA.DMA.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#rp2.DMA.DMA.close" title="Link to this definition">¶</a></dt>
+<dd><p>Release the claim on the underlying DMA channel and free the interrupt
+handler. The <a class="reference internal" href="#rp2.DMA.DMA" title="rp2.DMA.DMA"><code class="xref py py-class docutils literal notranslate"><span class="pre">DMA</span></code></a> object can not be used after this operation.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rp2.DMA.DMA.config">
+<span class="sig-name descname"><span class="pre">config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">read</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ctrl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trigger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rp2.DMA.DMA.config" title="Link to this definition">¶</a></dt>
+<dd><p>Configure the DMA registers for the channel and optionally start the transfer.
+Parameters are:</p>
+<ul class="simple">
+<li><p><em>read</em>: The address from which the DMA controller will start reading data or
+an object that will provide data to be read. It can be an integer or any
+object that supports the buffer protocol.</p></li>
+<li><p><em>write</em>: The address to which the DMA controller will start writing or an
+object into which data will be written. It can be an integer or any object
+that supports the buffer protocol.</p></li>
+<li><p><em>count</em>: The number of bus transfers that will execute before this channel
+stops. Note that this is the number of transfers, not the number of bytes.
+If the transfers are 2 or 4 bytes wide then the total amount of data moved
+(and thus the size of required buffer) needs to be multiplied accordingly.</p></li>
+<li><p><em>ctrl</em>: The value for the DMA control register. This is an integer value
+that is typically packed using the <a class="reference internal" href="#rp2.DMA.DMA.pack_ctrl" title="rp2.DMA.DMA.pack_ctrl"><code class="xref py py-meth docutils literal notranslate"><span class="pre">DMA.pack_ctrl()</span></code></a>.</p></li>
+<li><p><em>trigger</em>: Optionally commence the transfer immediately.</p></li>
+</ul>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rp2.DMA.DMA.irq">
+<span class="sig-name descname"><span class="pre">irq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hard</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#rp2.DMA.DMA.irq" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the IRQ object for this DMA channel and optionally configures it.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rp2.DMA.DMA.pack_ctrl">
+<span class="sig-name descname"><span class="pre">pack_ctrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#rp2.DMA.DMA.pack_ctrl" title="Link to this definition">¶</a></dt>
+<dd><p>Pack the values provided in the keyword arguments into the named fields of a new control
+register value. Any field that is not provided will be set to a default value. The
+default will either be taken from the provided <code class="docutils literal notranslate"><span class="pre">default</span></code> value, or if that is not
+given, a default suitable for the current channel; setting this to the current value
+of the <code class="xref any docutils literal notranslate"><span class="pre">DMA.ctrl</span></code> attribute provides an easy way to override a subset of the fields.</p>
+<p>The keys for the keyword arguments can be any key returned by the <a class="reference internal" href="#rp2.DMA.DMA.unpack_ctrl" title="rp2.DMA.DMA.unpack_ctrl"><code class="xref py py-meth docutils literal notranslate"><span class="pre">DMA.unpack_ctrl()</span></code></a>
+method. The writable values are:</p>
+<ul class="simple">
+<li><p><em>enable</em>: <code class="docutils literal notranslate"><span class="pre">bool</span></code> Set to enable the channel (default: <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p></li>
+<li><p><em>high_pri</em>: <code class="docutils literal notranslate"><span class="pre">bool</span></code> Make this channel’s bus traffic high priority (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p></li>
+<li><p><em>size</em>: <code class="docutils literal notranslate"><span class="pre">int</span></code> Transfer size: 0=byte, 1=half word, 2=word (default: 2).</p></li>
+<li><p><em>inc_read</em>: <code class="docutils literal notranslate"><span class="pre">bool</span></code> Increment the read address after each transfer (default: <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p></li>
+<li><p><em>inc_write</em>: <code class="docutils literal notranslate"><span class="pre">bool</span></code> Increment the write address after each transfer (default: <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p></li>
+<li><p><em>ring_size</em>: <code class="docutils literal notranslate"><span class="pre">int</span></code> If non-zero, only the bottom <code class="docutils literal notranslate"><span class="pre">ring_size</span></code> bits of one
+address register will change when an address is incremented, causing the
+address to wrap at the next <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&lt;&lt;</span> <span class="pre">ring_size</span></code> byte boundary. Which
+address is wrapped is controlled by the <code class="docutils literal notranslate"><span class="pre">ring_sel</span></code> flag. A zero value
+disables address wrapping.</p></li>
+<li><p><em>ring_sel</em>: <code class="docutils literal notranslate"><span class="pre">bool</span></code> Set to <code class="docutils literal notranslate"><span class="pre">False</span></code> to have the <code class="docutils literal notranslate"><span class="pre">ring_size</span></code> apply to the read address
+or <code class="docutils literal notranslate"><span class="pre">True</span></code> to apply to the write address.</p></li>
+<li><p><em>chain_to</em>: <code class="docutils literal notranslate"><span class="pre">int</span></code> The channel number for a channel to trigger after this transfer
+completes. Setting this value to this DMA object’s own channel number
+disables chaining (this is the default).</p></li>
+<li><p><em>treq_sel</em>: <code class="docutils literal notranslate"><span class="pre">int</span></code> Select a Transfer Request signal. See section 2.5.3 in the RP2040
+datasheet for details.</p></li>
+<li><p><em>irq_quiet</em>: <code class="docutils literal notranslate"><span class="pre">bool</span></code> Do not generate interrupt at the end of each transfer. Interrupts
+will instead be generated when a zero value is written to the trigger
+register, which will halt a sequence of chained transfers (default:
+<code class="docutils literal notranslate"><span class="pre">True</span></code>).</p></li>
+<li><p><em>bswap</em>: <code class="docutils literal notranslate"><span class="pre">bool</span></code> If set to true, bytes in words or half-words will be reversed before
+writing (default: <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p></li>
+<li><p><em>sniff_en</em>: <code class="docutils literal notranslate"><span class="pre">bool</span></code> Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> to allow data to be accessed by the chips sniff
+hardware (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p></li>
+<li><p><em>write_err</em>: <code class="docutils literal notranslate"><span class="pre">bool</span></code> Setting this to <code class="docutils literal notranslate"><span class="pre">True</span></code> will clear a previously reported write
+error.</p></li>
+<li><p><em>read_err</em>: <code class="docutils literal notranslate"><span class="pre">bool</span></code> Setting this to <code class="docutils literal notranslate"><span class="pre">True</span></code> will clear a previously reported read
+error.</p></li>
+</ul>
+<p>See the description of the <code class="docutils literal notranslate"><span class="pre">CH0_CTRL_TRIG</span></code> register in section 2.5.7 of the RP2040
+datasheet for details of all of these fields.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rp2.DMA.DMA.unpack_ctrl">
+<span class="sig-name descname"><span class="pre">unpack_ctrl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#rp2.DMA.DMA.unpack_ctrl" title="Link to this definition">¶</a></dt>
+<dd><p>Unpack a value for a DMA channel control register into a dictionary with key/value pairs
+for each of the fields in the control register.  <em>value</em> is the <code class="docutils literal notranslate"><span class="pre">ctrl</span></code> register value
+to unpack.</p>
+<p>This method will return values for all the keys that can be passed to <code class="docutils literal notranslate"><span class="pre">DMA.pack_ctrl</span></code>.
+In addition, it will also return the read-only flags in the control register: <code class="docutils literal notranslate"><span class="pre">busy</span></code>,
+which goes high when a transfer starts and low when it ends, and <code class="docutils literal notranslate"><span class="pre">ahb_err</span></code>, which is
+the logical OR of the <code class="docutils literal notranslate"><span class="pre">read_err</span></code> and <code class="docutils literal notranslate"><span class="pre">write_err</span></code> flags. These values will be ignored
+when packing, so that the dictionary created by unpacking a control register can be used
+directly as the keyword arguments for packing.</p>
+</dd></dl>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+<div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">API documentation test</a></h1>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../library/index.html">LiBrary!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bar.html">bar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">MicroPython Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../_asyncio/index.html">_asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_rp2/index.html">_rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_thread/index.html">_thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../array/index.html">array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asyncio/index.html">asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../binascii/index.html">binascii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bluetooth/index.html">bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../btree/index.html">btree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cmath/index.html">cmath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collections/index.html">collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cryptolib/index.html">cryptolib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../deflate/index.html">deflate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../errno/index.html">errno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../esp/index.html">esp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../esp32/index.html">esp32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../espnow/index.html">espnow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../framebuf/index.html">framebuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gc/index.html">gc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gzip/index.html">gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hashlib/index.html">hashlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../heapq/index.html">heapq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../io/index.html">io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../json/index.html">json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lcd160cr/index.html">lcd160cr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../machine/index.html">machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/index.html">math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../micropython/index.html">micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../neopixel/index.html">neopixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../network/index.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../openamp/index.html">openamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../os/index.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform/index.html">platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pyb/index.html">pyb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../random/index.html">random</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">rp2</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">rp2.DMA</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#rp2.DMA.DMA"><code class="docutils literal notranslate"><span class="pre">DMA</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="#rp2.DMA.DMA.active"><code class="docutils literal notranslate"><span class="pre">DMA.active()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#rp2.DMA.DMA.close"><code class="docutils literal notranslate"><span class="pre">DMA.close()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#rp2.DMA.DMA.config"><code class="docutils literal notranslate"><span class="pre">DMA.config()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#rp2.DMA.DMA.irq"><code class="docutils literal notranslate"><span class="pre">DMA.irq()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#rp2.DMA.DMA.pack_ctrl"><code class="docutils literal notranslate"><span class="pre">DMA.pack_ctrl()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#rp2.DMA.DMA.unpack_ctrl"><code class="docutils literal notranslate"><span class="pre">DMA.unpack_ctrl()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../Flash/index.html">rp2.Flash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PIO/index.html">rp2.PIO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../StateMachine/index.html">rp2.StateMachine</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#exceptions">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../select/index.html">select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../socket/index.html">socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ssl/index.html">ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stm/index.html">stm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../struct/index.html">struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sys/index.html">sys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../uctypes/index.html">uctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vfs/index.html">vfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wipy/index.html">wipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zephyr/index.html">zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zlib/index.html">zlib</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+<li><a href="../../../index.html">Documentation overview</a><ul>
+<li><a href="../../index.html">MicroPython Modules</a><ul>
+<li><a href="../index.html">rp2</a><ul>
+<li>Previous: <a href="../index.html" title="previous chapter">rp2</a></li>
+<li>Next: <a href="../Flash/index.html" title="next chapter">rp2.Flash</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<search id="searchbox" role="search" style="display: none">
+<h3 id="searchlabel">Quick search</h3>
+<div class="searchformwrapper">
+<form action="../../../search.html" class="search" method="get">
+<input aria-labelledby="searchlabel" autocapitalize="off" autocomplete="off" autocorrect="off" name="q" spellcheck="false" type="text"/>
+<input type="submit" value="Go"/>
+</form>
+</div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="footer">
+      ©2024, Jos Verlinde.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../../_sources/autoapi/rp2/DMA/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+</body>
+</html>

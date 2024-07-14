@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>hashlib — API documentation test 1 documentation</title>
+<link href="../../_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="../../_static/alabaster.css?v=12dfc556" rel="stylesheet" type="text/css"/>
+<link href="../../_static/graphviz.css?v=fd3f3429" rel="stylesheet" type="text/css"/>
+<script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="../heapq/index.html" rel="next" title="heapq"/>
+<link href="../gzip/index.html" rel="prev" title="gzip"/>
+<link href="../../_static/custom.css" rel="stylesheet" type="text/css"/>
+</head><body>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
+<section id="module-hashlib">
+<span id="hashlib"></span><h1>hashlib<a class="headerlink" href="#module-hashlib" title="Link to this heading">¶</a></h1>
+<p>Hashing algorithms.</p>
+<p>MicroPython module: <a class="reference external" href="https://docs.micropython.org/en/v1.23.0/library/hashlib.html">https://docs.micropython.org/en/v1.23.0/library/hashlib.html</a></p>
+<p>CPython module: <a class="reference external" href="https://docs.python.org/3.5/library/hashlib.html#module-hashlib" title="(in Python v3.5)"><code class="docutils literal notranslate"><span class="pre">hashlib</span></code></a> <a class="reference external" href="https://docs.python.org/3/library/hashlib.html">https://docs.python.org/3/library/hashlib.html</a> .</p>
+<p>This module implements binary data hashing algorithms. The exact inventory
+of available algorithms depends on a board. Among the algorithms which may
+be implemented:</p>
+<ul class="simple">
+<li><p>SHA256 - The current generation, modern hashing algorithm (of SHA2 series).
+It is suitable for cryptographically-secure purposes. Included in the
+MicroPython core and any board is recommended to provide this, unless
+it has particular code size constraints.</p></li>
+<li><p>SHA1 - A previous generation algorithm. Not recommended for new usages,
+but SHA1 is a part of number of Internet standards and existing
+applications, so boards targeting network connectivity and
+interoperability will try to provide this.</p></li>
+<li><p>MD5 - A legacy algorithm, not considered cryptographically secure. Only
+selected boards, targeting interoperability with legacy applications,
+will offer this.</p></li>
+</ul>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hashlib.hash" title="hashlib.hash"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hash</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hashlib.md5" title="hashlib.md5"><code class="xref py py-obj docutils literal notranslate"><span class="pre">md5</span></code></a></p></td>
+<td><p>Create an MD5 hasher object and optionally feed <code class="docutils literal notranslate"><span class="pre">data</span></code> into it.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hashlib.sha1" title="hashlib.sha1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sha1</span></code></a></p></td>
+<td><p>Create an SHA1 hasher object and optionally feed <code class="docutils literal notranslate"><span class="pre">data</span></code> into it.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hashlib.sha256" title="hashlib.sha256"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sha256</span></code></a></p></td>
+<td><p>Create an SHA256 hasher object and optionally feed <code class="docutils literal notranslate"><span class="pre">data</span></code> into it.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hashlib.hash">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hashlib.</span></span><span class="sig-name descname"><span class="pre">hash</span></span><a class="headerlink" href="#hashlib.hash" title="Link to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="hashlib.hash.digest">
+<span class="sig-name descname"><span class="pre">digest</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bytes" title="(in Python v3.5)"><span class="pre">bytes</span></a></span></span><a class="headerlink" href="#hashlib.hash.digest" title="Link to this definition">¶</a></dt>
+<dd><p>Return hash for all data passed through hash, as a bytes object. After this
+method is called, more data cannot be fed into the hash any longer.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="hashlib.hash.hexdigest">
+<span class="sig-name descname"><span class="pre">hexdigest</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#hashlib.hash.hexdigest" title="Link to this definition">¶</a></dt>
+<dd><p>This method is NOT implemented. Use <code class="docutils literal notranslate"><span class="pre">binascii.hexlify(hash.digest())</span></code>
+to achieve a similar effect.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="hashlib.hash.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#hashlib.hash.update" title="Link to this definition">¶</a></dt>
+<dd><p>Feed more binary data into hash.</p>
+</dd></dl>
+</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="hashlib.md5">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hashlib.</span></span><span class="sig-name descname"><span class="pre">md5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hashlib.md5" title="Link to this definition">¶</a></dt>
+<dd><p>Create an MD5 hasher object and optionally feed <code class="docutils literal notranslate"><span class="pre">data</span></code> into it.</p>
+</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="hashlib.sha1">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hashlib.</span></span><span class="sig-name descname"><span class="pre">sha1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hashlib.sha1" title="Link to this definition">¶</a></dt>
+<dd><p>Create an SHA1 hasher object and optionally feed <code class="docutils literal notranslate"><span class="pre">data</span></code> into it.</p>
+</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="hashlib.sha256">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hashlib.</span></span><span class="sig-name descname"><span class="pre">sha256</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hashlib.sha256" title="Link to this definition">¶</a></dt>
+<dd><p>Create an SHA256 hasher object and optionally feed <code class="docutils literal notranslate"><span class="pre">data</span></code> into it.</p>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+<div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">API documentation test</a></h1>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">LiBrary!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bar.html">bar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MicroPython Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../_asyncio/index.html">_asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_rp2/index.html">_rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_thread/index.html">_thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../array/index.html">array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asyncio/index.html">asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binascii/index.html">binascii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../btree/index.html">btree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cmath/index.html">cmath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collections/index.html">collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cryptolib/index.html">cryptolib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deflate/index.html">deflate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../errno/index.html">errno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp/index.html">esp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp32/index.html">esp32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../espnow/index.html">espnow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framebuf/index.html">framebuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gc/index.html">gc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gzip/index.html">gzip</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">hashlib</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hashlib.hash"><code class="docutils literal notranslate"><span class="pre">hash</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#hashlib.hash.digest"><code class="docutils literal notranslate"><span class="pre">hash.digest()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#hashlib.hash.hexdigest"><code class="docutils literal notranslate"><span class="pre">hash.hexdigest()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#hashlib.hash.update"><code class="docutils literal notranslate"><span class="pre">hash.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#hashlib.md5"><code class="docutils literal notranslate"><span class="pre">md5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hashlib.sha1"><code class="docutils literal notranslate"><span class="pre">sha1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hashlib.sha256"><code class="docutils literal notranslate"><span class="pre">sha256</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../heapq/index.html">heapq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/index.html">io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../json/index.html">json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lcd160cr/index.html">lcd160cr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machine/index.html">machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math/index.html">math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../micropython/index.html">micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neopixel/index.html">neopixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openamp/index.html">openamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os/index.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/index.html">platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyb/index.html">pyb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../random/index.html">random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rp2/index.html">rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../select/index.html">select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../socket/index.html">socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ssl/index.html">ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stm/index.html">stm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../struct/index.html">struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sys/index.html">sys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uctypes/index.html">uctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vfs/index.html">vfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wipy/index.html">wipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zephyr/index.html">zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlib/index.html">zlib</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+<li><a href="../../index.html">Documentation overview</a><ul>
+<li><a href="../index.html">MicroPython Modules</a><ul>
+<li>Previous: <a href="../gzip/index.html" title="previous chapter">gzip</a></li>
+<li>Next: <a href="../heapq/index.html" title="next chapter">heapq</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<search id="searchbox" role="search" style="display: none">
+<h3 id="searchlabel">Quick search</h3>
+<div class="searchformwrapper">
+<form action="../../search.html" class="search" method="get">
+<input aria-labelledby="searchlabel" autocapitalize="off" autocomplete="off" autocorrect="off" name="q" spellcheck="false" type="text"/>
+<input type="submit" value="Go"/>
+</form>
+</div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="footer">
+      ©2024, Jos Verlinde.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/autoapi/hashlib/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+</body>
+</html>

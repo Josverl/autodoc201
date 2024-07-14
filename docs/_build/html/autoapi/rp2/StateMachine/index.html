@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html data-content_root="../../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>rp2.StateMachine — API documentation test 1 documentation</title>
+<link href="../../../_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/alabaster.css?v=12dfc556" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/graphviz.css?v=fd3f3429" rel="stylesheet" type="text/css"/>
+<script src="../../../_static/documentation_options.js?v=29a6c3e3"></script>
+<script src="../../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<link href="../../../genindex.html" rel="index" title="Index"/>
+<link href="../../../search.html" rel="search" title="Search"/>
+<link href="../../select/index.html" rel="next" title="select"/>
+<link href="../PIO/index.html" rel="prev" title="rp2.PIO"/>
+<link href="../../../_static/custom.css" rel="stylesheet" type="text/css"/>
+</head><body>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
+<section id="module-rp2.StateMachine">
+<span id="rp2-statemachine"></span><h1>rp2.StateMachine<a class="headerlink" href="#module-rp2.StateMachine" title="Link to this heading">¶</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rp2.StateMachine.StateMachine" title="rp2.StateMachine.StateMachine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StateMachine</span></code></a></p></td>
+<td><p>Get the state machine numbered <em>id</em>. The RP2040 has two identical PIO</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rp2.StateMachine.StateMachine">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rp2.StateMachine.</span></span><span class="sig-name descname"><span class="pre">StateMachine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">program</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rp2.StateMachine.StateMachine" title="Link to this definition">¶</a></dt>
+<dd><p>Get the state machine numbered <em>id</em>. The RP2040 has two identical PIO
+instances, each with 4 state machines: so there are 8 state machines in
+total, numbered 0 to 7.</p>
+<p>Optionally initialize it with the given program <em>program</em>: see
+<a class="reference internal" href="#rp2.StateMachine.StateMachine.init" title="rp2.StateMachine.StateMachine.init"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">StateMachine.init</span></code></a>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rp2.StateMachine.StateMachine.active">
+<span class="sig-name descname"><span class="pre">active</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#rp2.StateMachine.StateMachine.active" title="Link to this definition">¶</a></dt>
+<dd><p>Gets or sets whether the state machine is currently running.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span><span class="o">.</span><span class="n">active</span><span class="p">()</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rp2.StateMachine.StateMachine.exec">
+<span class="sig-name descname"><span class="pre">exec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instr</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#rp2.StateMachine.StateMachine.exec" title="Link to this definition">¶</a></dt>
+<dd><p>Execute a single PIO instruction.</p>
+<p>If <em>instr</em> is a string then uses <a class="reference internal" href="../index.html#rp2.asm_pio_encode" title="rp2.asm_pio_encode"><code class="xref any py py-func docutils literal notranslate"><span class="pre">asm_pio_encode</span></code></a> to encode the instruction
+from the given string.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="s2">"set(0, 1)"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If <em>instr</em> is an integer then it is treated as an already encoded PIO
+machine code instruction to be executed.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="n">rp2</span><span class="o">.</span><span class="n">asm_pio_encode</span><span class="p">(</span><span class="s2">"out(y, 8)"</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rp2.StateMachine.StateMachine.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#rp2.StateMachine.StateMachine.get" title="Link to this definition">¶</a></dt>
+<dd><p>Pull a word from the state machine’s RX FIFO.</p>
+<p>If the FIFO is empty, it blocks until data arrives (i.e. the state machine
+pushes a word).</p>
+<p>The value is shifted right by <em>shift</em> bits before returning, i.e. the
+return value is <code class="docutils literal notranslate"><span class="pre">word</span> <span class="pre">&gt;&gt;</span> <span class="pre">shift</span></code>.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rp2.StateMachine.StateMachine.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jmp_pin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sideset_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_shiftdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_shiftdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">push_thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pull_thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#rp2.StateMachine.StateMachine.init" title="Link to this definition">¶</a></dt>
+<dd><p>Configure the state machine instance to run the given <em>program</em>.</p>
+<p>The program is added to the instruction memory of this PIO instance. If the
+instruction memory already contains this program, then its offset is
+reused so as to save on instruction memory.</p>
+<ul>
+<li><p><em>freq</em> is the frequency in Hz to run the state machine at. Defaults to
+the system clock frequency.</p>
+<p>The clock divider is computed as <code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">clock</span> <span class="pre">frequency</span> <span class="pre">/</span> <span class="pre">freq</span></code>, so
+there can be slight rounding errors.</p>
+<p>The minimum possible clock divider is one 65536th of the system clock: so
+at the default system clock frequency of 125MHz, the minimum value of
+<em>freq</em> is <code class="docutils literal notranslate"><span class="pre">1908</span></code>. To run state machines at slower frequencies, you’ll
+need to reduce the system clock speed with <a class="reference internal" href="../../machine/index.html#machine.freq" title="machine.freq"><code class="xref any py py-func docutils literal notranslate"><span class="pre">machine.freq()</span></code></a>.</p>
+</li>
+<li><p><em>in_base</em> is the first pin to use for <code class="docutils literal notranslate"><span class="pre">in()</span></code> instructions.</p></li>
+<li><p><em>out_base</em> is the first pin to use for <code class="docutils literal notranslate"><span class="pre">out()</span></code> instructions.</p></li>
+<li><p><em>set_base</em> is the first pin to use for <code class="docutils literal notranslate"><span class="pre">set()</span></code> instructions.</p></li>
+<li><p><em>jmp_pin</em> is the first pin to use for <code class="docutils literal notranslate"><span class="pre">jmp(pin,</span> <span class="pre">...)</span></code> instructions.</p></li>
+<li><p><em>sideset_base</em> is the first pin to use for side-setting.</p></li>
+<li><p><em>in_shiftdir</em> is the direction the ISR will shift, either
+<a class="reference internal" href="../../_rp2/index.html#rp2.PIO.SHIFT_LEFT" title="_rp2.PIO.SHIFT_LEFT"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">PIO.SHIFT_LEFT</span></code></a> or <a class="reference internal" href="../../_rp2/index.html#rp2.PIO.SHIFT_RIGHT" title="_rp2.PIO.SHIFT_RIGHT"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">PIO.SHIFT_RIGHT</span></code></a>.</p></li>
+<li><p><em>out_shiftdir</em> is the direction the OSR will shift, either
+<a class="reference internal" href="../../_rp2/index.html#rp2.PIO.SHIFT_LEFT" title="_rp2.PIO.SHIFT_LEFT"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">PIO.SHIFT_LEFT</span></code></a> or <a class="reference internal" href="../../_rp2/index.html#rp2.PIO.SHIFT_RIGHT" title="_rp2.PIO.SHIFT_RIGHT"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">PIO.SHIFT_RIGHT</span></code></a>.</p></li>
+<li><p><em>push_thresh</em> is the threshold in bits before auto-push or conditional
+re-pushing is triggered.</p></li>
+<li><p><em>pull_thresh</em> is the threshold in bits before auto-pull or conditional
+re-pulling is triggered.</p></li>
+</ul>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rp2.StateMachine.StateMachine.irq">
+<span class="sig-name descname"><span class="pre">irq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trigger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span> <span class="pre">|</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hard</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#rp2.StateMachine.StateMachine.irq" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the IRQ object for the given StateMachine.</p>
+<p>Optionally configure it.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rp2.StateMachine.StateMachine.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#rp2.StateMachine.StateMachine.put" title="Link to this definition">¶</a></dt>
+<dd><p>Push words onto the state machine’s TX FIFO.</p>
+<p><em>value</em> can be an integer, an array of type <code class="docutils literal notranslate"><span class="pre">B</span></code>, <code class="docutils literal notranslate"><span class="pre">H</span></code> or <code class="docutils literal notranslate"><span class="pre">I</span></code>, or a
+<a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bytearray" title="(in Python v3.5)"><code class="xref any docutils literal notranslate"><span class="pre">bytearray</span></code></a>.</p>
+<p>This method will block until all words have been written to the FIFO.  If
+the FIFO is, or becomes, full, the method will block until the state machine
+pulls enough words to complete the write.</p>
+<p>Each word is first shifted left by <em>shift</em> bits, i.e. the state machine
+receives <code class="docutils literal notranslate"><span class="pre">word</span> <span class="pre">&lt;&lt;</span> <span class="pre">shift</span></code>.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rp2.StateMachine.StateMachine.restart">
+<span class="sig-name descname"><span class="pre">restart</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#rp2.StateMachine.StateMachine.restart" title="Link to this definition">¶</a></dt>
+<dd><p>Restarts the state machine and jumps to the beginning of the program.</p>
+<p>This method clears the state machine’s internal state using the RP2040’s
+<code class="docutils literal notranslate"><span class="pre">SM_RESTART</span></code> register. This includes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>input and output shift counters</p></li>
+<li><p>the contents of the input shift register</p></li>
+<li><p>the delay counter</p></li>
+<li><p>the waiting-on-IRQ state</p></li>
+<li><p>a stalled instruction run using <a class="reference internal" href="#rp2.StateMachine.StateMachine.exec" title="rp2.StateMachine.StateMachine.exec"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">StateMachine.exec()</span></code></a></p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rp2.StateMachine.StateMachine.rx_fifo">
+<span class="sig-name descname"><span class="pre">rx_fifo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#rp2.StateMachine.StateMachine.rx_fifo" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the number of words in the state machine’s RX FIFO. A value of 0
+indicates the FIFO is empty.</p>
+<p>Useful for checking if data is waiting to be read, before calling
+<a class="reference internal" href="#rp2.StateMachine.StateMachine.get" title="rp2.StateMachine.StateMachine.get"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">StateMachine.get()</span></code></a>.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rp2.StateMachine.StateMachine.tx_fifo">
+<span class="sig-name descname"><span class="pre">tx_fifo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#rp2.StateMachine.StateMachine.tx_fifo" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the number of words in the state machine’s TX FIFO. A value of 0
+indicates the FIFO is empty.</p>
+<p>Useful for checking if there is space to push another word using
+<a class="reference internal" href="#rp2.StateMachine.StateMachine.put" title="rp2.StateMachine.StateMachine.put"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">StateMachine.put()</span></code></a>.</p>
+</dd></dl>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+<div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">API documentation test</a></h1>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../library/index.html">LiBrary!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bar.html">bar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">MicroPython Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../_asyncio/index.html">_asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_rp2/index.html">_rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_thread/index.html">_thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../array/index.html">array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asyncio/index.html">asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../binascii/index.html">binascii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bluetooth/index.html">bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../btree/index.html">btree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cmath/index.html">cmath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collections/index.html">collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cryptolib/index.html">cryptolib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../deflate/index.html">deflate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../errno/index.html">errno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../esp/index.html">esp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../esp32/index.html">esp32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../espnow/index.html">espnow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../framebuf/index.html">framebuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gc/index.html">gc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gzip/index.html">gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hashlib/index.html">hashlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../heapq/index.html">heapq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../io/index.html">io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../json/index.html">json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lcd160cr/index.html">lcd160cr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../machine/index.html">machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/index.html">math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../micropython/index.html">micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../neopixel/index.html">neopixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../network/index.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../openamp/index.html">openamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../os/index.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform/index.html">platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pyb/index.html">pyb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../random/index.html">random</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">rp2</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../DMA/index.html">rp2.DMA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Flash/index.html">rp2.Flash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PIO/index.html">rp2.PIO</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">rp2.StateMachine</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#rp2.StateMachine.StateMachine"><code class="docutils literal notranslate"><span class="pre">StateMachine</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="#rp2.StateMachine.StateMachine.active"><code class="docutils literal notranslate"><span class="pre">StateMachine.active()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#rp2.StateMachine.StateMachine.exec"><code class="docutils literal notranslate"><span class="pre">StateMachine.exec()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#rp2.StateMachine.StateMachine.get"><code class="docutils literal notranslate"><span class="pre">StateMachine.get()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#rp2.StateMachine.StateMachine.init"><code class="docutils literal notranslate"><span class="pre">StateMachine.init()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#rp2.StateMachine.StateMachine.irq"><code class="docutils literal notranslate"><span class="pre">StateMachine.irq()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#rp2.StateMachine.StateMachine.put"><code class="docutils literal notranslate"><span class="pre">StateMachine.put()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#rp2.StateMachine.StateMachine.restart"><code class="docutils literal notranslate"><span class="pre">StateMachine.restart()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#rp2.StateMachine.StateMachine.rx_fifo"><code class="docutils literal notranslate"><span class="pre">StateMachine.rx_fifo()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#rp2.StateMachine.StateMachine.tx_fifo"><code class="docutils literal notranslate"><span class="pre">StateMachine.tx_fifo()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#exceptions">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../select/index.html">select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../socket/index.html">socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ssl/index.html">ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stm/index.html">stm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../struct/index.html">struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sys/index.html">sys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../uctypes/index.html">uctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vfs/index.html">vfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wipy/index.html">wipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zephyr/index.html">zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zlib/index.html">zlib</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+<li><a href="../../../index.html">Documentation overview</a><ul>
+<li><a href="../../index.html">MicroPython Modules</a><ul>
+<li><a href="../index.html">rp2</a><ul>
+<li>Previous: <a href="../PIO/index.html" title="previous chapter">rp2.PIO</a></li>
+<li>Next: <a href="../../select/index.html" title="next chapter">select</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<search id="searchbox" role="search" style="display: none">
+<h3 id="searchlabel">Quick search</h3>
+<div class="searchformwrapper">
+<form action="../../../search.html" class="search" method="get">
+<input aria-labelledby="searchlabel" autocapitalize="off" autocomplete="off" autocorrect="off" name="q" spellcheck="false" type="text"/>
+<input type="submit" value="Go"/>
+</form>
+</div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="footer">
+      ©2024, Jos Verlinde.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../../_sources/autoapi/rp2/StateMachine/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+</body>
+</html>

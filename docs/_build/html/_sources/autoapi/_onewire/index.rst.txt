@@ -1,0 +1,34 @@
+_onewire
+========
+
+.. py:module:: _onewire
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   _onewire.crc8
+   _onewire.readbit
+   _onewire.readbyte
+   _onewire.reset
+   _onewire.writebit
+   _onewire.writebyte
+
+
+Package Contents
+----------------
+
+.. py:function:: crc8(*args, **kwargs) -> _typeshed.Incomplete
+
+.. py:function:: readbit(*args, **kwargs) -> _typeshed.Incomplete
+
+.. py:function:: readbyte(*args, **kwargs) -> _typeshed.Incomplete
+
+.. py:function:: reset(*args, **kwargs) -> _typeshed.Incomplete
+
+.. py:function:: writebit(*args, **kwargs) -> _typeshed.Incomplete
+
+.. py:function:: writebyte(*args, **kwargs) -> _typeshed.Incomplete
+

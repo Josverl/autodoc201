@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>ssl — API documentation test 1 documentation</title>
+<link href="../../_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="../../_static/alabaster.css?v=12dfc556" rel="stylesheet" type="text/css"/>
+<link href="../../_static/graphviz.css?v=fd3f3429" rel="stylesheet" type="text/css"/>
+<script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="../stm/index.html" rel="next" title="stm"/>
+<link href="../socket/index.html" rel="prev" title="socket"/>
+<link href="../../_static/custom.css" rel="stylesheet" type="text/css"/>
+</head><body>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
+<section id="module-ssl">
+<span id="ssl"></span><h1>ssl<a class="headerlink" href="#module-ssl" title="Link to this heading">¶</a></h1>
+<p>TLS/SSL wrapper for socket objects.</p>
+<p>MicroPython module: <a class="reference external" href="https://docs.micropython.org/en/v1.23.0/library/ssl.html">https://docs.micropython.org/en/v1.23.0/library/ssl.html</a></p>
+<p>CPython module: <a class="reference external" href="https://docs.python.org/3.5/library/ssl.html#module-ssl" title="(in Python v3.5)"><code class="docutils literal notranslate"><span class="pre">ssl</span></code></a> <a class="reference external" href="https://docs.python.org/3/library/ssl.html">https://docs.python.org/3/library/ssl.html</a> .</p>
+<p>This module provides access to Transport Layer Security (previously and
+widely known as “Secure Sockets Layer”) encryption and peer authentication
+facilities for network sockets, both client-side and server-side.</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ssl.CERT_NONE" title="ssl.CERT_NONE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CERT_NONE</span></code></a></p></td>
+<td><p>Supported values for <em>cert_reqs</em> parameter, and the <a class="reference external" href="https://docs.python.org/3.5/library/ssl.html#ssl.SSLContext.verify_mode" title="(in Python v3.5)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">SSLContext.verify_mode</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ssl.CERT_OPTIONAL" title="ssl.CERT_OPTIONAL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CERT_OPTIONAL</span></code></a></p></td>
+<td><p>Supported values for <em>cert_reqs</em> parameter, and the <a class="reference external" href="https://docs.python.org/3.5/library/ssl.html#ssl.SSLContext.verify_mode" title="(in Python v3.5)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">SSLContext.verify_mode</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ssl.CERT_REQUIRED" title="ssl.CERT_REQUIRED"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CERT_REQUIRED</span></code></a></p></td>
+<td><p>Supported values for <em>cert_reqs</em> parameter, and the <a class="reference external" href="https://docs.python.org/3.5/library/ssl.html#ssl.SSLContext.verify_mode" title="(in Python v3.5)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">SSLContext.verify_mode</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ssl.PROTOCOL_TLS_CLIENT" title="ssl.PROTOCOL_TLS_CLIENT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PROTOCOL_TLS_CLIENT</span></code></a></p></td>
+<td><p>Supported values for the <em>protocol</em> parameter.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ssl.PROTOCOL_TLS_SERVER" title="ssl.PROTOCOL_TLS_SERVER"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PROTOCOL_TLS_SERVER</span></code></a></p></td>
+<td><p>Supported values for the <em>protocol</em> parameter.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ssl.SSLError" title="ssl.SSLError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SSLError</span></code></a></p></td>
+<td><p>This exception does NOT exist. Instead its base class, OSError, is used.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ssl.SSLContext" title="ssl.SSLContext"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SSLContext</span></code></a></p></td>
+<td><p>Create a new SSLContext instance.  The <em>protocol</em> argument must be one of the <code class="docutils literal notranslate"><span class="pre">PROTOCOL_*</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ssl.wrap_socket" title="ssl.wrap_socket"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrap_socket</span></code></a>(→ IO)</p></td>
+<td><p>Wrap the given <em>sock</em> and return a new wrapped-socket object.  The implementation</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ssl.SSLContext">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ssl.</span></span><span class="sig-name descname"><span class="pre">SSLContext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocol</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ssl.SSLContext" title="Link to this definition">¶</a></dt>
+<dd><p>Create a new SSLContext instance.  The <em>protocol</em> argument must be one of the <code class="docutils literal notranslate"><span class="pre">PROTOCOL_*</span></code>
+constants.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ssl.SSLContext.get_ciphers">
+<span class="sig-name descname"><span class="pre">get_ciphers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ssl.SSLContext.get_ciphers" title="Link to this definition">¶</a></dt>
+<dd><p>Get a list of enabled ciphers, returned as a list of strings.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ssl.SSLContext.load_cert_chain">
+<span class="sig-name descname"><span class="pre">load_cert_chain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">certfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyfile</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#ssl.SSLContext.load_cert_chain" title="Link to this definition">¶</a></dt>
+<dd><p>Load a private key and the corresponding certificate.  The <em>certfile</em> is a string
+with the file path of the certificate.  The <em>keyfile</em> is a string with the file path
+of the private key.</p>
+<p>Difference to CPython</p>
+<blockquote>
+<div><p>MicroPython extension: <em>certfile</em> and <em>keyfile</em> can be bytes objects instead of
+strings, in which case they are interpreted as the actual certificate/key data.</p>
+</div></blockquote>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ssl.SSLContext.load_verify_locations">
+<span class="sig-name descname"><span class="pre">load_verify_locations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cafile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#ssl.SSLContext.load_verify_locations" title="Link to this definition">¶</a></dt>
+<dd><p>Load the CA certificate chain that will validate the peer’s certificate.
+<em>cafile</em> is the file path of the CA certificates.  <em>cadata</em> is a bytes object
+containing the CA certificates.  Only one of these arguments should be provided.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ssl.SSLContext.set_ciphers">
+<span class="sig-name descname"><span class="pre">set_ciphers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ciphers</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#ssl.SSLContext.set_ciphers" title="Link to this definition">¶</a></dt>
+<dd><p>Set the available ciphers for sockets created with this context.  <em>ciphers</em> should be
+a list of strings in the <a class="reference external" href="https://wiki.mozilla.org/Security/Cipher_Suites">IANA cipher suite format</a> .</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ssl.SSLContext.wrap_socket">
+<span class="sig-name descname"><span class="pre">wrap_socket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server_side</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_handshake_on_connect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server_hostname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#ssl.SSLContext.wrap_socket" title="Link to this definition">¶</a></dt>
+<dd><p>Takes a <a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-stream" title="(in MicroPython vlatest)"><code class="xref any docutils literal notranslate"><span class="pre">stream</span></code></a> <em>sock</em> (usually socket.socket instance of <code class="docutils literal notranslate"><span class="pre">SOCK_STREAM</span></code> type),
+and returns an instance of ssl.SSLSocket, wrapping the underlying stream.
+The returned object has the usual <a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-stream" title="(in MicroPython vlatest)"><code class="xref any docutils literal notranslate"><span class="pre">stream</span></code></a> interface methods like
+<code class="docutils literal notranslate"><span class="pre">read()</span></code>, <code class="docutils literal notranslate"><span class="pre">write()</span></code>, etc.</p>
+<ul class="simple">
+<li><p><em>server_side</em> selects whether the wrapped socket is on the server or client side.
+A server-side SSL socket should be created from a normal socket returned from
+<a class="reference internal" href="../socket/index.html#socket.socket.accept" title="socket.socket.accept"><code class="xref py py-meth docutils literal notranslate"><span class="pre">accept()</span></code></a> on a non-SSL listening server socket.</p></li>
+<li><p><em>do_handshake_on_connect</em> determines whether the handshake is done as part of the <code class="docutils literal notranslate"><span class="pre">wrap_socket</span></code>
+or whether it is deferred to be done as part of the initial reads or writes
+For blocking sockets doing the handshake immediately is standard. For non-blocking
+sockets (i.e. when the <em>sock</em> passed into <code class="docutils literal notranslate"><span class="pre">wrap_socket</span></code> is in non-blocking mode)
+the handshake should generally be deferred because otherwise <code class="docutils literal notranslate"><span class="pre">wrap_socket</span></code> blocks
+until it completes. Note that in AXTLS the handshake can be deferred until the first
+read or write but it then blocks until completion.</p></li>
+<li><p><em>server_hostname</em> is for use as a client, and sets the hostname to check against the received
+server certificate.  It also sets the name for Server Name Indication (SNI), allowing the server
+to present the proper certificate.</p></li>
+</ul>
+</dd></dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="ssl.wrap_socket">
+<span class="sig-prename descclassname"><span class="pre">ssl.</span></span><span class="sig-name descname"><span class="pre">wrap_socket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server_side</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cert_reqs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server_hostname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_handshake</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">IO</span></span></span><a class="headerlink" href="#ssl.wrap_socket" title="Link to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Wrap the given <em>sock</em> and return a new wrapped-socket object.  The implementation
+of this function is to first create an <a class="reference internal" href="#ssl.SSLContext" title="ssl.SSLContext"><code class="xref any py py-class docutils literal notranslate"><span class="pre">SSLContext</span></code></a> and then call the <a class="reference internal" href="#ssl.SSLContext.wrap_socket" title="ssl.SSLContext.wrap_socket"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">SSLContext.wrap_socket</span></code></a>
+method on that context object.  The arguments <em>sock</em>, <em>server_side</em> and <em>server_hostname</em> are
+passed through unchanged to the method call.  The argument <em>do_handshake</em> is passed through as
+<em>do_handshake_on_connect</em>.  The remaining arguments have the following behaviour:</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><em>cert_reqs</em> determines whether the peer (server or client) must present a valid certificate.
+Note that for mbedtls based ports, <code class="docutils literal notranslate"><span class="pre">ssl.CERT_NONE</span></code> and <code class="docutils literal notranslate"><span class="pre">ssl.CERT_OPTIONAL</span></code> will not
+validate any certificate, only <code class="docutils literal notranslate"><span class="pre">ssl.CERT_REQUIRED</span></code> will.</p></li>
+<li><p><em>cadata</em> is a bytes object containing the CA certificate chain (in DER format) that will
+validate the peer’s certificate.  Currently only a single DER-encoded certificate is supported.</p></li>
+</ul>
+<p>Depending on the underlying module implementation in a particular
+<a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-MicroPython-port" title="(in MicroPython vlatest)"><span class="xref std std-term">MicroPython port</span></a>, some or all keyword arguments above may be not supported.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="ssl.CERT_NONE">
+<span class="sig-prename descclassname"><span class="pre">ssl.</span></span><span class="sig-name descname"><span class="pre">CERT_NONE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#ssl.CERT_NONE" title="Link to this definition">¶</a></dt>
+<dd><p>Supported values for <em>cert_reqs</em> parameter, and the <a class="reference external" href="https://docs.python.org/3.5/library/ssl.html#ssl.SSLContext.verify_mode" title="(in Python v3.5)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">SSLContext.verify_mode</span></code></a>
+attribute.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="ssl.CERT_OPTIONAL">
+<span class="sig-prename descclassname"><span class="pre">ssl.</span></span><span class="sig-name descname"><span class="pre">CERT_OPTIONAL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#ssl.CERT_OPTIONAL" title="Link to this definition">¶</a></dt>
+<dd><p>Supported values for <em>cert_reqs</em> parameter, and the <a class="reference external" href="https://docs.python.org/3.5/library/ssl.html#ssl.SSLContext.verify_mode" title="(in Python v3.5)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">SSLContext.verify_mode</span></code></a>
+attribute.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="ssl.CERT_REQUIRED">
+<span class="sig-prename descclassname"><span class="pre">ssl.</span></span><span class="sig-name descname"><span class="pre">CERT_REQUIRED</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#ssl.CERT_REQUIRED" title="Link to this definition">¶</a></dt>
+<dd><p>Supported values for <em>cert_reqs</em> parameter, and the <a class="reference external" href="https://docs.python.org/3.5/library/ssl.html#ssl.SSLContext.verify_mode" title="(in Python v3.5)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">SSLContext.verify_mode</span></code></a>
+attribute.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="ssl.PROTOCOL_TLS_CLIENT">
+<span class="sig-prename descclassname"><span class="pre">ssl.</span></span><span class="sig-name descname"><span class="pre">PROTOCOL_TLS_CLIENT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#ssl.PROTOCOL_TLS_CLIENT" title="Link to this definition">¶</a></dt>
+<dd><p>Supported values for the <em>protocol</em> parameter.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="ssl.PROTOCOL_TLS_SERVER">
+<span class="sig-prename descclassname"><span class="pre">ssl.</span></span><span class="sig-name descname"><span class="pre">PROTOCOL_TLS_SERVER</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#ssl.PROTOCOL_TLS_SERVER" title="Link to this definition">¶</a></dt>
+<dd><p>Supported values for the <em>protocol</em> parameter.</p>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="ssl.SSLError">
+<span class="sig-prename descclassname"><span class="pre">ssl.</span></span><span class="sig-name descname"><span class="pre">SSLError</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><a class="headerlink" href="#ssl.SSLError" title="Link to this definition">¶</a></dt>
+<dd><p>This exception does NOT exist. Instead its base class, OSError, is used.</p>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+<div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">API documentation test</a></h1>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">LiBrary!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bar.html">bar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MicroPython Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../_asyncio/index.html">_asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_rp2/index.html">_rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_thread/index.html">_thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../array/index.html">array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asyncio/index.html">asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binascii/index.html">binascii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../btree/index.html">btree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cmath/index.html">cmath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collections/index.html">collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cryptolib/index.html">cryptolib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deflate/index.html">deflate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../errno/index.html">errno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp/index.html">esp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp32/index.html">esp32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../espnow/index.html">espnow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framebuf/index.html">framebuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gc/index.html">gc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gzip/index.html">gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hashlib/index.html">hashlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heapq/index.html">heapq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/index.html">io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../json/index.html">json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lcd160cr/index.html">lcd160cr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machine/index.html">machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math/index.html">math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../micropython/index.html">micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neopixel/index.html">neopixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openamp/index.html">openamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os/index.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/index.html">platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyb/index.html">pyb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../random/index.html">random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rp2/index.html">rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../select/index.html">select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../socket/index.html">socket</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ssl</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ssl.SSLContext"><code class="docutils literal notranslate"><span class="pre">SSLContext</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#ssl.SSLContext.get_ciphers"><code class="docutils literal notranslate"><span class="pre">SSLContext.get_ciphers()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ssl.SSLContext.load_cert_chain"><code class="docutils literal notranslate"><span class="pre">SSLContext.load_cert_chain()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ssl.SSLContext.load_verify_locations"><code class="docutils literal notranslate"><span class="pre">SSLContext.load_verify_locations()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ssl.SSLContext.set_ciphers"><code class="docutils literal notranslate"><span class="pre">SSLContext.set_ciphers()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ssl.SSLContext.wrap_socket"><code class="docutils literal notranslate"><span class="pre">SSLContext.wrap_socket()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#ssl.wrap_socket"><code class="docutils literal notranslate"><span class="pre">wrap_socket()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ssl.CERT_NONE"><code class="docutils literal notranslate"><span class="pre">CERT_NONE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ssl.CERT_OPTIONAL"><code class="docutils literal notranslate"><span class="pre">CERT_OPTIONAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ssl.CERT_REQUIRED"><code class="docutils literal notranslate"><span class="pre">CERT_REQUIRED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ssl.PROTOCOL_TLS_CLIENT"><code class="docutils literal notranslate"><span class="pre">PROTOCOL_TLS_CLIENT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ssl.PROTOCOL_TLS_SERVER"><code class="docutils literal notranslate"><span class="pre">PROTOCOL_TLS_SERVER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ssl.SSLError"><code class="docutils literal notranslate"><span class="pre">SSLError</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../stm/index.html">stm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../struct/index.html">struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sys/index.html">sys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uctypes/index.html">uctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vfs/index.html">vfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wipy/index.html">wipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zephyr/index.html">zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlib/index.html">zlib</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+<li><a href="../../index.html">Documentation overview</a><ul>
+<li><a href="../index.html">MicroPython Modules</a><ul>
+<li>Previous: <a href="../socket/index.html" title="previous chapter">socket</a></li>
+<li>Next: <a href="../stm/index.html" title="next chapter">stm</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<search id="searchbox" role="search" style="display: none">
+<h3 id="searchlabel">Quick search</h3>
+<div class="searchformwrapper">
+<form action="../../search.html" class="search" method="get">
+<input aria-labelledby="searchlabel" autocapitalize="off" autocomplete="off" autocorrect="off" name="q" spellcheck="false" type="text"/>
+<input type="submit" value="Go"/>
+</form>
+</div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="footer">
+      ©2024, Jos Verlinde.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/autoapi/ssl/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+</body>
+</html>

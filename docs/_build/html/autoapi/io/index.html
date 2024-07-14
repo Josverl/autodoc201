@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>io — API documentation test 1 documentation</title>
+<link href="../../_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="../../_static/alabaster.css?v=12dfc556" rel="stylesheet" type="text/css"/>
+<link href="../../_static/graphviz.css?v=fd3f3429" rel="stylesheet" type="text/css"/>
+<script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="../json/index.html" rel="next" title="json"/>
+<link href="../heapq/index.html" rel="prev" title="heapq"/>
+<link href="../../_static/custom.css" rel="stylesheet" type="text/css"/>
+</head><body>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
+<section id="module-io">
+<span id="io"></span><h1>io<a class="headerlink" href="#module-io" title="Link to this heading">¶</a></h1>
+<p>Input/output streams.</p>
+<p>MicroPython module: <a class="reference external" href="https://docs.micropython.org/en/v1.23.0/library/io.html">https://docs.micropython.org/en/v1.23.0/library/io.html</a></p>
+<p>CPython module: <a class="reference external" href="https://docs.python.org/3.5/library/io.html#module-io" title="(in Python v3.5)"><code class="docutils literal notranslate"><span class="pre">io</span></code></a> <a class="reference external" href="https://docs.python.org/3/library/io.html">https://docs.python.org/3/library/io.html</a> .</p>
+<p>This module contains additional types of <a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-stream" title="(in MicroPython vlatest)"><code class="xref any docutils literal notranslate"><span class="pre">stream</span></code></a> (file-like) objects
+and helper functions.</p>
+<section id="conceptual-hierarchy">
+<h2>Conceptual hierarchy<a class="headerlink" href="#conceptual-hierarchy" title="Link to this heading">¶</a></h2>
+<p>Difference to CPython</p>
+<blockquote>
+<div><p>Conceptual hierarchy of stream base classes is simplified in MicroPython,
+as described in this section.</p>
+</div></blockquote>
+<p>(Abstract) base stream classes, which serve as a foundation for behaviour
+of all the concrete classes, adhere to few dichotomies (pair-wise
+classifications) in CPython. In MicroPython, they are somewhat simplified
+and made implicit to achieve higher efficiencies and save resources.</p>
+<p>An important dichotomy in CPython is unbuffered vs buffered streams. In
+MicroPython, all streams are currently unbuffered. This is because all
+modern OSes, and even many RTOSes and filesystem drivers already perform
+buffering on their side. Adding another layer of buffering is counter-
+productive (an issue known as “bufferbloat”) and takes precious memory.
+Note that there still cases where buffering may be useful, so we may
+introduce optional buffering support at a later time.</p>
+<p>But in CPython, another important dichotomy is tied with “bufferedness” -
+it’s whether a stream may incur short read/writes or not. A short read
+is when a user asks e.g. 10 bytes from a stream, but gets less, similarly
+for writes. In CPython, unbuffered streams are automatically short
+operation susceptible, while buffered are guarantee against them. The
+no short read/writes is an important trait, as it allows to develop
+more concise and efficient programs - something which is highly desirable
+for MicroPython. So, while MicroPython doesn’t support buffered streams,
+it still provides for no-short-operations streams. Whether there will
+be short operations or not depends on each particular class’ needs, but
+developers are strongly advised to favour no-short-operations behaviour
+for the reasons stated above. For example, MicroPython sockets are
+guaranteed to avoid short read/writes. Actually, at this time, there is
+no example of a short-operations stream class in the core, and one would
+be a port-specific class, where such a need is governed by hardware
+peculiarities.</p>
+<p>The no-short-operations behaviour gets tricky in case of non-blocking
+streams, blocking vs non-blocking behaviour being another CPython dichotomy,
+fully supported by MicroPython. Non-blocking streams never wait for
+data either to arrive or be written - they read/write whatever possible,
+or signal lack of data (or ability to write data). Clearly, this conflicts
+with “no-short-operations” policy, and indeed, a case of non-blocking
+buffered (and this no-short-ops) streams is convoluted in CPython - in
+some places, such combination is prohibited, in some it’s undefined or
+just not documented, in some cases it raises verbose exceptions. The
+matter is much simpler in MicroPython: non-blocking stream are important
+for efficient asynchronous operations, so this property prevails on
+the “no-short-ops” one. So, while blocking streams will avoid short
+reads/writes whenever possible (the only case to get a short read is
+if end of file is reached, or in case of error (but errors don’t
+return short data, but raise exceptions)), non-blocking streams may
+produce short data to avoid blocking the operation.</p>
+<p>The final dichotomy is binary vs text streams. MicroPython of course
+supports these, but while in CPython text streams are inherently
+buffered, they aren’t in MicroPython. (Indeed, that’s one of the cases
+for which we may introduce buffering support.)</p>
+<p>Note that for efficiency, MicroPython doesn’t provide abstract base
+classes corresponding to the hierarchy above, and it’s not possible
+to implement, or subclass, a stream class in pure Python.</p>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#io.BytesIO" title="io.BytesIO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BytesIO</span></code></a></p></td>
+<td><p>In-memory file-like objects for input/output. <a class="reference internal" href="#io.StringIO" title="io.StringIO"><code class="xref any py py-class docutils literal notranslate"><span class="pre">StringIO</span></code></a> is used for</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#io.StringIO" title="io.StringIO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StringIO</span></code></a></p></td>
+<td><p>Generic base class for TextIO and BinaryIO.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#io.open" title="io.open"><code class="xref py py-obj docutils literal notranslate"><span class="pre">open</span></code></a>(→ Incomplete)</p></td>
+<td><p>Open a file. Builtin <code class="docutils literal notranslate"><span class="pre">open()</span></code> function is aliased to this function.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="io.BytesIO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">io.</span></span><span class="sig-name descname"><span class="pre">BytesIO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#io.BytesIO" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">IO</span></code></p>
+<p>In-memory file-like objects for input/output. <a class="reference internal" href="#io.StringIO" title="io.StringIO"><code class="xref any py py-class docutils literal notranslate"><span class="pre">StringIO</span></code></a> is used for
+text-mode I/O (similar to a normal file opened with “t” modifier).
+<a class="reference internal" href="#io.BytesIO" title="io.BytesIO"><code class="xref any py py-class docutils literal notranslate"><span class="pre">BytesIO</span></code></a> is used for binary-mode I/O (similar to a normal file
+opened with “b” modifier). Initial contents of file-like objects
+can be specified with <em>string</em> parameter (should be normal string
+for <a class="reference internal" href="#io.StringIO" title="io.StringIO"><code class="xref any py py-class docutils literal notranslate"><span class="pre">StringIO</span></code></a> or bytes object for <a class="reference internal" href="#io.BytesIO" title="io.BytesIO"><code class="xref any py py-class docutils literal notranslate"><span class="pre">BytesIO</span></code></a>). All the usual file
+methods like <code class="docutils literal notranslate"><span class="pre">read()</span></code>, <code class="docutils literal notranslate"><span class="pre">write()</span></code>, <code class="docutils literal notranslate"><span class="pre">seek()</span></code>, <code class="docutils literal notranslate"><span class="pre">flush()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">close()</span></code> are available on these objects, and additionally, a
+following method:</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="io.BytesIO.getvalue">
+<span class="sig-name descname"><span class="pre">getvalue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#io.BytesIO.getvalue" title="Link to this definition">¶</a></dt>
+<dd><p>Get the current contents of the underlying buffer which holds data.</p>
+</dd></dl>
+</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="io.StringIO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">io.</span></span><span class="sig-name descname"><span class="pre">StringIO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#io.StringIO" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">IO</span></code></p>
+<p>Generic base class for TextIO and BinaryIO.</p>
+<p>This is an abstract, generic version of the return of open().</p>
+<p>NOTE: This does not distinguish between the different possible
+classes (text vs. binary, read vs. write vs. read/write,
+append-only, unbuffered).  The TextIO and BinaryIO subclasses
+below capture the distinctions between text vs. binary, which is
+pervasive in the interface; however we currently do not offer a
+way to track the other distinctions in the type system.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="io.open">
+<span class="sig-prename descclassname"><span class="pre">io.</span></span><span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'r'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#io.open" title="Link to this definition">¶</a></dt>
+<dd><p>Open a file. Builtin <code class="docutils literal notranslate"><span class="pre">open()</span></code> function is aliased to this function.
+All ports (which provide access to file system) are required to support
+<em>mode</em> parameter, but support for other arguments vary by port.</p>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+<div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">API documentation test</a></h1>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">LiBrary!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bar.html">bar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MicroPython Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../_asyncio/index.html">_asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_rp2/index.html">_rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_thread/index.html">_thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../array/index.html">array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asyncio/index.html">asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binascii/index.html">binascii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../btree/index.html">btree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cmath/index.html">cmath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collections/index.html">collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cryptolib/index.html">cryptolib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deflate/index.html">deflate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../errno/index.html">errno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp/index.html">esp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp32/index.html">esp32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../espnow/index.html">espnow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framebuf/index.html">framebuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gc/index.html">gc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gzip/index.html">gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hashlib/index.html">hashlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heapq/index.html">heapq</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">io</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#conceptual-hierarchy">Conceptual hierarchy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#io.BytesIO"><code class="docutils literal notranslate"><span class="pre">BytesIO</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#io.BytesIO.getvalue"><code class="docutils literal notranslate"><span class="pre">BytesIO.getvalue()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#io.StringIO"><code class="docutils literal notranslate"><span class="pre">StringIO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#io.open"><code class="docutils literal notranslate"><span class="pre">open()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../json/index.html">json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lcd160cr/index.html">lcd160cr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machine/index.html">machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math/index.html">math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../micropython/index.html">micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neopixel/index.html">neopixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openamp/index.html">openamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os/index.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/index.html">platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyb/index.html">pyb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../random/index.html">random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rp2/index.html">rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../select/index.html">select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../socket/index.html">socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ssl/index.html">ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stm/index.html">stm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../struct/index.html">struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sys/index.html">sys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uctypes/index.html">uctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vfs/index.html">vfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wipy/index.html">wipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zephyr/index.html">zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlib/index.html">zlib</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+<li><a href="../../index.html">Documentation overview</a><ul>
+<li><a href="../index.html">MicroPython Modules</a><ul>
+<li>Previous: <a href="../heapq/index.html" title="previous chapter">heapq</a></li>
+<li>Next: <a href="../json/index.html" title="next chapter">json</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<search id="searchbox" role="search" style="display: none">
+<h3 id="searchlabel">Quick search</h3>
+<div class="searchformwrapper">
+<form action="../../search.html" class="search" method="get">
+<input aria-labelledby="searchlabel" autocapitalize="off" autocomplete="off" autocorrect="off" name="q" spellcheck="false" type="text"/>
+<input type="submit" value="Go"/>
+</form>
+</div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="footer">
+      ©2024, Jos Verlinde.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/autoapi/io/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+</body>
+</html>

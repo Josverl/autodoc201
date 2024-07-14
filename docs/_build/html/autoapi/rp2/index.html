@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>rp2 — API documentation test 1 documentation</title>
+<link href="../../_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="../../_static/alabaster.css?v=12dfc556" rel="stylesheet" type="text/css"/>
+<link href="../../_static/graphviz.css?v=fd3f3429" rel="stylesheet" type="text/css"/>
+<script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="DMA/index.html" rel="next" title="rp2.DMA"/>
+<link href="../random/index.html" rel="prev" title="random"/>
+<link href="../../_static/custom.css" rel="stylesheet" type="text/css"/>
+</head><body>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
+<section id="module-rp2">
+<span id="rp2"></span><h1>rp2<a class="headerlink" href="#module-rp2" title="Link to this heading">¶</a></h1>
+<p>Functionality specific to the RP2.</p>
+<p>MicroPython module: <a class="reference external" href="https://docs.micropython.org/en/v1.23.0/library/rp2.html">https://docs.micropython.org/en/v1.23.0/library/rp2.html</a></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rp2</span></code> module contains functions and classes specific to the RP2040, as
+used in the Raspberry Pi Pico.</p>
+<p>See the <a class="reference external" href="https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-python-sdk.pdf">RP2040 Python datasheet</a>
+for more information, and <a class="reference external" href="https://github.com/raspberrypi/pico-micropython-examples/tree/master/pio">pico-micropython-examples</a>
+for example code.</p>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DMA/index.html">rp2.DMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Flash/index.html">rp2.Flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PIO/index.html">rp2.PIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StateMachine/index.html">rp2.StateMachine</a></li>
+</ul>
+</div>
+</section>
+<section id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rp2.PIOASMError" title="rp2.PIOASMError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PIOASMError</span></code></a></p></td>
+<td><p>This exception is raised from <a class="reference internal" href="#rp2.asm_pio" title="rp2.asm_pio"><code class="xref any py py-func docutils literal notranslate"><span class="pre">asm_pio()</span></code></a> or <a class="reference internal" href="#rp2.asm_pio_encode" title="rp2.asm_pio_encode"><code class="xref any py py-func docutils literal notranslate"><span class="pre">asm_pio_encode()</span></code></a> if there is</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rp2.asm_pio" title="rp2.asm_pio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asm_pio</span></code></a>(→ Incomplete)</p></td>
+<td><p>Assemble a PIO program.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rp2.asm_pio_encode" title="rp2.asm_pio_encode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asm_pio_encode</span></code></a>(→ Incomplete)</p></td>
+<td><p>Assemble a single PIO instruction. You usually want to use <a class="reference internal" href="#rp2.asm_pio" title="rp2.asm_pio"><code class="xref any py py-func docutils literal notranslate"><span class="pre">asm_pio()</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rp2.bootsel_button" title="rp2.bootsel_button"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bootsel_button</span></code></a>(→ Incomplete)</p></td>
+<td><p>Temporarily turns the QSPI_SS pin into an input and reads its value,</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading">¶</a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="rp2.PIOASMError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rp2.</span></span><span class="sig-name descname"><span class="pre">PIOASMError</span></span><a class="headerlink" href="#rp2.PIOASMError" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.5/library/exceptions.html#Exception" title="(in Python v3.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<p>This exception is raised from <a class="reference internal" href="#rp2.asm_pio" title="rp2.asm_pio"><code class="xref any py py-func docutils literal notranslate"><span class="pre">asm_pio()</span></code></a> or <a class="reference internal" href="#rp2.asm_pio_encode" title="rp2.asm_pio_encode"><code class="xref any py py-func docutils literal notranslate"><span class="pre">asm_pio_encode()</span></code></a> if there is
+an error assembling a PIO program.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="rp2.asm_pio">
+<span class="sig-prename descclassname"><span class="pre">rp2.</span></span><span class="sig-name descname"><span class="pre">asm_pio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sideset_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_shiftdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_shiftdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autopush</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autopull</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">push_thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pull_thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fifo_join</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">PIO.JOIN_NONE</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#rp2.asm_pio" title="Link to this definition">¶</a></dt>
+<dd><p>Assemble a PIO program.</p>
+<p>The following parameters control the initial state of the GPIO pins, as one
+of <a class="reference internal" href="../_rp2/index.html#rp2.PIO.IN_LOW" title="_rp2.PIO.IN_LOW"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">PIO.IN_LOW</span></code></a>, <a class="reference internal" href="../_rp2/index.html#rp2.PIO.IN_HIGH" title="_rp2.PIO.IN_HIGH"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">PIO.IN_HIGH</span></code></a>, <a class="reference internal" href="../_rp2/index.html#rp2.PIO.OUT_LOW" title="_rp2.PIO.OUT_LOW"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">PIO.OUT_LOW</span></code></a> or <a class="reference internal" href="../_rp2/index.html#rp2.PIO.OUT_HIGH" title="_rp2.PIO.OUT_HIGH"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">PIO.OUT_HIGH</span></code></a>. If the
+program uses more than one pin, provide a tuple, e.g.
+<code class="docutils literal notranslate"><span class="pre">out_init=(PIO.OUT_LOW,</span> <span class="pre">PIO.OUT_LOW)</span></code>.</p>
+<ul class="simple">
+<li><p><em>out_init</em> configures the pins used for <code class="docutils literal notranslate"><span class="pre">out()</span></code> instructions.</p></li>
+<li><p><em>set_init</em> configures the pins used for <code class="docutils literal notranslate"><span class="pre">set()</span></code> instructions. There can
+be at most 5.</p></li>
+<li><p><em>sideset_init</em> configures the pins used side-setting. There can be at
+most 5.</p></li>
+</ul>
+<p>The following parameters are used by default, but can be overridden in
+<a class="reference internal" href="../_rp2/index.html#rp2.StateMachine.init" title="_rp2.StateMachine.init"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">StateMachine.init()</span></code></a>:</p>
+<ul class="simple">
+<li><p><em>in_shiftdir</em> is the default direction the ISR will shift, either
+<a class="reference internal" href="../_rp2/index.html#rp2.PIO.SHIFT_LEFT" title="_rp2.PIO.SHIFT_LEFT"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">PIO.SHIFT_LEFT</span></code></a> or <a class="reference internal" href="../_rp2/index.html#rp2.PIO.SHIFT_RIGHT" title="_rp2.PIO.SHIFT_RIGHT"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">PIO.SHIFT_RIGHT</span></code></a>.</p></li>
+<li><p><em>out_shiftdir</em> is the default direction the OSR will shift, either
+<a class="reference internal" href="../_rp2/index.html#rp2.PIO.SHIFT_LEFT" title="_rp2.PIO.SHIFT_LEFT"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">PIO.SHIFT_LEFT</span></code></a> or <a class="reference internal" href="../_rp2/index.html#rp2.PIO.SHIFT_RIGHT" title="_rp2.PIO.SHIFT_RIGHT"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">PIO.SHIFT_RIGHT</span></code></a>.</p></li>
+<li><p><em>push_thresh</em> is the threshold in bits before auto-push or conditional
+re-pushing is triggered.</p></li>
+<li><p><em>pull_thresh</em> is the threshold in bits before auto-pull or conditional
+re-pulling is triggered.</p></li>
+</ul>
+<p>The remaining parameters are:</p>
+<ul class="simple">
+<li><p><em>autopush</em> configures whether auto-push is enabled.</p></li>
+<li><p><em>autopull</em> configures whether auto-pull is enabled.</p></li>
+<li><p><em>fifo_join</em> configures whether the 4-word TX and RX FIFOs should be
+combined into a single 8-word FIFO for one direction only. The options
+are <a class="reference internal" href="../_rp2/index.html#rp2.PIO.JOIN_NONE" title="_rp2.PIO.JOIN_NONE"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">PIO.JOIN_NONE</span></code></a>, <a class="reference internal" href="../_rp2/index.html#rp2.PIO.JOIN_RX" title="_rp2.PIO.JOIN_RX"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">PIO.JOIN_RX</span></code></a> and <a class="reference internal" href="../_rp2/index.html#rp2.PIO.JOIN_TX" title="_rp2.PIO.JOIN_TX"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">PIO.JOIN_TX</span></code></a>.</p></li>
+</ul>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="rp2.asm_pio_encode">
+<span class="sig-prename descclassname"><span class="pre">rp2.</span></span><span class="sig-name descname"><span class="pre">asm_pio_encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sideset_count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sideset_opt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#rp2.asm_pio_encode" title="Link to this definition">¶</a></dt>
+<dd><p>Assemble a single PIO instruction. You usually want to use <a class="reference internal" href="#rp2.asm_pio" title="rp2.asm_pio"><code class="xref any py py-func docutils literal notranslate"><span class="pre">asm_pio()</span></code></a>
+instead.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rp2</span><span class="o">.</span><span class="n">asm_pio_encode</span><span class="p">(</span><span class="s2">"set(0, 1)"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">57345</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="rp2.bootsel_button">
+<span class="sig-prename descclassname"><span class="pre">rp2.</span></span><span class="sig-name descname"><span class="pre">bootsel_button</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#rp2.bootsel_button" title="Link to this definition">¶</a></dt>
+<dd><p>Temporarily turns the QSPI_SS pin into an input and reads its value,
+returning 1 for low and 0 for high.
+On a typical RP2040 board with a BOOTSEL button, a return value of 1
+indicates that the button is pressed.</p>
+<p>Since this function temporarily disables access to the external flash
+memory, it also temporarily disables interrupts and the other core to
+prevent them from trying to execute code from flash.</p>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+<div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">API documentation test</a></h1>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">LiBrary!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bar.html">bar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MicroPython Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../_asyncio/index.html">_asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_rp2/index.html">_rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_thread/index.html">_thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../array/index.html">array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asyncio/index.html">asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binascii/index.html">binascii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../btree/index.html">btree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cmath/index.html">cmath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collections/index.html">collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cryptolib/index.html">cryptolib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deflate/index.html">deflate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../errno/index.html">errno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp/index.html">esp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp32/index.html">esp32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../espnow/index.html">espnow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framebuf/index.html">framebuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gc/index.html">gc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gzip/index.html">gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hashlib/index.html">hashlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heapq/index.html">heapq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/index.html">io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../json/index.html">json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lcd160cr/index.html">lcd160cr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machine/index.html">machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math/index.html">math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../micropython/index.html">micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neopixel/index.html">neopixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openamp/index.html">openamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os/index.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/index.html">platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyb/index.html">pyb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../random/index.html">random</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">rp2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="DMA/index.html">rp2.DMA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Flash/index.html">rp2.Flash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PIO/index.html">rp2.PIO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="StateMachine/index.html">rp2.StateMachine</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#exceptions">Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rp2.PIOASMError"><code class="docutils literal notranslate"><span class="pre">PIOASMError</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rp2.asm_pio"><code class="docutils literal notranslate"><span class="pre">asm_pio()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rp2.asm_pio_encode"><code class="docutils literal notranslate"><span class="pre">asm_pio_encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rp2.bootsel_button"><code class="docutils literal notranslate"><span class="pre">bootsel_button()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../select/index.html">select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../socket/index.html">socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ssl/index.html">ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stm/index.html">stm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../struct/index.html">struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sys/index.html">sys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uctypes/index.html">uctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vfs/index.html">vfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wipy/index.html">wipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zephyr/index.html">zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlib/index.html">zlib</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+<li><a href="../../index.html">Documentation overview</a><ul>
+<li><a href="../index.html">MicroPython Modules</a><ul>
+<li>Previous: <a href="../random/index.html" title="previous chapter">random</a></li>
+<li>Next: <a href="DMA/index.html" title="next chapter">rp2.DMA</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<search id="searchbox" role="search" style="display: none">
+<h3 id="searchlabel">Quick search</h3>
+<div class="searchformwrapper">
+<form action="../../search.html" class="search" method="get">
+<input aria-labelledby="searchlabel" autocapitalize="off" autocomplete="off" autocorrect="off" name="q" spellcheck="false" type="text"/>
+<input type="submit" value="Go"/>
+</form>
+</div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="footer">
+      ©2024, Jos Verlinde.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/autoapi/rp2/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+</body>
+</html>

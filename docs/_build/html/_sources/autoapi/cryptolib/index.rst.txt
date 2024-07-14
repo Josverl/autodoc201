@@ -1,0 +1,41 @@
+cryptolib
+=========
+
+.. py:module:: cryptolib
+
+.. autoapi-nested-parse::
+
+   Cryptographic ciphers.
+
+   MicroPython module: https://docs.micropython.org/en/v1.23.0/library/cryptolib.html
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   cryptolib.aes
+
+
+Package Contents
+----------------
+
+.. py:class:: aes(key, mode, IV: Optional[Any] = None)
+
+   .. py:method:: decrypt(in_buf, out_buf: Optional[Any] = None) -> _typeshed.Incomplete
+
+      Like `encrypt()`, but for decryption.
+
+
+
+   .. py:method:: encrypt(in_buf, out_buf: Optional[Any] = None) -> _typeshed.Incomplete
+
+      Encrypt *in_buf*. If no *out_buf* is given result is returned as a
+      newly allocated `bytes` object. Otherwise, result is written into
+      mutable buffer *out_buf*. *in_buf* and *out_buf* can also refer
+      to the same mutable buffer, in which case data is encrypted in-place.
+
+
+

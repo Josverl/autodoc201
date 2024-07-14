@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html data-content_root="../../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>pyb.RTC — API documentation test 1 documentation</title>
+<link href="../../../_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/alabaster.css?v=12dfc556" rel="stylesheet" type="text/css"/>
+<link href="../../../_static/graphviz.css?v=fd3f3429" rel="stylesheet" type="text/css"/>
+<script src="../../../_static/documentation_options.js?v=29a6c3e3"></script>
+<script src="../../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<link href="../../../genindex.html" rel="index" title="Index"/>
+<link href="../../../search.html" rel="search" title="Search"/>
+<link href="../SPI/index.html" rel="next" title="pyb.SPI"/>
+<link href="../Pin/index.html" rel="prev" title="pyb.Pin"/>
+<link href="../../../_static/custom.css" rel="stylesheet" type="text/css"/>
+</head><body>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
+<section id="module-pyb.RTC">
+<span id="pyb-rtc"></span><h1>pyb.RTC<a class="headerlink" href="#module-pyb.RTC" title="Link to this heading">¶</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyb.RTC.RTC" title="pyb.RTC.RTC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RTC</span></code></a></p></td>
+<td><p>Create an RTC object.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyb.RTC.RTC">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyb.RTC.</span></span><span class="sig-name descname"><span class="pre">RTC</span></span><a class="headerlink" href="#pyb.RTC.RTC" title="Link to this definition">¶</a></dt>
+<dd><p>Create an RTC object.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.RTC.RTC.calibration">
+<span class="sig-name descname"><span class="pre">calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cal</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#pyb.RTC.RTC.calibration" title="Link to this definition">¶</a></dt>
+<dd><p>Get or set RTC calibration.</p>
+<p>With no arguments, <code class="docutils literal notranslate"><span class="pre">calibration()</span></code> returns the current calibration
+value, which is an integer in the range [-511 : 512].  With one
+argument it sets the RTC calibration.</p>
+<p>The RTC Smooth Calibration mechanism adjusts the RTC clock rate by
+adding or subtracting the given number of ticks from the 32768 Hz
+clock over a 32 second period (corresponding to 2^20 clock ticks.)
+Each tick added will speed up the clock by 1 part in 2^20, or 0.954
+ppm; likewise the RTC clock it slowed by negative values. The
+usable calibration range is:
+(-511 * 0.954) ~= -487.5 ppm up to (512 * 0.954) ~= 488.5 ppm</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.RTC.RTC.datetime">
+<span class="sig-name descname"><span class="pre">datetime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datetimetuple</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Tuple</span></span></span><a class="headerlink" href="#pyb.RTC.RTC.datetime" title="Link to this definition">¶</a></dt>
+<dd><p>Get or set the date and time of the RTC.</p>
+<p>With no arguments, this method returns an 8-tuple with the current
+date and time.  With 1 argument (being an 8-tuple) it sets the date
+and time (and <code class="docutils literal notranslate"><span class="pre">subseconds</span></code> is reset to 255).</p>
+<p>The 8-tuple has the following format:</p>
+<blockquote>
+<div><p>(year, month, day, weekday, hours, minutes, seconds, subseconds)</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">weekday</span></code> is 1-7 for Monday through Sunday.</p>
+<p><code class="docutils literal notranslate"><span class="pre">subseconds</span></code> counts down from 255 to 0</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.RTC.RTC.info">
+<span class="sig-name descname"><span class="pre">info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#pyb.RTC.RTC.info" title="Link to this definition">¶</a></dt>
+<dd><p>Get information about the startup time and reset source.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The lower 0xffff are the number of milliseconds the RTC took to
+start up.</p></li>
+<li><p>Bit 0x10000 is set if a power-on reset occurred.</p></li>
+<li><p>Bit 0x20000 is set if an external reset occurred</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.RTC.RTC.wakeup">
+<span class="sig-name descname"><span class="pre">wakeup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pyb.RTC.RTC.wakeup" title="Link to this definition">¶</a></dt>
+<dd><p>Set the RTC wakeup timer to trigger repeatedly at every <code class="docutils literal notranslate"><span class="pre">timeout</span></code>
+milliseconds.  This trigger can wake the pyboard from both the sleep
+states: <a class="reference internal" href="../index.html#pyb.stop" title="pyb.stop"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyb.stop()</span></code></a> and <a class="reference internal" href="../index.html#pyb.standby" title="pyb.standby"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyb.standby()</span></code></a>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">timeout</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> then the wakeup timer is disabled.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">callback</span></code> is given then it is executed at every trigger of the
+wakeup timer.  <code class="docutils literal notranslate"><span class="pre">callback</span></code> must take exactly one argument.</p>
+</dd></dl>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+<div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">API documentation test</a></h1>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../library/index.html">LiBrary!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bar.html">bar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">MicroPython Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../_asyncio/index.html">_asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_rp2/index.html">_rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_thread/index.html">_thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../array/index.html">array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asyncio/index.html">asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../binascii/index.html">binascii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bluetooth/index.html">bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../btree/index.html">btree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cmath/index.html">cmath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collections/index.html">collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cryptolib/index.html">cryptolib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../deflate/index.html">deflate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../errno/index.html">errno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../esp/index.html">esp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../esp32/index.html">esp32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../espnow/index.html">espnow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../framebuf/index.html">framebuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gc/index.html">gc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gzip/index.html">gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hashlib/index.html">hashlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../heapq/index.html">heapq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../io/index.html">io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../json/index.html">json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lcd160cr/index.html">lcd160cr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../machine/index.html">machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/index.html">math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../micropython/index.html">micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../neopixel/index.html">neopixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../network/index.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../openamp/index.html">openamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../os/index.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform/index.html">platform</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">pyb</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../ADC/index.html">pyb.ADC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Accel/index.html">pyb.Accel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CAN/index.html">pyb.CAN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../DAC/index.html">pyb.DAC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ExtInt/index.html">pyb.ExtInt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Flash/index.html">pyb.Flash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../I2C/index.html">pyb.I2C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LCD/index.html">pyb.LCD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LED/index.html">pyb.LED</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Pin/index.html">pyb.Pin</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">pyb.RTC</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#pyb.RTC.RTC"><code class="docutils literal notranslate"><span class="pre">RTC</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.RTC.RTC.calibration"><code class="docutils literal notranslate"><span class="pre">RTC.calibration()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.RTC.RTC.datetime"><code class="docutils literal notranslate"><span class="pre">RTC.datetime()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.RTC.RTC.info"><code class="docutils literal notranslate"><span class="pre">RTC.info()</span></code></a></li>
+<li class="toctree-l7"><a class="reference internal" href="#pyb.RTC.RTC.wakeup"><code class="docutils literal notranslate"><span class="pre">RTC.wakeup()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../SPI/index.html">pyb.SPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Servo/index.html">pyb.Servo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Switch/index.html">pyb.Switch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Timer/index.html">pyb.Timer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../UART/index.html">pyb.UART</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../USB_HID/index.html">pyb.USB_HID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../USB_VCP/index.html">pyb.USB_VCP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../random/index.html">random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../rp2/index.html">rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../select/index.html">select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../socket/index.html">socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ssl/index.html">ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stm/index.html">stm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../struct/index.html">struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sys/index.html">sys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../uctypes/index.html">uctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vfs/index.html">vfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wipy/index.html">wipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zephyr/index.html">zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zlib/index.html">zlib</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+<li><a href="../../../index.html">Documentation overview</a><ul>
+<li><a href="../../index.html">MicroPython Modules</a><ul>
+<li><a href="../index.html">pyb</a><ul>
+<li>Previous: <a href="../Pin/index.html" title="previous chapter">pyb.Pin</a></li>
+<li>Next: <a href="../SPI/index.html" title="next chapter">pyb.SPI</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<search id="searchbox" role="search" style="display: none">
+<h3 id="searchlabel">Quick search</h3>
+<div class="searchformwrapper">
+<form action="../../../search.html" class="search" method="get">
+<input aria-labelledby="searchlabel" autocapitalize="off" autocomplete="off" autocorrect="off" name="q" spellcheck="false" type="text"/>
+<input type="submit" value="Go"/>
+</form>
+</div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="footer">
+      ©2024, Jos Verlinde.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../../_sources/autoapi/pyb/RTC/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+</body>
+</html>

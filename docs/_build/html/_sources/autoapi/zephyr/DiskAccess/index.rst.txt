@@ -1,0 +1,38 @@
+zephyr.DiskAccess
+=================
+
+.. py:module:: zephyr.DiskAccess
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   zephyr.DiskAccess.DiskAccess
+
+
+Module Contents
+---------------
+
+.. py:class:: DiskAccess(disk_name)
+
+   Gets an object for accessing disk memory of the specific disk.
+   For accessing an SD card on the mimxrt1050_evk, ``disk_name`` would be ``SDHC``. See board documentation and
+   devicetree for usable disk names for your board (ex. RT boards use style USDHC#).
+
+
+   .. py:method:: ioctl(cmd, arg) -> _typeshed.Incomplete
+
+      These methods implement the simple and extended
+      :ref:`block protocol <block-device-interface>` defined by
+      :class:`vfs.AbstractBlockDev`.
+
+
+
+   .. py:method:: readblocks(block_num, buf, offset: Optional[int] = 0) -> _typeshed.Incomplete
+
+
+   .. py:method:: writeblocks(block_num, buf, offset: Optional[int] = 0) -> _typeshed.Incomplete
+
+

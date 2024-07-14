@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>time — API documentation test 1 documentation</title>
+<link href="../../_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="../../_static/alabaster.css?v=12dfc556" rel="stylesheet" type="text/css"/>
+<link href="../../_static/graphviz.css?v=fd3f3429" rel="stylesheet" type="text/css"/>
+<script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="../uctypes/index.html" rel="next" title="uctypes"/>
+<link href="../sys/index.html" rel="prev" title="sys"/>
+<link href="../../_static/custom.css" rel="stylesheet" type="text/css"/>
+</head><body>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
+<section id="module-time">
+<span id="time"></span><h1>time<a class="headerlink" href="#module-time" title="Link to this heading">¶</a></h1>
+<p>Time related functions.</p>
+<p>MicroPython module: <a class="reference external" href="https://docs.micropython.org/en/v1.23.0/library/time.html">https://docs.micropython.org/en/v1.23.0/library/time.html</a></p>
+<p>CPython module: <a class="reference external" href="https://docs.python.org/3.5/library/time.html#module-time" title="(in Python v3.5)"><code class="docutils literal notranslate"><span class="pre">time</span></code></a> <a class="reference external" href="https://docs.python.org/3/library/time.html">https://docs.python.org/3/library/time.html</a> .</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">time</span></code> module provides functions for getting the current time and date,
+measuring time intervals, and for delays.</p>
+<p><strong>Time Epoch</strong>: Unix port uses standard for POSIX systems epoch of
+1970-01-01 00:00:00 UTC. However, some embedded ports use epoch of
+2000-01-01 00:00:00 UTC. Epoch year may be determined with <code class="docutils literal notranslate"><span class="pre">gmtime(0)[0]</span></code>.</p>
+<p><strong>Maintaining actual calendar date/time</strong>: This requires a
+Real Time Clock (RTC). On systems with underlying OS (including some
+RTOS), an RTC may be implicit. Setting and maintaining actual calendar
+time is responsibility of OS/RTOS and is done outside of MicroPython,
+it just uses OS API to query date/time. On baremetal ports however
+system time depends on <code class="docutils literal notranslate"><span class="pre">machine.RTC()</span></code> object. The current calendar time
+may be set using <code class="docutils literal notranslate"><span class="pre">machine.RTC().datetime(tuple)</span></code> function, and maintained
+by following means:</p>
+<ul class="simple">
+<li><p>By a backup battery (which may be an additional, optional component for
+a particular board).</p></li>
+<li><p>Using networked time protocol (requires setup by a port/user).</p></li>
+<li><p>Set manually by a user on each power-up (many boards then maintain
+RTC time across hard resets, though some may require setting it again
+in such case).</p></li>
+</ul>
+<p>If actual calendar time is not maintained with a system/MicroPython RTC,
+functions below which require reference to current absolute time may
+behave not as expected.</p>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#time.gmtime" title="time.gmtime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gmtime</span></code></a>(→ Tuple)</p></td>
+<td><p>Convert the time <em>secs</em> expressed in seconds since the Epoch (see above) into an</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#time.localtime" title="time.localtime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">localtime</span></code></a>(→ Tuple)</p></td>
+<td><p>Convert the time <em>secs</em> expressed in seconds since the Epoch (see above) into an</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#time.mktime" title="time.mktime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mktime</span></code></a>(→ int)</p></td>
+<td><p>This is inverse function of localtime. It's argument is a full 8-tuple</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#time.sleep" title="time.sleep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sleep</span></code></a>(→ Incomplete)</p></td>
+<td><p>Sleep for the given number of seconds. Some boards may accept <em>seconds</em> as a</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#time.sleep_ms" title="time.sleep_ms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sleep_ms</span></code></a>(→ None)</p></td>
+<td><p>Delay for given number of milliseconds, should be positive or 0.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#time.sleep_us" title="time.sleep_us"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sleep_us</span></code></a>(→ None)</p></td>
+<td><p>Delay for given number of microseconds, should be positive or 0.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#time.ticks_add" title="time.ticks_add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ticks_add</span></code></a>(→ Incomplete)</p></td>
+<td><p>Offset ticks value by a given number, which can be either positive or negative.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#time.ticks_cpu" title="time.ticks_cpu"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ticks_cpu</span></code></a>(→ Incomplete)</p></td>
+<td><p>Similar to <a class="reference internal" href="#time.ticks_ms" title="time.ticks_ms"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_ms()</span></code></a> and <a class="reference internal" href="#time.ticks_us" title="time.ticks_us"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_us()</span></code></a>, but with the highest possible resolution</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#time.ticks_diff" title="time.ticks_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ticks_diff</span></code></a>(→ int)</p></td>
+<td><p>Measure ticks difference between values returned from <a class="reference internal" href="#time.ticks_ms" title="time.ticks_ms"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_ms()</span></code></a>, <a class="reference internal" href="#time.ticks_us" title="time.ticks_us"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_us()</span></code></a>,</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#time.ticks_ms" title="time.ticks_ms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ticks_ms</span></code></a>(→ int)</p></td>
+<td><p>Returns an increasing millisecond counter with an arbitrary reference point, that</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#time.ticks_us" title="time.ticks_us"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ticks_us</span></code></a>(→ Incomplete)</p></td>
+<td><p>Just like <a class="reference internal" href="#time.ticks_ms" title="time.ticks_ms"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_ms()</span></code></a> above, but in microseconds.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#time.time" title="time.time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">time</span></code></a>(→ int)</p></td>
+<td><p>Returns the number of seconds, as an integer, since the Epoch, assuming that</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#time.time_ns" title="time.time_ns"><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_ns</span></code></a>(→ int)</p></td>
+<td><p>Similar to <a class="reference internal" href="#time.time" title="time.time"><code class="xref any py py-func docutils literal notranslate"><span class="pre">time()</span></code></a> but returns nanoseconds since the Epoch, as an integer (usually</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="time.gmtime">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">gmtime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">secs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Tuple</span></span></span><a class="headerlink" href="#time.gmtime" title="Link to this definition">¶</a></dt>
+<dd><p>Convert the time <em>secs</em> expressed in seconds since the Epoch (see above) into an
+8-tuple which contains: <code class="docutils literal notranslate"><span class="pre">(year,</span> <span class="pre">month,</span> <span class="pre">mday,</span> <span class="pre">hour,</span> <span class="pre">minute,</span> <span class="pre">second,</span> <span class="pre">weekday,</span> <span class="pre">yearday)</span></code>
+If <em>secs</em> is not provided or None, then the current time from the RTC is used.</p>
+<p>The <a class="reference internal" href="#time.gmtime" title="time.gmtime"><code class="xref any py py-func docutils literal notranslate"><span class="pre">gmtime()</span></code></a> function returns a date-time tuple in UTC, and <a class="reference internal" href="#time.localtime" title="time.localtime"><code class="xref any py py-func docutils literal notranslate"><span class="pre">localtime()</span></code></a> returns a
+date-time tuple in local time.</p>
+<p>The format of the entries in the 8-tuple are:</p>
+<ul class="simple">
+<li><p>year includes the century (for example 2014).</p></li>
+<li><p>month   is 1-12</p></li>
+<li><p>mday    is 1-31</p></li>
+<li><p>hour    is 0-23</p></li>
+<li><p>minute  is 0-59</p></li>
+<li><p>second  is 0-59</p></li>
+<li><p>weekday is 0-6 for Mon-Sun</p></li>
+<li><p>yearday is 1-366</p></li>
+</ul>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="time.localtime">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">localtime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">secs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Tuple</span></span></span><a class="headerlink" href="#time.localtime" title="Link to this definition">¶</a></dt>
+<dd><p>Convert the time <em>secs</em> expressed in seconds since the Epoch (see above) into an
+8-tuple which contains: <code class="docutils literal notranslate"><span class="pre">(year,</span> <span class="pre">month,</span> <span class="pre">mday,</span> <span class="pre">hour,</span> <span class="pre">minute,</span> <span class="pre">second,</span> <span class="pre">weekday,</span> <span class="pre">yearday)</span></code>
+If <em>secs</em> is not provided or None, then the current time from the RTC is used.</p>
+<p>The <a class="reference internal" href="#time.gmtime" title="time.gmtime"><code class="xref any py py-func docutils literal notranslate"><span class="pre">gmtime()</span></code></a> function returns a date-time tuple in UTC, and <a class="reference internal" href="#time.localtime" title="time.localtime"><code class="xref any py py-func docutils literal notranslate"><span class="pre">localtime()</span></code></a> returns a
+date-time tuple in local time.</p>
+<p>The format of the entries in the 8-tuple are:</p>
+<ul class="simple">
+<li><p>year includes the century (for example 2014).</p></li>
+<li><p>month   is 1-12</p></li>
+<li><p>mday    is 1-31</p></li>
+<li><p>hour    is 0-23</p></li>
+<li><p>minute  is 0-59</p></li>
+<li><p>second  is 0-59</p></li>
+<li><p>weekday is 0-6 for Mon-Sun</p></li>
+<li><p>yearday is 1-366</p></li>
+</ul>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="time.mktime">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">mktime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#time.mktime" title="Link to this definition">¶</a></dt>
+<dd><p>This is inverse function of localtime. It’s argument is a full 8-tuple
+which expresses a time as per localtime. It returns an integer which is
+the number of seconds since Jan 1, 2000.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="time.sleep">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">sleep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#time.sleep" title="Link to this definition">¶</a></dt>
+<dd><p>Sleep for the given number of seconds. Some boards may accept <em>seconds</em> as a
+floating-point number to sleep for a fractional number of seconds. Note that
+other boards may not accept a floating-point argument, for compatibility with
+them use <a class="reference internal" href="#time.sleep_ms" title="time.sleep_ms"><code class="xref any py py-func docutils literal notranslate"><span class="pre">sleep_ms()</span></code></a> and <a class="reference internal" href="#time.sleep_us" title="time.sleep_us"><code class="xref any py py-func docutils literal notranslate"><span class="pre">sleep_us()</span></code></a> functions.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="time.sleep_ms">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">sleep_ms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ms</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#time.sleep_ms" title="Link to this definition">¶</a></dt>
+<dd><p>Delay for given number of milliseconds, should be positive or 0.</p>
+<p>This function will delay for at least the given number of milliseconds, but
+may take longer than that if other processing must take place, for example
+interrupt handlers or other threads.  Passing in 0 for <em>ms</em> will still allow
+this other processing to occur.  Use <a class="reference internal" href="#time.sleep_us" title="time.sleep_us"><code class="xref any py py-func docutils literal notranslate"><span class="pre">sleep_us()</span></code></a> for more precise delays.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="time.sleep_us">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">sleep_us</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">us</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#time.sleep_us" title="Link to this definition">¶</a></dt>
+<dd><p>Delay for given number of microseconds, should be positive or 0.</p>
+<p>This function attempts to provide an accurate delay of at least <em>us</em>
+microseconds, but it may take longer if the system has other higher priority
+processing to perform.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="time.ticks_add">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">ticks_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#time.ticks_add" title="Link to this definition">¶</a></dt>
+<dd><p>Offset ticks value by a given number, which can be either positive or negative.
+Given a <em>ticks</em> value, this function allows to calculate ticks value <em>delta</em>
+ticks before or after it, following modular-arithmetic definition of tick values
+(see <a class="reference internal" href="#time.ticks_ms" title="time.ticks_ms"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_ms()</span></code></a> above). <em>ticks</em> parameter must be a direct result of call
+to <a class="reference internal" href="#time.ticks_ms" title="time.ticks_ms"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_ms()</span></code></a>, <a class="reference internal" href="#time.ticks_us" title="time.ticks_us"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_us()</span></code></a>, or <a class="reference internal" href="#time.ticks_cpu" title="time.ticks_cpu"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_cpu()</span></code></a> functions (or from previous
+call to <a class="reference internal" href="#time.ticks_add" title="time.ticks_add"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_add()</span></code></a>). However, <em>delta</em> can be an arbitrary integer number
+or numeric expression. <a class="reference internal" href="#time.ticks_add" title="time.ticks_add"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_add()</span></code></a> is useful for calculating deadlines for
+events/tasks. (Note: you must use <a class="reference internal" href="#time.ticks_diff" title="time.ticks_diff"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_diff()</span></code></a> function to work with
+deadlines.)</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find out what ticks value there was 100ms ago</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ticks_add</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="o">-</span><span class="mi">100</span><span class="p">))</span>
+
+<span class="c1"># Calculate deadline for operation and test for it</span>
+<span class="n">deadline</span> <span class="o">=</span> <span class="n">ticks_add</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="mi">200</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">ticks_diff</span><span class="p">(</span><span class="n">deadline</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">do_a_little_of_something</span><span class="p">()</span>
+
+<span class="c1"># Find out TICKS_MAX used by this port</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ticks_add</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="time.ticks_cpu">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">ticks_cpu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#time.ticks_cpu" title="Link to this definition">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#time.ticks_ms" title="time.ticks_ms"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_ms()</span></code></a> and <a class="reference internal" href="#time.ticks_us" title="time.ticks_us"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_us()</span></code></a>, but with the highest possible resolution
+in the system. This is usually CPU clocks, and that’s why the function is named that
+way. But it doesn’t have to be a CPU clock, some other timing source available in a
+system (e.g. high-resolution timer) can be used instead. The exact timing unit
+(resolution) of this function is not specified on <code class="docutils literal notranslate"><span class="pre">time</span></code> module level, but
+documentation for a specific port may provide more specific information. This
+function is intended for very fine benchmarking or very tight real-time loops.
+Avoid using it in portable code.</p>
+<p>Availability: Not every port implements this function.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="time.ticks_diff">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">ticks_diff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ticks1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ticks2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#time.ticks_diff" title="Link to this definition">¶</a></dt>
+<dd><p>Measure ticks difference between values returned from <a class="reference internal" href="#time.ticks_ms" title="time.ticks_ms"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_ms()</span></code></a>, <a class="reference internal" href="#time.ticks_us" title="time.ticks_us"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_us()</span></code></a>,
+or <a class="reference internal" href="#time.ticks_cpu" title="time.ticks_cpu"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_cpu()</span></code></a> functions, as a signed value which may wrap around.</p>
+<p>The argument order is the same as for subtraction
+operator, <code class="docutils literal notranslate"><span class="pre">ticks_diff(ticks1,</span> <span class="pre">ticks2)</span></code> has the same meaning as <code class="docutils literal notranslate"><span class="pre">ticks1</span> <span class="pre">-</span> <span class="pre">ticks2</span></code>.
+However, values returned by <a class="reference internal" href="#time.ticks_ms" title="time.ticks_ms"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_ms()</span></code></a>, etc. functions may wrap around, so
+directly using subtraction on them will produce incorrect result. That is why
+<a class="reference internal" href="#time.ticks_diff" title="time.ticks_diff"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_diff()</span></code></a> is needed, it implements modular (or more specifically, ring)
+arithmetic to produce correct result even for wrap-around values (as long as they not
+too distant in between, see below). The function returns <strong>signed</strong> value in the range
+[<em>-TICKS_PERIOD/2</em> .. <em>TICKS_PERIOD/2-1</em>] (that’s a typical range definition for
+two’s-complement signed binary integers). If the result is negative, it means that
+<em>ticks1</em> occurred earlier in time than <em>ticks2</em>. Otherwise, it means that
+<em>ticks1</em> occurred after <em>ticks2</em>. This holds <strong>only</strong> if <em>ticks1</em> and <em>ticks2</em>
+are apart from each other for no more than <em>TICKS_PERIOD/2-1</em> ticks. If that does
+not hold, incorrect result will be returned. Specifically, if two tick values are
+apart for <em>TICKS_PERIOD/2-1</em> ticks, that value will be returned by the function.
+However, if <em>TICKS_PERIOD/2</em> of real-time ticks has passed between them, the
+function will return <em>-TICKS_PERIOD/2</em> instead, i.e. result value will wrap around
+to the negative range of possible values.</p>
+<p>Informal rationale of the constraints above: Suppose you are locked in a room with no
+means to monitor passing of time except a standard 12-notch clock. Then if you look at
+dial-plate now, and don’t look again for another 13 hours (e.g., if you fall for a
+long sleep), then once you finally look again, it may seem to you that only 1 hour
+has passed. To avoid this mistake, just look at the clock regularly. Your application
+should do the same. “Too long sleep” metaphor also maps directly to application
+behaviour: don’t let your application run any single task for too long. Run tasks
+in steps, and do time-keeping in between.</p>
+<p><a class="reference internal" href="#time.ticks_diff" title="time.ticks_diff"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_diff()</span></code></a> is designed to accommodate various usage patterns, among them:</p>
+<ul>
+<li><p>Polling with timeout. In this case, the order of events is known, and you will deal
+only with positive results of <a class="reference internal" href="#time.ticks_diff" title="time.ticks_diff"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_diff()</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wait for GPIO pin to be asserted, but at most 500us</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_us</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">pin</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_us</span><span class="p">(),</span> <span class="n">start</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TimeoutError</span>
+</pre></div>
+</div>
+</li>
+<li><p>Scheduling events. In this case, <a class="reference internal" href="#time.ticks_diff" title="time.ticks_diff"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_diff()</span></code></a> result may be negative
+if an event is overdue:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This code snippet is not optimized</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
+<span class="n">scheduled_time</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">scheduled_time</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">ticks_diff</span><span class="p">(</span><span class="n">scheduled_time</span><span class="p">,</span> <span class="n">now</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Too early, let's nap"</span><span class="p">)</span>
+    <span class="n">sleep_ms</span><span class="p">(</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">scheduled_time</span><span class="p">,</span> <span class="n">now</span><span class="p">))</span>
+    <span class="n">task</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="k">elif</span> <span class="n">ticks_diff</span><span class="p">(</span><span class="n">scheduled_time</span><span class="p">,</span> <span class="n">now</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Right at time!"</span><span class="p">)</span>
+    <span class="n">task</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="k">elif</span> <span class="n">ticks_diff</span><span class="p">(</span><span class="n">scheduled_time</span><span class="p">,</span> <span class="n">now</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Oops, running late, tell task to run faster!"</span><span class="p">)</span>
+    <span class="n">task</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">run_faster</span><span class="o">=</span><span class="n">true</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Note: Do not pass <a class="reference internal" href="#time.time" title="time.time"><code class="xref any py py-func docutils literal notranslate"><span class="pre">time()</span></code></a> values to <a class="reference internal" href="#time.ticks_diff" title="time.ticks_diff"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_diff()</span></code></a>, you should use
+normal mathematical operations on them. But note that <a class="reference internal" href="#time.time" title="time.time"><code class="xref any py py-func docutils literal notranslate"><span class="pre">time()</span></code></a> may (and will)
+also overflow. This is known as <a class="reference external" href="https://en.wikipedia.org/wiki/Year_2038_problem">https://en.wikipedia.org/wiki/Year_2038_problem</a> .</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="time.ticks_ms">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">ticks_ms</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#time.ticks_ms" title="Link to this definition">¶</a></dt>
+<dd><p>Returns an increasing millisecond counter with an arbitrary reference point, that
+wraps around after some value.</p>
+<p>The wrap-around value is not explicitly exposed, but we will
+refer to it as <em>TICKS_MAX</em> to simplify discussion. Period of the values is
+<em>TICKS_PERIOD = TICKS_MAX + 1</em>. <em>TICKS_PERIOD</em> is guaranteed to be a power of
+two, but otherwise may differ from port to port. The same period value is used
+for all of <a class="reference internal" href="#time.ticks_ms" title="time.ticks_ms"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_ms()</span></code></a>, <a class="reference internal" href="#time.ticks_us" title="time.ticks_us"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_us()</span></code></a>, <a class="reference internal" href="#time.ticks_cpu" title="time.ticks_cpu"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_cpu()</span></code></a> functions (for
+simplicity). Thus, these functions will return a value in range [<em>0</em> ..
+<em>TICKS_MAX</em>], inclusive, total <em>TICKS_PERIOD</em> values. Note that only
+non-negative values are used. For the most part, you should treat values returned
+by these functions as opaque. The only operations available for them are
+<a class="reference internal" href="#time.ticks_diff" title="time.ticks_diff"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_diff()</span></code></a> and <a class="reference internal" href="#time.ticks_add" title="time.ticks_add"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_add()</span></code></a> functions described below.</p>
+<p>Note: Performing standard mathematical operations (+, -) or relational
+operators (&lt;, &lt;=, &gt;, &gt;=) directly on these value will lead to invalid
+result. Performing mathematical operations and then passing their results
+as arguments to <a class="reference internal" href="#time.ticks_diff" title="time.ticks_diff"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_diff()</span></code></a> or <a class="reference internal" href="#time.ticks_add" title="time.ticks_add"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_add()</span></code></a> will also lead to
+invalid results from the latter functions.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="time.ticks_us">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">ticks_us</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#time.ticks_us" title="Link to this definition">¶</a></dt>
+<dd><p>Just like <a class="reference internal" href="#time.ticks_ms" title="time.ticks_ms"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_ms()</span></code></a> above, but in microseconds.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="time.time">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">time</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#time.time" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the number of seconds, as an integer, since the Epoch, assuming that
+underlying RTC is set and maintained as described above. If an RTC is not set, this
+function returns number of seconds since a port-specific reference point in time (for
+embedded boards without a battery-backed RTC, usually since power up or reset). If you
+want to develop portable MicroPython application, you should not rely on this function
+to provide higher than second precision.  If you need higher precision, absolute
+timestamps, use <a class="reference internal" href="#time.time_ns" title="time.time_ns"><code class="xref any py py-func docutils literal notranslate"><span class="pre">time_ns()</span></code></a>.  If relative times are acceptable then use the
+<a class="reference internal" href="#time.ticks_ms" title="time.ticks_ms"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_ms()</span></code></a> and <a class="reference internal" href="#time.ticks_us" title="time.ticks_us"><code class="xref any py py-func docutils literal notranslate"><span class="pre">ticks_us()</span></code></a> functions.  If you need calendar time, <a class="reference internal" href="#time.gmtime" title="time.gmtime"><code class="xref any py py-func docutils literal notranslate"><span class="pre">gmtime()</span></code></a> or
+<a class="reference internal" href="#time.localtime" title="time.localtime"><code class="xref any py py-func docutils literal notranslate"><span class="pre">localtime()</span></code></a> without an argument is a better choice.</p>
+<p>Difference to CPython</p>
+<blockquote>
+<div><p>In CPython, this function returns number of
+seconds since Unix epoch, 1970-01-01 00:00 UTC, as a floating-point,
+usually having microsecond precision. With MicroPython, only Unix port
+uses the same Epoch, and if floating-point precision allows,
+returns sub-second precision. Embedded hardware usually doesn’t have
+floating-point precision to represent both long time ranges and subsecond
+precision, so they use integer value with second precision. Some embedded
+hardware also lacks battery-powered RTC, so returns number of seconds
+since last power-up or from other relative, hardware-specific point
+(e.g. reset).</p>
+</div></blockquote>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="time.time_ns">
+<span class="sig-prename descclassname"><span class="pre">time.</span></span><span class="sig-name descname"><span class="pre">time_ns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#time.time_ns" title="Link to this definition">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#time.time" title="time.time"><code class="xref any py py-func docutils literal notranslate"><span class="pre">time()</span></code></a> but returns nanoseconds since the Epoch, as an integer (usually
+a big integer, so will allocate on the heap).</p>
+</dd></dl>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+<div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">API documentation test</a></h1>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">LiBrary!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bar.html">bar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MicroPython Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../_asyncio/index.html">_asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_rp2/index.html">_rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_thread/index.html">_thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../array/index.html">array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asyncio/index.html">asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binascii/index.html">binascii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../btree/index.html">btree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cmath/index.html">cmath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collections/index.html">collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cryptolib/index.html">cryptolib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deflate/index.html">deflate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../errno/index.html">errno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp/index.html">esp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp32/index.html">esp32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../espnow/index.html">espnow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framebuf/index.html">framebuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gc/index.html">gc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gzip/index.html">gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hashlib/index.html">hashlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heapq/index.html">heapq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/index.html">io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../json/index.html">json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lcd160cr/index.html">lcd160cr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machine/index.html">machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math/index.html">math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../micropython/index.html">micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neopixel/index.html">neopixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openamp/index.html">openamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os/index.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/index.html">platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyb/index.html">pyb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../random/index.html">random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rp2/index.html">rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../select/index.html">select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../socket/index.html">socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ssl/index.html">ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stm/index.html">stm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../struct/index.html">struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sys/index.html">sys</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#time.gmtime"><code class="docutils literal notranslate"><span class="pre">gmtime()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.localtime"><code class="docutils literal notranslate"><span class="pre">localtime()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.mktime"><code class="docutils literal notranslate"><span class="pre">mktime()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.sleep"><code class="docutils literal notranslate"><span class="pre">sleep()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.sleep_ms"><code class="docutils literal notranslate"><span class="pre">sleep_ms()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.sleep_us"><code class="docutils literal notranslate"><span class="pre">sleep_us()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.ticks_add"><code class="docutils literal notranslate"><span class="pre">ticks_add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.ticks_cpu"><code class="docutils literal notranslate"><span class="pre">ticks_cpu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.ticks_diff"><code class="docutils literal notranslate"><span class="pre">ticks_diff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.ticks_ms"><code class="docutils literal notranslate"><span class="pre">ticks_ms()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.ticks_us"><code class="docutils literal notranslate"><span class="pre">ticks_us()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.time"><code class="docutils literal notranslate"><span class="pre">time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time.time_ns"><code class="docutils literal notranslate"><span class="pre">time_ns()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../uctypes/index.html">uctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vfs/index.html">vfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wipy/index.html">wipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zephyr/index.html">zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlib/index.html">zlib</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+<li><a href="../../index.html">Documentation overview</a><ul>
+<li><a href="../index.html">MicroPython Modules</a><ul>
+<li>Previous: <a href="../sys/index.html" title="previous chapter">sys</a></li>
+<li>Next: <a href="../uctypes/index.html" title="next chapter">uctypes</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<search id="searchbox" role="search" style="display: none">
+<h3 id="searchlabel">Quick search</h3>
+<div class="searchformwrapper">
+<form action="../../search.html" class="search" method="get">
+<input aria-labelledby="searchlabel" autocapitalize="off" autocomplete="off" autocorrect="off" name="q" spellcheck="false" type="text"/>
+<input type="submit" value="Go"/>
+</form>
+</div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="footer">
+      ©2024, Jos Verlinde.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/autoapi/time/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+</body>
+</html>

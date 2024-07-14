@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+<html data-content_root="../../" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>espnow — API documentation test 1 documentation</title>
+<link href="../../_static/pygments.css?v=fa44fd50" rel="stylesheet" type="text/css"/>
+<link href="../../_static/alabaster.css?v=12dfc556" rel="stylesheet" type="text/css"/>
+<link href="../../_static/graphviz.css?v=fd3f3429" rel="stylesheet" type="text/css"/>
+<script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+<script src="../../_static/doctools.js?v=9a2dae69"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="../framebuf/index.html" rel="next" title="framebuf"/>
+<link href="../esp32/index.html" rel="prev" title="esp32"/>
+<link href="../../_static/custom.css" rel="stylesheet" type="text/css"/>
+</head><body>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
+<section id="module-espnow">
+<span id="espnow"></span><h1>espnow<a class="headerlink" href="#module-espnow" title="Link to this heading">¶</a></h1>
+<p>ESP-NOW <span class="xref std std-doc">asyncio</span> support.</p>
+<p>MicroPython module: <a class="reference external" href="https://docs.micropython.org/en/v1.23.0/library/aioespnow.html">https://docs.micropython.org/en/v1.23.0/library/aioespnow.html</a></p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#espnow.ADDR_LEN" title="espnow.ADDR_LEN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ADDR_LEN</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#espnow.KEY_LEN" title="espnow.KEY_LEN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KEY_LEN</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#espnow.MAX_DATA_LEN" title="espnow.MAX_DATA_LEN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAX_DATA_LEN</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#espnow.MAX_ENCRYPT_PEER_NUM" title="espnow.MAX_ENCRYPT_PEER_NUM"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAX_ENCRYPT_PEER_NUM</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#espnow.MAX_TOTAL_PEER_NUM" title="espnow.MAX_TOTAL_PEER_NUM"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAX_TOTAL_PEER_NUM</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#espnow.AIOESPNow" title="espnow.AIOESPNow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AIOESPNow</span></code></a></p></td>
+<td><p>The <a class="reference internal" href="#espnow.AIOESPNow" title="espnow.AIOESPNow"><code class="xref any py py-class docutils literal notranslate"><span class="pre">AIOESPNow</span></code></a> class inherits all the methods of <a class="reference internal" href="#espnow.ESPNow" title="espnow.ESPNow"><code class="xref any py py-class docutils literal notranslate"><span class="pre">ESPNow</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#espnow.ESPNow" title="espnow.ESPNow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ESPNow</span></code></a></p></td>
+<td><p>Returns the singleton ESPNow object. As this is a singleton, all calls to</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="espnow.AIOESPNow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">espnow.</span></span><span class="sig-name descname"><span class="pre">AIOESPNow</span></span><a class="headerlink" href="#espnow.AIOESPNow" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#espnow.ESPNow" title="espnow.ESPNow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ESPNow</span></code></a></p>
+<p>The <a class="reference internal" href="#espnow.AIOESPNow" title="espnow.AIOESPNow"><code class="xref any py py-class docutils literal notranslate"><span class="pre">AIOESPNow</span></code></a> class inherits all the methods of <a class="reference internal" href="#espnow.ESPNow" title="espnow.ESPNow"><code class="xref any py py-class docutils literal notranslate"><span class="pre">ESPNow</span></code></a>
+and extends the interface with the following async methods.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.AIOESPNow.__anext__">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__anext__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#espnow.AIOESPNow.__anext__" title="Link to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#espnow.AIOESPNow" title="espnow.AIOESPNow"><code class="xref any py py-class docutils literal notranslate"><span class="pre">AIOESPNow</span></code></a> also supports reading incoming messages by asynchronous
+iteration using <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">for</span></code>; eg:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">AIOESPNow</span><span class="p">()</span>
+<span class="n">e</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">recv_till_halt</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">for</span> <span class="n">mac</span><span class="p">,</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">mac</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">msg</span> <span class="o">==</span> <span class="sa">b</span><span class="s1">'halt'</span><span class="p">:</span>
+          <span class="k">break</span>
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">recv_till_halt</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.AIOESPNow._aiter__">
+<span class="sig-name descname"><span class="pre">_aiter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#espnow.AIOESPNow._aiter__" title="Link to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#espnow.AIOESPNow" title="espnow.AIOESPNow"><code class="xref any py py-class docutils literal notranslate"><span class="pre">AIOESPNow</span></code></a> also supports reading incoming messages by asynchronous
+iteration using <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">for</span></code>; eg:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">AIOESPNow</span><span class="p">()</span>
+<span class="n">e</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">recv_till_halt</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">for</span> <span class="n">mac</span><span class="p">,</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">mac</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">msg</span> <span class="o">==</span> <span class="sa">b</span><span class="s1">'halt'</span><span class="p">:</span>
+          <span class="k">break</span>
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">recv_till_halt</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.AIOESPNow.airecv">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">airecv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#espnow.AIOESPNow.airecv" title="Link to this definition">¶</a></dt>
+<dd><p>Asyncio support for <a class="reference internal" href="#espnow.ESPNow.irecv" title="espnow.ESPNow.irecv"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.irecv()</span></code></a>. Note that this method does not take a
+timeout value as argument.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.AIOESPNow.arecv">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">arecv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#espnow.AIOESPNow.arecv" title="Link to this definition">¶</a></dt>
+<dd><p>Asyncio support for <a class="reference internal" href="#espnow.ESPNow.recv" title="espnow.ESPNow.recv"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.recv()</span></code></a>. Note that this method does not take a
+timeout value as argument.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.AIOESPNow.asend">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">asend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#espnow.AIOESPNow.asend" title="Link to this definition">¶</a></dt>
+<dd><p>Asyncio support for <a class="reference internal" href="#espnow.ESPNow.send" title="espnow.ESPNow.send"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.send()</span></code></a>.</p>
+</dd></dl>
+</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="espnow.ESPNow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">espnow.</span></span><span class="sig-name descname"><span class="pre">ESPNow</span></span><a class="headerlink" href="#espnow.ESPNow" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">_espnow.ESPNowBase</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Iterator</span></code></p>
+<p>Returns the singleton ESPNow object. As this is a singleton, all calls to
+<a class="reference internal" href="#espnow.ESPNow" title="espnow.ESPNow"><code class="xref any py py-class docutils literal notranslate"><span class="pre">espnow.ESPNow()</span></code></a> return a reference to the same object.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some methods are available only on the ESP32 due to code size
+restrictions on the ESP8266 and differences in the Espressif API.</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.ESPNow.active">
+<span class="sig-name descname"><span class="pre">active</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#espnow.ESPNow.active" title="Link to this definition">¶</a></dt>
+<dd><p>Initialise or de-initialise the ESP-NOW communication protocol depending on
+the value of the <code class="docutils literal notranslate"><span class="pre">flag</span></code> optional argument.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>flag</em>: Any python value which can be converted to a boolean type.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: Prepare the software and hardware for use of the ESP-NOW
+communication protocol, including:</p>
+<ul>
+<li><p>initialise the ESPNow data structures,</p></li>
+<li><p>allocate the recv data buffer,</p></li>
+<li><p>invoke esp_now_init() and</p></li>
+<li><p>register the send and recv callbacks.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: De-initialise the Espressif ESP-NOW software stack
+(esp_now_deinit()), disable callbacks, deallocate the recv
+data buffer and deregister all peers.</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>If <em>flag</em> is not provided, return the current status of the ESPNow
+interface.</p>
+<p>Returns:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if interface is currently <em>active</em>, else <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</div></blockquote>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.ESPNow.add_peer">
+<span class="sig-name descname"><span class="pre">add_peer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmk</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ifidx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encrypt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#espnow.ESPNow.add_peer" title="Link to this definition">¶</a></dt>
+<dd><p>Add/register the provided <em>mac</em> address as a peer. Additional parameters may
+also be specified as positional or keyword arguments (any parameter set to
+<code class="docutils literal notranslate"><span class="pre">None</span></code> will be set to it’s default value):</p>
+<p>Arguments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>mac</em>: The MAC address of the peer (as a 6-byte byte-string).</p></li>
+<li><p><em>lmk</em>: The Local Master Key (LMK) key used to encrypt data
+transfers with this peer (unless the <em>encrypt</em> parameter is set to
+<code class="docutils literal notranslate"><span class="pre">False</span></code>). Must be:</p>
+<ul>
+<li><p>a byte-string or bytearray or string of length <code class="docutils literal notranslate"><span class="pre">espnow.KEY_LEN</span></code>
+(16 bytes), or</p></li>
+<li><p>any non <code class="docutils literal notranslate"><span class="pre">True</span></code> python value (default= <code class="docutils literal notranslate"><span class="pre">b''</span></code>), signifying an
+<em>empty</em> key which will disable encryption.</p></li>
+</ul>
+</li>
+<li><p><em>channel</em>: The wifi channel (2.4GHz) to communicate with this peer.
+Must be an integer from 0 to 14. If channel is set to 0 the current
+channel of the wifi device will be used. (default=0)</p></li>
+<li><p><em>ifidx</em>: (ESP32 only) Index of the wifi interface which will be
+used to send data to this peer. Must be an integer set to
+<code class="docutils literal notranslate"><span class="pre">network.STA_IF</span></code> (=0) or <code class="docutils literal notranslate"><span class="pre">network.AP_IF</span></code> (=1).
+(default=0/<code class="docutils literal notranslate"><span class="pre">network.STA_IF</span></code>). See <a href="#id1"><span class="problematic" id="id2">`ESPNow and Wifi Operation`_</span></a>
+below for more information.</p></li>
+<li><p><em>encrypt</em>: (ESP32 only) If set to <code class="docutils literal notranslate"><span class="pre">True</span></code> data exchanged with
+this peer will be encrypted with the PMK and LMK. (default =
+<code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>lmk</em> is set to a valid key, else <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+</ul>
+<p><strong>ESP8266</strong>: Keyword args may not be used on the ESP8266.</p>
+<p><strong>Note:</strong> The maximum number of peers which may be registered is 20
+(<a class="reference internal" href="#espnow.MAX_TOTAL_PEER_NUM" title="espnow.MAX_TOTAL_PEER_NUM"><code class="xref any py py-data docutils literal notranslate"><span class="pre">espnow.MAX_TOTAL_PEER_NUM</span></code></a>), with a maximum of 6
+(<a class="reference internal" href="#espnow.MAX_ENCRYPT_PEER_NUM" title="espnow.MAX_ENCRYPT_PEER_NUM"><code class="xref any py py-data docutils literal notranslate"><span class="pre">espnow.MAX_ENCRYPT_PEER_NUM</span></code></a>) of those peers with encryption enabled
+(see <a class="reference external" href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/network/esp_now.html#c.ESP_NOW_MAX_ENCRYPT_PEER_NUM">ESP_NOW_MAX_ENCRYPT_PEER_NUM</a> in the Espressif API
+docs).</p>
+</div></blockquote>
+<p>Raises:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OSError(num,</span> <span class="pre">"ESP_ERR_ESPNOW_NOT_INIT")</span></code> if not initialised.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OSError(num,</span> <span class="pre">"ESP_ERR_ESPNOW_EXIST")</span></code> if <em>mac</em> is already
+registered.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OSError(num,</span> <span class="pre">"ESP_ERR_ESPNOW_FULL")</span></code> if too many peers are
+already registered.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ValueError()</span></code> on invalid keyword args or values.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.ESPNow.any">
+<span class="sig-name descname"><span class="pre">any</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#espnow.ESPNow.any" title="Link to this definition">¶</a></dt>
+<dd><p>Check if data is available to be read with <a class="reference internal" href="#espnow.ESPNow.recv" title="espnow.ESPNow.recv"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.recv()</span></code></a>.</p>
+<p>For more sophisticated querying of available characters use <a class="reference internal" href="../select/index.html#select.poll" title="select.poll"><code class="xref any py py-class docutils literal notranslate"><span class="pre">select.poll()</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">select</span>
+<span class="kn">import</span> <span class="nn">espnow</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="n">espnow</span><span class="o">.</span><span class="n">ESPNow</span><span class="p">()</span>
+<span class="n">poll</span> <span class="o">=</span> <span class="n">select</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span>
+<span class="n">poll</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">select</span><span class="o">.</span><span class="n">POLLIN</span><span class="p">)</span>
+<span class="n">poll</span><span class="o">.</span><span class="n">poll</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if data is available to be read, else <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</div></blockquote>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.ESPNow.config">
+<span class="sig-name descname"><span class="pre">config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/stdtypes.html#str" title="(in Python v3.5)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#espnow.ESPNow.config" title="Link to this definition">¶</a></dt>
+<dd><p>Set or get configuration values of the ESPNow interface. To set values, use
+the keyword syntax, and one or more parameters can be set at a time. To get
+a value the parameter name should be quoted as a string, and just one
+parameter is queried at a time.</p>
+<p><strong>Note:</strong> <em>Getting</em> parameters is not supported on the ESP8266.</p>
+<p>Options:</p>
+<blockquote>
+<div><p><em>rxbuf</em>: (default=526) Get/set the size in bytes of the internal
+buffer used to store incoming ESPNow packet data. The default size is
+selected to fit two max-sized ESPNow packets (250 bytes) with associated
+mac_address (6 bytes), a message byte count (1 byte) and RSSI data plus
+buffer overhead. Increase this if you expect to receive a lot of large
+packets or expect bursty incoming traffic.</p>
+<p><strong>Note:</strong> The recv buffer is allocated by <a class="reference internal" href="#espnow.ESPNow.active" title="espnow.ESPNow.active"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.active()</span></code></a>. Changing
+this value will have no effect until the next call of
+<a class="reference internal" href="#espnow.ESPNow.active" title="espnow.ESPNow.active"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.active(True)</span></code></a>.</p>
+<p><em>timeout_ms</em>: (default=300,000) Default timeout (in milliseconds)
+for receiving ESPNow messages. If <em>timeout_ms</em> is less than zero, then
+wait forever. The timeout can also be provided as arg to
+<a class="reference internal" href="#espnow.ESPNow.recv" title="espnow.ESPNow.recv"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">recv()</span></code></a>/<a class="reference internal" href="#espnow.ESPNow.irecv" title="espnow.ESPNow.irecv"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">irecv()</span></code></a>/<a class="reference internal" href="#espnow.ESPNow.recvinto" title="espnow.ESPNow.recvinto"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">recvinto()</span></code></a>.</p>
+<p><em>rate</em>: (ESP32 only, IDF&gt;=4.3.0 only) Set the transmission speed for
+ESPNow packets. Must be set to a number from the allowed numeric values
+in <a class="reference external" href="https://docs.espressif.com/projects/esp-idf/en/v4.4.1/esp32/api-reference/network/esp_wifi.html#_CPPv415wifi_phy_rate_t">enum wifi_phy_rate_t</a>.</p>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">None</span></code> or the value of the parameter being queried.</p>
+</div></blockquote>
+<p>Raises:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OSError(num,</span> <span class="pre">"ESP_ERR_ESPNOW_NOT_INIT")</span></code> if not initialised.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ValueError()</span></code> on invalid configuration options or values.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.ESPNow.del_peer">
+<span class="sig-name descname"><span class="pre">del_peer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mac</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#espnow.ESPNow.del_peer" title="Link to this definition">¶</a></dt>
+<dd><p>Deregister the peer associated with the provided <em>mac</em> address.</p>
+<p>Returns:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</div></blockquote>
+<p>Raises:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OSError(num,</span> <span class="pre">"ESP_ERR_ESPNOW_NOT_INIT")</span></code> if not initialised.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OSError(num,</span> <span class="pre">"ESP_ERR_ESPNOW_NOT_FOUND")</span></code> if <em>mac</em> is not
+registered.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ValueError()</span></code> on invalid <em>mac</em> values.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.ESPNow.get_peer">
+<span class="sig-name descname"><span class="pre">get_peer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mac</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#espnow.ESPNow.get_peer" title="Link to this definition">¶</a></dt>
+<dd><p>Return information on a registered peer.</p>
+<p>Returns:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">(mac,</span> <span class="pre">lmk,</span> <span class="pre">channel,</span> <span class="pre">ifidx,</span> <span class="pre">encrypt)</span></code>: a tuple of the “peer
+info” associated with the given <em>mac</em> address.</p>
+</div></blockquote>
+<p>Raises:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OSError(num,</span> <span class="pre">"ESP_ERR_ESPNOW_NOT_INIT")</span></code> if not initialised.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OSError(num,</span> <span class="pre">"ESP_ERR_ESPNOW_NOT_FOUND")</span></code> if <em>mac</em> is not
+registered.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ValueError()</span></code> on invalid <em>mac</em> values.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.ESPNow.get_peers">
+<span class="sig-name descname"><span class="pre">get_peers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Tuple</span></span></span><a class="headerlink" href="#espnow.ESPNow.get_peers" title="Link to this definition">¶</a></dt>
+<dd><p>Return the “peer info” parameters for all the registered peers (as a tuple
+of tuples).</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.ESPNow.irecv">
+<span class="sig-name descname"><span class="pre">irecv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout_ms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#espnow.ESPNow.irecv" title="Link to this definition">¶</a></dt>
+<dd><p>Works like <a class="reference internal" href="#espnow.ESPNow.recv" title="espnow.ESPNow.recv"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.recv()</span></code></a> but will reuse internal bytearrays to store the
+return values: <code class="docutils literal notranslate"><span class="pre">[mac,</span> <span class="pre">msg]</span></code>, so that no new memory is allocated on each
+call.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><p><em>timeout_ms</em>: (Optional) Timeout in milliseconds (see <a class="reference internal" href="#espnow.ESPNow.recv" title="espnow.ESPNow.recv"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.recv()</span></code></a>).</p>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>As for <a class="reference internal" href="#espnow.ESPNow.recv" title="espnow.ESPNow.recv"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.recv()</span></code></a>, except that <code class="docutils literal notranslate"><span class="pre">msg</span></code> is a bytearray, instead of
+a bytestring. On the ESP8266, <code class="docutils literal notranslate"><span class="pre">mac</span></code> will also be a bytearray.</p></li>
+</ul>
+</div></blockquote>
+<p>Raises:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>See <a class="reference internal" href="#espnow.ESPNow.recv" title="espnow.ESPNow.recv"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.recv()</span></code></a>.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Note:</strong> You may also read messages by iterating over the ESPNow object,
+which will use the <a class="reference internal" href="#espnow.ESPNow.irecv" title="espnow.ESPNow.irecv"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">irecv()</span></code></a> method for alloc-free reads, eg:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">espnow</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">espnow</span><span class="o">.</span><span class="n">ESPNow</span><span class="p">();</span> <span class="n">e</span><span class="o">.</span><span class="n">active</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">mac</span><span class="p">,</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mac</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mac</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>   <span class="c1"># mac, msg will equal (None, None) on timeout</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.ESPNow.irq">
+<span class="sig-name descname"><span class="pre">irq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#espnow.ESPNow.irq" title="Link to this definition">¶</a></dt>
+<dd><p>Set a callback function to be called <em>as soon as possible</em> after a message has
+been received from another ESPNow device. The callback function will be called
+with the <a class="reference internal" href="#espnow.ESPNow" title="espnow.ESPNow"><code class="xref any py py-class docutils literal notranslate"><span class="pre">ESPNow</span></code></a> instance object as an argument. For more reliable operation,
+it is recommended to read out as many messages as are available when the
+callback is invoked and to set the read timeout to zero, eg:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">recv_cb</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>  <span class="c1"># Read out all messages waiting in the buffer</span>
+        <span class="n">mac</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">irecv</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Don't wait if no messages left</span>
+        <span class="k">if</span> <span class="n">mac</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">mac</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+<span class="n">e</span><span class="o">.</span><span class="n">irq</span><span class="p">(</span><span class="n">recv_cb</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="#espnow.ESPNow.irq" title="espnow.ESPNow.irq"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">irq()</span></code></a> callback method is an alternative method for
+processing incoming messages, especially if the data rate is moderate
+and the device is <em>not too busy</em> but there are some caveats:</p>
+<ul class="simple">
+<li><p>The scheduler stack <em>can</em> overflow and callbacks will be missed if
+packets are arriving at a sufficient rate or if other MicroPython components
+(eg, bluetooth, machine.Pin.irq(), machine.timer, i2s, …) are exercising
+the scheduler stack. This method may be less reliable for dealing with
+bursts of messages, or high throughput or on a device which is busy dealing
+with other hardware operations.</p></li>
+<li><p>For more information on <em>scheduled</em> function callbacks see:
+<a class="reference internal" href="../micropython/index.html#micropython.schedule" title="micropython.schedule"><code class="xref any py py-func docutils literal notranslate"><span class="pre">micropython.schedule()</span></code></a>.</p></li>
+</ul>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.ESPNow.mod_peer">
+<span class="sig-name descname"><span class="pre">mod_peer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#espnow.ESPNow.mod_peer" title="Link to this definition">¶</a></dt>
+<dd><p>Modify the parameters of the peer associated with the provided <em>mac</em>
+address. Parameters may be provided as positional or keyword arguments
+(see <a class="reference internal" href="#espnow.ESPNow.add_peer" title="espnow.ESPNow.add_peer"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.add_peer()</span></code></a>). Any parameter that is not set (or set to
+<code class="docutils literal notranslate"><span class="pre">None</span></code>) will retain the existing value for that parameter.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.ESPNow.peer_count">
+<span class="sig-name descname"><span class="pre">peer_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#espnow.ESPNow.peer_count" title="Link to this definition">¶</a></dt>
+<dd><p>Return the number of registered peers:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">(peer_num,</span> <span class="pre">encrypt_num)</span></code>: where</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">peer_num</span></code> is the number of peers which are registered, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">encrypt_num</span></code> is the number of encrypted peers.</p></li>
+</ul>
+</li>
+</ul>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.ESPNow.recv">
+<span class="sig-name descname"><span class="pre">recv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout_ms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#espnow.ESPNow.recv" title="Link to this definition">¶</a></dt>
+<dd><p>Wait for an incoming message and return the <code class="docutils literal notranslate"><span class="pre">mac</span></code> address of the peer and
+the message. <strong>Note</strong>: It is <strong>not</strong> necessary to register a peer (using
+<a class="reference internal" href="#espnow.ESPNow.add_peer" title="espnow.ESPNow.add_peer"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">add_peer()</span></code></a>) to receive a message from that peer.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>timeout_ms</em>: (Optional): May have the following values.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: No timeout. Return immediately if no data is available;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">0</span></code>: Specify a timeout value in milliseconds;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span> <span class="pre">0</span></code>: Do not timeout, ie. wait forever for new messages; or</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code> (or not provided): Use the default timeout value set with
+<a class="reference internal" href="#espnow.ESPNow.config" title="espnow.ESPNow.config"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.config()</span></code></a>.</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">(None,</span> <span class="pre">None)</span></code> if timeout is reached before a message is received, or</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[mac,</span> <span class="pre">msg]</span></code>: where:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">mac</span></code> is a bytestring containing the address of the device which
+sent the message, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code> is a bytestring containing the message.</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>Raises:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OSError(num,</span> <span class="pre">"ESP_ERR_ESPNOW_NOT_INIT")</span></code> if not initialised.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OSError(num,</span> <span class="pre">"ESP_ERR_ESPNOW_IF")</span></code> if the wifi interface is not
+<a class="reference external" href="https://docs.micropython.org/en/latest/library/network.WLAN.html#network.WLAN.active" title="(in MicroPython vlatest)"><code class="xref any docutils literal notranslate"><span class="pre">active()</span></code></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ValueError()</span></code> on invalid <em>timeout_ms</em> values.</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference internal" href="#espnow.ESPNow.recv" title="espnow.ESPNow.recv"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.recv()</span></code></a> will allocate new storage for the returned list and the
+<code class="docutils literal notranslate"><span class="pre">peer</span></code> and <code class="docutils literal notranslate"><span class="pre">msg</span></code> bytestrings. This can lead to memory fragmentation if
+the data rate is high. See <a class="reference internal" href="#espnow.ESPNow.irecv" title="espnow.ESPNow.irecv"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.irecv()</span></code></a> for a memory-friendly
+alternative.</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.ESPNow.recvinto">
+<span class="sig-name descname"><span class="pre">recvinto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout_ms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/functions.html#int" title="(in Python v3.5)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#espnow.ESPNow.recvinto" title="Link to this definition">¶</a></dt>
+<dd><p>Wait for an incoming message and return the length of the message in bytes.
+This is the low-level method used by both <a class="reference internal" href="#espnow.ESPNow.recv" title="espnow.ESPNow.recv"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">recv()</span></code></a> and
+<a class="reference internal" href="#espnow.ESPNow.irecv" title="espnow.ESPNow.irecv"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">irecv()</span></code></a> to read messages.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><p><em>data</em>: A list of at least two elements, <code class="docutils literal notranslate"><span class="pre">[peer,</span> <span class="pre">msg]</span></code>. <code class="docutils literal notranslate"><span class="pre">msg</span></code> must
+be a bytearray large enough to hold the message (250 bytes). On the
+ESP8266, <code class="docutils literal notranslate"><span class="pre">peer</span></code> should be a bytearray of 6 bytes. The MAC address of
+the sender and the message will be stored in these bytearrays (see Note
+on ESP32 below).</p>
+<p><em>timeout_ms</em>: (Optional) Timeout in milliseconds (see <a class="reference internal" href="#espnow.ESPNow.recv" title="espnow.ESPNow.recv"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.recv()</span></code></a>).</p>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Length of message in bytes or 0 if <em>timeout_ms</em> is reached before a
+message is received.</p></li>
+</ul>
+</div></blockquote>
+<p>Raises:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>See <a class="reference internal" href="#espnow.ESPNow.recv" title="espnow.ESPNow.recv"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.recv()</span></code></a>.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Note:</strong> On the ESP32:</p>
+<ul class="simple">
+<li><p>It is unnecessary to provide a bytearray in the first element of the
+<code class="docutils literal notranslate"><span class="pre">data</span></code> list because it will be replaced by a reference to a unique
+<code class="docutils literal notranslate"><span class="pre">peer</span></code> address in the <strong>peer device table</strong> (see <a class="reference internal" href="#espnow.ESPNow.peers_table" title="espnow.ESPNow.peers_table"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">ESPNow.peers_table</span></code></a>).</p></li>
+<li><p>If the list is at least 4 elements long, the rssi and timestamp values
+will be saved as the 3rd and 4th elements.</p></li>
+</ul>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.ESPNow.send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sync</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#espnow.ESPNow.send" title="Link to this definition">¶</a></dt>
+<dd><p>Send the data contained in <code class="docutils literal notranslate"><span class="pre">msg</span></code> to the peer with given network <code class="docutils literal notranslate"><span class="pre">mac</span></code>
+address. In the second form, <code class="docutils literal notranslate"><span class="pre">mac=None</span></code> and <code class="docutils literal notranslate"><span class="pre">sync=True</span></code>. The peer must
+be registered with <a class="reference internal" href="#espnow.ESPNow.add_peer" title="espnow.ESPNow.add_peer"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.add_peer()</span></code></a> before the
+message can be sent.</p>
+<p>Arguments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>mac</em>: byte string exactly <code class="docutils literal notranslate"><span class="pre">espnow.ADDR_LEN</span></code> (6 bytes) long or
+<code class="docutils literal notranslate"><span class="pre">None</span></code>. If <em>mac</em> is <code class="docutils literal notranslate"><span class="pre">None</span></code> (ESP32 only) the message will be sent
+to all registered peers, except any broadcast or multicast MAC
+addresses.</p></li>
+<li><p><em>msg</em>: string or byte-string up to <code class="docutils literal notranslate"><span class="pre">espnow.MAX_DATA_LEN</span></code> (250)
+bytes long.</p></li>
+<li><p><em>sync</em>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: (default) send <code class="docutils literal notranslate"><span class="pre">msg</span></code> to the peer(s) and wait for a
+response (or not).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code> send <code class="docutils literal notranslate"><span class="pre">msg</span></code> and return immediately. Responses from the
+peers will be discarded.</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">sync=False</span></code> or if <code class="docutils literal notranslate"><span class="pre">sync=True</span></code> and <em>all</em> peers respond,
+else <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</div></blockquote>
+<p>Raises:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OSError(num,</span> <span class="pre">"ESP_ERR_ESPNOW_NOT_INIT")</span></code> if not initialised.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OSError(num,</span> <span class="pre">"ESP_ERR_ESPNOW_NOT_FOUND")</span></code> if peer is not registered.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OSError(num,</span> <span class="pre">"ESP_ERR_ESPNOW_IF")</span></code> the wifi interface is not
+<a class="reference external" href="https://docs.micropython.org/en/latest/library/network.WLAN.html#network.WLAN.active" title="(in MicroPython vlatest)"><code class="xref any docutils literal notranslate"><span class="pre">active()</span></code></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OSError(num,</span> <span class="pre">"ESP_ERR_ESPNOW_NO_MEM")</span></code> internal ESP-NOW buffers are
+full.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ValueError()</span></code> on invalid values for the parameters.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Note</strong>: A peer will respond with success if its wifi interface is
+<a class="reference external" href="https://docs.micropython.org/en/latest/library/network.WLAN.html#network.WLAN.active" title="(in MicroPython vlatest)"><code class="xref any docutils literal notranslate"><span class="pre">active()</span></code></a> and set to the same channel as the sender,
+regardless of whether it has initialised it’s ESP-NOW system or is
+actively listening for ESP-NOW traffic (see the Espressif ESP-NOW docs).</p>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.ESPNow.set_pmk">
+<span class="sig-name descname"><span class="pre">set_pmk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pmk</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#espnow.ESPNow.set_pmk" title="Link to this definition">¶</a></dt>
+<dd><p>Set the Primary Master Key (PMK) which is used to encrypt the Local Master
+Keys (LMK) for encrypting messages. If this is not set, a default PMK is
+used by the underlying Espressif ESP-NOW software stack.</p>
+<p><strong>Note:</strong> messages will only be encrypted if <em>lmk</em> is also set in
+<a class="reference internal" href="#espnow.ESPNow.add_peer" title="espnow.ESPNow.add_peer"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">ESPNow.add_peer()</span></code></a> (see <a class="reference external" href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/network/esp_now.html#security">Security</a> in the Espressif API
+docs).</p>
+<p>Arguments:</p>
+<blockquote>
+<div><p><em>pmk</em>: Must be a byte string, bytearray or string of length
+<a class="reference internal" href="#espnow.KEY_LEN" title="espnow.KEY_LEN"><code class="xref any py py-data docutils literal notranslate"><span class="pre">espnow.KEY_LEN</span></code></a> (16 bytes).</p>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</div></blockquote>
+<p>Raises:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">ValueError()</span></code> on invalid <em>pmk</em> values.</p>
+</div></blockquote>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="espnow.ESPNow.stats">
+<span class="sig-name descname"><span class="pre">stats</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Incomplete</span></span></span><a class="headerlink" href="#espnow.ESPNow.stats" title="Link to this definition">¶</a></dt>
+<dd><p>Returns:</p>
+<blockquote>
+<div><p>A 5-tuple containing the number of packets sent/received/lost:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(tx_pkts,</span> <span class="pre">tx_responses,</span> <span class="pre">tx_failures,</span> <span class="pre">rx_packets,</span> <span class="pre">rx_dropped_packets)</span></code></p>
+</div></blockquote>
+<p>Incoming packets are <em>dropped</em> when the recv buffers are full. To reduce
+packet loss, increase the <code class="docutils literal notranslate"><span class="pre">rxbuf</span></code> config parameters and ensure you are
+reading messages as quickly as possible.</p>
+<p><strong>Note</strong>: Dropped packets will still be acknowledged to the sender as
+received.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="espnow.ESPNow.peers_table">
+<span class="sig-name descname"><span class="pre">peers_table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span></em><a class="headerlink" href="#espnow.ESPNow.peers_table" title="Link to this definition">¶</a></dt>
+<dd><p>A reference to the <strong>peer device table</strong>: a dict of known peer devices
+and rssi values:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">peer</span><span class="p">:</span> <span class="p">[</span><span class="n">rssi</span><span class="p">,</span> <span class="n">time_ms</span><span class="p">],</span> <span class="o">...</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">peer</span></code> is the peer MAC address (as <a class="reference external" href="https://docs.python.org/3.5/library/functions.html#bytes" title="(in Python v3.5)"><code class="xref any docutils literal notranslate"><span class="pre">bytes</span></code></a>);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rssi</span></code> is the wifi signal strength in dBm (-127 to 0) of the last</p></li>
+</ul>
+<p>message received from the peer; and
+- <code class="docutils literal notranslate"><span class="pre">time_ms</span></code> is the time the message was received (in milliseconds since
+system boot - wraps every 12 days).</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">e</span><span class="o">.</span><span class="n">peers_table</span>
+</pre></div>
+</div>
+<p>{b’ªªªªªª’: [-31, 18372],
+b’»»»»»»’: [-43, 12541]}</p>
+<p><strong>Note</strong>: the <code class="docutils literal notranslate"><span class="pre">mac</span></code> addresses returned by <a class="reference internal" href="#espnow.ESPNow.recv" title="espnow.ESPNow.recv"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">recv()</span></code></a> are references to
+the <code class="docutils literal notranslate"><span class="pre">peer</span></code> key values in the <strong>peer device table</strong>.</p>
+<p><strong>Note</strong>: RSSI and timestamp values in the device table are updated only
+when the message is read by the application.</p>
+</dd></dl>
+</dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="espnow.ADDR_LEN">
+<span class="sig-prename descclassname"><span class="pre">espnow.</span></span><span class="sig-name descname"><span class="pre">ADDR_LEN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#espnow.ADDR_LEN" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="espnow.KEY_LEN">
+<span class="sig-prename descclassname"><span class="pre">espnow.</span></span><span class="sig-name descname"><span class="pre">KEY_LEN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#espnow.KEY_LEN" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="espnow.MAX_DATA_LEN">
+<span class="sig-prename descclassname"><span class="pre">espnow.</span></span><span class="sig-name descname"><span class="pre">MAX_DATA_LEN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">250</span></em><a class="headerlink" href="#espnow.MAX_DATA_LEN" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="espnow.MAX_ENCRYPT_PEER_NUM">
+<span class="sig-prename descclassname"><span class="pre">espnow.</span></span><span class="sig-name descname"><span class="pre">MAX_ENCRYPT_PEER_NUM</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#espnow.MAX_ENCRYPT_PEER_NUM" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py data">
+<dt class="sig sig-object py" id="espnow.MAX_TOTAL_PEER_NUM">
+<span class="sig-prename descclassname"><span class="pre">espnow.</span></span><span class="sig-name descname"><span class="pre">MAX_TOTAL_PEER_NUM</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Incomplete</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">20</span></em><a class="headerlink" href="#espnow.MAX_TOTAL_PEER_NUM" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+</section>
+</section>
+</div>
+</div>
+</div>
+<div aria-label="main navigation" class="sphinxsidebar" role="navigation">
+<div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">API documentation test</a></h1>
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">LiBrary!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bar.html">bar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MicroPython Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../_asyncio/index.html">_asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_rp2/index.html">_rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_thread/index.html">_thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../array/index.html">array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asyncio/index.html">asyncio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binascii/index.html">binascii</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../btree/index.html">btree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cmath/index.html">cmath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collections/index.html">collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cryptolib/index.html">cryptolib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deflate/index.html">deflate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../errno/index.html">errno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp/index.html">esp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp32/index.html">esp32</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">espnow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#espnow.AIOESPNow"><code class="docutils literal notranslate"><span class="pre">AIOESPNow</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.AIOESPNow.__anext__"><code class="docutils literal notranslate"><span class="pre">AIOESPNow.__anext__()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.AIOESPNow._aiter__"><code class="docutils literal notranslate"><span class="pre">AIOESPNow._aiter__()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.AIOESPNow.airecv"><code class="docutils literal notranslate"><span class="pre">AIOESPNow.airecv()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.AIOESPNow.arecv"><code class="docutils literal notranslate"><span class="pre">AIOESPNow.arecv()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.AIOESPNow.asend"><code class="docutils literal notranslate"><span class="pre">AIOESPNow.asend()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#espnow.ESPNow"><code class="docutils literal notranslate"><span class="pre">ESPNow</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.ESPNow.active"><code class="docutils literal notranslate"><span class="pre">ESPNow.active()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.ESPNow.add_peer"><code class="docutils literal notranslate"><span class="pre">ESPNow.add_peer()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.ESPNow.any"><code class="docutils literal notranslate"><span class="pre">ESPNow.any()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.ESPNow.config"><code class="docutils literal notranslate"><span class="pre">ESPNow.config()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.ESPNow.del_peer"><code class="docutils literal notranslate"><span class="pre">ESPNow.del_peer()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.ESPNow.get_peer"><code class="docutils literal notranslate"><span class="pre">ESPNow.get_peer()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.ESPNow.get_peers"><code class="docutils literal notranslate"><span class="pre">ESPNow.get_peers()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.ESPNow.irecv"><code class="docutils literal notranslate"><span class="pre">ESPNow.irecv()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.ESPNow.irq"><code class="docutils literal notranslate"><span class="pre">ESPNow.irq()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.ESPNow.mod_peer"><code class="docutils literal notranslate"><span class="pre">ESPNow.mod_peer()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.ESPNow.peer_count"><code class="docutils literal notranslate"><span class="pre">ESPNow.peer_count()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.ESPNow.recv"><code class="docutils literal notranslate"><span class="pre">ESPNow.recv()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.ESPNow.recvinto"><code class="docutils literal notranslate"><span class="pre">ESPNow.recvinto()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.ESPNow.send"><code class="docutils literal notranslate"><span class="pre">ESPNow.send()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.ESPNow.set_pmk"><code class="docutils literal notranslate"><span class="pre">ESPNow.set_pmk()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.ESPNow.stats"><code class="docutils literal notranslate"><span class="pre">ESPNow.stats()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#espnow.ESPNow.peers_table"><code class="docutils literal notranslate"><span class="pre">ESPNow.peers_table</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#espnow.ADDR_LEN"><code class="docutils literal notranslate"><span class="pre">ADDR_LEN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#espnow.KEY_LEN"><code class="docutils literal notranslate"><span class="pre">KEY_LEN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#espnow.MAX_DATA_LEN"><code class="docutils literal notranslate"><span class="pre">MAX_DATA_LEN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#espnow.MAX_ENCRYPT_PEER_NUM"><code class="docutils literal notranslate"><span class="pre">MAX_ENCRYPT_PEER_NUM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#espnow.MAX_TOTAL_PEER_NUM"><code class="docutils literal notranslate"><span class="pre">MAX_TOTAL_PEER_NUM</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../framebuf/index.html">framebuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gc/index.html">gc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gzip/index.html">gzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hashlib/index.html">hashlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heapq/index.html">heapq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/index.html">io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../json/index.html">json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lcd160cr/index.html">lcd160cr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machine/index.html">machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math/index.html">math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../micropython/index.html">micropython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neopixel/index.html">neopixel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openamp/index.html">openamp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os/index.html">os</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/index.html">platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyb/index.html">pyb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../random/index.html">random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rp2/index.html">rp2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../select/index.html">select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../socket/index.html">socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ssl/index.html">ssl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stm/index.html">stm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../struct/index.html">struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sys/index.html">sys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time/index.html">time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uctypes/index.html">uctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vfs/index.html">vfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wipy/index.html">wipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zephyr/index.html">zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlib/index.html">zlib</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+<li><a href="../../index.html">Documentation overview</a><ul>
+<li><a href="../index.html">MicroPython Modules</a><ul>
+<li>Previous: <a href="../esp32/index.html" title="previous chapter">esp32</a></li>
+<li>Next: <a href="../framebuf/index.html" title="next chapter">framebuf</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<search id="searchbox" role="search" style="display: none">
+<h3 id="searchlabel">Quick search</h3>
+<div class="searchformwrapper">
+<form action="../../search.html" class="search" method="get">
+<input aria-labelledby="searchlabel" autocapitalize="off" autocomplete="off" autocorrect="off" name="q" spellcheck="false" type="text"/>
+<input type="submit" value="Go"/>
+</form>
+</div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="footer">
+      ©2024, Jos Verlinde.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/autoapi/espnow/index.rst.txt" rel="nofollow">Page source</a>
+</div>
+</body>
+</html>

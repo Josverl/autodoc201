@@ -1,0 +1,44 @@
+pyb.USB_HID
+===========
+
+.. py:module:: pyb.USB_HID
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   pyb.USB_HID.USB_HID
+
+
+Module Contents
+---------------
+
+.. py:class:: USB_HID
+
+   Create a new USB_HID object.
+
+
+   .. py:method:: recv(data, *, timeout=5000) -> int
+
+      Receive data on the bus:
+
+        - ``data`` can be an integer, which is the number of bytes to receive,
+          or a mutable buffer, which will be filled with received bytes.
+        - ``timeout`` is the timeout in milliseconds to wait for the receive.
+
+      Return value: if ``data`` is an integer then a new buffer of the bytes received,
+      otherwise the number of bytes read into ``data`` is returned.
+
+
+
+   .. py:method:: send(data) -> None
+
+      Send data over the USB HID interface:
+
+        - ``data`` is the data to send (a tuple/list of integers, or a
+          bytearray).
+
+
+

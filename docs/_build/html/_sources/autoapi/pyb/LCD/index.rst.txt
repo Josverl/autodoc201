@@ -1,0 +1,87 @@
+pyb.LCD
+=======
+
+.. py:module:: pyb.LCD
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   pyb.LCD.LCD
+
+
+Module Contents
+---------------
+
+.. py:class:: LCD(skin_position)
+
+   Construct an LCD object in the given skin position.  ``skin_position`` can be 'X' or 'Y', and
+   should match the position where the LCD pyskin is plugged in.
+
+
+   .. py:method:: command(instr_data, buf) -> None
+
+      Send an arbitrary command to the LCD.  Pass 0 for ``instr_data`` to send an
+      instruction, otherwise pass 1 to send data.  ``buf`` is a buffer with the
+      instructions/data to send.
+
+
+
+   .. py:method:: contrast(value) -> None
+
+      Set the contrast of the LCD.  Valid values are between 0 and 47.
+
+
+
+   .. py:method:: fill(colour) -> None
+
+      Fill the screen with the given colour (0 or 1 for white or black).
+
+      This method writes to the hidden buffer.  Use ``show()`` to show the buffer.
+
+
+
+   .. py:method:: get(x, y) -> int
+
+      Get the pixel at the position ``(x, y)``.  Returns 0 or 1.
+
+      This method reads from the visible buffer.
+
+
+
+   .. py:method:: light(value) -> None
+
+      Turn the backlight on/off.  True or 1 turns it on, False or 0 turns it off.
+
+
+
+   .. py:method:: pixel(x, y, colour) -> None
+
+      Set the pixel at ``(x, y)`` to the given colour (0 or 1).
+
+      This method writes to the hidden buffer.  Use ``show()`` to show the buffer.
+
+
+
+   .. py:method:: show() -> None
+
+      Show the hidden buffer on the screen.
+
+
+
+   .. py:method:: text(str, x, y, colour) -> None
+
+      Draw the given text to the position ``(x, y)`` using the given colour (0 or 1).
+
+      This method writes to the hidden buffer.  Use ``show()`` to show the buffer.
+
+
+
+   .. py:method:: write(str) -> None
+
+      Write the string ``str`` to the screen.  It will appear immediately.
+
+
+
