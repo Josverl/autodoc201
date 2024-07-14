@@ -38,11 +38,14 @@ html_static_path = ["_static"]
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3.5", None),
     "micropython": ("https://docs.micropython.org/en/latest", None),
+    "typing": ("https://typing.readthedocs.io/en/latest/", None),
 }
 
 # -----------------------------------------------------------------------------
 from pathlib import Path
 from typing import Any, List
+
+import sphinx
 
 #  https://sphinx-autoapi.readthedocs.io/en/latest/reference/config.html#confval-autoapi_options
 autoapi_options = [
@@ -57,7 +60,7 @@ autoapi_options = [
     # This option does not effect objects imported into a module.
 ]
 autoapi_python_class_content = "class"  # Use only the class docstring for the class documentation.
-autoapi_member_order = "bysource"
+autoapi_member_order = "groupwise"
 
 autoapi_generate_api_docs = True
 # Whether to generate API documentation. If this is False, documentation should be generated though the Directives.
@@ -73,7 +76,35 @@ else:
 
 # add all stubs to the autoapi_dirs
 stub_path = Path(__file__).parent / "stubs"
-autoapi_dirs: List[Path] = []
-autoapi_dirs.extend(
-    [p for p in stub_path.glob("*") if p.is_dir() and p.stem not in ["__pycache__"]]
-)
+
+autoapi_dirs: List[Path] = [stub_path]
+
+# Explicit
+# autoapi_dirs.extend(
+#     [p for p in stub_path.glob("*") if p.is_dir() and p.stem not in ["__pycache__"]]
+# )
+
+from bs4 import BeautifulSoup  # BeautifulSoup is used for easier HTML parsing and manipulation
+from sphinx.application import Sphinx
+
+
+def replace_typeshed_incomplete(app, exception):
+    """
+    Replace all ocurrences of "_typeshed.Incomplete" with "Incomplete" in the generated HTML files.
+    """
+    if exception is None:  # Only proceed if the build completed successfully
+        output_dir = Path(app.outdir)  # Get the output directory where the HTML files are located
+        for file_path in output_dir.glob("**/*.html"):
+            with open(file_path, "r", encoding="utf-8") as f:
+                html_content = f.read()
+
+            # Use BeautifulSoup to parse the HTML
+            soup = BeautifulSoup(html_content, "html.parser")
+            html_str = str(soup).replace("_typeshed.Incomplete", "Incomplete")
+
+            with open(file_path, "w", encoding="utf-8") as f:
+                f.write(html_str)
+
+
+def setup(app: Sphinx):
+    app.connect("build-finished", replace_typeshed_incomplete)

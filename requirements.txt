@@ -1,3 +1,7 @@
 
 sphinx
 sphinx-autoapi
+
+#html post processing
+beautifulsoup4 
+
