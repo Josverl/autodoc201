@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "autodocs2"
+project = "API documentation test"
 copyright = "2024, Jos Verlinde"
 author = "Jos Verlinde"
 release = "1"
@@ -14,7 +14,10 @@ release = "1"
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = [
+    "autoapi.extension",
+    "sphinx.ext.intersphinx",
+]
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
@@ -30,3 +33,19 @@ pygments_style = "sphinx"
 
 html_theme = "alabaster"
 html_static_path = ["_static"]
+# -----------------------------------------------------------------------------
+# Configuration for intersphinx: refer to the Python standard library.
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3.5", None),
+    "micropython": ("https://docs.micropython.org/en/latest", None),
+}
+
+# -----------------------------------------------------------------------------
+from pathlib import Path
+from typing import Any, List
+
+stub_path = Path(__file__).parent / "stubs"
+autoapi_dirs = [Path("../my_package")]
+autoapi_dirs.extend(
+    [p for p in stub_path.glob("*") if p.is_dir() and p.stem not in ["__pycache__"]]
+)
