@@ -12,49 +12,49 @@ class PIO:
     Raises a ``ValueError`` if any other argument is provided.
     """
 
-    IN_LOW: Incomplete
+    IN_LOW: int = 0
     """\
     These constants are used for the *out_init*, *set_init*, and *sideset_init*
     arguments to `asm_pio`.
     """
-    IN_HIGH: Incomplete
+    IN_HIGH: int = 1
     """\
     These constants are used for the *out_init*, *set_init*, and *sideset_init*
     arguments to `asm_pio`.
     """
-    OUT_LOW: Incomplete
+    OUT_LOW: int = 2
     """\
     These constants are used for the *out_init*, *set_init*, and *sideset_init*
     arguments to `asm_pio`.
     """
-    OUT_HIGH: Incomplete
+    OUT_HIGH: int = 3
     """\
     These constants are used for the *out_init*, *set_init*, and *sideset_init*
     arguments to `asm_pio`.
     """
-    SHIFT_LEFT: Incomplete
+    SHIFT_LEFT: int = 0
     """\
     These constants are used for the *in_shiftdir* and *out_shiftdir* arguments
     to `asm_pio` or `StateMachine.init`.
     """
-    SHIFT_RIGHT: Incomplete
+    SHIFT_RIGHT: int = 1
     """\
     These constants are used for the *in_shiftdir* and *out_shiftdir* arguments
     to `asm_pio` or `StateMachine.init`.
     """
-    JOIN_NONE: Incomplete
+    JOIN_NONE: int = 0
     """These constants are used for the *fifo_join* argument to `asm_pio`."""
-    JOIN_TX: Incomplete
+    JOIN_TX: int = 1
     """These constants are used for the *fifo_join* argument to `asm_pio`."""
-    JOIN_RX: Incomplete
+    JOIN_RX: int = 2
     """These constants are used for the *fifo_join* argument to `asm_pio`."""
-    IRQ_SM0: Incomplete
+    IRQ_SM0: int = 256
     """These constants are used for the *trigger* argument to `PIO.irq`."""
-    IRQ_SM1: Incomplete
+    IRQ_SM1: int = 512
     """These constants are used for the *trigger* argument to `PIO.irq`."""
-    IRQ_SM2: Incomplete
+    IRQ_SM2: int = 1024
     """These constants are used for the *trigger* argument to `PIO.irq`."""
-    IRQ_SM3: Incomplete
+    IRQ_SM3: int = 2048
     """These constants are used for the *trigger* argument to `PIO.irq`."""
     def __init__(self, id) -> None: ...
     def add_program(self, program) -> Incomplete:
