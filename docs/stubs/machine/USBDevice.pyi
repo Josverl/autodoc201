@@ -36,20 +36,23 @@ class USBDevice:
     
     Each object contains the following read-only fields:
     
-    - ``itf_max`` - One more than the highest bInterfaceNumber value used
-    in the built-in configuration descriptor.
-    - ``ep_max`` - One more than the highest bEndpointAddress value used
-    in the built-in configuration descriptor. Does not include any
-    ``IN`` flag bit (0x80).
-    - ``str_max`` - One more than the highest string descriptor index
-    value used by any built-in descriptor.
-    - ``desc_dev`` - ``bytes`` object containing the built-in USB device
-    descriptor.
-    - ``desc_cfg`` - ``bytes`` object containing the complete built-in USB
-    configuration descriptor.
+    - ``itf_max`` - One more than the highest bInterfaceNumber value used in the built-in configuration descriptor.
+    - ``ep_max`` - One more than the highest bEndpointAddress value used in the built-in configuration descriptor. Does not include any ``IN`` flag bit (0x80).
+    - ``str_max`` - One more than the highest string descriptor index value used by any built-in descriptor.
+    - ``desc_dev`` - ``bytes`` object containing the built-in USB device descriptor.
+    - ``desc_cfg`` - ``bytes`` object containing the complete built-in USB configuration descriptor.
     """
     def __init__(self) -> None: ...
-    def config(self, desc_dev, desc_cfg, desc_strs=None, open_itf_cb=None, reset_cb=None, control_xfer_cb=None, xfer_cb=None) -> None:
+    def config(
+        self,
+        desc_dev,
+        desc_cfg,
+        desc_strs=None,
+        open_itf_cb=None,
+        reset_cb=None,
+        control_xfer_cb=None,
+        xfer_cb=None,
+    ) -> None:
         """
         Configures the ``USBDevice`` singleton object with the USB runtime device
         state and callback functions:

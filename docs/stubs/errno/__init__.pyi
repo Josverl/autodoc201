@@ -23,10 +23,12 @@ Error codes, based on ANSI C/POSIX standard. All error codes start with
 where ``exc`` is an instance of `OSError`. Usage example::
 
 try:
-os.mkdir("my_dir")
+    os.mkdir("my_dir")
 except OSError as exc:
-if exc.errno == errno.EEXIST:
-print("Directory already exists")
+    if exc.errno == errno.EEXIST:
+    print("Directory already exists")
+
+
 """
 EAGAIN: Incomplete
 """\
@@ -36,10 +38,11 @@ Error codes, based on ANSI C/POSIX standard. All error codes start with
 where ``exc`` is an instance of `OSError`. Usage example::
 
 try:
-os.mkdir("my_dir")
+    os.mkdir("my_dir")
 except OSError as exc:
-if exc.errno == errno.EEXIST:
-print("Directory already exists")
+    if exc.errno == errno.EEXIST:
+    print("Directory already exists")
+
 """
 errorcode: Dict
 """\

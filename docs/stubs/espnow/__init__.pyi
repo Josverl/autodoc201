@@ -39,10 +39,8 @@ class ESPNow(ESPNowBase, Iterator):
     where:
     
     - ``peer`` is the peer MAC address (as `bytes`);
-    - ``rssi`` is the wifi signal strength in dBm (-127 to 0) of the last
-    message received from the peer; and
-    - ``time_ms`` is the time the message was received (in milliseconds since
-    system boot - wraps every 12 days).
+    - ``rssi`` is the wifi signal strength in dBm (-127 to 0) of the last message received from the peer; and
+    - ``time_ms`` is the time the message was received (in milliseconds since system boot - wraps every 12 days).
     
     Example::
     
@@ -349,7 +347,12 @@ class ESPNow(ESPNowBase, Iterator):
         ...
 
     def add_peer(
-        self, mac, lmk: Optional[Any] = None, channel: Optional[Any] = None, ifidx: Optional[Any] = None, encrypt: Optional[Any] = None
+        self,
+        mac,
+        lmk: Optional[Any] = None,
+        channel: Optional[Any] = None,
+        ifidx: Optional[Any] = None,
+        encrypt: Optional[Any] = None,
     ) -> Incomplete:
         """
         Add/register the provided *mac* address as a peer. Additional parameters may

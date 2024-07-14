@@ -20,10 +20,8 @@ class WLAN:
     
     Allowed values for the ``WLAN.config(pm=...)`` network interface parameter:
     
-    * ``PM_PERFORMANCE``: enable WiFi power management to balance power
-    savings and WiFi performance
-    * ``PM_POWERSAVE``: enable WiFi power management with additional power
-    savings and reduced WiFi performance
+    * ``PM_PERFORMANCE``: enable WiFi power management to balance power savings and WiFi performance
+    * ``PM_POWERSAVE``: enable WiFi power management with additional power savings and reduced WiFi performance
     * ``PM_NONE``: disable wifi power management
     """
     def __init__(self, interface_id) -> None: ...
