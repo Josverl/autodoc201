@@ -14,9 +14,19 @@ release = "1"
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
+import sys
+import os
+
+# If extensions (or modules to document with autodoc) are in another directory,
+# add these directories to sys.path here. If the directory is relative to the
+# documentation root, use os.path.abspath to make it absolute, like shown here.
+TOP_DIR = os.path.abspath(os.path.dirname(__file__))
+sys.path.insert(0, os.path.join(TOP_DIR, "extensions"))
+
 extensions = [
     "autoapi.extension",
     "sphinx.ext.intersphinx",
+    "restore_section",  # Jimmo's extension
 ]
 
 templates_path = ["_templates"]
@@ -66,7 +76,7 @@ autoapi_generate_api_docs = True
 # Whether to generate API documentation. If this is False, documentation should be generated though the Directives.
 
 # Keep the AutoAPI generated files on the filesystem after the run. Useful for debugging.
-autoapi_keep_files = False
+autoapi_keep_files = True
 
 # onfigure customizable templates for the AutoAPI extension.
 autoapi_template_dir = (Path(__file__).parent / "autoapi_templates").absolute().as_posix()
