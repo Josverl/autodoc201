@@ -28,22 +28,6 @@ Subpackages
 
          {% endif %}
       {% endblock %}
-      {% block submodules %}
-         {% set visible_submodules = obj.submodules|selectattr("display")|list %}
-         {% if visible_submodules %}
-Submodules
-----------
-
-.. toctree::
-   :maxdepth: 1
-
-            {% for submodule in visible_submodules %}
-   {{ submodule.include_path }}
-            {% endfor %}
-
-
-         {% endif %}
-      {% endblock %}
       {% block content %}
          {% set visible_children = obj.children|selectattr("display")|list %}
          {% if visible_children %}
@@ -145,8 +129,8 @@ Functions
             {% endif %}
             {% set this_page_children = visible_children|rejectattr("type", "in", own_page_types)|list %}
             {% if this_page_children %}
-{{ obj.type|title }} Contents
-{{ "-" * obj.type|length }}---------
+Module Contents
+---------------
 
                {% for obj_item in this_page_children %}
 {{ obj_item.render()|indent(0) }}
@@ -154,6 +138,24 @@ Functions
             {% endif %}
          {% endif %}
       {% endblock %}
+.. moved block submodules to the end of the file.      
+      {% block submodules %}
+         {% set visible_submodules = obj.submodules|selectattr("display")|list %}
+         {% if visible_submodules %}
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+            {% for submodule in visible_submodules %}
+   {{ submodule.include_path }}
+            {% endfor %}
+
+
+         {% endif %}
+      {% endblock %}
+
    {% else %}
 .. py:module:: {{ obj.name }}
 
