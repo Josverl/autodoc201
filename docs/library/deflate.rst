@@ -7,7 +7,6 @@
    :undoc-members:
    :private-members: 
    :special-members:
-   :show-inheritance:
 
 .. restore_section::
 Examples
