@@ -7,7 +7,7 @@ from .Pin import Pin
 
 class Signal(Pin):
     """
-            Signal(pin_arguments..., *, invert=False)
+            Signal(pin_arguments..., \\*, invert=False)
 
     Create a Signal object. There're two ways to create it:
 

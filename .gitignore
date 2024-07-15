@@ -1,3 +1,5 @@
 .venv
 docs/_build
 docs/autoapi
+**/__pycache__
+
