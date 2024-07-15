@@ -13,12 +13,12 @@ from typing import Any, NoReturn, Optional, Tuple
 from _typeshed import Incomplete
 from .UART import UART
 
-hid_mouse: int
+hid_mouse: Tuple
 """\
 A tuple of (subclass, protocol, max packet length, polling interval, report
 descriptor) to set appropriate values for a USB mouse or keyboard.
 """
-hid_keyboard: int
+hid_keyboard: Tuple
 """\
 A tuple of (subclass, protocol, max packet length, polling interval, report
 descriptor) to set appropriate values for a USB mouse or keyboard.
@@ -76,6 +76,7 @@ def elapsed_millis(start) -> int:
         start = pyb.millis()
         while pyb.elapsed_millis(start) < 1000:
             # Perform some operation
+            ...
     """
     ...
 
@@ -310,7 +311,15 @@ def unique_id() -> str:
     """
     ...
 
-def usb_mode(modestr: Optional[Any] = None, port=-1, vid=0xF055, pid=-1, msc=(), hid=hid_mouse, high_speed=False) -> str:
+def usb_mode(
+    modestr: Optional[Any] = None,
+    port=-1,
+    vid=0xF055,
+    pid=-1,
+    msc=(),
+    hid=hid_mouse,
+    high_speed=False,
+) -> str:
     """
     If called with no arguments, return the current USB mode as a string.
 

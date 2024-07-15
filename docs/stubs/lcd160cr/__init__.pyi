@@ -4,38 +4,30 @@ Control of LCD160CR display.
 MicroPython module: https://docs.micropython.org/en/v1.23.0/library/lcd160cr.html
 
 This module provides control of the MicroPython LCD160CR display.
+
+---
+Module: 'lcd160cr' on micropython-v1.23.0-stm32-PYBV11
 """
 
-# source version: v1.23.0
-# origin module:: repos/micropython/docs/library/lcd160cr.rst
+# MCU: {'version': '1.23.0', 'mpy': 'v6.3', 'port': 'stm32', 'board': 'PYBV11', 'family': 'micropython', 'build': '', 'arch': 'armv7emsp', 'ver': '1.23.0', 'cpu': 'STM32F405RG'}
+# Stubber: v1.20.0
 from __future__ import annotations
-from typing import Tuple
 from _typeshed import Incomplete
-from machine.SPI import SPI
+from typing import Tuple
 
-PORTRAIT: Incomplete
-"""Orientations of the display, used by :meth:`LCD160CR.set_orient`."""
-LANDSCAPE: Incomplete
-"""Orientations of the display, used by :meth:`LCD160CR.set_orient`."""
-PORTRAIT_UPSIDEDOWN: Incomplete
-"""Orientations of the display, used by :meth:`LCD160CR.set_orient`."""
-LANDSCAPE_UPSIDEDOWN: Incomplete
-"""Orientations of the display, used by :meth:`LCD160CR.set_orient`."""
-STARTUP_DECO_NONE: Incomplete
-"""\
-Types of start-up decoration, can be OR'ed together, used by
-:meth:`LCD160CR.set_startup_deco`.
-"""
-STARTUP_DECO_MLOGO: Incomplete
-"""\
-Types of start-up decoration, can be OR'ed together, used by
-:meth:`LCD160CR.set_startup_deco`.
-"""
-STARTUP_DECO_INFO: Incomplete
-"""\
-Types of start-up decoration, can be OR'ed together, used by
-:meth:`LCD160CR.set_startup_deco`.
-"""
+STARTUP_DECO_NONE: int = 0
+STARTUP_DECO_MLOGO: int = 1
+LANDSCAPE_UPSIDEDOWN: int = 3
+STARTUP_DECO_INFO: int = 2
+PORTRAIT: int = 0
+PORTRAIT_UPSIDEDOWN: int = 2
+LANDSCAPE: int = 1
+_uart_baud_table: dict = {}
+
+def pack_into(*args, **kwargs) -> Incomplete: ...
+def const(*args, **kwargs) -> Incomplete: ...
+def calcsize(*args, **kwargs) -> Incomplete: ...
+def sleep_ms(*args, **kwargs) -> Incomplete: ...
 
 class LCD160CR:
     """
@@ -73,97 +65,10 @@ class LCD160CR:
     for how the display can be connected to the pyboard.
     """
 
-    w: Incomplete
-    h: Incomplete
-    """\
-    The width and height of the display, respectively, in pixels.  These
-    members are updated when calling :meth:`LCD160CR.set_orient` and should
-    be considered read-only.
-    """
-    def __init__(self, connect=None, *, pwr=None, i2c=None, spi=None, i2c_addr=98) -> None: ...
-    @staticmethod
-    def rgb(r, g, b) -> int:
-        """
-        Return a 16-bit integer representing the given rgb color values.  The
-        16-bit value can be used to set the font color (see
-        :meth:`LCD160CR.set_text_color`) pen color (see :meth:`LCD160CR.set_pen`)
-        and draw individual pixels.
-        """
-        ...
-
-    @staticmethod
-    def clip_line(data, w, h) -> Incomplete:
-        """
-        Clip the given line data.  This is for internal use.
-        """
-        ...
-
-    def set_power(self, on) -> None:
-        """
-        Turn the display on or off, depending on the given value of *on*: 0 or ``False``
-        will turn the display off, and 1 or ``True`` will turn it on.
-        """
-        ...
-
-    def set_orient(self, orient) -> None:
-        """
-        Set the orientation of the display.  The *orient* parameter can be one
-        of `PORTRAIT`, `LANDSCAPE`, `PORTRAIT_UPSIDEDOWN`, `LANDSCAPE_UPSIDEDOWN`.
-        """
-        ...
-
+    def __init__(self, *argv, **kwargs) -> None: ...
     def set_brightness(self, value) -> None:
         """
         Set the brightness of the display, between 0 and 31.
-        """
-        ...
-
-    def set_i2c_addr(self, addr) -> None:
-        """
-        Set the I2C address of the display.  The *addr* value must have the
-        lower 2 bits cleared.
-        """
-        ...
-
-    def set_uart_baudrate(self, baudrate) -> None:
-        """
-        Set the baudrate of the UART interface.
-        """
-        ...
-
-    def set_startup_deco(self, value) -> None:
-        """
-        Set the start-up decoration of the display.  The *value* parameter can be a
-        logical or of `STARTUP_DECO_NONE`, `STARTUP_DECO_MLOGO`, `STARTUP_DECO_INFO`.
-        """
-        ...
-
-    def save_to_flash(self) -> Incomplete:
-        """
-        Save the following parameters to flash so they persist on restart and power up:
-        initial decoration, orientation, brightness, UART baud rate, I2C address.
-        """
-        ...
-
-    def set_pixel(self, x, y, c) -> None:
-        """
-        Set the specified pixel to the given color.  The color should be a 16-bit
-        integer and can be created by :meth:`LCD160CR.rgb`.
-        """
-        ...
-
-    def get_pixel(self, x, y) -> Incomplete:
-        """
-        Get the 16-bit value of the specified pixel.
-        """
-        ...
-
-    def get_line(self, x, y, buf) -> Incomplete:
-        """
-        Low-level method to get a line of pixels into the given buffer.
-        To read *n* pixels *buf* should be *2*n+1* bytes in length.  The first byte
-        is a dummy byte and should be ignored, and subsequent bytes represent the
-        pixels in the line starting at coordinate *(x, y)*.
         """
         ...
 
@@ -184,16 +89,10 @@ class LCD160CR:
         """
         ...
 
-    def set_pos(self, x, y) -> None:
+    def set_orient(self, orient) -> None:
         """
-        Set the position for text output using :meth:`LCD160CR.write`.  The position
-        is the upper-left corner of the text.
-        """
-        ...
-
-    def set_text_color(self, fg, bg) -> None:
-        """
-        Set the foreground and background color of the text.
+        Set the orientation of the display.  The *orient* parameter can be one
+        of `PORTRAIT`, `LANDSCAPE`, `PORTRAIT_UPSIDEDOWN`, `LANDSCAPE_UPSIDEDOWN`.
         """
         ...
 
@@ -218,34 +117,13 @@ class LCD160CR:
         """
         ...
 
-    def write(self, s) -> None:
+    def set_i2c_addr(self, addr) -> None:
         """
-        Write text to the display, using the current position, color and font.
-        As text is written the position is automatically incremented.  The
-        display supports basic VT100 control codes such as newline and backspace.
-        """
-        ...
-
-    def set_pen(self, line, fill) -> None:
-        """
-        Set the line and fill color for primitive shapes.
+        Set the I2C address of the display.  The *addr* value must have the
+        lower 2 bits cleared.
         """
         ...
 
-    def erase(self) -> Incomplete:
-        """
-        Erase the entire display to the pen fill color.
-        """
-        ...
-
-    def dot(self, x, y) -> None:
-        """
-        Draw a single pixel at the given location using the pen line color.
-        """
-        ...
-
-    def rect(self, x, y, w, h) -> Incomplete: ...
-    def rect_outline(self, x, y, w, h) -> Incomplete: ...
     def rect_interior(self, x, y, w, h) -> None:
         """
         Draw a rectangle at the given location and size using the pen line
@@ -255,86 +133,48 @@ class LCD160CR:
         """
         ...
 
-    def line(self, x1, y1, x2, y2) -> None:
-        """
-        Draw a line between the given coordinates using the pen line color.
-        """
-        ...
-
-    def dot_no_clip(self, x, y) -> Incomplete: ...
     def rect_no_clip(self, x, y, w, h) -> Incomplete: ...
-    def rect_outline_no_clip(self, x, y, w, h) -> Incomplete: ...
+    def save_to_flash(self) -> Incomplete:
+        """
+        Save the following parameters to flash so they persist on restart and power up:
+        initial decoration, orientation, brightness, UART baud rate, I2C address.
+        """
+        ...
+
     def rect_interior_no_clip(self, x, y, w, h) -> Incomplete: ...
-    def line_no_clip(self, x1, y1, x2, y2) -> Incomplete:
+    @staticmethod
+    def rgb(r, g, b) -> int:
         """
-        These methods are as above but don't do any clipping on the input
-        coordinates.  They are faster than the clipping versions and can be
-        used when you know that the coordinates are within the display.
-        """
-        ...
-
-    def poly_dot(self, data) -> None:
-        """
-        Draw a sequence of dots using the pen line color.
-        The *data* should be a buffer of bytes, with each successive pair of
-        bytes corresponding to coordinate pairs (x, y).
+        Return a 16-bit integer representing the given rgb color values.  The
+        16-bit value can be used to set the font color (see
+        :meth:`LCD160CR.set_text_color`) pen color (see :meth:`LCD160CR.set_pen`)
+        and draw individual pixels.
         """
         ...
 
-    def poly_line(self, data) -> Incomplete:
+    def rect_outline(self, x, y, w, h) -> Incomplete: ...
+    def rect_outline_no_clip(self, x, y, w, h) -> Incomplete: ...
+    def set_startup_deco(self, value) -> None:
         """
-        Similar to :meth:`LCD160CR.poly_dot` but draws lines between the dots.
-        """
-        ...
-
-    def touch_config(self, calib=False, save=False, irq=None) -> None:
-        """
-        Configure the touch panel:
-
-            - If *calib* is ``True`` then the call will trigger a touch calibration of
-              the resistive touch sensor.  This requires the user to touch various
-              parts of the screen.
-            - If *save* is ``True`` then the touch parameters will be saved to NVRAM
-              to persist across reset/power up.
-            - If *irq* is ``True`` then the display will be configured to pull the IRQ
-              line low when a touch force is detected.  If *irq* is ``False`` then this
-              feature is disabled.  If *irq* is ``None`` (the default value) then no
-              change is made to this setting.
+        Set the start-up decoration of the display.  The *value* parameter can be a
+        logical or of `STARTUP_DECO_NONE`, `STARTUP_DECO_MLOGO`, `STARTUP_DECO_INFO`.
         """
         ...
 
-    def is_touched(self) -> bool:
+    def set_scroll_win_param(self, win, param, value) -> Incomplete:
         """
-        Returns a boolean: ``True`` if there is currently a touch force on the screen,
-        ``False`` otherwise.
-        """
-        ...
+        Set a single parameter of a scrolling window region:
 
-    def get_touch(self) -> Tuple:
-        """
-        Returns a 3-tuple of: *(active, x, y)*.  If there is currently a touch force
-        on the screen then *active* is 1, otherwise it is 0.  The *x* and *y* values
-        indicate the position of the current or most recent touch.
+            - *win* is the window id, 0..8.
+            - *param* is the parameter number to configure, 0..7, and corresponds
+              to the parameters in the `set_scroll_win` method.
+            - *value* is the value to set.
         """
         ...
 
     def set_spi_win(self, x, y, w, h) -> None:
         """
         Set the window that SPI data is written to.
-        """
-        ...
-
-    def fast_spi(self, flush=True) -> SPI:
-        """
-        Ready the display to accept RGB pixel data on the SPI bus, resetting the location
-        of the first byte to go to the top-left corner of the window set by
-        :meth:`LCD160CR.set_spi_win`.
-        The method returns an SPI object which can be used to write the pixel data.
-
-        Pixels should be sent as 16-bit RGB values in the 5-6-5 format.  The destination
-        counter will increase as data is sent, and data can be sent in arbitrary sized
-        chunks.  Once the destination counter reaches the end of the window specified by
-        :meth:`LCD160CR.set_spi_win` it will wrap around to the top-left corner of that window.
         """
         ...
 
@@ -350,10 +190,28 @@ class LCD160CR:
         """
         ...
 
-    def set_scroll(self, on) -> None:
+    def set_text_color(self, fg, bg) -> None:
         """
-        Turn scrolling on or off.  This controls globally whether any window regions will
-        scroll.
+        Set the foreground and background color of the text.
+        """
+        ...
+
+    def set_uart_baudrate(self, baudrate) -> None:
+        """
+        Set the baudrate of the UART interface.
+        """
+        ...
+
+    def set_pen(self, line, fill) -> None:
+        """
+        Set the line and fill color for primitive shapes.
+        """
+        ...
+
+    def set_pos(self, x, y) -> None:
+        """
+        Set the position for text output using :meth:`LCD160CR.write`.  The position
+        is the upper-left corner of the text.
         """
         ...
 
@@ -375,14 +233,10 @@ class LCD160CR:
         """
         ...
 
-    def set_scroll_win_param(self, win, param, value) -> Incomplete:
+    def set_pixel(self, x, y, c) -> None:
         """
-        Set a single parameter of a scrolling window region:
-
-            - *win* is the window id, 0..8.
-            - *param* is the parameter number to configure, 0..7, and corresponds
-              to the parameters in the `set_scroll_win` method.
-            - *value* is the value to set.
+        Set the specified pixel to the given color.  The color should be a 16-bit
+        integer and can be created by :meth:`LCD160CR.rgb`.
         """
         ...
 
@@ -393,6 +247,88 @@ class LCD160CR:
         """
         ...
 
+    def set_power(self, on) -> None:
+        """
+        Turn the display on or off, depending on the given value of *on*: 0 or ``False``
+        will turn the display off, and 1 or ``True`` will turn it on.
+        """
+        ...
+
+    def set_scroll(self, on) -> None:
+        """
+        Turn scrolling on or off.  This controls globally whether any window regions will
+        scroll.
+        """
+        ...
+
+    def touch_config(self, calib=False, save=False, irq=None) -> None:
+        """
+        Configure the touch panel:
+
+            - If *calib* is ``True`` then the call will trigger a touch calibration of
+              the resistive touch sensor.  This requires the user to touch various
+              parts of the screen.
+            - If *save* is ``True`` then the touch parameters will be saved to NVRAM
+              to persist across reset/power up.
+            - If *irq* is ``True`` then the display will be configured to pull the IRQ
+              line low when a touch force is detected.  If *irq* is ``False`` then this
+              feature is disabled.  If *irq* is ``None`` (the default value) then no
+              change is made to this setting.
+        """
+        ...
+
+    @staticmethod
+    def clip_line(data, w, h) -> Incomplete:
+        """
+        Clip the given line data.  This is for internal use.
+        """
+        ...
+
+    def _send(self, *args, **kwargs) -> Incomplete: ...
+    def _waitfor(self, *args, **kwargs) -> Incomplete: ...
+    def erase(self) -> Incomplete:
+        """
+        Erase the entire display to the pen fill color.
+        """
+        ...
+
+    def dot(self, x, y) -> None:
+        """
+        Draw a single pixel at the given location using the pen line color.
+        """
+        ...
+
+    def dot_no_clip(self, x, y) -> Incomplete: ...
+    def poly_line(self, data) -> Incomplete:
+        """
+        Similar to :meth:`LCD160CR.poly_dot` but draws lines between the dots.
+        """
+        ...
+
+    def line(self, x1, y1, x2, y2) -> None:
+        """
+        Draw a line between the given coordinates using the pen line color.
+        """
+        ...
+
+    def _fcmd2b(self, *args, **kwargs) -> Incomplete: ...
+    def write(self, s) -> None:
+        """
+        Write text to the display, using the current position, color and font.
+        As text is written the position is automatically incremented.  The
+        display supports basic VT100 control codes such as newline and backspace.
+        """
+        ...
+
+    def _fcmd2(self, *args, **kwargs) -> Incomplete: ...
+    def rect(self, x, y, w, h) -> Incomplete: ...
+    def reset(self) -> None:
+        """
+        Reset the display.
+        """
+        ...
+
+    def jpeg_start(self, total_len) -> Incomplete: ...
     def jpeg(self, buf) -> None:
         """
         Display a JPEG.  *buf* should contain the entire JPEG data. JPEG data should
@@ -402,13 +338,59 @@ class LCD160CR:
         """
         ...
 
-    def jpeg_start(self, total_len) -> Incomplete: ...
     def jpeg_data(self, buf) -> None:
         """
         Display a JPEG with the data split across multiple buffers.  There must be
         a single call to `jpeg_start` to begin with, specifying the total number of
         bytes in the JPEG.  Then this number of bytes must be transferred to the
         display using one or more calls to the `jpeg_data` command.
+        """
+        ...
+
+    def poly_dot(self, data) -> None:
+        """
+        Draw a sequence of dots using the pen line color.
+        The *data* should be a buffer of bytes, with each successive pair of
+        bytes corresponding to coordinate pairs (x, y).
+        """
+        ...
+
+    def line_no_clip(self, x1, y1, x2, y2) -> Incomplete:
+        """
+        These methods are as above but don't do any clipping on the input
+        coordinates.  They are faster than the clipping versions and can be
+        used when you know that the coordinates are within the display.
+        """
+        ...
+
+    def oflush(self, *args, **kwargs) -> Incomplete: ...
+    def fast_spi(self, flush=True) -> SPI:
+        """
+        Ready the display to accept RGB pixel data on the SPI bus, resetting the location
+        of the first byte to go to the top-left corner of the window set by
+        :meth:`LCD160CR.set_spi_win`.
+        The method returns an SPI object which can be used to write the pixel data.
+
+        Pixels should be sent as 16-bit RGB values in the 5-6-5 format.  The destination
+        counter will increase as data is sent, and data can be sent in arbitrary sized
+        chunks.  Once the destination counter reaches the end of the window specified by
+        :meth:`LCD160CR.set_spi_win` it will wrap around to the top-left corner of that window.
+        """
+        ...
+
+    def get_line(self, x, y, buf) -> Incomplete:
+        """
+        Low-level method to get a line of pixels into the given buffer.
+        To read *n* pixels *buf* should be *2*n+1* bytes in length.  The first byte
+        is a dummy byte and should be ignored, and subsequent bytes represent the
+        pixels in the line starting at coordinate *(x, y)*.
+        """
+        ...
+
+    def is_touched(self) -> bool:
+        """
+        Returns a boolean: ``True`` if there is currently a touch force on the screen,
+        ``False`` otherwise.
         """
         ...
 
@@ -420,8 +402,17 @@ class LCD160CR:
         """
         ...
 
-    def reset(self) -> None:
+    def iflush(self, *args, **kwargs) -> Incomplete: ...
+    def get_pixel(self, x, y) -> Incomplete:
         """
-        Reset the display.
+        Get the 16-bit value of the specified pixel.
+        """
+        ...
+
+    def get_touch(self) -> Tuple:
+        """
+        Returns a 3-tuple of: *(active, x, y)*.  If there is currently a touch force
+        on the screen then *active* is 1, otherwise it is 0.  The *x* and *y* values
+        indicate the position of the current or most recent touch.
         """
         ...
