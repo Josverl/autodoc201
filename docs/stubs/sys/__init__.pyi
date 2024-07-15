@@ -49,13 +49,20 @@ This attribute is useful for detecting "bitness" of a platform (32-bit vs
 64-bit, etc.). It's recommended to not compare this attribute to some
 value directly, but instead count number of bits in it::
 
-bits = 0
-v = sys.maxsize
-while v:
-bits += 1
-v >>= 1
-if bits > 32:
-# 64-bit (or more) platform
+    bits = 0
+    v = sys.maxsize
+    while v:
+        bits += 1
+        v >>= 1
+    if bits > 32:
+        # 64-bit (or more) platform
+        ...
+    else:
+        # 32-bit (or less) platform
+        # Note that on 32-bit platform, value of bits may be less than 32
+        # (e.g. 31) due to peculiarities described above, so use "> 16",
+        # "> 32", "> 64" style of comparisons.
+        ...
 """
 modules: Dict
 """\
@@ -163,8 +170,8 @@ def print_exception(
 
 def settrace(tracefunc) -> None:
     """
-    Enable tracing of bytecode execution.  For details see the `CPython
-    documentation `<https://docs.python.org/3/library/sys.html#sys.settrace>.
+    Enable tracing of bytecode execution.  For details see the
+    `CPython documentation` <https://docs.python.org/3/library/sys.html#sys.settrace>.
 
     This function requires a custom MicroPython build as it is typically not
     present in pre-built firmware (due to it affecting performance).  The relevant

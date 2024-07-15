@@ -4,7 +4,7 @@ Asynchronous I/O scheduler for writing concurrent code.
 MicroPython module: https://docs.micropython.org/en/v1.21.0/library/asyncio.html
 
 CPython module:
-`asyncio `<https://docs.python.org/3.8/library/asyncio.html>
+`asyncio` <https://docs.python.org/3.8/library/asyncio.html>
 
 Example::
 
@@ -30,9 +30,8 @@ Example::
     from machine import Pin
     asyncio.run(main(Pin(1), Pin(2)))
 
-Core functions
---------------
 """
+
 from _typeshed import Incomplete, Incomplete as Incomplete
 from typing import Any, Coroutine, List, Tuple
 
