@@ -67,28 +67,26 @@ library.
    builtins.rst
    cmath.rst
    collections.rst
+   errno.rst
+   gc.rst
+   gzip.rst
+   hashlib.rst
+   heapq.rst
+   io.rst
+   json.rst
+   math.rst
+   os.rst
+   platform.rst
+   random.rst
+   re.rst
+   select.rst
+   socket.rst
+   ssl.rst
+   struct.rst
+   sys.rst
+   time.rst
+   zlib.rst
    _thread.rst
-
-
-..    errno.rst
-..    gc.rst
-..    gzip.rst
-..    hashlib.rst
-..    heapq.rst
-..    io.rst
-..    json.rst
-..    math.rst
-..    os.rst
-..    platform.rst
-..    random.rst
-..    re.rst
-..    select.rst
-..    socket.rst
-..    ssl.rst
-..    struct.rst
-..    sys.rst
-..    time.rst
-..    zlib.rst
 
 .. _micropython_lib_micropython:
 
@@ -98,29 +96,28 @@ MicroPython-specific libraries
 Functionality specific to the MicroPython implementation is available in
 the following libraries.
 
-.. .. toctree::
+.. toctree::
    :maxdepth: 1
 
    bluetooth.rst
    btree.rst
    cryptolib.rst
    deflate.rst
-
-..    framebuf.rst
-..    machine.rst
-..    micropython.rst
-..    neopixel.rst
-..    network.rst
-..    openamp.rst
-..    uctypes.rst
-..    vfs.rst
+   framebuf.rst
+   machine.rst
+   micropython.rst
+   neopixel.rst
+   network.rst
+   openamp.rst
+   uctypes.rst
+   vfs.rst
 
 The following libraries provide drivers for hardware components.
 
-.. .. toctree::
-..   :maxdepth: 1
+.. toctree::
+  :maxdepth: 1
 
-..   wm8960.rst
+  wm8960.rst
 
 
 Port-specific libraries
@@ -141,12 +138,12 @@ Libraries specific to the pyboard
 
 The following libraries are specific to the pyboard.
 
-.. .. toctree::
-..   :maxdepth: 2
+.. toctree::
+  :maxdepth: 2
 
-..   pyb.rst
-..   stm.rst
-..   lcd160cr.rst
+  ../autoapi/pyb/index
+  ../autoapi/stm/index
+  ../autoapi/lcd160cr/index
 
 
 Libraries specific to the WiPy
@@ -154,12 +151,12 @@ Libraries specific to the WiPy
 
 The following libraries and classes are specific to the WiPy.
 
-.. .. toctree::
-..   :maxdepth: 2
+.. toctree::
+  :maxdepth: 2
 
-..   wipy.rst
-..   machine.ADCWiPy.rst
-..   machine.TimerWiPy.rst
+  wipy.rst
+  machine.ADCWiPy.rst
+  machine.TimerWiPy.rst
 
 
 Libraries specific to the ESP8266 and ESP32
@@ -167,37 +164,37 @@ Libraries specific to the ESP8266 and ESP32
 
 The following libraries are specific to the ESP8266 and ESP32.
 
-.. .. toctree::
-..   :maxdepth: 2
+.. toctree::
+  :maxdepth: 2
 
-..   esp.rst
-..   esp32.rst
+  esp.rst
+  esp32.rst
 
-.. .. toctree::
-..   :maxdepth: 1
+.. toctree::
+  :maxdepth: 1
 
-..   espnow.rst
+  espnow.rst
 
 
-.. Libraries specific to the RP2040
-.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Libraries specific to the RP2040
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. The following libraries are specific to the RP2040, as used in the Raspberry Pi Pico.
+The following libraries are specific to the RP2040, as used in the Raspberry Pi Pico.
 
-.. .. toctree::
-..   :maxdepth: 2
+.. toctree::
+  :maxdepth: 2
 
-..   rp2.rst
+  rp2.rst
 
-.. Libraries specific to Zephyr
-.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Libraries specific to Zephyr
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. The following libraries are specific to the Zephyr port.
+The following libraries are specific to the Zephyr port.
 
-.. .. .. toctree::
-..   :maxdepth: 2
+.. toctree::
+  :maxdepth: 2
 
-..   zephyr.rst
+  zephyr.rst
 
 .. _micropython_lib_extending:
 

@@ -6,9 +6,9 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "API documentation test"
-copyright = "2024, Jos Verlinde"
-author = "Jos Verlinde"
+project = "Stub doc test"
+copyright = "Nah"
+author = "Jos Verlinde Jim Mussared et al"
 release = "1"
 
 # -- General configuration ---------------------------------------------------
@@ -66,14 +66,18 @@ autoapi_options = [
     "special-members",  # __foo
     "show-inheritance",  # Display a list of base classes below the class signature.
     "show-module-summary",  # include autosummary directives in generated module documentation
+    "noindex",
     # "imported-members", $# For objects imported into a package, display objects imported from the same top level package or module.
     # This option does not effect objects imported into a module.
 ]
-autoapi_python_class_content = "class"  # Use only the class docstring for the class documentation.
-autoapi_member_order = "groupwise"
 
-autoapi_generate_api_docs = True
+# autoapi_python_class_content = "class"  # Use only the class docstring for the class documentation.
+autoapi_member_order = "groupwise"
+autoapi_root = "modules"
 # Whether to generate API documentation. If this is False, documentation should be generated though the Directives.
+autoapi_generate_api_docs = True
+
+autoapi_add_toctree_entry = True
 
 # Keep the AutoAPI generated files on the filesystem after the run. Useful for debugging.
 autoapi_keep_files = True
@@ -103,7 +107,7 @@ autoapi_dirs: List[Path] = stub_modules
 # -----------------------------------------------------------------------------
 lone_pyi = [p for p in stub_path.glob("*.pyi") if p.stem not in SKIP_MODULES]
 if lone_pyi:
-    print("WARNING, lone .pyi stubs will not be processed", lone_pyi)
+    autoapi_dirs.extend(lone_pyi)
 
 # -----------------------------------------------------------------------------
 # HTML post processing
