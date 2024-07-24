@@ -1,5 +1,8 @@
 .venv
 docs/_build
 docs/modules
+docs/doctrees
 **/__pycache__
+_build
+build
 
