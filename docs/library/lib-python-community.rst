@@ -1,4 +1,4 @@
-.. _micropython-lib-modules:
+.. _micropython-community-modules:
 
 Community Modules
 =================

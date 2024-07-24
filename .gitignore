@@ -5,4 +5,5 @@ docs/doctrees
 **/__pycache__
 _build
 build
-
+# used to store the generated stubs
+docs/stubs-temp

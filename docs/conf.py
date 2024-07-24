@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "Stub doc test"
-copyright = "MIT"
+copyright = "Nah"
 author = "Jos Verlinde, Jim Mussared et al"
 release = "1"
 
@@ -16,7 +16,9 @@ release = "1"
 
 import sys
 import os
+import sphinx.util.logging
 
+LOGGER = sphinx.util.logging.getLogger(__name__)
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -34,7 +36,7 @@ templates_path = ["_templates"]
 exclude_patterns = ["build", "Thumbs.db", ".DS_Store"]
 
 # The suffix of source filenames.
-source_suffix = ".rst"
+source_suffix = {".rst": "restructuredtext"}
 # The master toctree document.
 master_doc = "index"
 default_role = "any"
@@ -45,6 +47,13 @@ pygments_style = "sphinx"
 # html_theme = "alabaster"
 html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]
+
+# Global include files. Sphinx docs suggest using rst_epilog in preference
+# of rst_prolog, so we follow. Absolute paths below mean "from the base
+# of the doctree".
+rst_epilog = """
+.. include:: /templates/replace.inc
+"""
 # -----------------------------------------------------------------------------
 # Configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
@@ -133,29 +142,41 @@ def temp_mods(lib_path):
         for p in lib_py:
             copy_mod_to_temp(p)
 
-    return sorted(
-        [p for p in temp_path.glob("*") if p.stem not in SKIP_MODULES and p.is_dir()],
-        key=lambda x: x.stem,
-    )
+    return lib_py
 
 
 # add lib/micropython-lib/micropython/folder/*.py
 
-autoapi_dirs.extend(
-    temp_mods(Path(__file__).parent.parent / "lib" / "micropython-lib" / "micropython")
+mpylib_micropython = temp_mods(
+    Path(__file__).parent.parent / "lib" / "micropython-lib" / "micropython"
 )
-autoapi_dirs.extend(
-    temp_mods(Path(__file__).parent.parent / "lib" / "micropython-lib" / "python-stdlib")
+mpylib_cpython_stdlib = temp_mods(
+    Path(__file__).parent.parent / "lib" / "micropython-lib" / "python-stdlib"
 )
-autoapi_dirs.extend(
-    temp_mods(Path(__file__).parent.parent / "lib" / "micropython-lib" / "python-ecosys")
+mpylib_cpython_ecosys = temp_mods(
+    Path(__file__).parent.parent / "lib" / "micropython-lib" / "python-ecosys"
 )
+
+autoapi_dirs.extend(mpylib_micropython)
+autoapi_dirs.extend(mpylib_cpython_stdlib)
+autoapi_dirs.extend(mpylib_cpython_ecosys)
+
+
+mpy_lib_modules = {}
+
+for m in mpylib_micropython:
+    mpy_lib_modules[m.stem] = "micropython-lib"
+for m in mpylib_cpython_stdlib:
+    mpy_lib_modules[m.stem] = "micropython-stdlib"
+for m in mpylib_cpython_ecosys:
+    mpy_lib_modules[m.stem] = "micropython-ecosys"
+
 
 # -----------------------------------------------------------------------------
-# HTML post processing
+# # HTML post processing
+from sphinx.application import Sphinx
 
 from bs4 import BeautifulSoup  # BeautifulSoup is used for easier HTML parsing and manipulation
-from sphinx.application import Sphinx
 
 
 def replace_typeshed_incomplete(app: Sphinx, exception):
@@ -164,7 +185,7 @@ def replace_typeshed_incomplete(app: Sphinx, exception):
     """
     if exception is None:  # Only proceed if the build completed successfully
         output_dir = Path(app.outdir)  # Get the output directory where the HTML files are located
-        print(f"Replacing _typeshed.Incomplete in HTML files in {output_dir}")
+        LOGGER.info(f"Replacing _typeshed.Incomplete in HTML files in {output_dir}")
         for file_path in output_dir.glob("**/*.html"):
             with open(file_path, "r", encoding="utf-8") as f:
                 html_content = f.read()
@@ -175,8 +196,53 @@ def replace_typeshed_incomplete(app: Sphinx, exception):
 
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(html_str)
-        print("Replacement complete")
+        LOGGER.info("Replacement complete")
 
 
-def setup(app: Sphinx):
-    app.connect("build-finished", replace_typeshed_incomplete)
+# TODO - make nice / explain
+from autoapi._objects import TopLevelPythonPythonMapper
+
+PythonObject = TopLevelPythonPythonMapper
+
+
+def process_docstring(
+    app: Sphinx,
+    what: str,  # "module", "class", "exception", "function", "method", "attribute" ( "package", 'data' with autoapi)
+    name: str,
+    obj: PythonObject,  # Always None with autoapi
+    options: dict,  # Always None with autoapi
+    lines: List[str],
+):
+
+    # sourcery skip: merge-nested-ifs
+    if what in {"package", "module"}:
+        if name in mpy_lib_modules:
+            lines.extend(
+                (
+                    "",
+                    f".. seealso:: This is a `{mpy_lib_modules[name]}` module from the `micropython-lib` repository.",
+                )
+            )
+
+
+def bps(app: Sphinx, obj, bound_method: bool):
+    pass
+
+
+def process_signature(
+    app: Sphinx,
+    what: str,
+    name: str,
+    obj: PythonObject,
+    options: dict,
+    signature: str | None,
+    return_annotation: str | None,
+):
+    pass
+
+
+def setup(sphinx: Sphinx):
+    sphinx.connect("autodoc-process-docstring", process_docstring)  # also fires with autoapi :)
+    sphinx.connect("autodoc-process-signature", process_signature)  # also fires with autoapi :)
+    sphinx.connect("autodoc-before-process-signature", bps)  # does not fire with autoapi :(
+    sphinx.connect("build-finished", replace_typeshed_incomplete)

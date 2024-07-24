@@ -13,4 +13,4 @@ This page contains auto-generated module documentation.
    {{ page.include_path }}
    {% endfor %}
 
-.. .. [#f1] Created with `sphinx-autoapi <https://github.com/readthedocs/sphinx-autoapi>`_
+.. [#f1] Created with `sphinx-autoapi <https://github.com/readthedocs/sphinx-autoapi>`_

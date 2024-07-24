@@ -1,4 +1,4 @@
-.. _micropython-lib-modules:
+.. _micropython-stdlib-modules:
 
 MicroPython-stdlib
 ==================
