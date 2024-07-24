@@ -26,6 +26,7 @@ sys.path.insert(0, os.path.join(TOP_DIR, "extensions"))
 extensions = [
     "autoapi.extension",
     "sphinx.ext.intersphinx",
+    "sphinx.ext.napoleon",
     "restore_section",  # Jimmo's extension
 ]
 
@@ -91,12 +92,11 @@ if "exclude_patterns" not in globals():
 else:
     exclude_patterns.append("autoapi_templates")
 
-# add all stubs to the autoapi_dirs
+# add all .pyi amd .py stubs to autoapi_dirs to be processed
 SKIP_MODULES = [
     "__pycache__",
-    "__builtins__",  # Does not exists, used by pyright to resolve custom builtins
+    "__builtins__",  # This module does not actually exists, is used by Pyright to resolve custom builtins
 ]
-
 
 stub_path = Path(__file__).parent / "stubs"
 stub_modules = sorted(

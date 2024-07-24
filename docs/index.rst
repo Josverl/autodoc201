@@ -10,12 +10,9 @@ Welcome to this quick test!
     library/index.rst
     bar.rst
 
+    
 
-Usage
------
 
-1. Run the application: 
-2. Open your web browser 
 
 
 
@@ -24,4 +21,5 @@ Indices and tables
 
 * :ref:`genindex`
 * :ref:`search`
-* :ref:`modindex`
+* :ref:`micropythonmodules`
+.. * :ref:`modindex`

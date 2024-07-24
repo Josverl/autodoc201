@@ -1,3 +1,5 @@
+.. _micropythonmodules:
+
 MicroPython Modules
 ===================
 
