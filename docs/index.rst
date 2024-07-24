@@ -9,8 +9,10 @@ Welcome to this quick test!
 .. toctree::
     library/index.rst
     bar.rst
-
-    
+    library/lib-micropython.rst
+    library/lib-python-stdlib.rst
+    library/lib-python-community.rst
+  
 
 
 

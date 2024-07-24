@@ -19,7 +19,10 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "dependsOn": [
+                "make_clean"
+            ],
         },
         {
             "label": "make_clean",
@@ -31,19 +34,20 @@
             "options": {
                 "cwd": "${workspaceFolder}/docs"
             },
-            "dependsOn": {
-                "label": "delete_modules",
-            },
-        },
-        {
-            "label": "delete_modules",
-            "type": "shell",
-            "command": "remove-item",
-            "args": [
-                "${workspaceFolder}/docs/modules",
-                "-Recurse",
-                "-Confirm:$false",
+            "dependsOn": [
+                "delete_modules"
             ],
-        }
-    ]
+        },
+    },
+    {
+        "label": "delete_modules",
+        "type": "shell",
+        "command": "remove-item",
+        "args": [
+            "${workspaceFolder}/docs/modules",
+            "-Recurse",
+            "-Confirm:$false",
+        ],
+    }
+]
 }

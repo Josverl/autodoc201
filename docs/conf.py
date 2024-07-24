@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "Stub doc test"
-copyright = "Nah"
-author = "Jos Verlinde Jim Mussared et al"
+copyright = "MIT"
+author = "Jos Verlinde, Jim Mussared et al"
 release = "1"
 
 # -- General configuration ---------------------------------------------------
@@ -31,7 +31,7 @@ extensions = [
 ]
 
 templates_path = ["_templates"]
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns = ["build", "Thumbs.db", ".DS_Store"]
 
 # The suffix of source filenames.
 source_suffix = ".rst"
@@ -98,17 +98,58 @@ SKIP_MODULES = [
     "__builtins__",  # This module does not actually exists, is used by Pyright to resolve custom builtins
 ]
 
+# -----------------------------------------------------------------------------
+# add stubs/modulename/__init__.pyi
 stub_path = Path(__file__).parent / "stubs"
+temp_path = Path(__file__).parent / "stubs-temp"
 stub_modules = sorted(
     [p for p in stub_path.glob("*") if p.stem not in SKIP_MODULES and p.is_dir()],
     key=lambda x: x.stem,
 )
 autoapi_dirs: List[Path] = stub_modules
 
+
+def copy_mod_to_temp(mod_path: Path):
+    """Copy a module to a temp folder with __init__.pyi"""
+    with open(mod_path, "r") as f:
+        lines = f.readlines()
+    dest_path = temp_path / mod_path.stem / "__init__.pyi"
+    dest_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(dest_path, "w") as f:
+        for line in lines:
+            f.write(line)
+
+
 # -----------------------------------------------------------------------------
-lone_pyi = [p for p in stub_path.glob("*.pyi") if p.stem not in SKIP_MODULES]
-if lone_pyi:
-    autoapi_dirs.extend(lone_pyi)
+# add stubs/modulename.pyi
+if lone_pyi := [p for p in stub_path.glob("*.pyi") if p.stem not in SKIP_MODULES]:
+    for p in lone_pyi:
+        copy_mod_to_temp(p)
+# -----------------------------------------------------------------------------
+
+
+def temp_mods(lib_path):
+    if lib_py := [p for p in lib_path.rglob("*.py") if p.stem == p.parent.stem]:
+        for p in lib_py:
+            copy_mod_to_temp(p)
+
+    return sorted(
+        [p for p in temp_path.glob("*") if p.stem not in SKIP_MODULES and p.is_dir()],
+        key=lambda x: x.stem,
+    )
+
+
+# add lib/micropython-lib/micropython/folder/*.py
+
+autoapi_dirs.extend(
+    temp_mods(Path(__file__).parent.parent / "lib" / "micropython-lib" / "micropython")
+)
+autoapi_dirs.extend(
+    temp_mods(Path(__file__).parent.parent / "lib" / "micropython-lib" / "python-stdlib")
+)
+autoapi_dirs.extend(
+    temp_mods(Path(__file__).parent.parent / "lib" / "micropython-lib" / "python-ecosys")
+)
 
 # -----------------------------------------------------------------------------
 # HTML post processing
