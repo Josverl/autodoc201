@@ -13,13 +13,13 @@ jobs:
       - uses: actions/setup-python@v5
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          pip install -r docs/requirements.txt
       - name: Sphinx build
         run: |
           cd docs
-          sphinx-build -M html . _build 
+          sphinx-build -M html . build 
           # force ignored folder
-          git add _build -f
+          git add build -f
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

@@ -41,7 +41,8 @@ pygments_style = "sphinx"
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = "alabaster"
+# html_theme = "alabaster"
+html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]
 # -----------------------------------------------------------------------------
 # Configuration for intersphinx: refer to the Python standard library.
@@ -61,12 +62,12 @@ import sphinx
 autoapi_options = [
     "members",
     "undoc-members",
-    # "inherited-members", # Display children of an object that have been inherited from a base class.
     "private-members",  # _foo
     "special-members",  # __foo
     "show-inheritance",  # Display a list of base classes below the class signature.
     "show-module-summary",  # include autosummary directives in generated module documentation
     "noindex",
+    # "inherited-members", # Display children of an object that have been inherited from a base class.
     # "imported-members", $# For objects imported into a package, display objects imported from the same top level package or module.
     # This option does not effect objects imported into a module.
 ]
