@@ -1,43 +1,41 @@
-.. _micropython-lib-modules:
+.. _micropython-libmodules:
 
-MicroPython-lib
-===============
+micropython-lib
+===========================================================
 
-This index is a Quick manually created index of the MicroPython-lib modules.
-This should bea automated and slipt into the different categories.
-
-- MicroPython(-lib)
-- Python-stdlib
-- Python-ecosys
-
+This index contains modules from the MicroPython-lib library.
 
 .. toctree::
    :titlesonly:
    :maxdepth: 1
 
-   /modules/__future__/index
-   /modules/abc/index
+
    /modules/aioespnow/index
    /modules/aiorepl/index
-   /modules/argparse/index
-   /modules/base64/index
-   /modules/binascii/index
-   /modules/bisect/index
+   /modules/onewire/index
+   /modules/wm8960/index
+   /modules/lcd160cr/index
+   /modules/ssd1306/index
    /modules/bmi270/index
-   /modules/cmd/index
-   /modules/contextlib/index
-   /modules/copy/index
-   /modules/datetime/index
+   /modules/bmm150/index
+   /modules/lsm6dsox/index
+   /modules/lsm9ds1/index
+   /modules/neopixel/index
+   /modules/nrf24l01/index
    /modules/dht/index
    /modules/ds18x20/index
-   /modules/errno/index
-   /modules/espflash/index
-   /modules/fnmatch/index
-   /modules/functools/index
-   /modules/gzip/index
-   /modules/heapq/index
-   /modules/hmac/index
    /modules/hs3003/index
    /modules/hts221/index
-   /modules/inspect/index
-   
+   /modules/lps22h/index
+   /modules/mhz19/index
+   /modules/sdcard/index
+   /modules/espflash/index
+   /modules/simple_rxtx/index
+   /modules/ntptime/index
+   /modules/webrepl/index
+   /modules/uaiohttpclient/index
+   /modules/ucontextlib/index
+   /modules/udnspkt/index
+   /modules/upysh/index
+   /modules/urequests/index
+   /modules/xmltok/index

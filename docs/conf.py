@@ -104,7 +104,13 @@ else:
 
 # -----------------------------------------------------------------------------
 # add stubs/modulename/__init__.pyi
-from stub_docs import copy_module_to_path, copy_modules, packages_from, SKIP_MODULES
+from stub_docs import (
+    copy_module_to_path,
+    copy_modules,
+    packages_from,
+    SKIP_MODULES,
+    generate_library_index,
+)
 
 stub_path = Path(__file__).parent / "stubs"
 temp_path = Path(__file__).parent / "stubs-temp"
@@ -137,8 +143,25 @@ for m in mpylib_cpython_stdlib:
 for m in mpylib_cpython_ecosys:
     mpy_lib_modules[m.stem] = "micropython-ecosys"
 
+autoapi_dirs.extend(packages_from(temp_path))
 
-autoapi_dirs.extend( packages_from(temp_path))
+# use the jenja2 template to generate the index.rst file based on mpylib_micropython
+generate_library_index(
+    mpylib_micropython,
+    "micropython-lib",
+    "library/lib-micropython.rst",
+)
+generate_library_index(
+    mpylib_cpython_stdlib,
+    "micropython-stdlib",
+    "library/lib-python-stdlib.rst",
+)
+generate_library_index(
+    mpylib_cpython_ecosys,
+    "micropython-ecosys",
+    "library/lib-python-community.rst",
+)
+
 # -----------------------------------------------------------------------------
 # # HTML post processing
 
