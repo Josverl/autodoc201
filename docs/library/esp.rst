@@ -2,7 +2,7 @@
 =========================================================
 
 .. autoapimodule:: esp
-    :noindex:
+    :no-index:
     :members:
     :undoc-members:
     :private-members: 

@@ -5,7 +5,7 @@
 
 .. autoapimodule:: esp32
     :no-members:
-    :noindex:
+    :no-index:
     :platform: esp32
 
 
@@ -14,25 +14,25 @@ Functions
 ---------
 
 .. autoapifunction:: wake_on_touch
-    :noindex:    
+    :no-index:    
 
 .. autoapifunction:: wake_on_ulp
-    :noindex:    
+    :no-index:    
 
 .. autoapifunction:: wake_on_ext0
-    :noindex:    
+    :no-index:    
 
 .. autoapifunction:: wake_on_ext1
-    :noindex:    
+    :no-index:    
 
 .. autoapifunction:: gpio_deep_sleep_hold
-    :noindex:    
+    :no-index:    
 
 .. autoapifunction:: raw_temperature
-    :noindex:    
+    :no-index:    
 
 .. autoapifunction:: idf_heap_info
-    :noindex:    
+    :no-index:    
 
 
     .. note:: Free IDF heap memory in the `esp32.HEAP_DATA` region is available
@@ -53,9 +53,9 @@ Related constants
 ~~~~~~~~~~~~~~~~~
 
 .. autoapidata:: HEAP_DATA
-    :noindex:
+    :no-index:
 .. autoapidata:: HEAP_EXEC
-    :noindex:
+    :no-index:
 
     Used in `idf_heap_info`.
 
@@ -69,7 +69,7 @@ methods to enable over-the-air (OTA) updates.
 .. restore_section::
 
 .. autoapiclass:: Partition
-    :noindex:
+    :no-index:
     :members:
     :undoc-members:
     :private-members: 
@@ -128,7 +128,7 @@ For more details see Espressif's `ESP-IDF RMT documentation.
 
 
 .. autoapiclass:: RMT
-    :noindex:
+    :no-index:
     :members:
     :undoc-members:
     :private-members: 
@@ -148,7 +148,7 @@ ESP32-S2 and ESP32-S3 chips.
     on the ESP32-S2 and ESP32-S3 chips.
 
 .. autoapiclass:: ULP()
-    :noindex:
+    :no-index:
     :members:
     :undoc-members:
     :private-members: 
@@ -160,10 +160,10 @@ Related constants
 .. restore_section::
 
 .. autoapidata:: esp32.WAKEUP_ALL_LOW
-   :noindex:
+   :no-index:
 
 .. autoapidata:: esp32.WAKEUP_ANY_HIGH
-   :noindex:
+   :no-index:
 
    Selects the wake level for pins.
 
@@ -181,7 +181,7 @@ supports 32-bit signed integers and blobs.
     to call commit results in changes being lost at the next reset.
 
 .. autoapiclass:: NVS
-    :noindex:
+    :no-index:
     :members:
     :undoc-members:
     :private-members: 

@@ -11,8 +11,10 @@ A particular inventory of codes depends on :term:`MicroPython port`.
 
 Constants
 ---------
+.. TODO: Link to the the autoapi module for the error codes.
 
 .. data:: EEXIST, EAGAIN, etc.
+    :no-index:    
 
     Error codes, based on ANSI C/POSIX standard. All error codes start with
     "E". As mentioned above, inventory of the codes depends on
@@ -25,10 +27,5 @@ Constants
             if exc.errno == errno.EEXIST:
                 print("Directory already exists")
 
-.. data:: errorcode
-
-    Dictionary mapping numeric error codes to strings with symbolic error
-    code (see above)::
-
-        >>> print(errno.errorcode[errno.EEXIST])
-        EEXIST
+.. autoapidata:: errorcode
+    :no-index:    

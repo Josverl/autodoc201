@@ -8,7 +8,7 @@
           methods and constants are subject to change.
 
 .. autoapimodule:: bluetooth
-    :noindex:
+    :no-index:
     :no-members:
 
 Introduction
@@ -166,13 +166,13 @@ Classes
 .. restore_section::
 
 .. autoapiclass:: BLE
-    :noindex:
+    :no-index:
     :members:
     :undoc-members:
     :private-members:    
 
 .. autoapiclass:: UUID
-    :noindex:
+    :no-index:
     :members:
     :undoc-members:
     :private-members:    

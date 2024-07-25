@@ -2,7 +2,7 @@
 =====================================================
 
 .. autoapimodule:: deflate
-   :noindex:
+   :no-index:
    :members:
    :undoc-members:
    :private-members: 

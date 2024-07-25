@@ -2,7 +2,7 @@
 ====================================================
 
 .. autoapimodule:: collections
-    :noindex:
+    :no-index:
     :members:
     :undoc-members:
     :private-members: 

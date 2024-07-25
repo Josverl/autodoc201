@@ -2,5 +2,6 @@
 ========================================
 
 .. autoapimodule:: _thread
-   :members:
-   :undoc-members:
+    :no-index:   
+    :members:
+    :undoc-members:

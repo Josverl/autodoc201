@@ -2,7 +2,7 @@
 ===========================================
 
 .. autoapimodule:: binascii
-    :noindex:    
+    :no-index:    
     :members:
     :undoc-members:
     :special-members:

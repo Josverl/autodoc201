@@ -2,16 +2,18 @@
 =============================================================
 
 .. autoapimodule:: cmath
-
+    :no-index:
 
 Constants
 ---------
 
 .. autoapidata:: e
+    :no-index:
 
    base of the natural logarithm
 
 .. autoapidata:: pi
+    :no-index:
 
    the ratio of a circle's circumference to its diameter
 

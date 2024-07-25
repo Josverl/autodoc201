@@ -2,7 +2,7 @@
 =====================================
 
 .. autoapimodule:: btree
-    :noindex:
+    :no-index:
     :synopsis: simple BTree database
 
 The ``btree`` module implements a simple key-value database using external
@@ -79,14 +79,16 @@ Functions
 ---------
 
 .. autoapifunction:: open
+    :no-index:
 
    
 Methods
 -------
 .. autoapiclass:: btree
-   :members:
-   :undoc-members:
-   :private-members: 
-   :special-members:
+    :no-index:
+    :members:
+    :undoc-members:
+    :private-members: 
+    :special-members:
 
    

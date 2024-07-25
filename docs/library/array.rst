@@ -2,7 +2,7 @@
 ======================================
 
 .. autoapimodule:: array
-    :noindex:
+    :no-index:
     :members:
     :undoc-members:
     :special-members:
