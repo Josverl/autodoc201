@@ -1,7 +1,7 @@
 """ """
 
 from __future__ import annotations
-from typing import Any, Optional
+from typing import Any, Optional, overload
 from _typeshed import Incomplete
 from .Pin import Pin
 
@@ -27,7 +27,11 @@ class Signal(Pin):
     """
 
     def __init__(self, pin_obj, *args, invert=False) -> None: ...
-    def value(self, x: Optional[Any] = None) -> int:
+
+    @overload
+    def value(self, x: None) -> int: ...
+    @overload
+    def value(self, x: Any) -> None:
         """
         This method allows to set and get the value of the signal, depending on whether
         the argument ``x`` is supplied or not.

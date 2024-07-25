@@ -20,6 +20,14 @@ To Implement this the following steps are needed
   - Remove associated details for that topic 
   - regenerate the docs using `make -C ./docs`
   - check for errors and completeness
+  [x] verify if overloads can be added to the stubs and rendered correctly
+        ```python
+            @overload
+            def value(self, x: None) -> int: ...
+            @overload
+            def value(self, x: Any) -> None:
+        ```
+
 
  [ ] Docstring pre-processing to 
     [ ] clean up some of the module/class docstrings 
