@@ -23,5 +23,24 @@
     },
     "peacock.color": "#de08d4",
     "sourcery.codeLens": false,
-    "sourcery.ruleType.comments": false
+    "sourcery.ruleType.comments": false,
+    "cSpell.words": [
+        "autodocs",
+        "autosummary",
+        "contnode",
+        "docstrings",
+        "doctree",
+        "ecosys",
+        "groupwise",
+        "intersphinx",
+        "mpylib",
+        "mypy",
+        "outdir",
+        "seealso",
+        "stubgen",
+        "toctree",
+        "typeshed",
+        "undoc",
+        "weakref"
+    ]
 }

@@ -145,7 +145,7 @@ for m in mpylib_cpython_ecosys:
 
 autoapi_dirs.extend(packages_from(temp_path))
 
-# use the jenja2 template to generate the index.rst file based on mpylib_micropython
+# use the jinja2 template to generate the index.rst file based on mpylib_micropython
 generate_library_index(
     mpylib_micropython,
     "micropython-lib",
@@ -171,7 +171,7 @@ from bs4 import BeautifulSoup  # BeautifulSoup is used for easier HTML parsing a
 
 def replace_typeshed_incomplete(app: Sphinx, exception):
     """
-    Replace all ocurrences of "_typeshed.Incomplete" with "Incomplete" in the generated HTML files.
+    Replace all occurrences of "_typeshed.Incomplete" with "Incomplete" in the generated HTML files.
     """
     if exception is None:  # Only proceed if the build completed successfully
         output_dir = Path(app.outdir)  # Get the output directory where the HTML files are located
@@ -231,7 +231,7 @@ def process_signature(
 suppress_warnings = [
     # "ref.doc",
     "any",  #  WARNING: 'any' reference target not found,
-    "unknown-document",  # WARNING: unknown document: 'foo' - Temporary for garadual build-up
+    "unknown-document",  # WARNING: unknown document: 'foo' - Temporary for gradual build-up
 ]
 #  WARNING: duplicate object description of <foo>, other instance in
 #  WARNING: 'any' reference target not found
