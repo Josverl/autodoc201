@@ -29,6 +29,19 @@ To Implement this the following steps are needed
  [ ] add logic to add the micropython-lib modules 
  [ ] 
 
+## You build it, you break it
+
+- clone 
+- create & activate a virtual environment
+- `pip install U -r docs/requirements.txt`
+- `cd docs`
+- `.\make html`  or `make html`
+
+Vscode config is setup for Windows development with Ctrl-Shift-B to build the docs
+this includes additional cleanup of folders that `make clean` leaves untouched.
+
+
+
 ## Autodoc-Style Directives
 
 You can opt to write API documentation yourself using autodoc style directives. These directives work similarly to autodoc, but docstrings are retrieved through static analysis instead of through imports.
@@ -51,11 +64,10 @@ see: https://sphinx-autoapi.readthedocs.io/en/latest/reference/directives.html
 
 
 .. autoapimodule:: array
-    :noindex:
+    :no-index:
     :members:
     :undoc-members:
     :private-members: 
-
     :special-members:
 
 
