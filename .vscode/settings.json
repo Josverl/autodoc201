@@ -21,5 +21,7 @@
         "titleBar.inactiveBackground": "#de08d499",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#de08d4"
+    "peacock.color": "#de08d4",
+    "sourcery.codeLens": false,
+    "sourcery.ruleType.comments": false
 }
