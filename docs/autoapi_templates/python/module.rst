@@ -142,6 +142,7 @@ Module Contents
       {% block submodules %}
          {% set visible_submodules = obj.submodules|selectattr("display")|list %}
          {% if visible_submodules %}
+
 Submodules
 ----------
 
