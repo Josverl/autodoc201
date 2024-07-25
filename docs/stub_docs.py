@@ -51,8 +51,11 @@ def packages_from(stub_path: Path, skip=SKIP_MODULES):
 
 from jinja2 import Environment, FileSystemLoader
 
+# Configure customizable templates for the AutoAPI extension.
+autoapi_template_dir = (Path(__file__).parent / "autoapi_templates").absolute().as_posix()
+
 # Load the Jinja2 template
-env = Environment(loader=FileSystemLoader("autoapi_templates"))
+env = Environment(loader=FileSystemLoader(autoapi_template_dir))
 template = env.get_template("mpylib_index.rst")
 
 
