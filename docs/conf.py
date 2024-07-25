@@ -23,7 +23,7 @@ LOGGER = sphinx.util.logging.getLogger(__name__)
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 TOP_DIR = os.path.abspath(os.path.dirname(__file__))
-sys.path.insert(0, os.path.join(TOP_DIR, "extensions"))
+sys.path[:0] = [os.path.join(TOP_DIR, "extensions"), TOP_DIR]
 
 extensions = [
     "autoapi.extension",
@@ -65,8 +65,7 @@ intersphinx_mapping = {
 # -----------------------------------------------------------------------------
 from pathlib import Path
 from typing import Any, List
-
-import sphinx
+from sphinx.application import Sphinx
 
 #  https://sphinx-autoapi.readthedocs.io/en/latest/reference/config.html#confval-autoapi_options
 autoapi_options = [
@@ -76,7 +75,7 @@ autoapi_options = [
     "special-members",  # __foo
     "show-inheritance",  # Display a list of base classes below the class signature.
     "show-module-summary",  # include autosummary directives in generated module documentation
-    "noindex",
+    # "no-index",
     # "inherited-members", # Display children of an object that have been inherited from a base class.
     # "imported-members", $# For objects imported into a package, display objects imported from the same top level package or module.
     # This option does not effect objects imported into a module.
@@ -93,7 +92,7 @@ autoapi_add_toctree_entry = True
 # Keep the AutoAPI generated files on the filesystem after the run. Useful for debugging.
 autoapi_keep_files = True
 
-# onfigure customizable templates for the AutoAPI extension.
+# Configure customizable templates for the AutoAPI extension.
 autoapi_template_dir = (Path(__file__).parent / "autoapi_templates").absolute().as_posix()
 
 if "exclude_patterns" not in globals():
@@ -102,68 +101,35 @@ else:
     exclude_patterns.append("autoapi_templates")
 
 # add all .pyi amd .py stubs to autoapi_dirs to be processed
-SKIP_MODULES = [
-    "__pycache__",
-    "__builtins__",  # This module does not actually exists, is used by Pyright to resolve custom builtins
-]
 
 # -----------------------------------------------------------------------------
 # add stubs/modulename/__init__.pyi
+from stub_docs import copy_module_to_path, copy_modules, packages_from, SKIP_MODULES
+
 stub_path = Path(__file__).parent / "stubs"
 temp_path = Path(__file__).parent / "stubs-temp"
-stub_modules = sorted(
-    [p for p in stub_path.glob("*") if p.stem not in SKIP_MODULES and p.is_dir()],
-    key=lambda x: x.stem,
-)
-autoapi_dirs: List[Path] = stub_modules
 
-
-def copy_mod_to_temp(mod_path: Path):
-    """Copy a module to a temp folder with __init__.pyi"""
-    with open(mod_path, "r") as f:
-        lines = f.readlines()
-    dest_path = temp_path / mod_path.stem / "__init__.pyi"
-    dest_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(dest_path, "w") as f:
-        for line in lines:
-            f.write(line)
-
+autoapi_dirs = packages_from(stub_path)
 
 # -----------------------------------------------------------------------------
 # add stubs/modulename.pyi
 if lone_pyi := [p for p in stub_path.glob("*.pyi") if p.stem not in SKIP_MODULES]:
     for p in lone_pyi:
-        copy_mod_to_temp(p)
+        copy_module_to_path(p, temp_path)
 # -----------------------------------------------------------------------------
-
-
-def temp_mods(lib_path):
-    if lib_py := [p for p in lib_path.rglob("*.py") if p.stem == p.parent.stem]:
-        for p in lib_py:
-            copy_mod_to_temp(p)
-
-    return lib_py
-
 
 # add lib/micropython-lib/micropython/folder/*.py
 
-mpylib_micropython = temp_mods(
-    Path(__file__).parent.parent / "lib" / "micropython-lib" / "micropython"
+mpylib_micropython = copy_modules(Path("../lib/micropython-lib/micropython"), temp_path, ext=".py")
+mpylib_cpython_stdlib = copy_modules(
+    Path("../lib/micropython-lib/python-stdlib"), temp_path, ext=".py"
 )
-mpylib_cpython_stdlib = temp_mods(
-    Path(__file__).parent.parent / "lib" / "micropython-lib" / "python-stdlib"
-)
-mpylib_cpython_ecosys = temp_mods(
-    Path(__file__).parent.parent / "lib" / "micropython-lib" / "python-ecosys"
+mpylib_cpython_ecosys = copy_modules(
+    Path("../lib/micropython-lib/python-ecosys"), temp_path, ext=".py"
 )
 
-autoapi_dirs.extend(mpylib_micropython)
-autoapi_dirs.extend(mpylib_cpython_stdlib)
-autoapi_dirs.extend(mpylib_cpython_ecosys)
-
-
+# create a dict of module names and their origin to be used in process_docstring
 mpy_lib_modules = {}
-
 for m in mpylib_micropython:
     mpy_lib_modules[m.stem] = "micropython-lib"
 for m in mpylib_cpython_stdlib:
@@ -172,9 +138,10 @@ for m in mpylib_cpython_ecosys:
     mpy_lib_modules[m.stem] = "micropython-ecosys"
 
 
+autoapi_dirs.extend( packages_from(temp_path))
 # -----------------------------------------------------------------------------
 # # HTML post processing
-from sphinx.application import Sphinx
+
 
 from bs4 import BeautifulSoup  # BeautifulSoup is used for easier HTML parsing and manipulation
 
@@ -220,13 +187,9 @@ def process_docstring(
             lines.extend(
                 (
                     "",
-                    f".. seealso:: This is a `{mpy_lib_modules[name]}` module from the `micropython-lib` repository.",
+                    f".. seealso:: This is a {mpy_lib_modules[name]} module from the ``micropython-lib`` repository.",
                 )
             )
-
-
-def bps(app: Sphinx, obj, bound_method: bool):
-    pass
 
 
 def process_signature(
@@ -241,8 +204,50 @@ def process_signature(
     pass
 
 
+# -----------------------------------------------------------------------------
+suppress_warnings = [
+    # "ref.doc",
+    "any",  #  WARNING: 'any' reference target not found,
+    "unknown-document",  # WARNING: unknown document: 'foo' - Temporary for garadual build-up
+]
+#  WARNING: duplicate object description of <foo>, other instance in
+#  WARNING: 'any' reference target not found
+#  WARNING: more than one target found for 'any' cross-reference
+# :<autosummary>:1: WARNING: more than one target found for 'any' cross-reference
+# WARNING: unknown document: 'asyncio'
+
+#  WARNING: more than one target found for 'any' cross-reference 'PIO.IN_LOW': could be :py:attr:`_rp2.PIO.IN_LOW` or :py:attr:`rp2.PIO.PIO.IN_LOW`
+
+# Q&D FIX For  WARNING: toctree contains reference to nonexisting document
+
+from sphinx.environment import BuildEnvironment
+from docutils.nodes import inline
+from sphinx.addnodes import pending_xref
+
+
+def on_missing_reference(
+    app: Sphinx,
+    env: BuildEnvironment,
+    node: pending_xref,
+    contnode: inline,
+):
+    """
+    Handle/suppress missing `any` references.
+    This allows us to use `any` as a type hint without sphinx complaining.
+    """
+    # https://www.sphinx-doc.org/en/master/extdev/event_callbacks.html#event-missing-reference
+    # https://github.com/sphinx-doc/sphinx/issues/2709
+    if node["reftype"] == "any":
+        return contnode
+    else:
+        return None
+
+
+# -----------------------------------------------------------------------------
+
+
 def setup(sphinx: Sphinx):
     sphinx.connect("autodoc-process-docstring", process_docstring)  # also fires with autoapi :)
     sphinx.connect("autodoc-process-signature", process_signature)  # also fires with autoapi :)
-    sphinx.connect("autodoc-before-process-signature", bps)  # does not fire with autoapi :(
-    sphinx.connect("build-finished", replace_typeshed_incomplete)
+    sphinx.connect("missing-reference", on_missing_reference)
+    sphinx.connect("build-finished", replace_typeshed_incomplete)  # clean up html files

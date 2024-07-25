@@ -7,3 +7,5 @@ _build
 build
 # used to store the generated stubs
 docs/stubs-temp
+library-original
+
