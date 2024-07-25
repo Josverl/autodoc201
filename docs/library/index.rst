@@ -141,9 +141,9 @@ The following libraries are specific to the pyboard.
 .. toctree::
   :maxdepth: 2
 
-  ../autoapi/pyb/index
-  ../autoapi/stm/index
-  ../autoapi/lcd160cr/index
+  ../modules/pyb/index
+  ../modules/stm/index
+  ../modules/lcd160cr/index
 
 
 Libraries specific to the WiPy
