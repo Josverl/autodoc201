@@ -62,6 +62,15 @@ class ModuleCollector:
 # Docstring preprocessing
 ################################################################################################################
 class DocstringProcessor:
+    # revert some of the changes that stubber does to the docstrings to improve the readability
+    reverts = [
+        ("CPython module:", "|see_cpython_module|"),  # TODO : turn into regex
+        ("``Note:`` ", ".. note:: "),
+        ("Note: ", ".. note:: "),
+        ("Admonition:", ".. admonition:: "),
+        ("#### Need placeholder ####", ".. data:: "),
+    ]
+
     def __init__(self, mpy_lib_modules: dict[str, str]):
         # store the names of the micropython-lib modules and their origin
         self.mpy_lib_modules = mpy_lib_modules
@@ -75,19 +84,17 @@ class DocstringProcessor:
         - reinstate the ".. note::" directive
         """
         for i, l in enumerate(lines):
-            if l.startswith("MicroPython module: https://"):
-                snip = 2 if lines[i + 1] == "" else 1
-                lines = lines[:i] + lines[i + snip :]
+            if l.startswith("MicroPython module:"):
+                # edit lines in place
+                lines.pop(i)
+                if lines[i] == "":
+                    lines.pop(i)
                 break
-        for l in lines:
+        for i, l in enumerate(lines):
             # Reverse Stubber docstring clean-ups Clean up note and other docstring anchors
-            if l:
-                l = l.replace("``Note:`` ", ".. note:: ")
-                l = l.replace("Note: ", ".. note:: ")
-                l = l.replace("``Admonition:``", ".. admonition:: ")
-                l = l.replace("Admonition:", ".. admonition:: ")
-                l = l.replace("CPython module:", "|see_cpython_module|")
-                l = l.replace("#### Need placeholder ####", ".. data:: ")
+            for old, new in self.reverts:
+                if old in l:
+                    lines[i] = l.replace(old, new)
 
     def add_micropython_lib_note(self, lines: List[str], name: str):
         """
@@ -110,13 +117,18 @@ class DocstringProcessor:
         options: dict,  # Always None with autoapi
         lines: List[str],
     ):
+        assert not isinstance(lines, str)
 
+        assert isinstance(lines, List)
         if what in {"package", "module"}:
+            lines.insert(0, f"Jos Was here {name}: \n")
             if name in self.mpy_lib_modules:
                 self.add_micropython_lib_note(lines, name)
-            else:
-                self.revert_stubber_mods(lines)
-                # TODO: restore formatting of cpython reference in the docstring
+
+            self.revert_stubber_mods(lines)
+            # TODO: restore formatting of cpython reference in the docstring
+        if "MicroPython module:" in "\n".join(lines):
+            print(f"MicroPython module: {name} not OK ")
 
 
 ################################################################################################################
