@@ -13,7 +13,7 @@ functions.
 # source version: v1.23.0
 # origin module:: repos/micropython/docs/library/os.rst
 from __future__ import annotations
-from typing import IO, Any, Iterator, Optional, Tuple
+from typing import IO, Any, Iterator, List, Optional, Tuple
 from _typeshed import Incomplete
 from stdlib.os import *  # type: ignore
 
@@ -66,19 +66,19 @@ def urandom(n) -> bytes:
     """
     ...
 
-def chdir(path) -> Incomplete:
+def chdir(path: str) -> Incomplete:
     """
     Change current directory.
     """
     ...
 
-def getcwd() -> Incomplete:
+def getcwd() -> str:
     """
     Get the current directory.
     """
     ...
 
-def ilistdir(dir: Optional[Any] = None) -> Iterator[Tuple]:
+def ilistdir(dir: Optional[str] = None) -> Iterator[Tuple]:
     """
     This function returns an iterator which then yields tuples corresponding to
     the entries in the directory that it is listing.  With no argument it lists the
@@ -99,13 +99,13 @@ def ilistdir(dir: Optional[Any] = None) -> Iterator[Tuple]:
     """
     ...
 
-def listdir(dir: Optional[Any] = None) -> Incomplete:
+def listdir(dir: Optional[str] = None) -> List[str]:
     """
     With no argument, list the current directory.  Otherwise list the given directory.
     """
     ...
 
-def mkdir(path) -> Incomplete:
+def mkdir(path: str) -> Incomplete:
     """
     Create a new directory.
     """
