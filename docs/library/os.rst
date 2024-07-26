@@ -7,63 +7,63 @@
 General functions
 -----------------
 
-.. autoapifunction:: uname()
+.. autoapifunction:: uname
     :no-index:
 
-.. autoapifunction:: urandom(n)
+.. autoapifunction:: urandom
     :no-index:
 
 Filesystem access
 -----------------
 
-.. autoapifunction:: chdir(path)
+.. autoapifunction:: chdir
     :no-index:
 
 
-.. autoapifunction:: getcwd()
+.. autoapifunction:: getcwd
     :no-index:
 
 
-.. autoapifunction:: ilistdir([dir])
+.. autoapifunction:: ilistdir
     :no-index:
 
 
-.. autoapifunction:: listdir([dir])
+.. autoapifunction:: listdir
     :no-index:
 
 
-.. autoapifunction:: mkdir(path)
+.. autoapifunction:: mkdir
     :no-index:
 
 
-.. autoapifunction:: remove(path)
+.. autoapifunction:: remove
     :no-index:
 
 
-.. autoapifunction:: rmdir(path)
+.. autoapifunction:: rmdir
     :no-index:
 
 
-.. autoapifunction:: rename(old_path, new_path)
+.. autoapifunction:: rename
     :no-index:
 
 
-.. autoapifunction:: stat(path)
+.. autoapifunction:: stat
     :no-index:
 
 
-.. autoapifunction:: statvfs(path)
+.. autoapifunction:: statvfs
     :no-index:
 
 
-.. autoapifunction:: sync()
+.. autoapifunction:: sync
     :no-index:
 
 
 Terminal redirection and duplication
 ------------------------------------
 
-.. autoapifunction:: dupterm()
+.. autoapifunction:: dupterm
     :no-index:
 
 
@@ -74,20 +74,20 @@ The following functions and classes have been moved to the :mod:`vfs` module.
 They are provided in this module only for backwards compatibility and will be
 removed in version 2 of MicroPython.
 
-.. autoapifunction:: mount()
+.. autoapifunction:: mount
     :no-index:
 
-.. autoapifunction:: umount(mount_point)
+.. autoapifunction:: umount
     :no-index:
 
-.. autoapiclass:: VfsFat(block_dev)
+.. autoapiclass:: VfsFat
     :no-index:
 
-.. autoapiclass:: VfsLfs1(block_dev, readsize=32, progsize=32, lookahead=32)
+.. autoapiclass:: VfsLfs1
     :no-index:
 
-.. autoapiclass:: VfsLfs2(block_dev, readsize=32, progsize=32, lookahead=32, mtime=True)
+.. autoapiclass:: VfsLfs2
     :no-index:
 
-.. autoapiclass:: VfsPosix(root=None)
+.. autoapiclass:: VfsPosix
     :no-index:

@@ -54,10 +54,9 @@ Related constants
 
 .. autoapidata:: HEAP_DATA
     :no-index:
+
 .. autoapidata:: HEAP_EXEC
     :no-index:
-
-    Used in `idf_heap_info`.
 
 
 Flash partitions
@@ -147,7 +146,7 @@ ESP32-S2 and ESP32-S3 chips.
     This class does not provide access to the RISCV ULP co-processor available
     on the ESP32-S2 and ESP32-S3 chips.
 
-.. autoapiclass:: ULP()
+.. autoapiclass:: ULP
     :no-index:
     :members:
     :undoc-members:
@@ -165,7 +164,6 @@ Related constants
 .. autoapidata:: esp32.WAKEUP_ANY_HIGH
    :no-index:
 
-   Selects the wake level for pins.
 
 Non-Volatile Storage
 --------------------

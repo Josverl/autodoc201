@@ -10,14 +10,10 @@ Constants
 .. autoapidata:: e
     :no-index:
 
-   base of the natural logarithm
-
 .. autoapidata:: pi
     :no-index:
 
-   the ratio of a circle's circumference to its diameter
-
-.. BUG : the docstrings of the data items are not extracted, and an incorrect description is shown
+.. BUG : when using autodoc the docstrings of the data items are not extracted, and an incorrect description is shown
 .. "Convert a string or number to a floating point number, if possible."
 
 .. possibly related:
