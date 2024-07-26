@@ -67,7 +67,7 @@ class DocstringProcessor:
         ("CPython module:", "|see_cpython_module|"),  # TODO : turn into regex
         ("``Note:`` ", ".. note:: "),
         ("Note: ", ".. note:: "),
-        ("Admonition:", ".. admonition:: "),
+        ("Admonition: ", ".. admonition:: "),
         ("#### Need placeholder ####", ".. data:: "),
     ]
 
@@ -85,13 +85,14 @@ class DocstringProcessor:
         """
         for i, l in enumerate(lines):
             if l.startswith("MicroPython module:"):
-                # edit lines in place
+                # remove 1 or 2 lines in place
                 lines.pop(i)
                 if lines[i] == "":
                     lines.pop(i)
                 break
+
+        # Reverse Stubber docstring clean-ups Clean up note and other docstring anchors
         for i, l in enumerate(lines):
-            # Reverse Stubber docstring clean-ups Clean up note and other docstring anchors
             for old, new in self.reverts:
                 if old in l:
                     lines[i] = l.replace(old, new)
@@ -117,11 +118,16 @@ class DocstringProcessor:
         options: dict,  # Always None with autoapi
         lines: List[str],
     ):
-        assert not isinstance(lines, str)
+        """
+        Process the docstring of a module from the micropython-lib repository.
 
-        assert isinstance(lines, List)
+        Note:
+            `lines` must  be modified in place, rather than a new value being assigned.
+            To modify the contents of the lines list in-place, you can use list methods like:
+            append(), extend(), or index assignment (lines[index] = value).
+
+        """
         if what in {"package", "module"}:
-            lines.insert(0, f"Jos Was here {name}: \n")
             if name in self.mpy_lib_modules:
                 self.add_micropython_lib_note(lines, name)
 
