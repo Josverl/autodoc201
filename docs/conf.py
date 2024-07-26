@@ -59,7 +59,10 @@ rst_epilog = """
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3.5", None),
     "typing": ("https://typing.readthedocs.io/en/latest/", None),
-    # "micropython": ("https://docs.micropython.org/en/latest", None),
+    # add micropython as this PoC does not contain the full documentation,
+    # this helps to resolve some references to the rest of the documentation.
+    "micropython": ("https://docs.micropython.org/en/latest", None),
+
 }
 
 # -----------------------------------------------------------------------------
@@ -142,11 +145,11 @@ mpylib_cpython_ecosys = mc.copy_modules(
 # create a dict of module names and their origin to be used in process_docstring
 mpy_lib_modules = {}
 for m in mpylib_micropython:
-    mpy_lib_modules[m.stem] = "micropython-lib"
+    mpy_lib_modules[m.parent.stem] = "micropython-lib"
 for m in mpylib_cpython_stdlib:
-    mpy_lib_modules[m.stem] = "micropython-stdlib"
+    mpy_lib_modules[m.parent.stem] = "micropython-stdlib"
 for m in mpylib_cpython_ecosys:
-    mpy_lib_modules[m.stem] = "micropython-ecosys"
+    mpy_lib_modules[m.parent.stem] = "micropython-ecosys"
 
 autoapi_dirs.extend(mc.packages_from(temp_path))
 
@@ -233,4 +236,4 @@ def setup(sphinx: Sphinx):
     )  # also fires with autoapi :)
     sphinx.connect("autodoc-process-signature", process_signature)  # also fires with autoapi :)
     sphinx.connect("missing-reference", on_missing_reference)
-    sphinx.connect("build-finished", replace_typeshed_incomplete)  # clean up html files
+    # sphinx.connect("build-finished", replace_typeshed_incomplete)  # clean up html files
