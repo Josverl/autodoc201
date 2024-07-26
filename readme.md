@@ -174,6 +174,39 @@ Option3) add type-stubs to micropython-lib
 Note: 
   Both docstrings, type annotations and comments are stripped during compilation , so for cross compiled modules there is no real difference AFAIK.
 
+### know limitations of the current PoC
+In the  PoC the copying of the modules from micropython-lib is a bit simplistic, and does not correctly copy all the files needed for all modules to be used to generate documentation.
+Current problematic modules are:
+ - https://github.com/micropython/micropython-lib/tree/master/micropython/bluetooth/aioble/aioble      ( complex module with multiple files)
+ - https://github.com/micropython/micropython-lib/tree/master/micropython/lora/lora/lora
+ - https://github.com/micropython/micropython-lib/tree/master/micropython/mip-cmdline
+ - https://github.com/micropython/micropython-lib/tree/master/micropython/mip/mip
+ - https://github.com/micropython/micropython-lib/tree/master/micropython/senml/senml
+ - https://github.com/micropython/micropython-lib/blob/master/micropython/umqtt.robust/umqtt/robust.py
+ - https://github.com/micropython/micropython-lib/blob/master/micropython/umqtt.simple/umqtt/simple.py
+ - https://github.com/micropython/micropython-lib/blob/master/micropython/urllib.urequest/urllib/urequest.py
+ - https://github.com/micropython/micropython-lib/blob/master/micropython/usb .... (multiple files)
+
+ - https://github.com/micropython/micropython-lib/tree/master/python-ecosys/aiohttp/aiohttp
+ - https://github.com/micropython/micropython-lib/tree/master/python-ecosys/cbor2/cbor2
+ - https://github.com/micropython/micropython-lib/tree/master/python-ecosys/pyjwt
+ - https://github.com/micropython/micropython-lib/tree/master/python-ecosys/requests/requests
+
+ - https://github.com/micropython/micropython-lib/blob/master/python-stdlib/collections-defaultdict/collections/defaultdict.py
+ - https://github.com/micropython/micropython-lib/blob/master/python-stdlib/collections/collections/__init__.py
+ - https://github.com/micropython/micropython-lib/blob/master/python-stdlib/curses.ascii/curses/ascii.py
+
+The solution is probably using a piece of exiting code to read the `manifest.py` and use that to copy the files / folders needed for the module to work.
+for some modules such as collections that may not be sufficient and a manual stub may be needed to make the module work in the docs.
+
+
+### rst formatting errors
+
+There are a bunch of files that have rst formatting errors,  which causes the documentation to fail to generate a lot of warnings and cause incorrect formatting.
+TODO: Create PR with the fixes for these files.
+
+
+
 
 
 

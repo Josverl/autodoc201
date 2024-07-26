@@ -58,8 +58,8 @@ rst_epilog = """
 # Configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3.5", None),
-    "micropython": ("https://docs.micropython.org/en/latest", None),
     "typing": ("https://typing.readthedocs.io/en/latest/", None),
+    # "micropython": ("https://docs.micropython.org/en/latest", None),
 }
 
 # -----------------------------------------------------------------------------
@@ -105,32 +105,37 @@ else:
 # -----------------------------------------------------------------------------
 # add stubs/modulename/__init__.pyi
 from stub_docs import (
-    copy_module_to_path,
-    copy_modules,
-    packages_from,
+    ModuleCollector,
     SKIP_MODULES,
     generate_library_index,
+    DocstringProcessor,
+    PythonObject,
+    replace_typeshed_incomplete,
 )
 
 stub_path = Path(__file__).parent / "stubs"
 temp_path = Path(__file__).parent / "stubs-temp"
 
-autoapi_dirs = packages_from(stub_path)
+mc = ModuleCollector(temp_path)
+
+autoapi_dirs = mc.packages_from(stub_path)
 
 # -----------------------------------------------------------------------------
 # add stubs/modulename.pyi
 if lone_pyi := [p for p in stub_path.glob("*.pyi") if p.stem not in SKIP_MODULES]:
     for p in lone_pyi:
-        copy_module_to_path(p, temp_path)
+        mc.copy_module_to_path(p, temp_path)
 # -----------------------------------------------------------------------------
 
 # add lib/micropython-lib/micropython/folder/*.py
 
-mpylib_micropython = copy_modules(Path("../lib/micropython-lib/micropython"), temp_path, ext=".py")
-mpylib_cpython_stdlib = copy_modules(
+mpylib_micropython = mc.copy_modules(
+    Path("../lib/micropython-lib/micropython"), temp_path, ext=".py"
+)
+mpylib_cpython_stdlib = mc.copy_modules(
     Path("../lib/micropython-lib/python-stdlib"), temp_path, ext=".py"
 )
-mpylib_cpython_ecosys = copy_modules(
+mpylib_cpython_ecosys = mc.copy_modules(
     Path("../lib/micropython-lib/python-ecosys"), temp_path, ext=".py"
 )
 
@@ -143,7 +148,7 @@ for m in mpylib_cpython_stdlib:
 for m in mpylib_cpython_ecosys:
     mpy_lib_modules[m.stem] = "micropython-ecosys"
 
-autoapi_dirs.extend(packages_from(temp_path))
+autoapi_dirs.extend(mc.packages_from(temp_path))
 
 # use the jinja2 template to generate the index.rst file based on mpylib_micropython
 generate_library_index(
@@ -162,57 +167,9 @@ generate_library_index(
     "library/lib-python-community.rst",
 )
 
+ds_pp = DocstringProcessor(mpy_lib_modules)
+
 # -----------------------------------------------------------------------------
-# # HTML post processing
-
-
-from bs4 import BeautifulSoup  # BeautifulSoup is used for easier HTML parsing and manipulation
-
-
-def replace_typeshed_incomplete(app: Sphinx, exception):
-    """
-    Replace all occurrences of "_typeshed.Incomplete" with "Incomplete" in the generated HTML files.
-    """
-    if exception is None:  # Only proceed if the build completed successfully
-        output_dir = Path(app.outdir)  # Get the output directory where the HTML files are located
-        LOGGER.info(f"Replacing _typeshed.Incomplete in HTML files in {output_dir}")
-        for file_path in output_dir.glob("**/*.html"):
-            with open(file_path, "r", encoding="utf-8") as f:
-                html_content = f.read()
-
-            # Use BeautifulSoup to parse the HTML
-            soup = BeautifulSoup(html_content, "html.parser")
-            html_str = str(soup).replace("_typeshed.Incomplete", "Incomplete")
-
-            with open(file_path, "w", encoding="utf-8") as f:
-                f.write(html_str)
-        LOGGER.info("Replacement complete")
-
-
-# TODO - make nice / explain
-from autoapi._objects import TopLevelPythonPythonMapper
-
-PythonObject = TopLevelPythonPythonMapper
-
-
-def process_docstring(
-    app: Sphinx,
-    what: str,  # "module", "class", "exception", "function", "method", "attribute" ( "package", 'data' with autoapi)
-    name: str,
-    obj: PythonObject,  # Always None with autoapi
-    options: dict,  # Always None with autoapi
-    lines: List[str],
-):
-
-    # sourcery skip: merge-nested-ifs
-    if what in {"package", "module"}:
-        if name in mpy_lib_modules:
-            lines.extend(
-                (
-                    "",
-                    f".. seealso:: This is a {mpy_lib_modules[name]} module from the ``micropython-lib`` repository.",
-                )
-            )
 
 
 def process_signature(
@@ -241,6 +198,7 @@ suppress_warnings = [
 
 #  WARNING: more than one target found for 'any' cross-reference 'PIO.IN_LOW': could be :py:attr:`_rp2.PIO.IN_LOW` or :py:attr:`rp2.PIO.PIO.IN_LOW`
 
+# -----------------------------------------------------------------------------
 # Q&D FIX For  WARNING: toctree contains reference to nonexisting document
 
 from sphinx.environment import BuildEnvironment
@@ -270,7 +228,9 @@ def on_missing_reference(
 
 
 def setup(sphinx: Sphinx):
-    sphinx.connect("autodoc-process-docstring", process_docstring)  # also fires with autoapi :)
+    sphinx.connect(
+        "autodoc-process-docstring", ds_pp.process_docstring
+    )  # also fires with autoapi :)
     sphinx.connect("autodoc-process-signature", process_signature)  # also fires with autoapi :)
     sphinx.connect("missing-reference", on_missing_reference)
     sphinx.connect("build-finished", replace_typeshed_incomplete)  # clean up html files
