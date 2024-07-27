@@ -14,6 +14,7 @@ See: https://github.com/python/typeshed/tree/main/stdlib/_typeshed#utility-types
     haven't been added are left unannotated, but in some situations this
     isn't possible or a type is already partially known. In cases like these,
     use Incomplete instead of Any as a marker. For example, use::
+
         "Incomplete | None" instead of "Any | None".
 
     In the context of MicroPython and the micropython-stubs, `Incomplete` is used 
