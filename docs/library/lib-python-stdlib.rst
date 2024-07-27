@@ -19,7 +19,6 @@ This index contains modules from the MicroPython-lib library.
    /modules/contextlib/index
    /modules/copy/index
    /modules/datetime/index
-   /modules/errno/index
    /modules/fnmatch/index
    /modules/functools/index
    /modules/gzip/index

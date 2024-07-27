@@ -50,7 +50,13 @@ class ModuleCollector:
         # .../foo/foo.py -> .../foo/__init__.py
         # ../foo/test.py     not copied
         if lib_py := [p for p in lib_path.rglob(f"*{ext}") if p.stem == p.parent.stem]:
-            result.extend(self.copy_module_to_path(p, temp_path, ext) for p in lib_py)
+            # do not copy the errno module, it is a special case
+            # TODO: Need to avoid copying in modules that are already documented as part of the micropython library
+            result.extend(
+                self.copy_module_to_path(p, temp_path, ext)
+                for p in lib_py
+                if p.stem not in ["errno"]
+            )
         return result
 
     def packages_from(self, stub_path: Path, skip=SKIP_MODULES):
@@ -105,7 +111,11 @@ class DocstringProcessor:
             lines.extend(
                 (
                     "",
-                    f".. seealso:: This is a {self.mpy_lib_modules[name]} module from the ``micropython-lib`` repository.",
+                    ".. tip::",
+                    f"    This is a `{self.mpy_lib_modules[name]}` module from the ``micropython-lib`` repository.",
+                    f"    It can be installed to a MicroPython board using::",
+                    "",
+                    f"        mpremote mip install {name}",
                 )
             )
 
