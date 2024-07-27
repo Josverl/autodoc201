@@ -30,8 +30,13 @@ class ModuleCollector:
         """
         with open(mod_path, "r") as f:
             lines = f.readlines()
-        dest_path = dest_path / mod_path.stem / f"__init__{ext}"
+        mod_name = mod_path.stem
+        dest_path = dest_path / mod_name / f"__init__{ext}"
         dest_path.parent.mkdir(parents=True, exist_ok=True)
+        # add a basic module docstring if missing
+        if not lines[0].startswith('"""'):
+            lines[:0] = ['"""\n', f"{mod_name} for Micropython.", '"""\n']
+
         with open(dest_path, "w") as f:
             for line in lines:
                 f.write(line)
