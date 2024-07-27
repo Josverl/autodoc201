@@ -1,3 +1,4 @@
 [submodule "lib/micropython-lib"]
 	path = lib/micropython-lib
-	url = https://github.com/micropython/micropython-lib
+	url = https://github.com/josverl/micropython-lib
+	branch = doc-fixes
