@@ -14,6 +14,7 @@ release = "1"
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
+from dataclasses import dataclass
 import sys
 import os
 import sphinx.util.logging
@@ -118,6 +119,7 @@ from stub_docs import (
     generate_library_index,
     DocstringProcessor,
     PythonObject,
+    ModuleOrigin,
 )
 
 stub_path = Path(__file__).parent / "stubs"
@@ -130,24 +132,28 @@ autoapi_dirs = mc.packages_from(stub_path)
 # -----------------------------------------------------------------------------
 # add lib/micropython-lib/micropython/folder/*.py
 
-mpylib_micropython = mc.copy_modules(
-    Path("../lib/micropython-lib/micropython"), temp_path, ext=".py"
-)
-mpylib_cpython_stdlib = mc.copy_modules(
-    Path("../lib/micropython-lib/python-stdlib"), temp_path, ext=".py"
-)
-mpylib_cpython_ecosys = mc.copy_modules(
-    Path("../lib/micropython-lib/python-ecosys"), temp_path, ext=".py"
-)
+mpy_lib_path = Path("../lib/micropython-lib")
+mpylib_micropython = mc.copy_modules(mpy_lib_path / "micropython", temp_path, ext=".py")
+mpylib_cpython_stdlib = mc.copy_modules(mpy_lib_path / "python-stdlib", temp_path, ext=".py")
+mpylib_cpython_ecosys = mc.copy_modules(mpy_lib_path / "python-ecosys", temp_path, ext=".py")
+
 
 # create a dict of module names and their origin to be used in process_docstring
 mpy_lib_modules = {}
-for m in mpylib_micropython:
-    mpy_lib_modules[m.parent.stem] = "micropython-lib"
-for m in mpylib_cpython_stdlib:
-    mpy_lib_modules[m.parent.stem] = "micropython-stdlib"
-for m in mpylib_cpython_ecosys:
-    mpy_lib_modules[m.parent.stem] = "micropython-ecosys"
+
+
+for mo in mpylib_micropython:
+    mo.category = "micropython-lib"
+    mo.repo = mo.github_url_from_path(mpy_lib_path)
+    mpy_lib_modules[mo.name] = mo
+for mo in mpylib_cpython_stdlib:
+    mo.category = "micropython-stdlib"
+    mo.repo = mo.github_url_from_path(mpy_lib_path)
+    mpy_lib_modules[mo.name] = mo
+for mo in mpylib_cpython_ecosys:
+    mo.category = "micropython-ecosys"
+    mo.repo = mo.github_url_from_path(mpy_lib_path)
+    mpy_lib_modules[mo.name] = mo
 
 autoapi_dirs.extend(mc.packages_from(temp_path))
 

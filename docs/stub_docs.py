@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from pathlib import Path
 from typing import List
 from sphinx.application import Sphinx
@@ -8,7 +9,7 @@ from autoapi._objects import TopLevelPythonPythonMapper
 
 PythonObject = TopLevelPythonPythonMapper
 
-LOGGER = sphinx.util.logging.getLogger(__name__)
+log = sphinx.util.logging.getLogger(__name__)
 
 SKIP_MODULES = [
     "__pycache__",
@@ -16,13 +17,43 @@ SKIP_MODULES = [
 ]
 
 
+@dataclass
+class ModuleOrigin:
+    """Dataclass to hold the origin of a module"""
+
+    origin_path: Path
+    path: Path
+    category: str = ""
+    author: str = ""
+    license: str = ""
+    repo: str = ""
+    url: str = ""
+
+    @property
+    def name(self) -> str:
+        return self.origin_path.stem
+
+    def github_url_from_path(
+        self,
+        mpy_lib_path: Path,
+        repo: str = "https://github.com/micropython/micropython-lib",
+        branch: str = "master",
+    ) -> str:
+        return f"{repo}/tree/{branch}/{self.origin_path.resolve().relative_to(mpy_lib_path.resolve()).as_posix()}"
+
+
 class ModuleCollector:
+    """
+    Collect modules from a folder and copy them to a destination folder in a package form for autoapi
+    """
+
     def __init__(self, temp_path: Path) -> None:
         self.temp_path = temp_path
 
-    def copy_module_to_path(self, mod_path: Path, dest_path: Path, ext=".pyi") -> Path:
+    def copy_module_to_path(self, mod_path: Path, dest_path: Path, ext=".pyi") -> ModuleOrigin:
         """
         Copy a module to a folder
+        TODO: Needs to be rewritten to use manifest.py to copy the correct files for more complex modules
 
         source form : module.py
         destination form : module/__init__.pyi
@@ -33,24 +64,24 @@ class ModuleCollector:
         mod_name = mod_path.stem
         dest_path = dest_path / mod_name / f"__init__{ext}"
         dest_path.parent.mkdir(parents=True, exist_ok=True)
-        # add a basic module docstring if missing
         if not lines[0].startswith('"""'):
-            lines[:0] = ['"""\n', f"{mod_name} for Micropython.", '"""\n']
+            # Add a basic module docstring, to enable docstring pre-processing.
+            lines[:0] = ['"""\n', f"{mod_name} for MicroPython.", '"""\n']
 
         with open(dest_path, "w") as f:
             for line in lines:
                 f.write(line)
-        return dest_path
+        return ModuleOrigin(mod_path, dest_path)
 
-    def copy_modules(self, lib_path: Path, temp_path: Path, ext=".py") -> List[Path]:
-        """ "
+    def copy_modules(self, lib_path: Path, temp_path: Path, ext=".py") -> List[ModuleOrigin]:
+        """
         Copy all modules from a micropython-lib folder to a destination folder
         restructure the module to a package for autoapi
         """
         if not lib_path.is_absolute():
             lib_path = Path(Path(__file__).parent) / lib_path
 
-        result: List[Path] = []
+        result: List[ModuleOrigin] = []
         # copy only modules that have the same name as the parent folder
         # .../foo/foo.py -> .../foo/__init__.py
         # ../foo/test.py     not copied
@@ -72,6 +103,8 @@ class ModuleCollector:
 ################################################################################################################
 # Docstring preprocessing
 ################################################################################################################
+
+
 class DocstringProcessor:
     # revert some of the changes that stubber does to the docstrings to improve the readability
     reverts = [
@@ -82,7 +115,7 @@ class DocstringProcessor:
         ("#### Need placeholder ####", ".. data:: "),
     ]
 
-    def __init__(self, mpy_lib_modules: dict[str, str]):
+    def __init__(self, mpy_lib_modules: dict[str, ModuleOrigin]):
         # store the names of the micropython-lib modules and their origin
         self.mpy_lib_modules = mpy_lib_modules
 
@@ -117,10 +150,12 @@ class DocstringProcessor:
                 (
                     "",
                     ".. tip::",
-                    f"    This is a `{self.mpy_lib_modules[name]}` module from the ``micropython-lib`` repository.",
+                    f"    This is a `{self.mpy_lib_modules[name].category}` module from the ``micropython-lib`` repository.",
                     f"    It can be installed to a MicroPython board using::",
                     "",
                     f"        mpremote mip install {name}",
+                    "",
+                    f"    Source: {self.mpy_lib_modules[name].repo}",
                 )
             )
 
@@ -165,13 +200,18 @@ env = Environment(loader=FileSystemLoader(autoapi_template_dir))
 template = env.get_template("mpy-lib_index.rst")
 
 
-def generate_library_index(mpylib_micropython: List[Path], title: str, output_file: str):
+def generate_library_index(mpylib_micropython: List[ModuleOrigin], title: str, output_file: str):
     """
     Generate the index.rst file for the modules in micropython-lib
     Args:
         mpylib_micropython (List[Path]): List of paths to the modules
         title (str): Title of the index.rst file
         output_file (str): Path to the output file
+
+    TODO: Add more information to the index
+        - mip icon / link to install
+        - get author / tile / license
+        - integrate this more with Sphinx/autoapi
     """
     rendered_content = template.render(modules=mpylib_micropython, title=title)
     # Write the rendered content to index.rst
