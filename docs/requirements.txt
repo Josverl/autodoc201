@@ -2,4 +2,4 @@
 sphinx
 sphinx-autoapi
 sphinx-rtd-theme
-
+sphinx-copybutton

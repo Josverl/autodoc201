@@ -30,6 +30,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.napoleon",
     "restore_section",  # Jimmo's extension
+    "sphinx_copybutton",
 ]
 
 templates_path = ["_templates"]
@@ -41,6 +42,10 @@ source_suffix = {".rst": "restructuredtext"}
 master_doc = "index"
 default_role = "any"
 pygments_style = "sphinx"
+# -- Options copy button -------------------------------------------------
+# https://github.com/executablebooks/sphinx-copybutton/blob/master/docs/use.md
+copybutton_exclude = ".linenos, .gp"
+copybutton_prompt_text = ">>> "
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
@@ -119,16 +124,10 @@ stub_path = Path(__file__).parent / "stubs"
 temp_path = Path(__file__).parent / "stubs-temp"
 
 mc = ModuleCollector(temp_path)
-
 autoapi_dirs = mc.packages_from(stub_path)
 
-# -----------------------------------------------------------------------------
-# add stubs/modulename.pyi
-if lone_pyi := [p for p in stub_path.glob("*.pyi") if p.stem not in SKIP_MODULES]:
-    for p in lone_pyi:
-        mc.copy_module_to_path(p, temp_path)
-# -----------------------------------------------------------------------------
 
+# -----------------------------------------------------------------------------
 # add lib/micropython-lib/micropython/folder/*.py
 
 mpylib_micropython = mc.copy_modules(
