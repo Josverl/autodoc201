@@ -156,17 +156,17 @@ autoapi_dirs.extend(mc.packages_from(temp_path))
 generate_library_index(
     mpylib_micropython,
     "micropython-lib",
-    "library/lib-micropython.rst",
+    "mpy-lib/micropython.rst",
 )
 generate_library_index(
     mpylib_cpython_stdlib,
     "micropython-stdlib",
-    "library/lib-python-stdlib.rst",
+    "mpy-lib/python-stdlib.rst",
 )
 generate_library_index(
     mpylib_cpython_ecosys,
     "micropython-ecosys",
-    "library/lib-python-community.rst",
+    "mpy-lib/python-community.rst",
 )
 
 ds_pp = DocstringProcessor(mpy_lib_modules)

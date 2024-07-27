@@ -162,7 +162,7 @@ autoapi_template_dir = (Path(__file__).parent / "autoapi_templates").absolute().
 
 # Load the Jinja2 template
 env = Environment(loader=FileSystemLoader(autoapi_template_dir))
-template = env.get_template("mpylib_index.rst")
+template = env.get_template("mpy-lib_index.rst")
 
 
 def generate_library_index(mpylib_micropython: List[Path], title: str, output_file: str):
