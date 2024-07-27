@@ -3,6 +3,3 @@ sphinx
 sphinx-autoapi
 sphinx-rtd-theme
 
-#html post processing
-beautifulsoup4 
-

@@ -162,30 +162,3 @@ def generate_library_index(mpylib_micropython: List[Path], title: str, output_fi
     # Write the rendered content to index.rst
     with open(output_file, "w") as f:
         f.write(rendered_content)
-
-
-################################################################################################################
-# HTML post processing
-################################################################################################################
-
-from bs4 import BeautifulSoup  # BeautifulSoup is used for easier HTML parsing and manipulation
-
-
-def replace_typeshed_incomplete(app: Sphinx, exception):
-    """
-    Replace all occurrences of "_typeshed.Incomplete" with "Incomplete" in the generated HTML files.
-    """
-    if exception is None:  # Only proceed if the build completed successfully
-        output_dir = Path(app.outdir)  # Get the output directory where the HTML files are located
-        LOGGER.info(f"Replacing _typeshed.Incomplete in HTML files in {output_dir}")
-        for file_path in output_dir.glob("**/*.html"):
-            with open(file_path, "r", encoding="utf-8") as f:
-                html_content = f.read()
-
-            # Use BeautifulSoup to parse the HTML
-            soup = BeautifulSoup(html_content, "html.parser")
-            html_str = str(soup).replace("_typeshed.Incomplete", "Incomplete")
-
-            with open(file_path, "w", encoding="utf-8") as f:
-                f.write(html_str)
-        LOGGER.info("Replacement complete")

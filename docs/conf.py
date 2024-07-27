@@ -58,11 +58,11 @@ rst_epilog = """
 # Configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3.5", None),
+    # "python": ("https://docs.python.org/3", None),
     "typing": ("https://typing.readthedocs.io/en/latest/", None),
     # add micropython as this PoC does not contain the full documentation,
     # this helps to resolve some references to the rest of the documentation.
     "micropython": ("https://docs.micropython.org/en/latest", None),
-
 }
 
 # -----------------------------------------------------------------------------
@@ -113,7 +113,6 @@ from stub_docs import (
     generate_library_index,
     DocstringProcessor,
     PythonObject,
-    replace_typeshed_incomplete,
 )
 
 stub_path = Path(__file__).parent / "stubs"
@@ -236,4 +235,3 @@ def setup(sphinx: Sphinx):
     )  # also fires with autoapi :)
     sphinx.connect("autodoc-process-signature", process_signature)  # also fires with autoapi :)
     sphinx.connect("missing-reference", on_missing_reference)
-    # sphinx.connect("build-finished", replace_typeshed_incomplete)  # clean up html files
