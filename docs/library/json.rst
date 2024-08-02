@@ -5,4 +5,4 @@
     :no-index:
     :members:
     :undoc-members:
-    :special-members:    
+    :special-members:

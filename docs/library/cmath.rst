@@ -3,7 +3,11 @@
 
 .. autoapimodule:: cmath
     :no-index:
-
+    :members:
+    :undoc-members:
+    :private-members: 
+    :special-members:
+    
 Constants
 ---------
 
