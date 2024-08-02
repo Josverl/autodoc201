@@ -1,6 +1,9 @@
 :mod:`hashlib` -- hashing algorithms
 ====================================
 
-.. module:: hashlib
+.. autoapimodule:: hashlib
     :synopsis: hashing algorithms
     :no-index:
+    :members:
+    :undoc-members:
+    :special-members:

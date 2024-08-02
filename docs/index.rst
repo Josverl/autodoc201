@@ -9,9 +9,12 @@ Welcome to this quick test!
 .. toctree::
     library/index.rst
     bar.rst
-    mpy-lib/micropython.rst
-    mpy-lib/python-stdlib.rst
-    mpy-lib/python-community.rst
+    modules/micropython-lib/index.rst
+    modules/micropython-stdlib/index.rst
+    modules/micropython-ecosys/index.rst
+    _typeshed.rst
+    modules/index.rst
+
   
 
 

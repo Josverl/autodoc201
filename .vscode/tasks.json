@@ -5,22 +5,22 @@
     // basic task setup to build Sphinx documentaion on Windows with make.bat
     "version": "2.0.0",
     "tasks": [
-        {
-            "label": "make_quick",
-            "type": "shell",
-            "command": "./make.bat",
-            "args": [
-                "html"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/docs"
-            },
-            "problemMatcher": [],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-        },
+        // {
+        //     "label": "make_quick",
+        //     "type": "shell",
+        //     "command": "./make.bat",
+        //     "args": [
+        //         "html"
+        //     ],
+        //     "options": {
+        //         "cwd": "${workspaceFolder}/docs"
+        //     },
+        //     "problemMatcher": [],
+        //     "group": {
+        //         "kind": "build",
+        //         "isDefault": true
+        //     },
+        // },
         {
             "label": "make_html",
             "type": "shell",
@@ -34,7 +34,7 @@
             "problemMatcher": [],
             "group": {
                 "kind": "build",
-                "isDefault": false
+                "isDefault": true
             },
             "dependsOn": [
                 "make_clean"
@@ -61,7 +61,7 @@
                 "remove-item ${workspaceFolder}/docs/modules -Recurse -Confirm:$false -EA:SilentlyContinue;",
                 "remove-item ${workspaceFolder}/docs/stubs-temp -Recurse -Confirm:$false -EA:SilentlyContinue;",
                 "remove-item ${workspaceFolder}/docs/_build -Recurse -Confirm:$false -EA:SilentlyContinue;",
-                "echo done..",
+                "echo Cleaned...",
             ]
         }
     ]

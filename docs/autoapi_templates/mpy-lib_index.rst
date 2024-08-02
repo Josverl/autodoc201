@@ -9,6 +9,6 @@ This index contains modules from the MicroPython-lib library.
    :titlesonly:
    :maxdepth: 1
 
-{% for mo in modules %}
-   /modules/{{ mo.name }}/index{% endfor %}
+{% for mod in modules %}
+    /modules/{{ mod.path.parent.parent.stem }}/{{ mod.name }}/index{% endfor %}
 

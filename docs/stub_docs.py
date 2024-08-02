@@ -1,3 +1,4 @@
+import contextlib
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List
@@ -88,10 +89,11 @@ class ModuleCollector:
         if lib_py := [p for p in lib_path.rglob(f"*{ext}") if p.stem == p.parent.stem]:
             # do not copy the errno module, it is a special case
             # TODO: Need to avoid copying in modules that are already documented as part of the micropython library
+            # or at least avoid name conflicts
             result.extend(
                 self.copy_module_to_path(p, temp_path, ext)
                 for p in lib_py
-                if p.stem not in ["errno"]
+                # if p.stem not in ["errno"]
             )
         return result
 
@@ -108,16 +110,17 @@ class ModuleCollector:
 class DocstringProcessor:
     # revert some of the changes that stubber does to the docstrings to improve the readability
     reverts = [
-        ("CPython module:", "|see_cpython_module|"),  # TODO : turn into regex
+        (r"CPython module: *([:\w`]+).*", r"|see_cpython_module| \1."),  # TODO :
         ("``Note:`` ", ".. note:: "),
         ("Note: ", ".. note:: "),
         ("Admonition: ", ".. admonition:: "),
         ("#### Need placeholder ####", ".. data:: "),
     ]
 
-    def __init__(self, mpy_lib_modules: dict[str, ModuleOrigin]):
+    def __init__(self, mpy_lib_modules: dict[str, ModuleOrigin] | None = None):
+
         # store the names of the micropython-lib modules and their origin
-        self.mpy_lib_modules = mpy_lib_modules
+        self.mpy_lib_modules = mpy_lib_modules or {}
 
     def revert_stubber_mods(self, lines: List[str]):
         """
@@ -131,15 +134,15 @@ class DocstringProcessor:
             if l.startswith("MicroPython module:"):
                 # remove 1 or 2 lines in place
                 lines.pop(i)
-                if lines[i] == "":
+                if len(lines) > i and lines[i] == "":
                     lines.pop(i)
                 break
 
         # Reverse Stubber docstring clean-ups Clean up note and other docstring anchors
         for i, l in enumerate(lines):
             for old, new in self.reverts:
-                if old in l:
-                    lines[i] = l.replace(old, new)
+                # with contextlib.suppress(re.error):
+                lines[i] = re.sub(old, new, lines[i])
 
     def add_micropython_lib_note(self, lines: List[str], name: str):
         """
@@ -182,15 +185,13 @@ class DocstringProcessor:
                 self.add_micropython_lib_note(lines, name)
 
             self.revert_stubber_mods(lines)
-            # TODO: restore formatting of cpython reference in the docstring
-        if "MicroPython module:" in "\n".join(lines):
-            print(f"MicroPython module: {name} not OK ")
 
 
 ################################################################################################################
 # Generate the index.rst file for the modules in micropython-lib
 ################################################################################################################
 from jinja2 import Environment, FileSystemLoader
+import re
 
 # Configure customizable templates for the AutoAPI extension.
 autoapi_template_dir = (Path(__file__).parent / "autoapi_templates").absolute().as_posix()

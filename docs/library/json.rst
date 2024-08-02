@@ -3,3 +3,6 @@
 
 .. autoapimodule:: json
     :no-index:
+    :members:
+    :undoc-members:
+    :special-members:    

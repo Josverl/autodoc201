@@ -1,6 +1,8 @@
 :mod:`heapq` -- heap queue algorithm
 ====================================
 
-.. module:: heapq
-    :synopsis: heap queue algorithm
+.. autoapimodule:: heapq
     :no-index:
+    :members:
+    :undoc-members:
+    :special-members:
