@@ -22,7 +22,7 @@ building-blocks for higher-level abstractions such as specific device types.
 # source version: v1.23.0
 # origin module:: repos/micropython/docs/library/bluetooth.rst
 from __future__ import annotations
-from typing import Any, Optional, Tuple
+from typing import Any, Optional, Tuple, Union, overload
 from _typeshed import Incomplete
 
 class BLE:
@@ -31,10 +31,10 @@ class BLE:
     """
 
     def __init__(self) -> None: ...
-    def active(
-        self,
-        active: Optional[Any] = None,
-    ) -> Incomplete:
+    @overload
+    def active(self, active: None) -> int: ...
+    @overload
+    def active(self, active: int | bool) -> int:
         """
         Optionally changes the active state of the BLE radio, and returns the
         current state.
@@ -307,7 +307,9 @@ class BLE:
         """
         ...
 
-    def gap_advertise(self, interval_us, adv_data=None, *, resp_data=None, connectable=True) -> Incomplete:
+    def gap_advertise(
+        self, interval_us, adv_data=None, *, resp_data=None, connectable=True
+    ) -> Incomplete:
         """
         Starts advertising at the specified interval (in **micro**\ seconds). This
         interval will be rounded down to the nearest 625us. To stop advertising, set
@@ -818,5 +820,5 @@ class UUID:
 
     def __init__(
         self,
-        value,
+        value: Union[int, str],
     ) -> None: ...
