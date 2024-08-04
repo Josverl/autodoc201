@@ -17,7 +17,8 @@ for example code.
 # origin module:: repos/micropython/docs/library/rp2.rst
 from __future__ import annotations
 from _typeshed import Incomplete
-from rp2.PIO import PIO
+from .PIO import PIO
+from .PIO import PIO
 
 class PIOASMError(Exception):
     """

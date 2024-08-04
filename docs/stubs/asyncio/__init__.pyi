@@ -1,6 +1,11 @@
 """
 Asynchronous I/O scheduler for writing concurrent code.
 
+MicroPython module: https://docs.micropython.org/en/v1.23.0/library/asyncio.html
+
+|see_cpython_module|
+`asyncio <https://docs.python.org/3.8/library/asyncio.html>`_
+
 Example::
 
     import asyncio
@@ -25,6 +30,8 @@ Example::
     from machine import Pin
     asyncio.run(main(Pin(1), Pin(2)))
 
+Core functions
+--------------
 """
 
 # source version: v1.23.0

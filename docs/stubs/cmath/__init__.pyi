@@ -3,7 +3,7 @@ Mathematical functions for complex numbers.
 
 MicroPython module: https://docs.micropython.org/en/v1.23.0/library/cmath.html
 
-CPython module: :mod:`python:cmath` https://docs.python.org/3/library/cmath.html .
+|see_cpython_module| :mod:`python:cmath`.
 
 The ``cmath`` module provides some basic mathematical functions for
 working with complex numbers.
@@ -18,9 +18,9 @@ from __future__ import annotations
 from typing import Tuple
 from _typeshed import Incomplete
 
-e: float = 2.718281828459045
+e: float
 """base of the natural logarithm"""
-pi: float = 3.141592653589793
+pi: float
 """the ratio of a circle's circumference to its diameter"""
 
 def cos(z) -> float:

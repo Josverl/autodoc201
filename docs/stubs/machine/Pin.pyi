@@ -1,7 +1,7 @@
 """ """
 
 from __future__ import annotations
-from typing import Any, Callable, Optional, overload
+from typing import Any, Callable, Optional
 from _typeshed import Incomplete
 
 class Pin:
@@ -132,10 +132,7 @@ class Pin:
         """
         ...
 
-    @overload
-    def value(self, x: None) -> int: ...
-    @overload
-    def value(self, x: Any) -> None:
+    def value(self, x: Optional[Any] = None) -> int:
         """
         This method allows to set and get the value of the pin, depending on whether
         the argument ``x`` is supplied or not.
@@ -189,9 +186,7 @@ class Pin:
         """
         ...
 
-    def irq(
-        self, handler=None, trigger=IRQ_FALLING, *, priority=1, wake=None, hard=False
-    ) -> Callable[..., Incomplete]:
+    def irq(self, handler=None, trigger=IRQ_FALLING, *, priority=1, wake=None, hard=False) -> Callable[..., Incomplete]:
         """
            Configure an interrupt handler to be called when the trigger source of the
            pin is active.  If the pin mode is ``Pin.IN`` then the trigger source is

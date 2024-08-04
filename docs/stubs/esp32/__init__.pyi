@@ -13,13 +13,13 @@ from __future__ import annotations
 from typing import Any, List, Optional, Tuple, Union
 from _typeshed import Incomplete
 
-HEAP_DATA: int = 4
+HEAP_DATA: Incomplete
 """Used in `idf_heap_info`."""
-HEAP_EXEC: int = 1
+HEAP_EXEC: Incomplete
 """Used in `idf_heap_info`."""
-WAKEUP_ALL_LOW: bool = False
+WAKEUP_ALL_LOW: Incomplete
 """Selects the wake level for pins."""
-WAKEUP_ANY_HIGH: bool = True
+WAKEUP_ANY_HIGH: Incomplete
 """Selects the wake level for pins."""
 
 class Partition:
@@ -29,25 +29,25 @@ class Partition:
     *block_size* specifies the byte size of an individual block.
     """
 
-    BOOT: str = "BOOT"
+    BOOT: Incomplete
     """\
     Used in the `Partition` constructor to fetch various partitions: ``BOOT`` is the
     partition that will be booted at the next reset and ``RUNNING`` is the currently
     running partition.
     """
-    RUNNING: str = "RUNNING"
+    RUNNING: Incomplete
     """\
     Used in the `Partition` constructor to fetch various partitions: ``BOOT`` is the
     partition that will be booted at the next reset and ``RUNNING`` is the currently
     running partition.
     """
-    TYPE_APP: str = "APP"
+    TYPE_APP: Incomplete
     """\
     Used in `Partition.find` to specify the partition type: ``APP`` is for bootable
     firmware partitions (typically labelled ``factory``, ``ota_0``, ``ota_1``), and
     ``DATA`` is for other partitions, e.g. ``nvs``, ``otadata``, ``phy_init``, ``vfs``.
     """
-    TYPE_DATA: str = "DATA"
+    TYPE_DATA: Incomplete
     """\
     Used in `Partition.find` to specify the partition type: ``APP`` is for bootable
     firmware partitions (typically labelled ``factory``, ``ota_0``, ``ota_1``), and
@@ -90,7 +90,7 @@ class Partition:
         """
         Sets the partition as the boot partition.
 
-        ``Note:`` Do not enter :func:`deepsleep<machine.deepsleep>` after changing
+        .. note:: Do not enter :func:`deepsleep<machine.deepsleep>` after changing
            the OTA boot partition, without first performing a hard
            :func:`reset<machine.reset>` or power cycle. This ensures the bootloader
            will validate the new image before booting.
@@ -138,9 +138,7 @@ class RMT:
 
     PULSE_MAX: int
     """Maximum integer that can be set for a pulse duration."""
-    def __init__(
-        self, channel, *, pin=None, clock_div=8, idle_level=False, tx_carrier=None
-    ) -> None: ...
+    def __init__(self, channel, *, pin=None, clock_div=8, idle_level=False, tx_carrier=None) -> None: ...
     @classmethod
     def source_freq(cls) -> Incomplete:
         """
@@ -357,7 +355,7 @@ def idf_heap_info(capabilities) -> List[Tuple]:
         [(240, 0, 0, 0), (7288, 0, 0, 0), (16648, 4, 4, 4), (79912, 35712, 35512, 35108),
          (15072, 15036, 15036, 15036), (113840, 0, 0, 0)]
 
-    ``Note:`` Free IDF heap memory in the `esp32.HEAP_DATA` region is available
+    .. note:: Free IDF heap memory in the `esp32.HEAP_DATA` region is available
        to be automatically added to the MicroPython heap to prevent a
        MicroPython allocation from failing. However, the information returned
        here is otherwise *not* useful to troubleshoot Python allocation

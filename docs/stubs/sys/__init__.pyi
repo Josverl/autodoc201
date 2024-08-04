@@ -3,7 +3,7 @@ System specific functions.
 
 MicroPython module: https://docs.micropython.org/en/v1.23.0/library/sys.html
 
-CPython module: :mod:`python:sys` https://docs.python.org/3/library/sys.html .
+|see_cpython_module| :mod:`python:sys`.
 """
 
 # source version: v1.23.0
@@ -33,7 +33,7 @@ minimal ports).
 Starting with version 1.22.0-preview, the fourth node *releaselevel* in
 *implementation.version* is either an empty string or ``"preview"``.
 
-Difference to CPython
+.. admonition:: Difference to CPython
 
 CPython mandates more attributes for this object, but the actual useful
 bare minimum is implemented in MicroPython.
@@ -49,20 +49,13 @@ This attribute is useful for detecting "bitness" of a platform (32-bit vs
 64-bit, etc.). It's recommended to not compare this attribute to some
 value directly, but instead count number of bits in it::
 
-    bits = 0
-    v = sys.maxsize
-    while v:
-        bits += 1
-        v >>= 1
-    if bits > 32:
-        # 64-bit (or more) platform
-        ...
-    else:
-        # 32-bit (or less) platform
-        # Note that on 32-bit platform, value of bits may be less than 32
-        # (e.g. 31) due to peculiarities described above, so use "> 16",
-        # "> 32", "> 64" style of comparisons.
-        ...
+bits = 0
+v = sys.maxsize
+while v:
+bits += 1
+v >>= 1
+if bits > 32:
+# 64-bit (or more) platform
 """
 modules: Dict
 """\
@@ -73,7 +66,7 @@ path: List
 """\
 A mutable list of directories to search for imported modules.
 
-Difference to CPython
+.. admonition:: Difference to CPython
 
 On MicroPython, an entry with the value ``".frozen"`` will indicate that import
 should search :term:`frozen modules <frozen module>` at that point in the search.
@@ -119,7 +112,7 @@ version_info: Tuple
 """\
 Python language version that this implementation conforms to, as a tuple of ints.
 
-Difference to CPython
+.. admonition:: Difference to CPython
 
 Only the first three version numbers (major, minor, micro) are supported and
 they can be referenced only by index, not by name.
@@ -142,7 +135,7 @@ def atexit(func) -> Incomplete:
     function will return the previous value set by this function, which is
     initially ``None``.
 
-    Difference to CPython
+    .. admonition:: Difference to CPython
 
        This function is a MicroPython extension intended to provide similar
        functionality to the :mod:`atexit` module in CPython.
@@ -157,7 +150,7 @@ def print_exception(
     Print exception with a traceback to a file-like object *file* (or
     `sys.stdout` by default).
 
-    Difference to CPython
+    .. admonition:: Difference to CPython
 
        This is simplified version of a function which appears in the
        ``traceback`` module in CPython. Unlike ``traceback.print_exception()``,
@@ -170,8 +163,8 @@ def print_exception(
 
 def settrace(tracefunc) -> None:
     """
-    Enable tracing of bytecode execution.  For details see the
-    `CPython documentation` <https://docs.python.org/3/library/sys.html#sys.settrace>.
+    Enable tracing of bytecode execution.  For details see the `CPython
+    documentation <https://docs.python.org/3/library/sys.html#sys.settrace>`_.
 
     This function requires a custom MicroPython build as it is typically not
     present in pre-built firmware (due to it affecting performance).  The relevant

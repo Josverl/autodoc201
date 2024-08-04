@@ -3,7 +3,7 @@ Basic "operating system" services.
 
 MicroPython module: https://docs.micropython.org/en/v1.23.0/library/os.html
 
-CPython module: :mod:`python:os` https://docs.python.org/3/library/os.html .
+|see_cpython_module| :mod:`python:os`.
 
 The ``os`` module contains functions for filesystem access and mounting,
 terminal redirection and duplication, and the ``uname`` and ``urandom``
@@ -13,7 +13,7 @@ functions.
 # source version: v1.23.0
 # origin module:: repos/micropython/docs/library/os.rst
 from __future__ import annotations
-from typing import IO, Any, Iterator, List, Optional, Tuple
+from typing import IO, Any, Iterator, Optional, Tuple
 from _typeshed import Incomplete
 from stdlib.os import *  # type: ignore
 
@@ -66,19 +66,19 @@ def urandom(n) -> bytes:
     """
     ...
 
-def chdir(path: str) -> Incomplete:
+def chdir(path) -> Incomplete:
     """
     Change current directory.
     """
     ...
 
-def getcwd() -> str:
+def getcwd() -> Incomplete:
     """
     Get the current directory.
     """
     ...
 
-def ilistdir(dir: Optional[str] = None) -> Iterator[Tuple]:
+def ilistdir(dir: Optional[Any] = None) -> Iterator[Tuple]:
     """
     This function returns an iterator which then yields tuples corresponding to
     the entries in the directory that it is listing.  With no argument it lists the
@@ -99,13 +99,13 @@ def ilistdir(dir: Optional[str] = None) -> Iterator[Tuple]:
     """
     ...
 
-def listdir(dir: Optional[str] = None) -> List[str]:
+def listdir(dir: Optional[Any] = None) -> Incomplete:
     """
     With no argument, list the current directory.  Otherwise list the given directory.
     """
     ...
 
-def mkdir(path: str) -> Incomplete:
+def mkdir(path) -> Incomplete:
     """
     Create a new directory.
     """

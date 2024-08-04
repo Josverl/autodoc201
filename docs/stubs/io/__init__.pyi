@@ -3,7 +3,7 @@ Input/output streams.
 
 MicroPython module: https://docs.micropython.org/en/v1.23.0/library/io.html
 
-CPython module: :mod:`python:io` https://docs.python.org/3/library/io.html .
+|see_cpython_module| :mod:`python:io`.
 
 This module contains additional types of `stream` (file-like) objects
 and helper functions.
@@ -12,7 +12,6 @@ Conceptual hierarchy
 --------------------
 
 .. admonition:: Difference to CPython
-   :class: attention
 
    Conceptual hierarchy of stream base classes is simplified in MicroPython,
    as described in this section.
@@ -77,32 +76,12 @@ to implement, or subclass, a stream class in pure Python.
 # source version: v1.23.0
 # origin module:: repos/micropython/docs/library/io.rst
 from __future__ import annotations
-from typing import IO, Any, Optional, overload
+from typing import IO, Any, Optional
 from _typeshed import Incomplete
 from stdlib.io import *  # type: ignore
 
 class StringIO(IO):
-    """
-    In-memory file-like objects for input/output. `StringIO` is used for
-    text-mode I/O (similar to a normal file opened with "t" modifier).
-    `BytesIO` is used for binary-mode I/O (similar to a normal file
-    opened with "b" modifier). Initial contents of file-like objects
-    can be specified with *string* parameter (should be normal string
-    for `StringIO` or bytes object for `BytesIO`). All the usual file
-    methods like ``read()``, ``write()``, ``seek()``, ``flush()``,
-    ``close()`` are available on these objects, and additionally, a
-    following method:
-    """
-
-    @overload
-    def __init__(self, string: Optional[str] = None) -> None: ...
-    @overload
-    def __init__(self, allocsize: Optional[int] = None) -> None: ...
-    def getvalue(self) -> Incomplete:
-        """
-        Get the current contents of the underlying buffer which holds data.
-        """
-        ...
+    def __init__(self, string: Optional[Any] = None) -> None: ...
 
 class BytesIO(IO):
     """

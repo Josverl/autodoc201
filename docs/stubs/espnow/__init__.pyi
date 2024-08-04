@@ -39,8 +39,10 @@ class ESPNow(ESPNowBase, Iterator):
     where:
     
     - ``peer`` is the peer MAC address (as `bytes`);
-    - ``rssi`` is the wifi signal strength in dBm (-127 to 0) of the last message received from the peer; and
-    - ``time_ms`` is the time the message was received (in milliseconds since system boot - wraps every 12 days).
+    - ``rssi`` is the wifi signal strength in dBm (-127 to 0) of the last
+    message received from the peer; and
+    - ``time_ms`` is the time the message was received (in milliseconds since
+    system boot - wraps every 12 days).
     
     Example::
     
@@ -60,7 +62,7 @@ class ESPNow(ESPNowBase, Iterator):
         Initialise or de-initialise the ESP-NOW communication protocol depending on
         the value of the ``flag`` optional argument.
 
-        Arguments:
+        .. data:: Arguments:
 
           - *flag*: Any python value which can be converted to a boolean type.
 
@@ -79,7 +81,7 @@ class ESPNow(ESPNowBase, Iterator):
         If *flag* is not provided, return the current status of the ESPNow
         interface.
 
-        Returns:
+        .. data:: Returns:
 
             ``True`` if interface is currently *active*, else ``False``.
         """
@@ -94,7 +96,7 @@ class ESPNow(ESPNowBase, Iterator):
 
         **Note:** *Getting* parameters is not supported on the ESP8266.
 
-        Options:
+        .. data:: Options:
 
             *rxbuf*: (default=526) Get/set the size in bytes of the internal
             buffer used to store incoming ESPNow packet data. The default size is
@@ -118,11 +120,11 @@ class ESPNow(ESPNowBase, Iterator):
             <https://docs.espressif.com/projects/esp-idf/en/v4.4.1/esp32/
             api-reference/network/esp_wifi.html#_CPPv415wifi_phy_rate_t>`_.
 
-        Returns:
+        .. data:: Returns:
 
             ``None`` or the value of the parameter being queried.
 
-        Raises:
+        .. data:: Raises:
 
             - ``OSError(num, "ESP_ERR_ESPNOW_NOT_INIT")`` if not initialised.
             - ``ValueError()`` on invalid configuration options or values.
@@ -136,7 +138,7 @@ class ESPNow(ESPNowBase, Iterator):
         be registered with `ESPNow.add_peer()<ESPNow.add_peer()>` before the
         message can be sent.
 
-        Arguments:
+        .. data:: Arguments:
 
           - *mac*: byte string exactly ``espnow.ADDR_LEN`` (6 bytes) long or
             ``None``. If *mac* is ``None`` (ESP32 only) the message will be sent
@@ -154,12 +156,12 @@ class ESPNow(ESPNowBase, Iterator):
             - ``False`` send ``msg`` and return immediately. Responses from the
               peers will be discarded.
 
-        Returns:
+        .. data:: Returns:
 
           ``True`` if ``sync=False`` or if ``sync=True`` and *all* peers respond,
           else ``False``.
 
-        Raises:
+        .. data:: Raises:
 
           - ``OSError(num, "ESP_ERR_ESPNOW_NOT_INIT")`` if not initialised.
           - ``OSError(num, "ESP_ERR_ESPNOW_NOT_FOUND")`` if peer is not registered.
@@ -182,7 +184,7 @@ class ESPNow(ESPNowBase, Iterator):
         the message. **Note**: It is **not** necessary to register a peer (using
         `add_peer()<ESPNow.add_peer()>`) to receive a message from that peer.
 
-        Arguments:
+        .. data:: Arguments:
 
             - *timeout_ms*: (Optional): May have the following values.
 
@@ -192,7 +194,7 @@ class ESPNow(ESPNowBase, Iterator):
               - ``None`` (or not provided): Use the default timeout value set with
                 `ESPNow.config()`.
 
-        Returns:
+        .. data:: Returns:
 
           - ``(None, None)`` if timeout is reached before a message is received, or
 
@@ -202,7 +204,7 @@ class ESPNow(ESPNowBase, Iterator):
               sent the message, and
             - ``msg`` is a bytestring containing the message.
 
-        Raises:
+        .. data:: Raises:
 
           - ``OSError(num, "ESP_ERR_ESPNOW_NOT_INIT")`` if not initialised.
           - ``OSError(num, "ESP_ERR_ESPNOW_IF")`` if the wifi interface is not
@@ -222,16 +224,16 @@ class ESPNow(ESPNowBase, Iterator):
         return values: ``[mac, msg]``, so that no new memory is allocated on each
         call.
 
-        Arguments:
+        .. data:: Arguments:
 
             *timeout_ms*: (Optional) Timeout in milliseconds (see `ESPNow.recv()`).
 
-        Returns:
+        .. data:: Returns:
 
           - As for `ESPNow.recv()`, except that ``msg`` is a bytearray, instead of
             a bytestring. On the ESP8266, ``mac`` will also be a bytearray.
 
-        Raises:
+        .. data:: Raises:
 
           - See `ESPNow.recv()`.
 
@@ -253,7 +255,7 @@ class ESPNow(ESPNowBase, Iterator):
         This is the low-level method used by both `recv()<ESPNow.recv()>` and
         `irecv()` to read messages.
 
-        Arguments:
+        .. data:: Arguments:
 
             *data*: A list of at least two elements, ``[peer, msg]``. ``msg`` must
             be a bytearray large enough to hold the message (250 bytes). On the
@@ -263,12 +265,12 @@ class ESPNow(ESPNowBase, Iterator):
 
             *timeout_ms*: (Optional) Timeout in milliseconds (see `ESPNow.recv()`).
 
-        Returns:
+        .. data:: Returns:
 
           - Length of message in bytes or 0 if *timeout_ms* is reached before a
             message is received.
 
-        Raises:
+        .. data:: Raises:
 
           - See `ESPNow.recv()`.
 
@@ -296,7 +298,7 @@ class ESPNow(ESPNowBase, Iterator):
           poll.register(e, select.POLLIN)
           poll.poll(timeout)
 
-        Returns:
+        .. data:: Returns:
 
            ``True`` if data is available to be read, else ``False``.
         """
@@ -304,7 +306,7 @@ class ESPNow(ESPNowBase, Iterator):
 
     def stats(self) -> Incomplete:
         """
-        Returns:
+        .. data:: Returns:
 
           A 5-tuple containing the number of packets sent/received/lost:
 
@@ -331,35 +333,30 @@ class ESPNow(ESPNowBase, Iterator):
         esp32/api-reference/network/esp_now.html#security>`_ in the Espressif API
         docs).
 
-        Arguments:
+        .. data:: Arguments:
 
           *pmk*: Must be a byte string, bytearray or string of length
           `espnow.KEY_LEN` (16 bytes).
 
-        Returns:
+        .. data:: Returns:
 
           ``None``
 
-        Raises:
+        .. data:: Raises:
 
           ``ValueError()`` on invalid *pmk* values.
         """
         ...
 
     def add_peer(
-        self,
-        mac,
-        lmk: Optional[Any] = None,
-        channel: Optional[Any] = None,
-        ifidx: Optional[Any] = None,
-        encrypt: Optional[Any] = None,
+        self, mac, lmk: Optional[Any] = None, channel: Optional[Any] = None, ifidx: Optional[Any] = None, encrypt: Optional[Any] = None
     ) -> Incomplete:
         """
         Add/register the provided *mac* address as a peer. Additional parameters may
         also be specified as positional or keyword arguments (any parameter set to
         ``None`` will be set to it's default value):
 
-        Arguments:
+        .. data:: Arguments:
 
             - *mac*: The MAC address of the peer (as a 6-byte byte-string).
 
@@ -397,7 +394,7 @@ class ESPNow(ESPNowBase, Iterator):
             esp_now.html#c.ESP_NOW_MAX_ENCRYPT_PEER_NUM>`_ in the Espressif API
             docs).
 
-        Raises:
+        .. data:: Raises:
 
             - ``OSError(num, "ESP_ERR_ESPNOW_NOT_INIT")`` if not initialised.
             - ``OSError(num, "ESP_ERR_ESPNOW_EXIST")`` if *mac* is already
@@ -412,11 +409,11 @@ class ESPNow(ESPNowBase, Iterator):
         """
         Deregister the peer associated with the provided *mac* address.
 
-        Returns:
+        .. data:: Returns:
 
             ``None``
 
-        Raises:
+        .. data:: Raises:
 
             - ``OSError(num, "ESP_ERR_ESPNOW_NOT_INIT")`` if not initialised.
             - ``OSError(num, "ESP_ERR_ESPNOW_NOT_FOUND")`` if *mac* is not
@@ -429,12 +426,12 @@ class ESPNow(ESPNowBase, Iterator):
         """
         Return information on a registered peer.
 
-        Returns:
+        .. data:: Returns:
 
             ``(mac, lmk, channel, ifidx, encrypt)``: a tuple of the "peer
             info" associated with the given *mac* address.
 
-        Raises:
+        .. data:: Raises:
 
             - ``OSError(num, "ESP_ERR_ESPNOW_NOT_INIT")`` if not initialised.
             - ``OSError(num, "ESP_ERR_ESPNOW_NOT_FOUND")`` if *mac* is not

@@ -3,7 +3,7 @@ Binary/ASCII conversions.
 
 MicroPython module: https://docs.micropython.org/en/v1.23.0/library/binascii.html
 
-CPython module: :mod:`python:binascii` https://docs.python.org/3/library/binascii.html .
+|see_cpython_module| :mod:`python:binascii`.
 
 This module implements conversions between binary data and various
 encodings of it in ASCII form (in both directions).
@@ -42,7 +42,8 @@ def a2b_base64(data) -> bytes:
 
 def b2a_base64(data, *, newline=True) -> bytes:
     """
-    Encode binary data in base64 format, as in `RFC 3548 <https://tools.ietf.org/html/rfc3548.html>`_.
-    Returns the encoded data followed by a newline character if newline is true, as a bytes object.
+    Encode binary data in base64 format, as in `RFC 3548
+    <https://tools.ietf.org/html/rfc3548.html>`_. Returns the encoded data
+    followed by a newline character if newline is true, as a bytes object.
     """
     ...

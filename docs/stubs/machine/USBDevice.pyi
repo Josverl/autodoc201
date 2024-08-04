@@ -8,7 +8,7 @@ class USBDevice:
     """
     Construct a USBDevice object.
 
-    ``Note:`` This object is a singleton, each call to this constructor
+    .. note:: This object is a singleton, each call to this constructor
               returns the same object reference.
     """
 
@@ -23,7 +23,7 @@ class USBDevice:
     ``USBDevice.BUILTIN_DEFAULT`` are always present. Additional objects may be present
     depending on the firmware build configuration and the actual built-in drivers.
     
-    ``Note:`` Currently at most one of ``USBDevice.BUILTIN_CDC``,
+    .. note:: Currently at most one of ``USBDevice.BUILTIN_CDC``,
     ``USBDevice.BUILTIN_MSC`` and ``USBDevice.BUILTIN_CDC_MSC`` is defined
     and will be the same object as ``USBDevice.BUILTIN_DEFAULT``.
     These constants are defined to allow run-time detection of
@@ -36,23 +36,20 @@ class USBDevice:
     
     Each object contains the following read-only fields:
     
-    - ``itf_max`` - One more than the highest bInterfaceNumber value used in the built-in configuration descriptor.
-    - ``ep_max`` - One more than the highest bEndpointAddress value used in the built-in configuration descriptor. Does not include any ``IN`` flag bit (0x80).
-    - ``str_max`` - One more than the highest string descriptor index value used by any built-in descriptor.
-    - ``desc_dev`` - ``bytes`` object containing the built-in USB device descriptor.
-    - ``desc_cfg`` - ``bytes`` object containing the complete built-in USB configuration descriptor.
+    - ``itf_max`` - One more than the highest bInterfaceNumber value used
+    in the built-in configuration descriptor.
+    - ``ep_max`` - One more than the highest bEndpointAddress value used
+    in the built-in configuration descriptor. Does not include any
+    ``IN`` flag bit (0x80).
+    - ``str_max`` - One more than the highest string descriptor index
+    value used by any built-in descriptor.
+    - ``desc_dev`` - ``bytes`` object containing the built-in USB device
+    descriptor.
+    - ``desc_cfg`` - ``bytes`` object containing the complete built-in USB
+    configuration descriptor.
     """
     def __init__(self) -> None: ...
-    def config(
-        self,
-        desc_dev,
-        desc_cfg,
-        desc_strs=None,
-        open_itf_cb=None,
-        reset_cb=None,
-        control_xfer_cb=None,
-        xfer_cb=None,
-    ) -> None:
+    def config(self, desc_dev, desc_cfg, desc_strs=None, open_itf_cb=None, reset_cb=None, control_xfer_cb=None, xfer_cb=None) -> None:
         """
         Configures the ``USBDevice`` singleton object with the USB runtime device
         state and callback functions:
@@ -145,7 +142,7 @@ class USBDevice:
              will be smaller than the length of the buffer submitted for the
              transfer.
 
-          ``Note:`` If a bus reset occurs (see :func:`USBDevice.reset`),
+          .. note:: If a bus reset occurs (see :func:`USBDevice.reset`),
                     ``xfer_cb`` is not called for any transfers that have not
                     already completed.
         """
@@ -178,7 +175,7 @@ class USBDevice:
         an object implementing the buffer interface, with read access for
         ``IN`` endpoints and write access for ``OUT`` endpoints.
 
-        ``Note:`` ``ep`` cannot be the control Endpoint number 0. Control
+        .. note:: ``ep`` cannot be the control Endpoint number 0. Control
            transfers are built up through successive executions of
            ``control_xfer_cb``, see above.
 

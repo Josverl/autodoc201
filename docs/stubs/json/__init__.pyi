@@ -3,7 +3,7 @@ JSON encoding and decoding.
 
 MicroPython module: https://docs.micropython.org/en/v1.23.0/library/json.html
 
-CPython module: :mod:`python:json` https://docs.python.org/3/library/json.html .
+|see_cpython_module| :mod:`python:json`.
 
 This modules allows to convert between Python objects and the JSON
 data format.
@@ -12,10 +12,9 @@ data format.
 # source version: v1.23.0
 # origin module:: repos/micropython/docs/library/json.rst
 from __future__ import annotations
-from _typeshed import SupportsRead, SupportsWrite
-from typing import Any, Iterable
+from _typeshed import Incomplete
 
-def dump(obj: Any, stream: SupportsWrite[str], separators: Iterable = (", ", ": ")) -> None:
+def dump(obj, stream, separators=None) -> Incomplete:
     """
     Serialise *obj* to a JSON string, writing it to the given *stream*.
 
@@ -33,7 +32,7 @@ def dumps(obj, separators=None) -> str:
     """
     ...
 
-def load(stream: SupportsRead[str | bytes]) -> object:
+def load(stream) -> Incomplete:
     """
     Parse the given *stream*, interpreting it as a JSON string and
     deserialising the data to a Python object.  The resulting object is
@@ -44,7 +43,7 @@ def load(stream: SupportsRead[str | bytes]) -> object:
     """
     ...
 
-def loads(str) -> object:
+def loads(str) -> Incomplete:
     """
     Parse the JSON *str* and return an object.  Raises :exc:`ValueError` if the
     string is not correctly formed.

@@ -1,6 +1,8 @@
 """
 Low-level Bluetooth radio functionality.
 
+MicroPython module: https://docs.micropython.org/en/v1.23.0/library/bluetooth.html
+
 This module provides an interface to a Bluetooth controller on a board.
 Currently this supports Bluetooth Low Energy (BLE) in Central, Peripheral,
 Broadcaster, and Observer roles, as well as GATT Server and Client and L2CAP
@@ -10,10 +12,10 @@ concurrently. Pairing (and bonding) is supported on some ports.
 This API is intended to match the low-level Bluetooth protocol and provide
 building-blocks for higher-level abstractions such as specific device types.
 
-``Note:`` For most applications, we recommend using the higher-level
+.. note:: For most applications, we recommend using the higher-level
           `aioble library <https://github.com/micropython/micropython-lib/tree/master/micropython/bluetooth/aioble>`_.
 
-``Note:`` This module is still under development and its classes, functions,
+.. note:: This module is still under development and its classes, functions,
           methods and constants are subject to change.
 """
 
@@ -305,11 +307,9 @@ class BLE:
         """
         ...
 
-    def gap_advertise(
-        self, interval_us, adv_data=None, *, resp_data=None, connectable=True
-    ) -> Incomplete:
+    def gap_advertise(self, interval_us, adv_data=None, *, resp_data=None, connectable=True) -> Incomplete:
         """
-        Starts advertising at the specified interval (in **micro** seconds). This
+        Starts advertising at the specified interval (in **micro**\ seconds). This
         interval will be rounded down to the nearest 625us. To stop advertising, set
         *interval_us* to ``None``.
 
@@ -332,15 +332,15 @@ class BLE:
         active=False,
     ) -> Incomplete:
         """
-        Run a scan operation lasting for the specified duration (in **milli** seconds).
+        Run a scan operation lasting for the specified duration (in **milli**\ seconds).
 
         To scan indefinitely, set *duration_ms* to ``0``.
 
         To stop scanning, set *duration_ms* to ``None``.
 
         Use *interval_us* and *window_us* to optionally configure the duty cycle.
-        The scanner will run for *window_us* **micro** seconds every *interval_us*
-        **micro** seconds for a total of *duration_ms* **milli** seconds. The default
+        The scanner will run for *window_us* **micro**\ seconds every *interval_us*
+        **micro**\ seconds for a total of *duration_ms* **milli**\ seconds. The default
         interval and window are 1.28 seconds and 11.25 milliseconds respectively
         (background scanning).
 
@@ -389,7 +389,7 @@ class BLE:
         The device will wait up to *scan_duration_ms* to receive an advertising
         payload from the device.
 
-        The connection interval can be configured in **micro** seconds using either
+        The connection interval can be configured in **micro**\ seconds using either
         or both of *min_conn_interval_us* and *max_conn_interval_us*. Otherwise a
         default interval will be chosen, typically between 30000 and 50000
         microseconds. A shorter interval will increase throughput, at the expense
