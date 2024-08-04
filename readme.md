@@ -27,15 +27,24 @@ To Implement this the following steps are needed
             @overload
             def value(self, x: Any) -> None:
         ```
+ [ ] configure autoapi to document class __inits__ as part of the class parameters , not of the __init__ method
+     This is the way the current docs are written , its best to keep it to the same method    
 
 
  [ ] Docstring pre-processing to 
-    [ ] clean up some of the module/class docstrings
-    [x] mark the classes that originate from micropython-lib
+    [ ] Update stubber to 
+        [x] remove fewer of the .rst .. admonitions and other formatting ( --no-rst-clean option)
+        [?] Merge the updated docstubs with the current stubs where some are manually updated
+
+    [ ] add logic to mark the modules as originating from micropython-lib 
     [ ] add port designations (need source for that)
 
- [ ] add logic to add the micropython-lib modules 
- [ ] 
+ [x] add logic to add the micropython-lib modules 
+ [x] Check for missing sections / functions / classes in the generated documentation.
+     There is a test `test_library_page` that tries to compare the generated docs with the source code, but it is not very reliable 
+     as it is hard for to distinguish between intentional changes, and omissions and errors.
+     
+
 
 ## You build it, you break it
 
