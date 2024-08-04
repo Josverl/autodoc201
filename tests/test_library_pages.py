@@ -252,14 +252,18 @@ def compare_html(file1: Path, url: str, ignore_title=True):
     result = ignore_version_notice(list(diff))
     result = ignore_mip_tip(result)
 
+    # There are fewer headings in the autoapimodule ( TODO: could be added in the template )
+    result = ignore_known_headings(result)
+
     # remove all the lines that appear with both a + and a - prefix (they are line-moves / re-orderings)
     result = ignore_moves(result)
+    # the stubs have more precise parameter information, so likely to be different
+    result = allow_different_parameters(result)
+    result = allow_omit_class_different_parameters(result)
+    # the subs have values for data, so likely to be different
     result = ignore_assignments(result)
-    result = ignore_known_headings(result)
     # there are some assignments that are not present in the web version
     result = allow_new_data_assignments(result)
-    # result = allow_different_parameters(result)
-    result = allow_omit_class_different_parameters(result)
 
     if ignore_title:
         # The stubs have the title of the docpage in the first line, so we can ignore it
