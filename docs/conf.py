@@ -158,6 +158,7 @@ MPY_LIB_MAP = {
 }
 
 
+# TODO: avoid name conflicts with the stubs
 def copy_modules_from_lib(dest_path: Path, mc: ModuleCollector) -> dict[str, ModuleOrigin]:
     """
     Copy all modules from the micropython-lib folder to a destination folder.
@@ -191,16 +192,16 @@ def copy_modules_from_lib(dest_path: Path, mc: ModuleCollector) -> dict[str, Mod
 
 
 mpy_lib_modules = {}
-mpy_lib_modules = copy_modules_from_lib(temp_path, mc)
+# mpy_lib_modules = copy_modules_from_lib(temp_path, mc)
 
-for sub in MPY_LIB_MAP.values():
-    # to avoid naming conflicts with the modules directly uses in micropython
-    # the modules are copied to a subfolder and parsed as a submodule
-    # this also causes a rename of the module to the subfolder name
-    sub_path = temp_path / sub
-    sub_path.mkdir(exist_ok=True)
-    (sub_path / "__init__.py").touch()
-    autoapi_dirs.append(sub_path)
+# for sub in MPY_LIB_MAP.values():
+#     # to avoid naming conflicts with the modules directly uses in micropython
+#     # the modules are copied to a subfolder and parsed as a submodule
+#     # this also causes a rename of the module to the subfolder name
+#     sub_path = temp_path / sub
+#     sub_path.mkdir(exist_ok=True)
+#     (sub_path / "__init__.py").touch()
+#     autoapi_dirs.append(sub_path)
 
 ds_pp = DocstringProcessor(mpy_lib_modules)
 
@@ -210,16 +211,16 @@ from autoapi._objects import PythonPackage
 import pathlib
 
 
-# def autoapi_skip_hook(
-#     app: sphinx, what: str, name: str, obj: PythonObject, skip: bool, options: dict
-# ):
-#     """`
-#     Determine whether to skip a member in the AutoAPI documentation.
+def autoapi_skip_hook(
+    app: sphinx, what: str, name: str, obj: PythonObject, skip: bool, options: dict
+):
+    """`
+    Determine whether to skip a member in the AutoAPI documentation.
 
-#     Return True to skip the member, False to include it, None to defer to the default implementation.
-#     """
+    Return True to skip the member, False to include it, None to defer to the default implementation.
+    """
 
-#     return None
+    return None
 
 
 # -----------------------------------------------------------------------------
@@ -388,6 +389,6 @@ def setup(sphinx: Sphinx):
     # several autodoc events also fire with autoapi :)
     sphinx.connect("autodoc-process-docstring", ds_pp.process_docstring)
     # sphinx.connect("autodoc-process-signature", process_signature) # not used
-    # sphinx.connect("autoapi-skip-member", autoapi_skip_hook)
+    sphinx.connect("autoapi-skip-member", autoapi_skip_hook)
 
     sphinx.connect("missing-reference", on_missing_reference)

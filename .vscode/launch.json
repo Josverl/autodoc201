@@ -19,7 +19,8 @@
                 "_build/html" // Adjust build folder path
             ],
             "console": "integratedTerminal",
-            "preLaunchTask": "make_clean"
+            // "preLaunchTask": "make_clean"
+            "preLaunchTask": "make_html"
         },
         {
             "name": "Python Debugger: Current File",
