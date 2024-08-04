@@ -11,7 +11,7 @@ ports.
 # source version: v1.23.0
 # origin module:: repos/micropython/docs/library/esp.rst
 from __future__ import annotations
-from typing import Any, Optional
+from typing import Any, Optional, overload
 from _typeshed import Incomplete
 
 def sleep_type(sleep_type: Optional[Any] = None) -> Incomplete:
@@ -73,11 +73,17 @@ def flash_user_start() -> Incomplete:
 def flash_read(byte_offset, length_or_buffer) -> Incomplete: ...
 def flash_write(byte_offset, bytes) -> Incomplete: ...
 def flash_erase(sector_no) -> Incomplete: ...
+@overload
+def osdebug(uart_no) -> Incomplete:
+    """
+    **Note:** This is the ESP8266 form of this function.
+    Docstring 1st overload
+    """
+
+@overload
 def osdebug(uart_no, level: Optional[Any] = None) -> Incomplete:
     """
-    :no-index:
-
-    ``Note:`` This is the ESP32 form of this function.
+    **Note:** This is the ESP32 form of this function.
 
     Change the level of OS serial debug log messages. On boot, OS
     serial debug log messages are limited to Error output only.
@@ -102,16 +108,28 @@ def osdebug(uart_no, level: Optional[Any] = None) -> Incomplete:
         * ``LOG_VERBOSE`` -- Bigger chunks of debugging information, or frequent messages
           which can potentially flood the output
 
-    ``Note:`` ``LOG_DEBUG`` and ``LOG_VERBOSE`` are not compiled into the
-              MicroPython binary by default, to save size. A custom build with a
-              modified "``sdkconfig``" source file is needed to see any output
-              at these log levels.
+    Note::
 
-    ``Note:`` Log output on ESP32 is automatically suspended in "Raw REPL" mode,
-              to prevent communications issues. This means OS level logging is never
-              seen when using ``mpremote run`` and similar tools.
+            ``LOG_DEBUG`` and ``LOG_VERBOSE`` are not compiled into the
+            MicroPython binary by default, to save size. A custom build with a
+            modified "``sdkconfig``" source file is needed to see any output
+            at these log levels.
+
+    Note::
+
+            Log output on ESP32 is automatically suspended in "Raw REPL" mode,
+            to prevent communications issues. This means OS level logging is never
+            seen when using ``mpremote run`` and similar tools.
     """
     ...
+
+
+
+
+
+
+x = osdebug(1,)
+
 
 def set_native_code_location(start, length) -> Incomplete:
     """

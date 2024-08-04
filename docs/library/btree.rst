@@ -89,6 +89,6 @@ Methods
     :members:
     :undoc-members:
     :private-members: 
-    :special-members:
+    :special-members: __iter__
 
    

@@ -2,6 +2,8 @@
 ==========================================
 
 .. autoapimodule:: gc
-   :no-index:
-
-|see_cpython_module| :mod:`python:gc`.
+    :no-index:
+    :members:
+    :undoc-members:
+    :private-members: 
+    :special-members:   

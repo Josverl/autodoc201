@@ -12,9 +12,10 @@ data format.
 # source version: v1.23.0
 # origin module:: repos/micropython/docs/library/json.rst
 from __future__ import annotations
-from _typeshed import Incomplete
+from _typeshed import SupportsRead, SupportsWrite
+from typing import Any, Iterable
 
-def dump(obj, stream, separators=None) -> Incomplete:
+def dump(obj: Any, stream: SupportsWrite[str], separators: Iterable = (", ", ": ")) -> None:
     """
     Serialise *obj* to a JSON string, writing it to the given *stream*.
 
@@ -32,7 +33,7 @@ def dumps(obj, separators=None) -> str:
     """
     ...
 
-def load(stream) -> Incomplete:
+def load(stream: SupportsRead[str | bytes]) -> object:
     """
     Parse the given *stream*, interpreting it as a JSON string and
     deserialising the data to a Python object.  The resulting object is
@@ -43,7 +44,7 @@ def load(stream) -> Incomplete:
     """
     ...
 
-def loads(str) -> Incomplete:
+def loads(str) -> object:
     """
     Parse the JSON *str* and return an object.  Raises :exc:`ValueError` if the
     string is not correctly formed.

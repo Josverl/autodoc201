@@ -4,6 +4,10 @@
 .. autoapimodule:: gzip
     :synopsis: gzip compression & decompression
     :no-index:
+    :members:
+    :undoc-members:
+    :private-members: 
+    :special-members:
 
 
 Examples
