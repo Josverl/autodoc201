@@ -25,6 +25,23 @@ LOGGER = sphinx.util.logging.getLogger(__name__)
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 TOP_DIR = os.path.abspath(os.path.dirname(__file__))
 sys.path[:0] = [os.path.join(TOP_DIR, "extensions"), TOP_DIR]
+# -------------------
+# The MICROPY_VERSION env var should be "vX.Y.Z" (or unset).
+micropy_version = os.getenv("MICROPY_VERSION") or "latest"
+micropy_all_versions = (os.getenv("MICROPY_ALL_VERSIONS") or "latest").split(",")
+url_pattern = "%s/en/%%s" % (os.getenv("MICROPY_URL_PREFIX") or "/",)
+
+# The members of the html_context dict are available inside topindex.html
+html_context = {
+    "cur_version": micropy_version,
+    "all_versions": [(ver, url_pattern % ver) for ver in micropy_all_versions],
+    "downloads": [
+        ("PDF", url_pattern % micropy_version + "/micropython-docs.pdf"),
+    ],
+    "is_release": micropy_version != "latest",
+}
+
+# -------------------
 
 extensions = [
     "autoapi.extension",
@@ -34,11 +51,14 @@ extensions = [
     "sphinx_copybutton",
 ]
 
-templates_path = ["_templates"]
+templates_path = ["templates"]
 exclude_patterns = ["build", "Thumbs.db", ".DS_Store"]
 
 # The suffix of source filenames.
-source_suffix = {".rst": "restructuredtext"}
+source_suffix = {
+    ".rst": "restructuredtext",
+    # ".md": "markdown",
+}
 # The master toctree document.
 master_doc = "index"
 default_role = "any"
@@ -218,11 +238,24 @@ import pathlib
 
 
 # -----------------------------------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-suppress_warnings
 suppress_warnings = [
     # "ref.doc",
     "any",  #  WARNING: 'any' reference target not found,
     "unknown-document",  # WARNING: unknown document: 'foo' - Temporary for gradual build-up
 ]
+
+# types display with a short, PEP 604-inspired syntax, i.e.:
+#   serve_food(item: "egg" | "spam" | "lobster thermidor") -> None
+python_display_short_literal_types = True
+
+# Wrap long / complex parameter signatures in the Python domain
+# not activated during the PoC as this makes it harder to compare the generated documentation with the current HTML pages
+# python_maximum_signature_line_length = 100
+
+# This helps to avoid _typeshed.Incomplete in the documentation
+# but not in all cases
+python_use_unqualified_type_names = True  # Experimental
 
 # -----------------------------------------------------------------------------
 # Q&D FIX For  WARNING: toctree contains reference to nonexisting document
@@ -250,6 +283,104 @@ def on_missing_reference(
         return None
 
 
+# -- Options for HTML output ----------------------------------------------
+
+# on_rtd is whether we are on readthedocs.org
+# on_rtd = os.environ.get("READTHEDOCS", None) == "True"
+
+# if not on_rtd:  # only import and set the theme if we're building docs locally
+#     try:
+#         import sphinx_rtd_theme
+
+#         html_theme = "sphinx_rtd_theme"
+#         html_theme_path = [sphinx_rtd_theme.get_html_theme_path(), "."]
+#     except:
+#         html_theme = "default"
+#         html_theme_path = ["."]
+# else:
+#     html_theme_path = ["."]
+
+# Theme options are theme-specific and customize the look and feel of a theme
+# further.  For a list of options available for each theme, see the
+# documentation.
+# html_theme_options = {}
+
+# Add any paths that contain custom themes here, relative to this directory.
+# html_theme_path = ['.']
+
+# The name for this set of Sphinx documents.  If None, it defaults to
+# "<project> v<release> documentation".
+# html_title = None
+
+# A shorter title for the navigation bar.  Default is the same as html_title.
+# html_short_title = None
+
+# The name of an image file (relative to this directory) to place at the top
+# of the sidebar.
+# html_logo = '../../logo/trans-logo.png'
+
+# The name of an image file (within the static path) to use as favicon of the
+# docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
+# pixels large.
+html_favicon = "static/favicon.ico"
+
+# Add any paths that contain custom static files (such as style sheets) here,
+# relative to this directory. They are copied after the builtin static files,
+# so a file named "default.css" will overwrite the builtin "default.css".
+html_static_path = ["static"]
+
+# Add a custom CSS file for HTML generation
+html_css_files = [
+    "custom.css",
+]
+# Add any extra paths that contain custom files (such as robots.txt or
+# .htaccess) here, relative to this directory. These files are copied
+# directly to the root of the documentation.
+# html_extra_path = []
+
+# If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
+# using the given strftime format.
+html_last_updated_fmt = "%d %b %Y"
+
+# If true, SmartyPants will be used to convert quotes and dashes to
+# typographically correct entities.
+# html_use_smartypants = True
+
+# Custom sidebar templates, maps document names to template names.
+# html_sidebars = {}
+
+# Additional templates that should be rendered to pages, maps page names to
+# template names.
+html_additional_pages = {"index": "topindex.html"}
+
+# If false, no module index is generated.
+# html_domain_indices = True
+
+# If false, no index is generated.
+# html_use_index = True
+
+# If true, the index is split into individual pages for each letter.
+# html_split_index = False
+
+# If true, links to the reST sources are added to the pages.
+# html_show_sourcelink = True
+
+# If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
+# html_show_sphinx = True
+
+# If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
+# html_show_copyright = True
+
+# If true, an OpenSearch description file will be output, and all pages will
+# contain a <link> tag referring to it.  The value of this option must be the
+# base URL from which the finished HTML is served.
+# html_use_opensearch = ''
+
+# This is the file name suffix for HTML files (e.g. ".xhtml").
+# html_file_suffix = None
+
+# Output file base name for HTML help builder.
+htmlhelp_basename = "MicroPythondoc"
 # -----------------------------------------------------------------------------
 
 
