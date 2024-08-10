@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>array – Efficient arrays of numeric data. &mdash; Stub doc test 1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=d5a28fe3" />
+      <link rel="stylesheet" href="../../_static/customstyle.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=dcd1999c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="asyncio – Asynchronous I/O scheduler for writing concurrent code." href="../asyncio/index.html" />
+    <link rel="prev" title="_thread – Multithreading support." href="../_thread/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Stub doc test
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bar.html">bar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_typeshed.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_typeshed</span></code> – Utility types for typeshed.</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MicroPython Module Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../_asyncio/index.html">_asyncio – Asynchronous I/O scheduler for writing concurrent code.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_rp2/index.html">_rp2 – Functionality specific to the RP2.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_thread/index.html">_thread – Multithreading support.</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">array – Efficient arrays of numeric data.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#array.array"><code class="docutils literal notranslate"><span class="pre">array</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../asyncio/index.html">asyncio – Asynchronous I/O scheduler for writing concurrent code.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binascii/index.html">binascii – Binary/ASCII conversions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">bluetooth – Low-level Bluetooth radio functionality.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../btree/index.html">btree – Simple BTree database.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cmath/index.html">cmath – Mathematical functions for complex numbers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collections/index.html">collections – Collection and container types.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cryptolib/index.html">cryptolib – Cryptographic ciphers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deflate/index.html">deflate – Deflate compression &amp; decompression.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../errno/index.html">errno – System error codes.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp/index.html">esp – Functions related to the ESP8266 and ESP32.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp32/index.html">esp32 – Functionality specific to the ESP32.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../espnow/index.html">espnow – ESP-NOW <span class="xref std std-doc">asyncio</span> support.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framebuf/index.html">framebuf – Frame buffer manipulation.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gc/index.html">gc – Control the garbage collector.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gzip/index.html">gzip – Gzip compression &amp; decompression.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hashlib/index.html">hashlib – Hashing algorithms.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heapq/index.html">heapq – Heap queue algorithm.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/index.html">io – Input/output streams.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../json/index.html">json – JSON encoding and decoding.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lcd160cr/index.html">lcd160cr – Control of LCD160CR display.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machine/index.html">machine – Functions related to the hardware.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math/index.html">math – Mathematical functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../micropython/index.html">micropython – Access and control MicroPython internals.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neopixel/index.html">neopixel – Control of WS2812 / NeoPixel LEDs.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">network – Network configuration.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openamp/index.html">openamp – Provides standard Asymmetric Multiprocessing (AMP) support.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os/index.html">os – Basic “operating system” services.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/index.html">platform – Access to underlying platform’s identifying data.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyb/index.html">pyb – Functions related to the board.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../random/index.html">random – Random numbers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rp2/index.html">rp2 – Functionality specific to the RP2.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../select/index.html">select – Wait for events on a set of streams.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../socket/index.html">socket – Socket module.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ssl/index.html">ssl – TLS/SSL wrapper for socket objects.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stm/index.html">stm – Functionality specific to STM32 MCUs.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../struct/index.html">struct – Pack and unpack primitive data types.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sys/index.html">sys – System specific functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time/index.html">time – Time related functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uctypes/index.html">uctypes – Access binary data in a structured way.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vfs/index.html">vfs – Virtual filesystem control.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wipy/index.html">wipy – WiPy specific features.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zephyr/index.html">zephyr – Functionality specific to Zephyr.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlib/index.html">zlib – Zlib compression &amp; decompression.</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Stub doc test</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">MicroPython Module Reference</a></li>
+      <li class="breadcrumb-item active">array – Efficient arrays of numeric data.</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/modules/array/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    <div class="wy-alert wy-alert-danger">
+      <p>
+        This is the documentation for the latest development branch of
+        MicroPython and may refer to features that are not available in released
+        versions.
+      </p>
+      <p>
+        If you are looking for the documentation for a specific release, use
+        the drop-down menu on the left and select the desired version.
+      </p>
+    </div>
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="array-efficient-arrays-of-numeric-data">
+<h1>array – Efficient arrays of numeric data.<a class="headerlink" href="#array-efficient-arrays-of-numeric-data" title="Link to this heading"></a></h1>
+<p id="module-array">Efficient arrays of numeric data.</p>
+<p><em>This module implements a subset of the corresponding</em> <a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-CPython" title="(in MicroPython vlatest)"><span class="xref std std-term">CPython</span></a> <em>module,
+as described below. For more information, refer to the original
+CPython documentation:</em> <a class="reference external" href="https://docs.python.org/3.5/library/array.html#module-array" title="(in Python v3.5)"><code class="docutils literal notranslate"><span class="pre">array</span></code></a>.</p>
+<p>Supported format codes: <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code>, <code class="docutils literal notranslate"><span class="pre">h</span></code>, <code class="docutils literal notranslate"><span class="pre">H</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">I</span></code>, <code class="docutils literal notranslate"><span class="pre">l</span></code>,
+<code class="docutils literal notranslate"><span class="pre">L</span></code>, <code class="docutils literal notranslate"><span class="pre">q</span></code>, <code class="docutils literal notranslate"><span class="pre">Q</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span></code>, <code class="docutils literal notranslate"><span class="pre">d</span></code> (the latter 2 depending on the
+floating-point support).</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#array.array" title="array.array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></p></td>
+<td><p>Create array with elements of given type. Initial contents of the</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="array.array">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">array.</span></span><span class="sig-name descname"><span class="pre">array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typecode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#array.array" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">List</span></code></p>
+<p>Create array with elements of given type. Initial contents of the
+array are given by <em>iterable</em>. If it is not provided, an empty
+array is created.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="array.array.__add__">
+<span class="sig-name descname"><span class="pre">__add__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#array.array.__add__" title="Link to this definition"></a></dt>
+<dd><p>Return a new <code class="docutils literal notranslate"><span class="pre">array</span></code> that is the concatenation of the array with <em>other</em>, called as
+<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">other</span></code> (where <code class="docutils literal notranslate"><span class="pre">a</span></code> and <em>other</em> are both <code class="docutils literal notranslate"><span class="pre">arrays</span></code>).</p>
+<p><strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">__add__</span></code> cannot be called directly (<code class="docutils literal notranslate"><span class="pre">a.__add__(other)</span></code> fails) and
+is not present in <code class="docutils literal notranslate"><span class="pre">__dict__</span></code>, however <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">other</span></code> does work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="array.array.__getitem__">
+<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../library/builtins.html#int" title="int"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#array.array.__getitem__" title="Link to this definition"></a></dt>
+<dd><p>Indexed read of the array, called as <code class="docutils literal notranslate"><span class="pre">a[index]</span></code> (where <code class="docutils literal notranslate"><span class="pre">a</span></code> is an <code class="docutils literal notranslate"><span class="pre">array</span></code>).
+Returns a value if <em>index</em> is an <code class="docutils literal notranslate"><span class="pre">int</span></code> and an <code class="docutils literal notranslate"><span class="pre">array</span></code> if <em>index</em> is a slice.
+Negative indices count from the end and <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> is thrown if the index is
+out of range.</p>
+<p><strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> cannot be called directly (<code class="docutils literal notranslate"><span class="pre">a.__getitem__(index)</span></code> fails) and
+is not present in <code class="docutils literal notranslate"><span class="pre">__dict__</span></code>, however <code class="docutils literal notranslate"><span class="pre">a[index]</span></code> does work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="array.array.__iadd__">
+<span class="sig-name descname"><span class="pre">__iadd__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#array.array.__iadd__" title="Link to this definition"></a></dt>
+<dd><p>Concatenates the array with <em>other</em> in-place, called as <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+=</span> <span class="pre">other</span></code> (where <code class="docutils literal notranslate"><span class="pre">a</span></code> and <em>other</em>
+are both <code class="docutils literal notranslate"><span class="pre">arrays</span></code>).  Equivalent to <code class="docutils literal notranslate"><span class="pre">extend(other)</span></code>.</p>
+<p><strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">__iadd__</span></code> cannot be called directly (<code class="docutils literal notranslate"><span class="pre">a.__iadd__(other)</span></code> fails) and
+is not present in <code class="docutils literal notranslate"><span class="pre">__dict__</span></code>, however <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+=</span> <span class="pre">other</span></code> does work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="array.array.__len__">
+<span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../library/builtins.html#int" title="int"><span class="pre">int</span></a></span></span><a class="headerlink" href="#array.array.__len__" title="Link to this definition"></a></dt>
+<dd><p>Returns the number of items in the array, called as <code class="docutils literal notranslate"><span class="pre">len(a)</span></code> (where <code class="docutils literal notranslate"><span class="pre">a</span></code> is an <code class="docutils literal notranslate"><span class="pre">array</span></code>).</p>
+<p><strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">__len__</span></code> cannot be called directly (<code class="docutils literal notranslate"><span class="pre">a.__len__()</span></code> fails) and the
+method is not present in <code class="docutils literal notranslate"><span class="pre">__dict__</span></code>, however <code class="docutils literal notranslate"><span class="pre">len(a)</span></code> does work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="array.array.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../library/builtins.html#str" title="str"><span class="pre">str</span></a></span></span><a class="headerlink" href="#array.array.__repr__" title="Link to this definition"></a></dt>
+<dd><p>Returns the string representation of the array, called as <code class="docutils literal notranslate"><span class="pre">str(a)</span></code> or <code class="docutils literal notranslate"><span class="pre">repr(a)`</span></code>
+(where <code class="docutils literal notranslate"><span class="pre">a</span></code> is an <code class="docutils literal notranslate"><span class="pre">array</span></code>).  Returns the string <code class="docutils literal notranslate"><span class="pre">&quot;array(&lt;type&gt;,</span> <span class="pre">[&lt;elements&gt;])&quot;</span></code>,
+where <code class="docutils literal notranslate"><span class="pre">&lt;type&gt;</span></code> is the type code letter for the array and <code class="docutils literal notranslate"><span class="pre">&lt;elements&gt;</span></code> is a comma
+separated list of the elements of the array.</p>
+<p><strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> cannot be called directly (<code class="docutils literal notranslate"><span class="pre">a.__repr__()</span></code> fails) and
+is not present in <code class="docutils literal notranslate"><span class="pre">__dict__</span></code>, however <code class="docutils literal notranslate"><span class="pre">str(a)</span></code> and <code class="docutils literal notranslate"><span class="pre">repr(a)</span></code> both work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="array.array.__setitem__">
+<span class="sig-name descname"><span class="pre">__setitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#array.array.__setitem__" title="Link to this definition"></a></dt>
+<dd><p>Indexed write into the array, called as <code class="docutils literal notranslate"><span class="pre">a[index]</span> <span class="pre">=</span> <span class="pre">value</span></code> (where <code class="docutils literal notranslate"><span class="pre">a</span></code> is an <code class="docutils literal notranslate"><span class="pre">array</span></code>).
+<code class="docutils literal notranslate"><span class="pre">value</span></code> is a single value if <em>index</em> is an <code class="docutils literal notranslate"><span class="pre">int</span></code> and an <code class="docutils literal notranslate"><span class="pre">array</span></code> if <em>index</em> is a slice.
+Negative indices count from the end and <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> is thrown if the index is out of range.</p>
+<p><strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">__setitem__</span></code> cannot be called directly (<code class="docutils literal notranslate"><span class="pre">a.__setitem__(index,</span> <span class="pre">value)</span></code> fails) and
+is not present in <code class="docutils literal notranslate"><span class="pre">__dict__</span></code>, however <code class="docutils literal notranslate"><span class="pre">a[index]</span> <span class="pre">=</span> <span class="pre">value</span></code> does work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="array.array.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#array.array.append" title="Link to this definition"></a></dt>
+<dd><p>Append new element <em>val</em> to the end of array, growing it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="array.array.extend">
+<span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#array.array.extend" title="Link to this definition"></a></dt>
+<dd><p>Append new elements as contained in <em>iterable</em> to the end of
+array, growing it.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../_thread/index.html" class="btn btn-neutral float-left" title="_thread – Multithreading support." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../asyncio/index.html" class="btn btn-neutral float-right" title="asyncio – Asynchronous I/O scheduler for writing concurrent code." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Nah.
+      <span class="lastupdated">Last updated on 10 Aug 2024.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Versions and Downloads</span>
+    latest
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Versions</dt>
+      
+        <dd><a href="//en/latest">latest</a></dd>
+      
+    </dl>
+    <dl>
+      <dt>Downloads</dt>
+      
+        <dd><a href="//en/latest/micropython-docs.pdf">PDF</a></dd>
+      
+    </dl>
+    <hr/>
+    <dl>
+      <dt>External links</dt>
+        <dd>
+          <a href="https://www.micropython.org">micropython.org</a>
+        </dd>
+        <dd>
+          <a href="https://github.com/micropython/micropython">GitHub</a>
+        </dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

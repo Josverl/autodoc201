@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyb.I2C &mdash; Stub doc test 1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=d5a28fe3" />
+      <link rel="stylesheet" href="../../../_static/customstyle.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=29a6c3e3"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=dcd1999c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="pyb.LCD" href="../LCD/index.html" />
+    <link rel="prev" title="pyb.Flash" href="../Flash/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Stub doc test
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bar.html">bar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_typeshed.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_typeshed</span></code> – Utility types for typeshed.</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">MicroPython Module Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../_asyncio/index.html">_asyncio – Asynchronous I/O scheduler for writing concurrent code.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_rp2/index.html">_rp2 – Functionality specific to the RP2.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_thread/index.html">_thread – Multithreading support.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../array/index.html">array – Efficient arrays of numeric data.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asyncio/index.html">asyncio – Asynchronous I/O scheduler for writing concurrent code.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../binascii/index.html">binascii – Binary/ASCII conversions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bluetooth/index.html">bluetooth – Low-level Bluetooth radio functionality.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../btree/index.html">btree – Simple BTree database.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cmath/index.html">cmath – Mathematical functions for complex numbers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collections/index.html">collections – Collection and container types.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cryptolib/index.html">cryptolib – Cryptographic ciphers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../deflate/index.html">deflate – Deflate compression &amp; decompression.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../errno/index.html">errno – System error codes.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../esp/index.html">esp – Functions related to the ESP8266 and ESP32.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../esp32/index.html">esp32 – Functionality specific to the ESP32.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../espnow/index.html">espnow – ESP-NOW <span class="xref std std-doc">asyncio</span> support.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../framebuf/index.html">framebuf – Frame buffer manipulation.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gc/index.html">gc – Control the garbage collector.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gzip/index.html">gzip – Gzip compression &amp; decompression.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hashlib/index.html">hashlib – Hashing algorithms.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../heapq/index.html">heapq – Heap queue algorithm.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../io/index.html">io – Input/output streams.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../json/index.html">json – JSON encoding and decoding.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lcd160cr/index.html">lcd160cr – Control of LCD160CR display.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../machine/index.html">machine – Functions related to the hardware.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/index.html">math – Mathematical functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../micropython/index.html">micropython – Access and control MicroPython internals.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../neopixel/index.html">neopixel – Control of WS2812 / NeoPixel LEDs.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../network/index.html">network – Network configuration.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../openamp/index.html">openamp – Provides standard Asymmetric Multiprocessing (AMP) support.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../os/index.html">os – Basic “operating system” services.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform/index.html">platform – Access to underlying platform’s identifying data.</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">pyb – Functions related to the board.</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#module-contents">Module Contents</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../ADC/index.html">pyb.ADC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Accel/index.html">pyb.Accel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../CAN/index.html">pyb.CAN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../DAC/index.html">pyb.DAC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ExtInt/index.html">pyb.ExtInt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Flash/index.html">pyb.Flash</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">pyb.I2C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LCD/index.html">pyb.LCD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../LED/index.html">pyb.LED</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Pin/index.html">pyb.Pin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../RTC/index.html">pyb.RTC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SPI/index.html">pyb.SPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Servo/index.html">pyb.Servo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Switch/index.html">pyb.Switch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Timer/index.html">pyb.Timer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../UART/index.html">pyb.UART</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../USB_HID/index.html">pyb.USB_HID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../USB_VCP/index.html">pyb.USB_VCP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../random/index.html">random – Random numbers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../rp2/index.html">rp2 – Functionality specific to the RP2.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../select/index.html">select – Wait for events on a set of streams.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../socket/index.html">socket – Socket module.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ssl/index.html">ssl – TLS/SSL wrapper for socket objects.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stm/index.html">stm – Functionality specific to STM32 MCUs.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../struct/index.html">struct – Pack and unpack primitive data types.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sys/index.html">sys – System specific functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../time/index.html">time – Time related functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../uctypes/index.html">uctypes – Access binary data in a structured way.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vfs/index.html">vfs – Virtual filesystem control.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wipy/index.html">wipy – WiPy specific features.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zephyr/index.html">zephyr – Functionality specific to Zephyr.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zlib/index.html">zlib – Zlib compression &amp; decompression.</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Stub doc test</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../library/index.html">MicroPython libraries</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">pyb – Functions related to the board.</a></li>
+      <li class="breadcrumb-item active">pyb.I2C</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/modules/pyb/I2C/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    <div class="wy-alert wy-alert-danger">
+      <p>
+        This is the documentation for the latest development branch of
+        MicroPython and may refer to features that are not available in released
+        versions.
+      </p>
+      <p>
+        If you are looking for the documentation for a specific release, use
+        the drop-down menu on the left and select the desired version.
+      </p>
+    </div>
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="pyb-i2c">
+<h1>pyb.I2C<a class="headerlink" href="#pyb-i2c" title="Link to this heading"></a></h1>
+<section id="classes">
+<span id="module-pyb.I2C"></span><h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyb.I2C.I2C" title="pyb.I2C.I2C"><code class="xref py py-obj docutils literal notranslate"><span class="pre">I2C</span></code></a></p></td>
+<td><p>Construct an I2C object on the given bus.  <code class="docutils literal notranslate"><span class="pre">bus</span></code> can be 1 or 2, 'X' or</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyb.I2C.I2C">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyb.I2C.</span></span><span class="sig-name descname"><span class="pre">I2C</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baudrate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">328125</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prescaler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firstbit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">MSB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ti</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyb.I2C.I2C" title="Link to this definition"></a></dt>
+<dd><p>Construct an I2C object on the given bus.  <code class="docutils literal notranslate"><span class="pre">bus</span></code> can be 1 or 2, ‘X’ or
+‘Y’. With no additional parameters, the I2C object is created but not
+initialised (it has the settings from the last initialisation of
+the bus, if any).  If extra arguments are given, the bus is initialised.
+See <code class="docutils literal notranslate"><span class="pre">init</span></code> for parameters of initialisation.</p>
+<p>The physical pins of the I2C buses on Pyboards V1.0 and V1.1 are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">I2C(1)</span></code> is on the X position: <code class="docutils literal notranslate"><span class="pre">(SCL,</span> <span class="pre">SDA)</span> <span class="pre">=</span> <span class="pre">(X9,</span> <span class="pre">X10)</span> <span class="pre">=</span> <span class="pre">(PB6,</span> <span class="pre">PB7)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">I2C(2)</span></code> is on the Y position: <code class="docutils literal notranslate"><span class="pre">(SCL,</span> <span class="pre">SDA)</span> <span class="pre">=</span> <span class="pre">(Y9,</span> <span class="pre">Y10)</span> <span class="pre">=</span> <span class="pre">(PB10,</span> <span class="pre">PB11)</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>On the Pyboard Lite:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">I2C(1)</span></code> is on the X position: <code class="docutils literal notranslate"><span class="pre">(SCL,</span> <span class="pre">SDA)</span> <span class="pre">=</span> <span class="pre">(X9,</span> <span class="pre">X10)</span> <span class="pre">=</span> <span class="pre">(PB6,</span> <span class="pre">PB7)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">I2C(3)</span></code> is on the Y position: <code class="docutils literal notranslate"><span class="pre">(SCL,</span> <span class="pre">SDA)</span> <span class="pre">=</span> <span class="pre">(Y9,</span> <span class="pre">Y10)</span> <span class="pre">=</span> <span class="pre">(PA8,</span> <span class="pre">PB8)</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>Calling the constructor with ‘X’ or ‘Y’ enables portability between Pyboard
+types.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.I2C.I2C.deinit">
+<span class="sig-name descname"><span class="pre">deinit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pyb.I2C.I2C.deinit" title="Link to this definition"></a></dt>
+<dd><p>Turn off the I2C bus.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.I2C.I2C.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">18</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baudrate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gencall</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pyb.I2C.I2C.init" title="Link to this definition"></a></dt>
+<dd><p>Initialise the I2C bus with the given parameters:</p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code> must be either <code class="docutils literal notranslate"><span class="pre">I2C.CONTROLLER</span></code> or <code class="docutils literal notranslate"><span class="pre">I2C.PERIPHERAL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addr</span></code> is the 7-bit address (only sensible for a peripheral)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">baudrate</span></code> is the SCL clock rate (only sensible for a controller)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gencall</span></code> is whether to support general call mode</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dma</span></code> is whether to allow the use of DMA for the I2C transfers (note
+that DMA transfers have more precise timing but currently do not handle bus
+errors properly)</p></li>
+</ul>
+</div></blockquote>
+<p>The actual clock frequency may be lower than the requested frequency.
+This is dependent on the platform hardware. The actual rate may be determined
+by printing the I2C object.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.I2C.I2C.is_ready">
+<span class="sig-name descname"><span class="pre">is_ready</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addr</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#pyb.I2C.I2C.is_ready" title="Link to this definition"></a></dt>
+<dd><p>Check if an I2C device responds to the given address.  Only valid when in controller mode.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.I2C.I2C.mem_read">
+<span class="sig-name descname"><span class="pre">mem_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memaddr</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#pyb.I2C.I2C.mem_read" title="Link to this definition"></a></dt>
+<dd><p>Read from the memory of an I2C device:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> can be an integer (number of bytes to read) or a buffer to read into</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addr</span></code> is the I2C device address</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">memaddr</span></code> is the memory location within the I2C device</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timeout</span></code> is the timeout in milliseconds to wait for the read</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addr_size</span></code> selects width of memaddr: 8 or 16 bits</p></li>
+</ul>
+</div></blockquote>
+<p>Returns the read data.
+This is only valid in controller mode.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.I2C.I2C.mem_write">
+<span class="sig-name descname"><span class="pre">mem_write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memaddr</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pyb.I2C.I2C.mem_write" title="Link to this definition"></a></dt>
+<dd><p>Write to the memory of an I2C device:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> can be an integer or a buffer to write from</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addr</span></code> is the I2C device address</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">memaddr</span></code> is the memory location within the I2C device</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timeout</span></code> is the timeout in milliseconds to wait for the write</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addr_size</span></code> selects width of memaddr: 8 or 16 bits</p></li>
+</ul>
+</div></blockquote>
+<p>Returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+This is only valid in controller mode.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.I2C.I2C.recv">
+<span class="sig-name descname"><span class="pre">recv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5000</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../../library/builtins.html#bytes" title="bytes"><span class="pre">bytes</span></a></span></span><a class="headerlink" href="#pyb.I2C.I2C.recv" title="Link to this definition"></a></dt>
+<dd><p>Receive data on the bus:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">recv</span></code> can be an integer, which is the number of bytes to receive,
+or a mutable buffer, which will be filled with received bytes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addr</span></code> is the address to receive from (only required in controller mode)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timeout</span></code> is the timeout in milliseconds to wait for the receive</p></li>
+</ul>
+</div></blockquote>
+<p>Return value: if <code class="docutils literal notranslate"><span class="pre">recv</span></code> is an integer then a new buffer of the bytes received,
+otherwise the same buffer that was passed in to <code class="docutils literal notranslate"><span class="pre">recv</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.I2C.I2C.scan">
+<span class="sig-name descname"><span class="pre">scan</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="headerlink" href="#pyb.I2C.I2C.scan" title="Link to this definition"></a></dt>
+<dd><p>Scan all I2C addresses from 0x01 to 0x7f and return a list of those that respond.
+Only valid when in controller mode.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyb.I2C.I2C.send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">send</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5000</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pyb.I2C.I2C.send" title="Link to this definition"></a></dt>
+<dd><p>Send data on the bus:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">send</span></code> is the data to send (an integer to send, or a buffer object)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addr</span></code> is the address to send to (only required in controller mode)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timeout</span></code> is the timeout in milliseconds to wait for the send</p></li>
+</ul>
+</div></blockquote>
+<p>Return value: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.I2C.I2C.CONTROLLER">
+<span class="sig-name descname"><span class="pre">CONTROLLER</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></em><a class="headerlink" href="#pyb.I2C.I2C.CONTROLLER" title="Link to this definition"></a></dt>
+<dd><p>for initialising the bus to controller mode</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyb.I2C.I2C.PERIPHERAL">
+<span class="sig-name descname"><span class="pre">PERIPHERAL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></em><a class="headerlink" href="#pyb.I2C.I2C.PERIPHERAL" title="Link to this definition"></a></dt>
+<dd><p>for initialising the bus to peripheral mode</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Flash/index.html" class="btn btn-neutral float-left" title="pyb.Flash" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../LCD/index.html" class="btn btn-neutral float-right" title="pyb.LCD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Nah.
+      <span class="lastupdated">Last updated on 10 Aug 2024.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Versions and Downloads</span>
+    latest
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Versions</dt>
+      
+        <dd><a href="//en/latest">latest</a></dd>
+      
+    </dl>
+    <dl>
+      <dt>Downloads</dt>
+      
+        <dd><a href="//en/latest/micropython-docs.pdf">PDF</a></dd>
+      
+    </dl>
+    <hr/>
+    <dl>
+      <dt>External links</dt>
+        <dd>
+          <a href="https://www.micropython.org">micropython.org</a>
+        </dd>
+        <dd>
+          <a href="https://github.com/micropython/micropython">GitHub</a>
+        </dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

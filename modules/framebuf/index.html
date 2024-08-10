@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>framebuf – Frame buffer manipulation. &mdash; Stub doc test 1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=d5a28fe3" />
+      <link rel="stylesheet" href="../../_static/customstyle.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=dcd1999c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="gc – Control the garbage collector." href="../gc/index.html" />
+    <link rel="prev" title="espnow – ESP-NOW asyncio support." href="../espnow/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Stub doc test
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bar.html">bar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_typeshed.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_typeshed</span></code> – Utility types for typeshed.</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MicroPython Module Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../_asyncio/index.html">_asyncio – Asynchronous I/O scheduler for writing concurrent code.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_rp2/index.html">_rp2 – Functionality specific to the RP2.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_thread/index.html">_thread – Multithreading support.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../array/index.html">array – Efficient arrays of numeric data.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asyncio/index.html">asyncio – Asynchronous I/O scheduler for writing concurrent code.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binascii/index.html">binascii – Binary/ASCII conversions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">bluetooth – Low-level Bluetooth radio functionality.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../btree/index.html">btree – Simple BTree database.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cmath/index.html">cmath – Mathematical functions for complex numbers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collections/index.html">collections – Collection and container types.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cryptolib/index.html">cryptolib – Cryptographic ciphers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deflate/index.html">deflate – Deflate compression &amp; decompression.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../errno/index.html">errno – System error codes.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp/index.html">esp – Functions related to the ESP8266 and ESP32.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp32/index.html">esp32 – Functionality specific to the ESP32.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../espnow/index.html">espnow – ESP-NOW <span class="xref std std-doc">asyncio</span> support.</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">framebuf – Frame buffer manipulation.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#framebuf.FrameBuffer"><code class="docutils literal notranslate"><span class="pre">FrameBuffer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#framebuf.GS2_HMSB"><code class="docutils literal notranslate"><span class="pre">GS2_HMSB</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#framebuf.GS4_HMSB"><code class="docutils literal notranslate"><span class="pre">GS4_HMSB</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#framebuf.GS8"><code class="docutils literal notranslate"><span class="pre">GS8</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#framebuf.MONO_HLSB"><code class="docutils literal notranslate"><span class="pre">MONO_HLSB</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#framebuf.MONO_HMSB"><code class="docutils literal notranslate"><span class="pre">MONO_HMSB</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#framebuf.MONO_VLSB"><code class="docutils literal notranslate"><span class="pre">MONO_VLSB</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#framebuf.RGB565"><code class="docutils literal notranslate"><span class="pre">RGB565</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../gc/index.html">gc – Control the garbage collector.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gzip/index.html">gzip – Gzip compression &amp; decompression.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hashlib/index.html">hashlib – Hashing algorithms.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heapq/index.html">heapq – Heap queue algorithm.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/index.html">io – Input/output streams.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../json/index.html">json – JSON encoding and decoding.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lcd160cr/index.html">lcd160cr – Control of LCD160CR display.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machine/index.html">machine – Functions related to the hardware.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math/index.html">math – Mathematical functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../micropython/index.html">micropython – Access and control MicroPython internals.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neopixel/index.html">neopixel – Control of WS2812 / NeoPixel LEDs.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">network – Network configuration.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openamp/index.html">openamp – Provides standard Asymmetric Multiprocessing (AMP) support.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os/index.html">os – Basic “operating system” services.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/index.html">platform – Access to underlying platform’s identifying data.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyb/index.html">pyb – Functions related to the board.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../random/index.html">random – Random numbers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rp2/index.html">rp2 – Functionality specific to the RP2.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../select/index.html">select – Wait for events on a set of streams.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../socket/index.html">socket – Socket module.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ssl/index.html">ssl – TLS/SSL wrapper for socket objects.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stm/index.html">stm – Functionality specific to STM32 MCUs.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../struct/index.html">struct – Pack and unpack primitive data types.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sys/index.html">sys – System specific functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time/index.html">time – Time related functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uctypes/index.html">uctypes – Access binary data in a structured way.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vfs/index.html">vfs – Virtual filesystem control.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wipy/index.html">wipy – WiPy specific features.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zephyr/index.html">zephyr – Functionality specific to Zephyr.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlib/index.html">zlib – Zlib compression &amp; decompression.</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Stub doc test</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">MicroPython Module Reference</a></li>
+      <li class="breadcrumb-item active">framebuf – Frame buffer manipulation.</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/modules/framebuf/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    <div class="wy-alert wy-alert-danger">
+      <p>
+        This is the documentation for the latest development branch of
+        MicroPython and may refer to features that are not available in released
+        versions.
+      </p>
+      <p>
+        If you are looking for the documentation for a specific release, use
+        the drop-down menu on the left and select the desired version.
+      </p>
+    </div>
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="framebuf-frame-buffer-manipulation">
+<h1>framebuf – Frame buffer manipulation.<a class="headerlink" href="#framebuf-frame-buffer-manipulation" title="Link to this heading"></a></h1>
+<p id="module-framebuf">Frame buffer manipulation.</p>
+<p>This module provides a general frame buffer which can be used to create
+bitmap images, which can then be sent to a display.</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#framebuf.GS2_HMSB" title="framebuf.GS2_HMSB"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GS2_HMSB</span></code></a></p></td>
+<td><p>Grayscale (2-bit) color format</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#framebuf.GS4_HMSB" title="framebuf.GS4_HMSB"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GS4_HMSB</span></code></a></p></td>
+<td><p>Grayscale (4-bit) color format</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#framebuf.GS8" title="framebuf.GS8"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GS8</span></code></a></p></td>
+<td><p>Grayscale (8-bit) color format</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#framebuf.MONO_HLSB" title="framebuf.MONO_HLSB"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MONO_HLSB</span></code></a></p></td>
+<td><p>Monochrome (1-bit) color format</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#framebuf.MONO_HMSB" title="framebuf.MONO_HMSB"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MONO_HMSB</span></code></a></p></td>
+<td><p>Monochrome (1-bit) color format</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#framebuf.MONO_VLSB" title="framebuf.MONO_VLSB"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MONO_VLSB</span></code></a></p></td>
+<td><p>Monochrome (1-bit) color format</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#framebuf.RGB565" title="framebuf.RGB565"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RGB565</span></code></a></p></td>
+<td><p>Red Green Blue (16-bit, 5+6+5) color format</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#framebuf.FrameBuffer" title="framebuf.FrameBuffer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FrameBuffer</span></code></a></p></td>
+<td><p>Construct a FrameBuffer object.  The parameters are:</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="framebuf.FrameBuffer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">framebuf.</span></span><span class="sig-name descname"><span class="pre">FrameBuffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buffer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#framebuf.FrameBuffer" title="Link to this definition"></a></dt>
+<dd><p>Construct a FrameBuffer object.  The parameters are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>buffer</em> is an object with a buffer protocol which must be large
+enough to contain every pixel defined by the width, height and
+format of the FrameBuffer.</p></li>
+<li><p><em>width</em> is the width of the FrameBuffer in pixels</p></li>
+<li><p><em>height</em> is the height of the FrameBuffer in pixels</p></li>
+<li><p><em>format</em> specifies the type of pixel used in the FrameBuffer;
+permissible values are listed under Constants below. These set the
+number of bits used to encode a color value and the layout of these
+bits in <em>buffer</em>.
+Where a color value c is passed to a method, c is a small integer
+with an encoding that is dependent on the format of the FrameBuffer.</p></li>
+<li><p><em>stride</em> is the number of pixels between each horizontal line
+of pixels in the FrameBuffer. This defaults to <em>width</em> but may
+need adjustments when implementing a FrameBuffer within another
+larger FrameBuffer or screen. The <em>buffer</em> size must accommodate
+an increased step size.</p></li>
+</ul>
+</div></blockquote>
+<p>One must specify valid <em>buffer</em>, <em>width</em>, <em>height</em>, <em>format</em> and
+optionally <em>stride</em>.  Invalid <em>buffer</em> size or dimensions may lead to
+unexpected errors.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="framebuf.FrameBuffer.blit">
+<span class="sig-name descname"><span class="pre">blit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fbuf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">palette</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#framebuf.FrameBuffer.blit" title="Link to this definition"></a></dt>
+<dd><p>Draw another FrameBuffer on top of the current one at the given coordinates.
+If <em>key</em> is specified then it should be a color integer and the
+corresponding color will be considered transparent: all pixels with that
+color value will not be drawn. (If the <em>palette</em> is specified then the <em>key</em>
+is compared to the value from <em>palette</em>, not to the value directly from
+<em>fbuf</em>.)</p>
+<p>The <em>palette</em> argument enables blitting between FrameBuffers with differing
+formats. Typical usage is to render a monochrome or grayscale glyph/icon to
+a color display. The <em>palette</em> is a FrameBuffer instance whose format is
+that of the current FrameBuffer. The <em>palette</em> height is one pixel and its
+pixel width is the number of colors in the source FrameBuffer. The <em>palette</em>
+for an N-bit source needs 2**N pixels; the <em>palette</em> for a monochrome source
+would have 2 pixels representing background and foreground colors. The
+application assigns a color to each pixel in the <em>palette</em>. The color of the
+current pixel will be that of that <em>palette</em> pixel whose x position is the
+color of the corresponding source pixel.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="framebuf.FrameBuffer.ellipse">
+<span class="sig-name descname"><span class="pre">ellipse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#framebuf.FrameBuffer.ellipse" title="Link to this definition"></a></dt>
+<dd><p>Draw an ellipse at the given location. Radii <em>xr</em> and <em>yr</em> define the
+geometry; equal values cause a circle to be drawn. The <em>c</em> parameter
+defines the color.</p>
+<p>The optional <em>f</em> parameter can be set to <code class="docutils literal notranslate"><span class="pre">True</span></code> to fill the ellipse.
+Otherwise just a one pixel outline is drawn.</p>
+<p>The optional <em>m</em> parameter enables drawing to be restricted to certain
+quadrants of the ellipse. The LS four bits determine which quadrants are
+to be drawn, with bit 0 specifying Q1, b1 Q2, b2 Q3 and b3 Q4. Quadrants
+are numbered counterclockwise with Q1 being top right.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="framebuf.FrameBuffer.fill">
+<span class="sig-name descname"><span class="pre">fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#framebuf.FrameBuffer.fill" title="Link to this definition"></a></dt>
+<dd><p>Fill the entire FrameBuffer with the specified color.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="framebuf.FrameBuffer.hline">
+<span class="sig-name descname"><span class="pre">hline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#framebuf.FrameBuffer.hline" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="framebuf.FrameBuffer.line">
+<span class="sig-name descname"><span class="pre">line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#framebuf.FrameBuffer.line" title="Link to this definition"></a></dt>
+<dd><p>Draw a line from a set of coordinates using the given color and
+a thickness of 1 pixel. The <a class="reference internal" href="#framebuf.FrameBuffer.line" title="framebuf.FrameBuffer.line"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">line</span></code></a> method draws the line up to
+a second set of coordinates whereas the <a class="reference internal" href="#framebuf.FrameBuffer.hline" title="framebuf.FrameBuffer.hline"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">hline</span></code></a> and <a class="reference internal" href="#framebuf.FrameBuffer.vline" title="framebuf.FrameBuffer.vline"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">vline</span></code></a>
+methods draw horizontal and vertical lines respectively up to
+a given length.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="framebuf.FrameBuffer.pixel">
+<span class="sig-name descname"><span class="pre">pixel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#framebuf.FrameBuffer.pixel" title="Link to this definition"></a></dt>
+<dd><p>If <em>c</em> is not given, get the color value of the specified pixel.
+If <em>c</em> is given, set the specified pixel to the given color.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="framebuf.FrameBuffer.poly">
+<span class="sig-name descname"><span class="pre">poly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#framebuf.FrameBuffer.poly" title="Link to this definition"></a></dt>
+<dd><p>Given a list of coordinates, draw an arbitrary (convex or concave) closed
+polygon at the given x, y location using the given color.</p>
+<p>The <em>coords</em> must be specified as a <a class="reference internal" href="../array/index.html#module-array" title="array"><code class="xref py py-mod docutils literal notranslate"><span class="pre">array</span></code></a> of integers, e.g.
+<code class="docutils literal notranslate"><span class="pre">array('h',</span> <span class="pre">[x0,</span> <span class="pre">y0,</span> <span class="pre">x1,</span> <span class="pre">y1,</span> <span class="pre">...</span> <span class="pre">xn,</span> <span class="pre">yn])</span></code>.</p>
+<p>The optional <em>f</em> parameter can be set to <code class="docutils literal notranslate"><span class="pre">True</span></code> to fill the polygon.
+Otherwise just a one pixel outline is drawn.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="framebuf.FrameBuffer.rect">
+<span class="sig-name descname"><span class="pre">rect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#framebuf.FrameBuffer.rect" title="Link to this definition"></a></dt>
+<dd><p>Draw a rectangle at the given location, size and color.</p>
+<p>The optional <em>f</em> parameter can be set to <code class="docutils literal notranslate"><span class="pre">True</span></code> to fill the rectangle.
+Otherwise just a one pixel outline is drawn.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="framebuf.FrameBuffer.scroll">
+<span class="sig-name descname"><span class="pre">scroll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xstep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ystep</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#framebuf.FrameBuffer.scroll" title="Link to this definition"></a></dt>
+<dd><p>Shift the contents of the FrameBuffer by the given vector. This may
+leave a footprint of the previous colors in the FrameBuffer.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="framebuf.FrameBuffer.text">
+<span class="sig-name descname"><span class="pre">text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#framebuf.FrameBuffer.text" title="Link to this definition"></a></dt>
+<dd><p>Write text to the FrameBuffer using the the coordinates as the upper-left
+corner of the text. The color of the text can be defined by the optional
+argument but is otherwise a default value of 1. All characters have
+dimensions of 8x8 pixels and there is currently no way to change the font.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="framebuf.FrameBuffer.vline">
+<span class="sig-name descname"><span class="pre">vline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#framebuf.FrameBuffer.vline" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="framebuf.GS2_HMSB">
+<span class="sig-prename descclassname"><span class="pre">framebuf.</span></span><span class="sig-name descname"><span class="pre">GS2_HMSB</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></em><a class="headerlink" href="#framebuf.GS2_HMSB" title="Link to this definition"></a></dt>
+<dd><p>Grayscale (2-bit) color format</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="framebuf.GS4_HMSB">
+<span class="sig-prename descclassname"><span class="pre">framebuf.</span></span><span class="sig-name descname"><span class="pre">GS4_HMSB</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></em><a class="headerlink" href="#framebuf.GS4_HMSB" title="Link to this definition"></a></dt>
+<dd><p>Grayscale (4-bit) color format</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="framebuf.GS8">
+<span class="sig-prename descclassname"><span class="pre">framebuf.</span></span><span class="sig-name descname"><span class="pre">GS8</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></em><a class="headerlink" href="#framebuf.GS8" title="Link to this definition"></a></dt>
+<dd><p>Grayscale (8-bit) color format</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="framebuf.MONO_HLSB">
+<span class="sig-prename descclassname"><span class="pre">framebuf.</span></span><span class="sig-name descname"><span class="pre">MONO_HLSB</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../library/builtins.html#bytes" title="bytes"><span class="pre">bytes</span></a></em><a class="headerlink" href="#framebuf.MONO_HLSB" title="Link to this definition"></a></dt>
+<dd><p>Monochrome (1-bit) color format
+This defines a mapping where the bits in a byte are horizontally mapped.
+Each byte occupies 8 horizontal pixels with bit 7 being the leftmost.
+Subsequent bytes appear at successive horizontal locations until the
+rightmost edge is reached. Further bytes are rendered on the next row, one
+pixel lower.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="framebuf.MONO_HMSB">
+<span class="sig-prename descclassname"><span class="pre">framebuf.</span></span><span class="sig-name descname"><span class="pre">MONO_HMSB</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../library/builtins.html#bytes" title="bytes"><span class="pre">bytes</span></a></em><a class="headerlink" href="#framebuf.MONO_HMSB" title="Link to this definition"></a></dt>
+<dd><p>Monochrome (1-bit) color format
+This defines a mapping where the bits in a byte are horizontally mapped.
+Each byte occupies 8 horizontal pixels with bit 0 being the leftmost.
+Subsequent bytes appear at successive horizontal locations until the
+rightmost edge is reached. Further bytes are rendered on the next row, one
+pixel lower.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="framebuf.MONO_VLSB">
+<span class="sig-prename descclassname"><span class="pre">framebuf.</span></span><span class="sig-name descname"><span class="pre">MONO_VLSB</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../library/builtins.html#bytes" title="bytes"><span class="pre">bytes</span></a></em><a class="headerlink" href="#framebuf.MONO_VLSB" title="Link to this definition"></a></dt>
+<dd><p>Monochrome (1-bit) color format
+This defines a mapping where the bits in a byte are vertically mapped with
+bit 0 being nearest the top of the screen. Consequently each byte occupies
+8 vertical pixels. Subsequent bytes appear at successive horizontal
+locations until the rightmost edge is reached. Further bytes are rendered
+at locations starting at the leftmost edge, 8 pixels lower.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="framebuf.RGB565">
+<span class="sig-prename descclassname"><span class="pre">framebuf.</span></span><span class="sig-name descname"><span class="pre">RGB565</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></em><a class="headerlink" href="#framebuf.RGB565" title="Link to this definition"></a></dt>
+<dd><p>Red Green Blue (16-bit, 5+6+5) color format</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../espnow/index.html" class="btn btn-neutral float-left" title="espnow – ESP-NOW asyncio support." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../gc/index.html" class="btn btn-neutral float-right" title="gc – Control the garbage collector." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Nah.
+      <span class="lastupdated">Last updated on 10 Aug 2024.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Versions and Downloads</span>
+    latest
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Versions</dt>
+      
+        <dd><a href="//en/latest">latest</a></dd>
+      
+    </dl>
+    <dl>
+      <dt>Downloads</dt>
+      
+        <dd><a href="//en/latest/micropython-docs.pdf">PDF</a></dd>
+      
+    </dl>
+    <hr/>
+    <dl>
+      <dt>External links</dt>
+        <dd>
+          <a href="https://www.micropython.org">micropython.org</a>
+        </dd>
+        <dd>
+          <a href="https://github.com/micropython/micropython">GitHub</a>
+        </dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

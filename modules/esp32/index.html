@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>esp32 – Functionality specific to the ESP32. &mdash; Stub doc test 1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=d5a28fe3" />
+      <link rel="stylesheet" href="../../_static/customstyle.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=dcd1999c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="espnow – ESP-NOW asyncio support." href="../espnow/index.html" />
+    <link rel="prev" title="esp – Functions related to the ESP8266 and ESP32." href="../esp/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Stub doc test
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bar.html">bar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_typeshed.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_typeshed</span></code> – Utility types for typeshed.</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MicroPython Module Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../_asyncio/index.html">_asyncio – Asynchronous I/O scheduler for writing concurrent code.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_rp2/index.html">_rp2 – Functionality specific to the RP2.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_thread/index.html">_thread – Multithreading support.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../array/index.html">array – Efficient arrays of numeric data.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../asyncio/index.html">asyncio – Asynchronous I/O scheduler for writing concurrent code.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binascii/index.html">binascii – Binary/ASCII conversions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">bluetooth – Low-level Bluetooth radio functionality.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../btree/index.html">btree – Simple BTree database.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cmath/index.html">cmath – Mathematical functions for complex numbers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collections/index.html">collections – Collection and container types.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cryptolib/index.html">cryptolib – Cryptographic ciphers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deflate/index.html">deflate – Deflate compression &amp; decompression.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../errno/index.html">errno – System error codes.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp/index.html">esp – Functions related to the ESP8266 and ESP32.</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">esp32 – Functionality specific to the ESP32.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#esp32.NVS"><code class="docutils literal notranslate"><span class="pre">NVS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#esp32.Partition"><code class="docutils literal notranslate"><span class="pre">Partition</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#esp32.RMT"><code class="docutils literal notranslate"><span class="pre">RMT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#esp32.ULP"><code class="docutils literal notranslate"><span class="pre">ULP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#esp32.gpio_deep_sleep_hold"><code class="docutils literal notranslate"><span class="pre">gpio_deep_sleep_hold()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#esp32.idf_heap_info"><code class="docutils literal notranslate"><span class="pre">idf_heap_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#esp32.raw_temperature"><code class="docutils literal notranslate"><span class="pre">raw_temperature()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#esp32.wake_on_ext0"><code class="docutils literal notranslate"><span class="pre">wake_on_ext0()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#esp32.wake_on_ext1"><code class="docutils literal notranslate"><span class="pre">wake_on_ext1()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#esp32.wake_on_touch"><code class="docutils literal notranslate"><span class="pre">wake_on_touch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#esp32.wake_on_ulp"><code class="docutils literal notranslate"><span class="pre">wake_on_ulp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#esp32.HEAP_DATA"><code class="docutils literal notranslate"><span class="pre">HEAP_DATA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#esp32.HEAP_EXEC"><code class="docutils literal notranslate"><span class="pre">HEAP_EXEC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#esp32.WAKEUP_ALL_LOW"><code class="docutils literal notranslate"><span class="pre">WAKEUP_ALL_LOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#esp32.WAKEUP_ANY_HIGH"><code class="docutils literal notranslate"><span class="pre">WAKEUP_ANY_HIGH</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../espnow/index.html">espnow – ESP-NOW <span class="xref std std-doc">asyncio</span> support.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framebuf/index.html">framebuf – Frame buffer manipulation.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gc/index.html">gc – Control the garbage collector.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gzip/index.html">gzip – Gzip compression &amp; decompression.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hashlib/index.html">hashlib – Hashing algorithms.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heapq/index.html">heapq – Heap queue algorithm.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/index.html">io – Input/output streams.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../json/index.html">json – JSON encoding and decoding.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lcd160cr/index.html">lcd160cr – Control of LCD160CR display.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machine/index.html">machine – Functions related to the hardware.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math/index.html">math – Mathematical functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../micropython/index.html">micropython – Access and control MicroPython internals.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neopixel/index.html">neopixel – Control of WS2812 / NeoPixel LEDs.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">network – Network configuration.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openamp/index.html">openamp – Provides standard Asymmetric Multiprocessing (AMP) support.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os/index.html">os – Basic “operating system” services.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/index.html">platform – Access to underlying platform’s identifying data.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyb/index.html">pyb – Functions related to the board.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../random/index.html">random – Random numbers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rp2/index.html">rp2 – Functionality specific to the RP2.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../select/index.html">select – Wait for events on a set of streams.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../socket/index.html">socket – Socket module.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ssl/index.html">ssl – TLS/SSL wrapper for socket objects.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stm/index.html">stm – Functionality specific to STM32 MCUs.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../struct/index.html">struct – Pack and unpack primitive data types.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sys/index.html">sys – System specific functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time/index.html">time – Time related functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uctypes/index.html">uctypes – Access binary data in a structured way.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vfs/index.html">vfs – Virtual filesystem control.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wipy/index.html">wipy – WiPy specific features.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zephyr/index.html">zephyr – Functionality specific to Zephyr.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlib/index.html">zlib – Zlib compression &amp; decompression.</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Stub doc test</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">MicroPython Module Reference</a></li>
+      <li class="breadcrumb-item active">esp32 – Functionality specific to the ESP32.</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/modules/esp32/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    <div class="wy-alert wy-alert-danger">
+      <p>
+        This is the documentation for the latest development branch of
+        MicroPython and may refer to features that are not available in released
+        versions.
+      </p>
+      <p>
+        If you are looking for the documentation for a specific release, use
+        the drop-down menu on the left and select the desired version.
+      </p>
+    </div>
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="esp32-functionality-specific-to-the-esp32">
+<h1>esp32 – Functionality specific to the ESP32.<a class="headerlink" href="#esp32-functionality-specific-to-the-esp32" title="Link to this heading"></a></h1>
+<p id="module-esp32">Functionality specific to the ESP32.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">esp32</span></code> module contains functions and classes specifically aimed at
+controlling ESP32 modules.</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#esp32.HEAP_DATA" title="esp32.HEAP_DATA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HEAP_DATA</span></code></a></p></td>
+<td><p>Used in <a class="reference internal" href="#esp32.idf_heap_info" title="esp32.idf_heap_info"><code class="xref any py py-func docutils literal notranslate"><span class="pre">idf_heap_info</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#esp32.HEAP_EXEC" title="esp32.HEAP_EXEC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HEAP_EXEC</span></code></a></p></td>
+<td><p>Used in <a class="reference internal" href="#esp32.idf_heap_info" title="esp32.idf_heap_info"><code class="xref any py py-func docutils literal notranslate"><span class="pre">idf_heap_info</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#esp32.WAKEUP_ALL_LOW" title="esp32.WAKEUP_ALL_LOW"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WAKEUP_ALL_LOW</span></code></a></p></td>
+<td><p>Selects the wake level for pins.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#esp32.WAKEUP_ANY_HIGH" title="esp32.WAKEUP_ANY_HIGH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WAKEUP_ANY_HIGH</span></code></a></p></td>
+<td><p>Selects the wake level for pins.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#esp32.NVS" title="esp32.NVS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NVS</span></code></a></p></td>
+<td><p>Create an object providing access to a namespace (which is automatically created if not</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#esp32.Partition" title="esp32.Partition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Partition</span></code></a></p></td>
+<td><p>Create an object representing a partition.  <em>id</em> can be a string which is the label</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#esp32.RMT" title="esp32.RMT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RMT</span></code></a></p></td>
+<td><p>This class provides access to one of the eight RMT channels. <em>channel</em> is</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#esp32.ULP" title="esp32.ULP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ULP</span></code></a></p></td>
+<td><p>This class provides access to the Ultra-Low-Power co-processor.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#esp32.gpio_deep_sleep_hold" title="esp32.gpio_deep_sleep_hold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gpio_deep_sleep_hold</span></code></a>(→ None)</p></td>
+<td><p>Configure whether non-RTC GPIO pin configuration is retained during</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#esp32.idf_heap_info" title="esp32.idf_heap_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">idf_heap_info</span></code></a>(→ List[Tuple])</p></td>
+<td><p>Returns information about the ESP-IDF heap memory regions. One of them contains</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#esp32.raw_temperature" title="esp32.raw_temperature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">raw_temperature</span></code></a>(→ int)</p></td>
+<td><p>Read the raw value of the internal temperature sensor, returning an integer.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#esp32.wake_on_ext0" title="esp32.wake_on_ext0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wake_on_ext0</span></code></a>(→ None)</p></td>
+<td><p>Configure how EXT0 wakes the device from sleep.  <em>pin</em> can be <code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#esp32.wake_on_ext1" title="esp32.wake_on_ext1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wake_on_ext1</span></code></a>(→ None)</p></td>
+<td><p>Configure how EXT1 wakes the device from sleep.  <em>pins</em> can be <code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#esp32.wake_on_touch" title="esp32.wake_on_touch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wake_on_touch</span></code></a>(→ None)</p></td>
+<td><p>Configure whether or not a touch will wake the device from sleep.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#esp32.wake_on_ulp" title="esp32.wake_on_ulp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wake_on_ulp</span></code></a>(→ None)</p></td>
+<td><p>Configure whether or not the Ultra-Low-Power co-processor can wake the</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="esp32.NVS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">esp32.</span></span><span class="sig-name descname"><span class="pre">NVS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">namespace</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#esp32.NVS" title="Link to this definition"></a></dt>
+<dd><p>Create an object providing access to a namespace (which is automatically created if not
+present).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.NVS.commit">
+<span class="sig-name descname"><span class="pre">commit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#esp32.NVS.commit" title="Link to this definition"></a></dt>
+<dd><p>Commits changes made by <em>set_xxx</em> methods to flash.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.NVS.erase_key">
+<span class="sig-name descname"><span class="pre">erase_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#esp32.NVS.erase_key" title="Link to this definition"></a></dt>
+<dd><p>Erases a key-value pair.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.NVS.get_blob">
+<span class="sig-name descname"><span class="pre">get_blob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../library/builtins.html#int" title="int"><span class="pre">int</span></a></span></span><a class="headerlink" href="#esp32.NVS.get_blob" title="Link to this definition"></a></dt>
+<dd><p>Reads the value of the blob for the specified key into the buffer, which must be a bytearray.
+Returns the actual length read. Raises an OSError if the key does not exist, has a different
+type, or if the buffer is too small.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.NVS.get_i32">
+<span class="sig-name descname"><span class="pre">get_i32</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../library/builtins.html#int" title="int"><span class="pre">int</span></a></span></span><a class="headerlink" href="#esp32.NVS.get_i32" title="Link to this definition"></a></dt>
+<dd><p>Returns the signed integer value for the specified key. Raises an OSError if the key does not
+exist or has a different type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.NVS.set_blob">
+<span class="sig-name descname"><span class="pre">set_blob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#esp32.NVS.set_blob" title="Link to this definition"></a></dt>
+<dd><p>Sets a binary blob value for the specified key. The value passed in must support the buffer
+protocol, e.g. bytes, bytearray, str. (Note that esp-idf distinguishes blobs and strings, this
+method always writes a blob even if a string is passed in as value.)
+Remember to call <em>commit</em>!</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.NVS.set_i32">
+<span class="sig-name descname"><span class="pre">set_i32</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#esp32.NVS.set_i32" title="Link to this definition"></a></dt>
+<dd><p>Sets a 32-bit signed integer value for the specified key. Remember to call <em>commit</em>!</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="esp32.Partition">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">esp32.</span></span><span class="sig-name descname"><span class="pre">Partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4096</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#esp32.Partition" title="Link to this definition"></a></dt>
+<dd><p>Create an object representing a partition.  <em>id</em> can be a string which is the label
+of the partition to retrieve, or one of the constants: <code class="docutils literal notranslate"><span class="pre">BOOT</span></code> or <code class="docutils literal notranslate"><span class="pre">RUNNING</span></code>.
+<em>block_size</em> specifies the byte size of an individual block.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.Partition.find">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">TYPE_APP</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">255</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4096</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="headerlink" href="#esp32.Partition.find" title="Link to this definition"></a></dt>
+<dd><p>Find a partition specified by <em>type</em>, <em>subtype</em> and <em>label</em>.  Returns a
+(possibly empty) list of Partition objects. Note: <code class="docutils literal notranslate"><span class="pre">subtype=0xff</span></code> matches any subtype
+and <code class="docutils literal notranslate"><span class="pre">label=None</span></code> matches any label.</p>
+<p><em>block_size</em> specifies the byte size of an individual block used by the returned
+objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.Partition.get_next_update">
+<span class="sig-name descname"><span class="pre">get_next_update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#esp32.Partition" title="esp32.Partition"><span class="pre">Partition</span></a></span></span><a class="headerlink" href="#esp32.Partition.get_next_update" title="Link to this definition"></a></dt>
+<dd><p>Gets the next update partition after this one, and returns a new Partition object.
+Typical usage is <code class="docutils literal notranslate"><span class="pre">Partition(Partition.RUNNING).get_next_update()</span></code>
+which returns the next partition to update given the current running one.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.Partition.info">
+<span class="sig-name descname"><span class="pre">info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span></span></span><a class="headerlink" href="#esp32.Partition.info" title="Link to this definition"></a></dt>
+<dd><p>Returns a 6-tuple <code class="docutils literal notranslate"><span class="pre">(type,</span> <span class="pre">subtype,</span> <span class="pre">addr,</span> <span class="pre">size,</span> <span class="pre">label,</span> <span class="pre">encrypted)</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.Partition.ioctl">
+<span class="sig-name descname"><span class="pre">ioctl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#esp32.Partition.ioctl" title="Link to this definition"></a></dt>
+<dd><p>These methods implement the simple and <a class="reference external" href="https://docs.micropython.org/en/latest/library/vfs.html#block-device-interface" title="(in MicroPython vlatest)"><span class="xref std std-ref">extended</span></a> block protocol defined by
+<a class="reference internal" href="../vfs/index.html#vfs.AbstractBlockDev" title="vfs.AbstractBlockDev"><code class="xref py py-class docutils literal notranslate"><span class="pre">vfs.AbstractBlockDev</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.Partition.mark_app_valid_cancel_rollback">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mark_app_valid_cancel_rollback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#esp32.Partition.mark_app_valid_cancel_rollback" title="Link to this definition"></a></dt>
+<dd><p>Signals that the current boot is considered successful.
+Calling <code class="docutils literal notranslate"><span class="pre">mark_app_valid_cancel_rollback</span></code> is required on the first boot of a new
+partition to avoid an automatic rollback at the next boot.
+This uses the ESP-IDF “app rollback” feature with “CONFIG_BOOTLOADER_APP_ROLLBACK_ENABLE”
+and  an <code class="docutils literal notranslate"><span class="pre">OSError(-261)</span></code> is raised if called on firmware that doesn’t have the
+feature enabled.
+It is OK to call <code class="docutils literal notranslate"><span class="pre">mark_app_valid_cancel_rollback</span></code> on every boot and it is not
+necessary when booting firmware that was loaded using esptool.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.Partition.readblocks">
+<span class="sig-name descname"><span class="pre">readblocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buf</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#esp32.Partition.readblocks" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">readblocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../library/builtins.html#int" title="int"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.Partition.set_boot">
+<span class="sig-name descname"><span class="pre">set_boot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#esp32.Partition.set_boot" title="Link to this definition"></a></dt>
+<dd><p>Sets the partition as the boot partition.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not enter <a class="reference internal" href="../machine/index.html#machine.deepsleep" title="machine.deepsleep"><code class="xref py py-func docutils literal notranslate"><span class="pre">deepsleep</span></code></a> after changing
+the OTA boot partition, without first performing a hard
+<a class="reference internal" href="../machine/index.html#machine.reset" title="machine.reset"><code class="xref py py-func docutils literal notranslate"><span class="pre">reset</span></code></a> or power cycle. This ensures the bootloader
+will validate the new image before booting.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.Partition.writeblocks">
+<span class="sig-name descname"><span class="pre">writeblocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buf</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#esp32.Partition.writeblocks" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">writeblocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../library/builtins.html#int" title="int"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="esp32.Partition.BOOT">
+<span class="sig-name descname"><span class="pre">BOOT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></em><a class="headerlink" href="#esp32.Partition.BOOT" title="Link to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">BOOT</span></code> is the
+partition that will be booted at the next reset and <code class="docutils literal notranslate"><span class="pre">RUNNING</span></code> is the currently
+running partition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Used in the <a class="reference internal" href="#esp32.Partition" title="esp32.Partition"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Partition</span></code></a> constructor to fetch various partitions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="esp32.Partition.RUNNING">
+<span class="sig-name descname"><span class="pre">RUNNING</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></em><a class="headerlink" href="#esp32.Partition.RUNNING" title="Link to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">BOOT</span></code> is the
+partition that will be booted at the next reset and <code class="docutils literal notranslate"><span class="pre">RUNNING</span></code> is the currently
+running partition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Used in the <a class="reference internal" href="#esp32.Partition" title="esp32.Partition"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Partition</span></code></a> constructor to fetch various partitions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="esp32.Partition.TYPE_APP">
+<span class="sig-name descname"><span class="pre">TYPE_APP</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></em><a class="headerlink" href="#esp32.Partition.TYPE_APP" title="Link to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">APP</span></code> is for bootable
+firmware partitions (typically labelled <code class="docutils literal notranslate"><span class="pre">factory</span></code>, <code class="docutils literal notranslate"><span class="pre">ota_0</span></code>, <code class="docutils literal notranslate"><span class="pre">ota_1</span></code>), and
+<code class="docutils literal notranslate"><span class="pre">DATA</span></code> is for other partitions, e.g. <code class="docutils literal notranslate"><span class="pre">nvs</span></code>, <code class="docutils literal notranslate"><span class="pre">otadata</span></code>, <code class="docutils literal notranslate"><span class="pre">phy_init</span></code>, <code class="docutils literal notranslate"><span class="pre">vfs</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Used in <a class="reference internal" href="#esp32.Partition.find" title="esp32.Partition.find"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">Partition.find</span></code></a> to specify the partition type</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="esp32.Partition.TYPE_DATA">
+<span class="sig-name descname"><span class="pre">TYPE_DATA</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></em><a class="headerlink" href="#esp32.Partition.TYPE_DATA" title="Link to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">APP</span></code> is for bootable
+firmware partitions (typically labelled <code class="docutils literal notranslate"><span class="pre">factory</span></code>, <code class="docutils literal notranslate"><span class="pre">ota_0</span></code>, <code class="docutils literal notranslate"><span class="pre">ota_1</span></code>), and
+<code class="docutils literal notranslate"><span class="pre">DATA</span></code> is for other partitions, e.g. <code class="docutils literal notranslate"><span class="pre">nvs</span></code>, <code class="docutils literal notranslate"><span class="pre">otadata</span></code>, <code class="docutils literal notranslate"><span class="pre">phy_init</span></code>, <code class="docutils literal notranslate"><span class="pre">vfs</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Used in <a class="reference internal" href="#esp32.Partition.find" title="esp32.Partition.find"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">Partition.find</span></code></a> to specify the partition type</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="esp32.RMT">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">esp32.</span></span><span class="sig-name descname"><span class="pre">RMT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clock_div</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idle_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tx_carrier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#esp32.RMT" title="Link to this definition"></a></dt>
+<dd><p>This class provides access to one of the eight RMT channels. <em>channel</em> is
+required and identifies which RMT channel (0-7) will be configured. <em>pin</em>,
+also required, configures which Pin is bound to the RMT channel. <em>clock_div</em>
+is an 8-bit clock divider that divides the source clock (80MHz) to the RMT
+channel allowing the resolution to be specified. <em>idle_level</em> specifies
+what level the output will be when no transmission is in progress and can
+be any value that converts to a boolean, with <code class="docutils literal notranslate"><span class="pre">True</span></code> representing high
+voltage and <code class="docutils literal notranslate"><span class="pre">False</span></code> representing low.</p>
+<p>To enable the transmission carrier feature, <em>tx_carrier</em> should be a tuple
+of three positive integers: carrier frequency, duty percent (<code class="docutils literal notranslate"><span class="pre">0</span></code> to
+<code class="docutils literal notranslate"><span class="pre">100</span></code>) and the output level to apply the carrier to (a boolean as per
+<em>idle_level</em>).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.RMT.bitstream_channel">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bitstream_channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../library/builtins.html#int" title="int"><span class="pre">int</span></a></span></span><a class="headerlink" href="#esp32.RMT.bitstream_channel" title="Link to this definition"></a></dt>
+<dd><p>Select which RMT channel is used by the <a class="reference internal" href="../machine/index.html#machine.bitstream" title="machine.bitstream"><code class="xref any py py-func docutils literal notranslate"><span class="pre">machine.bitstream</span></code></a> implementation.
+<em>value</em> can be <code class="docutils literal notranslate"><span class="pre">None</span></code> or a valid RMT channel number.  The default RMT
+channel is the highest numbered one.</p>
+<p>Passing in <code class="docutils literal notranslate"><span class="pre">None</span></code> disables the use of RMT and instead selects a bit-banging
+implementation for <a class="reference internal" href="../machine/index.html#machine.bitstream" title="machine.bitstream"><code class="xref any py py-func docutils literal notranslate"><span class="pre">machine.bitstream</span></code></a>.</p>
+<p>Passing in no argument will not change the channel.  This function returns
+the current channel number.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.RMT.clock_div">
+<span class="sig-name descname"><span class="pre">clock_div</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#esp32.RMT.clock_div" title="Link to this definition"></a></dt>
+<dd><p>Return the clock divider. Note that the channel resolution is
+<code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">/</span> <span class="pre">(source_freq</span> <span class="pre">/</span> <span class="pre">clock_div)</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.RMT.loop">
+<span class="sig-name descname"><span class="pre">loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable_loop</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#esp32.RMT.loop" title="Link to this definition"></a></dt>
+<dd><p>Configure looping on the channel. <em>enable_loop</em> is bool, set to <code class="docutils literal notranslate"><span class="pre">True</span></code> to
+enable looping on the <em>next</em> call to <a class="reference internal" href="#esp32.RMT.write_pulses" title="esp32.RMT.write_pulses"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">RMT.write_pulses</span></code></a>. If called with
+<code class="docutils literal notranslate"><span class="pre">False</span></code> while a looping sequence is currently being transmitted then the
+current loop iteration will be completed and then transmission will stop.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.RMT.source_freq">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">source_freq</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#esp32.RMT.source_freq" title="Link to this definition"></a></dt>
+<dd><p>Returns the source clock frequency. Currently the source clock is not
+configurable so this will always return 80MHz.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.RMT.wait_done">
+<span class="sig-name descname"><span class="pre">wait_done</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../library/builtins.html#bool" title="bool"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#esp32.RMT.wait_done" title="Link to this definition"></a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the channel is idle or <code class="docutils literal notranslate"><span class="pre">False</span></code> if a sequence of
+pulses started with <a class="reference internal" href="#esp32.RMT.write_pulses" title="esp32.RMT.write_pulses"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">RMT.write_pulses</span></code></a> is being transmitted. If the
+<em>timeout</em> keyword argument is given then block for up to this many
+milliseconds for transmission to complete.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.RMT.write_pulses">
+<span class="sig-name descname"><span class="pre">write_pulses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../library/builtins.html#bool" title="bool"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../../library/builtins.html#int" title="int"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#esp32.RMT.write_pulses" title="Link to this definition"></a></dt>
+<dd><p>Begin transmitting a sequence. There are three ways to specify this:</p>
+<p><strong>Mode 1:</strong> <em>duration</em> is a list or tuple of durations. The optional <em>data</em>
+argument specifies the initial output level. The output level will toggle
+after each duration.</p>
+<p><strong>Mode 2:</strong> <em>duration</em> is a positive integer and <em>data</em> is a list or tuple
+of output levels. <em>duration</em> specifies a fixed duration for each.</p>
+<p><strong>Mode 3:</strong> <em>duration</em> and <em>data</em> are lists or tuples of equal length,
+specifying individual durations and the output level for each.</p>
+<p>Durations are in integer units of the channel resolution (as
+described above), between 1 and <code class="docutils literal notranslate"><span class="pre">PULSE_MAX</span></code> units. Output levels
+are any value that can be converted to a boolean, with <code class="docutils literal notranslate"><span class="pre">True</span></code>
+representing high voltage and <code class="docutils literal notranslate"><span class="pre">False</span></code> representing low.</p>
+<p>If transmission of an earlier sequence is in progress then this method will
+block until that transmission is complete before beginning the new sequence.</p>
+<p>If looping has been enabled with <a class="reference internal" href="#esp32.RMT.loop" title="esp32.RMT.loop"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">RMT.loop</span></code></a>, the sequence will be
+repeated indefinitely. Further calls to this method will block until the
+end of the current loop iteration before immediately beginning to loop the
+new sequence of pulses. Looping sequences longer than 126 pulses is not
+supported by the hardware.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="esp32.RMT.PULSE_MAX">
+<span class="sig-name descname"><span class="pre">PULSE_MAX</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../library/builtins.html#int" title="int"><span class="pre">int</span></a></em><a class="headerlink" href="#esp32.RMT.PULSE_MAX" title="Link to this definition"></a></dt>
+<dd><p>Maximum integer that can be set for a pulse duration.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="esp32.ULP">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">esp32.</span></span><span class="sig-name descname"><span class="pre">ULP</span></span><a class="headerlink" href="#esp32.ULP" title="Link to this definition"></a></dt>
+<dd><p>This class provides access to the Ultra-Low-Power co-processor.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.ULP.load_binary">
+<span class="sig-name descname"><span class="pre">load_binary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load_addr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">program_binary</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#esp32.ULP.load_binary" title="Link to this definition"></a></dt>
+<dd><p>Load a <em>program_binary</em> into the ULP at the given <em>load_addr</em>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.ULP.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry_point</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#esp32.ULP.run" title="Link to this definition"></a></dt>
+<dd><p>Start the ULP running at the given <em>entry_point</em>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="esp32.ULP.set_wakeup_period">
+<span class="sig-name descname"><span class="pre">set_wakeup_period</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">period_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period_us</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#esp32.ULP.set_wakeup_period" title="Link to this definition"></a></dt>
+<dd><p>Set the wake-up period.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="esp32.gpio_deep_sleep_hold">
+<span class="sig-prename descclassname"><span class="pre">esp32.</span></span><span class="sig-name descname"><span class="pre">gpio_deep_sleep_hold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#esp32.gpio_deep_sleep_hold" title="Link to this definition"></a></dt>
+<dd><p>Configure whether non-RTC GPIO pin configuration is retained during
+deep-sleep mode for held pads. <em>enable</em> should be a boolean value.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="esp32.idf_heap_info">
+<span class="sig-prename descclassname"><span class="pre">esp32.</span></span><span class="sig-name descname"><span class="pre">idf_heap_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">capabilities</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#esp32.idf_heap_info" title="Link to this definition"></a></dt>
+<dd><p>Returns information about the ESP-IDF heap memory regions. One of them contains
+the MicroPython heap and the others are used by ESP-IDF, e.g., for network
+buffers and other data. This data is useful to get a sense of how much memory
+is available to ESP-IDF and the networking stack in particular. It may shed
+some light on situations where ESP-IDF operations fail due to allocation failures.</p>
+<p>The capabilities parameter corresponds to ESP-IDF’s <code class="docutils literal notranslate"><span class="pre">MALLOC_CAP_XXX</span></code> values but the
+two most useful ones are predefined as <a class="reference internal" href="#esp32.HEAP_DATA" title="esp32.HEAP_DATA"><code class="xref any py py-data docutils literal notranslate"><span class="pre">esp32.HEAP_DATA</span></code></a> for data heap regions and
+<a class="reference internal" href="#esp32.HEAP_EXEC" title="esp32.HEAP_EXEC"><code class="xref any py py-data docutils literal notranslate"><span class="pre">esp32.HEAP_EXEC</span></code></a> for executable regions as used by the native code emitter.</p>
+<p>The return value is a list of 4-tuples, where each 4-tuple corresponds to one heap
+and contains: the total bytes, the free bytes, the largest free block, and
+the minimum free seen over time.</p>
+<p>Example after booting:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">esp32</span><span class="p">;</span> <span class="n">esp32</span><span class="o">.</span><span class="n">idf_heap_info</span><span class="p">(</span><span class="n">esp32</span><span class="o">.</span><span class="n">HEAP_DATA</span><span class="p">)</span>
+<span class="go">[(240, 0, 0, 0), (7288, 0, 0, 0), (16648, 4, 4, 4), (79912, 35712, 35512, 35108),</span>
+<span class="go"> (15072, 15036, 15036, 15036), (113840, 0, 0, 0)]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Free IDF heap memory in the <a class="reference internal" href="#esp32.HEAP_DATA" title="esp32.HEAP_DATA"><code class="xref any py py-data docutils literal notranslate"><span class="pre">esp32.HEAP_DATA</span></code></a> region is available
+to be automatically added to the MicroPython heap to prevent a
+MicroPython allocation from failing. However, the information returned
+here is otherwise <em>not</em> useful to troubleshoot Python allocation
+failures. <a class="reference internal" href="../micropython/index.html#micropython.mem_info" title="micropython.mem_info"><code class="xref py py-func docutils literal notranslate"><span class="pre">micropython.mem_info()</span></code></a> and <a class="reference internal" href="../gc/index.html#gc.mem_free" title="gc.mem_free"><code class="xref py py-func docutils literal notranslate"><span class="pre">gc.mem_free()</span></code></a> should
+be used instead:</p>
+<p>The “max new split” value in <a class="reference internal" href="../micropython/index.html#micropython.mem_info" title="micropython.mem_info"><code class="xref py py-func docutils literal notranslate"><span class="pre">micropython.mem_info()</span></code></a> output
+corresponds to the largest free block of ESP-IDF heap that could be
+automatically added on demand to the MicroPython heap.</p>
+<p>The result of <a class="reference internal" href="../gc/index.html#gc.mem_free" title="gc.mem_free"><code class="xref py py-func docutils literal notranslate"><span class="pre">gc.mem_free()</span></code></a> is the total of the current “free”
+and “max new split” values printed by <a class="reference internal" href="../micropython/index.html#micropython.mem_info" title="micropython.mem_info"><code class="xref py py-func docutils literal notranslate"><span class="pre">micropython.mem_info()</span></code></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="esp32.raw_temperature">
+<span class="sig-prename descclassname"><span class="pre">esp32.</span></span><span class="sig-name descname"><span class="pre">raw_temperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../library/builtins.html#int" title="int"><span class="pre">int</span></a></span></span><a class="headerlink" href="#esp32.raw_temperature" title="Link to this definition"></a></dt>
+<dd><p>Read the raw value of the internal temperature sensor, returning an integer.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="esp32.wake_on_ext0">
+<span class="sig-prename descclassname"><span class="pre">esp32.</span></span><span class="sig-name descname"><span class="pre">wake_on_ext0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#esp32.wake_on_ext0" title="Link to this definition"></a></dt>
+<dd><p>Configure how EXT0 wakes the device from sleep.  <em>pin</em> can be <code class="docutils literal notranslate"><span class="pre">None</span></code>
+or a valid Pin object.  <em>level</em> should be <code class="docutils literal notranslate"><span class="pre">esp32.WAKEUP_ALL_LOW</span></code> or
+<code class="docutils literal notranslate"><span class="pre">esp32.WAKEUP_ANY_HIGH</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="esp32.wake_on_ext1">
+<span class="sig-prename descclassname"><span class="pre">esp32.</span></span><span class="sig-name descname"><span class="pre">wake_on_ext1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#esp32.wake_on_ext1" title="Link to this definition"></a></dt>
+<dd><p>Configure how EXT1 wakes the device from sleep.  <em>pins</em> can be <code class="docutils literal notranslate"><span class="pre">None</span></code>
+or a tuple/list of valid Pin objects.  <em>level</em> should be <code class="docutils literal notranslate"><span class="pre">esp32.WAKEUP_ALL_LOW</span></code>
+or <code class="docutils literal notranslate"><span class="pre">esp32.WAKEUP_ANY_HIGH</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="esp32.wake_on_touch">
+<span class="sig-prename descclassname"><span class="pre">esp32.</span></span><span class="sig-name descname"><span class="pre">wake_on_touch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wake</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#esp32.wake_on_touch" title="Link to this definition"></a></dt>
+<dd><p>Configure whether or not a touch will wake the device from sleep.
+<em>wake</em> should be a boolean value.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="esp32.wake_on_ulp">
+<span class="sig-prename descclassname"><span class="pre">esp32.</span></span><span class="sig-name descname"><span class="pre">wake_on_ulp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wake</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#esp32.wake_on_ulp" title="Link to this definition"></a></dt>
+<dd><p>Configure whether or not the Ultra-Low-Power co-processor can wake the
+device from sleep. <em>wake</em> should be a boolean value.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="esp32.HEAP_DATA">
+<span class="sig-prename descclassname"><span class="pre">esp32.</span></span><span class="sig-name descname"><span class="pre">HEAP_DATA</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></em><a class="headerlink" href="#esp32.HEAP_DATA" title="Link to this definition"></a></dt>
+<dd><p>Used in <a class="reference internal" href="#esp32.idf_heap_info" title="esp32.idf_heap_info"><code class="xref any py py-func docutils literal notranslate"><span class="pre">idf_heap_info</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="esp32.HEAP_EXEC">
+<span class="sig-prename descclassname"><span class="pre">esp32.</span></span><span class="sig-name descname"><span class="pre">HEAP_EXEC</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></em><a class="headerlink" href="#esp32.HEAP_EXEC" title="Link to this definition"></a></dt>
+<dd><p>Used in <a class="reference internal" href="#esp32.idf_heap_info" title="esp32.idf_heap_info"><code class="xref any py py-func docutils literal notranslate"><span class="pre">idf_heap_info</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="esp32.WAKEUP_ALL_LOW">
+<span class="sig-prename descclassname"><span class="pre">esp32.</span></span><span class="sig-name descname"><span class="pre">WAKEUP_ALL_LOW</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></em><a class="headerlink" href="#esp32.WAKEUP_ALL_LOW" title="Link to this definition"></a></dt>
+<dd><p>Selects the wake level for pins.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="esp32.WAKEUP_ANY_HIGH">
+<span class="sig-prename descclassname"><span class="pre">esp32.</span></span><span class="sig-name descname"><span class="pre">WAKEUP_ANY_HIGH</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></em><a class="headerlink" href="#esp32.WAKEUP_ANY_HIGH" title="Link to this definition"></a></dt>
+<dd><p>Selects the wake level for pins.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../esp/index.html" class="btn btn-neutral float-left" title="esp – Functions related to the ESP8266 and ESP32." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../espnow/index.html" class="btn btn-neutral float-right" title="espnow – ESP-NOW asyncio support." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Nah.
+      <span class="lastupdated">Last updated on 10 Aug 2024.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Versions and Downloads</span>
+    latest
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Versions</dt>
+      
+        <dd><a href="//en/latest">latest</a></dd>
+      
+    </dl>
+    <dl>
+      <dt>Downloads</dt>
+      
+        <dd><a href="//en/latest/micropython-docs.pdf">PDF</a></dd>
+      
+    </dl>
+    <hr/>
+    <dl>
+      <dt>External links</dt>
+        <dd>
+          <a href="https://www.micropython.org">micropython.org</a>
+        </dd>
+        <dd>
+          <a href="https://github.com/micropython/micropython">GitHub</a>
+        </dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

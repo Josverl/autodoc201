@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>machine.TimerWiPy &mdash; Stub doc test 1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=d5a28fe3" />
+      <link rel="stylesheet" href="../../../_static/customstyle.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=29a6c3e3"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=dcd1999c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="machine.UART" href="../UART/index.html" />
+    <link rel="prev" title="machine.Timer" href="../Timer/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Stub doc test
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bar.html">bar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_typeshed.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_typeshed</span></code> – Utility types for typeshed.</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">MicroPython Module Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../_asyncio/index.html">_asyncio – Asynchronous I/O scheduler for writing concurrent code.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_rp2/index.html">_rp2 – Functionality specific to the RP2.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_thread/index.html">_thread – Multithreading support.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../array/index.html">array – Efficient arrays of numeric data.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asyncio/index.html">asyncio – Asynchronous I/O scheduler for writing concurrent code.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../binascii/index.html">binascii – Binary/ASCII conversions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bluetooth/index.html">bluetooth – Low-level Bluetooth radio functionality.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../btree/index.html">btree – Simple BTree database.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cmath/index.html">cmath – Mathematical functions for complex numbers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../collections/index.html">collections – Collection and container types.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cryptolib/index.html">cryptolib – Cryptographic ciphers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../deflate/index.html">deflate – Deflate compression &amp; decompression.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../errno/index.html">errno – System error codes.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../esp/index.html">esp – Functions related to the ESP8266 and ESP32.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../esp32/index.html">esp32 – Functionality specific to the ESP32.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../espnow/index.html">espnow – ESP-NOW <span class="xref std std-doc">asyncio</span> support.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../framebuf/index.html">framebuf – Frame buffer manipulation.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gc/index.html">gc – Control the garbage collector.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gzip/index.html">gzip – Gzip compression &amp; decompression.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hashlib/index.html">hashlib – Hashing algorithms.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../heapq/index.html">heapq – Heap queue algorithm.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../io/index.html">io – Input/output streams.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../json/index.html">json – JSON encoding and decoding.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lcd160cr/index.html">lcd160cr – Control of LCD160CR display.</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">machine – Functions related to the hardware.</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#module-contents">Module Contents</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../ADC/index.html">machine.ADC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ADCBlock/index.html">machine.ADCBlock</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ADCWiPy/index.html">machine.ADCWiPy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../I2C/index.html">machine.I2C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../I2S/index.html">machine.I2S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../PWM/index.html">machine.PWM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Pin/index.html">machine.Pin – Control I/O pins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../RTC/index.html">machine.RTC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SD/index.html">machine.SD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SDCard/index.html">machine.SDCard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../SPI/index.html">machine.SPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Signal/index.html">machine.Signal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Timer/index.html">machine.Timer</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">machine.TimerWiPy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../UART/index.html">machine.UART</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../USBDevice/index.html">machine.USBDevice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../WDT/index.html">machine.WDT</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/index.html">math – Mathematical functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../micropython/index.html">micropython – Access and control MicroPython internals.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../neopixel/index.html">neopixel – Control of WS2812 / NeoPixel LEDs.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../network/index.html">network – Network configuration.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../openamp/index.html">openamp – Provides standard Asymmetric Multiprocessing (AMP) support.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../os/index.html">os – Basic “operating system” services.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform/index.html">platform – Access to underlying platform’s identifying data.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pyb/index.html">pyb – Functions related to the board.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../random/index.html">random – Random numbers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../rp2/index.html">rp2 – Functionality specific to the RP2.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../select/index.html">select – Wait for events on a set of streams.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../socket/index.html">socket – Socket module.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ssl/index.html">ssl – TLS/SSL wrapper for socket objects.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../stm/index.html">stm – Functionality specific to STM32 MCUs.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../struct/index.html">struct – Pack and unpack primitive data types.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sys/index.html">sys – System specific functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../time/index.html">time – Time related functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../uctypes/index.html">uctypes – Access binary data in a structured way.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vfs/index.html">vfs – Virtual filesystem control.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wipy/index.html">wipy – WiPy specific features.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zephyr/index.html">zephyr – Functionality specific to Zephyr.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../zlib/index.html">zlib – Zlib compression &amp; decompression.</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Stub doc test</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">MicroPython Module Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">machine – Functions related to the hardware.</a></li>
+      <li class="breadcrumb-item active">machine.TimerWiPy</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/modules/machine/TimerWiPy/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    <div class="wy-alert wy-alert-danger">
+      <p>
+        This is the documentation for the latest development branch of
+        MicroPython and may refer to features that are not available in released
+        versions.
+      </p>
+      <p>
+        If you are looking for the documentation for a specific release, use
+        the drop-down menu on the left and select the desired version.
+      </p>
+    </div>
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="machine-timerwipy">
+<h1>machine.TimerWiPy<a class="headerlink" href="#machine-timerwipy" title="Link to this heading"></a></h1>
+<section id="classes">
+<span id="module-machine.TimerWiPy"></span><h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#machine.TimerWiPy.TimerWiPy" title="machine.TimerWiPy.TimerWiPy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimerWiPy</span></code></a></p></td>
+<td><p>Construct a new timer object of the given id. Id of -1 constructs a</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#machine.TimerWiPy.timerchannel" title="machine.TimerWiPy.timerchannel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">timerchannel</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="machine.TimerWiPy.TimerWiPy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">machine.TimerWiPy.</span></span><span class="sig-name descname"><span class="pre">TimerWiPy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#machine.TimerWiPy.TimerWiPy" title="Link to this definition"></a></dt>
+<dd><p>Construct a new timer object of the given id. Id of -1 constructs a
+virtual timer (if supported by a board).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.TimerWiPy.TimerWiPy.channel">
+<span class="sig-name descname"><span class="pre">channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">POSITIVE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duty_cycle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#machine.TimerWiPy.TimerWiPy.channel" title="Link to this definition"></a></dt>
+<dd><p>If only a channel identifier passed, then a previously initialized channel
+object is returned (or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there is no previous channel).</p>
+<p>Otherwise, a TimerChannel object is initialized and returned.</p>
+<p>The operating mode is is the one configured to the Timer object that was used to
+create the channel.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">channel</span></code> if the width of the timer is 16-bit, then must be either <code class="docutils literal notranslate"><span class="pre">TIMER.A</span></code>, <code class="docutils literal notranslate"><span class="pre">TIMER.B</span></code>.
+If the width is 32-bit then it <strong>must be</strong> <code class="docutils literal notranslate"><span class="pre">TIMER.A</span> <span class="pre">|</span> <span class="pre">TIMER.B</span></code>.</p></li>
+</ul>
+<p>Keyword only arguments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">freq</span></code> sets the frequency in Hz.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">period</span></code> sets the period in microseconds.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Either <code class="docutils literal notranslate"><span class="pre">freq</span></code> or <code class="docutils literal notranslate"><span class="pre">period</span></code> must be given, never both.</p>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">polarity</span></code> this is applicable for <code class="docutils literal notranslate"><span class="pre">PWM</span></code>, and defines the polarity of the duty cycle</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">duty_cycle</span></code> only applicable to <code class="docutils literal notranslate"><span class="pre">PWM</span></code>. It’s a percentage (0.00-100.00). Since the WiPy
+doesn’t support floating point numbers the duty cycle must be specified in the range 0-10000,
+where 10000 would represent 100.00, 5050 represents 50.50, and so on.</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When the channel is in PWM mode, the corresponding pin is assigned automatically, therefore
+there’s no need to assign the alternate function of the pin via the <code class="docutils literal notranslate"><span class="pre">Pin</span></code> class. The pins which
+support PWM functionality are the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GP24</span></code> on Timer 0 channel A.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP25</span></code> on Timer 1 channel A.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP9</span></code>  on Timer 2 channel B.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP10</span></code> on Timer 3 channel A.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GP11</span></code> on Timer 3 channel B.</p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.TimerWiPy.TimerWiPy.deinit">
+<span class="sig-name descname"><span class="pre">deinit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#machine.TimerWiPy.TimerWiPy.deinit" title="Link to this definition"></a></dt>
+<dd><p>Deinitialises the timer. Stops the timer, and disables the timer peripheral.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.TimerWiPy.TimerWiPy.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#machine.TimerWiPy.TimerWiPy.init" title="Link to this definition"></a></dt>
+<dd><p>Initialise the timer. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tim</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">)</span>             <span class="c1"># periodic 16-bit timer</span>
+<span class="n">tim</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">Timer</span><span class="o">.</span><span class="n">ONE_SHOT</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>   <span class="c1"># one shot 32-bit timer</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>of</strong> (<em>- mode can be one</em>) – <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">TimerWiPy.ONE_SHOT</span></code> - The timer runs once until the configured
+period of the channel expires.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TimerWiPy.PERIODIC</span></code> - The timer runs periodically at the configured
+frequency of the channel.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TimerWiPy.PWM</span></code>      - Output a PWM signal on a pin.</p></li>
+</ul>
+</p></li>
+<li><p><strong>32</strong> (<em>- width must be either 16 or</em>) – (or large periods), 32-bit timers should be used. 32-bit mode is only available
+for <code class="docutils literal notranslate"><span class="pre">ONE_SHOT</span></code> AND <code class="docutils literal notranslate"><span class="pre">PERIODIC</span></code> modes.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="machine.TimerWiPy.TimerWiPy.ONE_SHOT">
+<span class="sig-name descname"><span class="pre">ONE_SHOT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></em><a class="headerlink" href="#machine.TimerWiPy.TimerWiPy.ONE_SHOT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="machine.TimerWiPy.TimerWiPy.PERIODIC">
+<span class="sig-name descname"><span class="pre">PERIODIC</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></em><a class="headerlink" href="#machine.TimerWiPy.TimerWiPy.PERIODIC" title="Link to this definition"></a></dt>
+<dd><p>Timer operating mode.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="machine.TimerWiPy.timerchannel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">machine.TimerWiPy.</span></span><span class="sig-name descname"><span class="pre">timerchannel</span></span><a class="headerlink" href="#machine.TimerWiPy.timerchannel" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="machine.TimerWiPy.timerchannel.duty_cycle">
+<span class="sig-name descname"><span class="pre">duty_cycle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#machine.TimerWiPy.timerchannel.duty_cycle" title="Link to this definition"></a></dt>
+<dd><p>Get or set the duty cycle of the PWM signal. It’s a percentage (0.00-100.00). Since the WiPy
+doesn’t support floating point numbers the duty cycle must be specified in the range 0-10000,
+where 10000 would represent 100.00, 5050 represents 50.50, and so on.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.TimerWiPy.timerchannel.freq">
+<span class="sig-name descname"><span class="pre">freq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#machine.TimerWiPy.timerchannel.freq" title="Link to this definition"></a></dt>
+<dd><p>Get or set the timer channel frequency (in Hz).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.TimerWiPy.timerchannel.irq">
+<span class="sig-name descname"><span class="pre">irq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trigger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="pre">Ellipsis</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#machine.TimerWiPy.timerchannel.irq" title="Link to this definition"></a></dt>
+<dd><p>The behaviour of this callback is heavily dependent on the operating
+mode of the timer channel:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If mode is <code class="docutils literal notranslate"><span class="pre">TimerWiPy.PERIODIC</span></code> the callback is executed periodically
+with the configured frequency or period.</p></li>
+<li><p>If mode is <code class="docutils literal notranslate"><span class="pre">TimerWiPy.ONE_SHOT</span></code> the callback is executed once when
+the configured timer expires.</p></li>
+<li><p>If mode is <code class="docutils literal notranslate"><span class="pre">TimerWiPy.PWM</span></code> the callback is executed when reaching the duty
+cycle value.</p></li>
+</ul>
+</div></blockquote>
+<p>The accepted params are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">priority</span></code> level of the interrupt. Can take values in the range 1-7.
+Higher values represent higher priorities.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">handler</span></code> is an optional function to be called when the interrupt is triggered.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trigger</span></code> must be <code class="docutils literal notranslate"><span class="pre">TimerWiPy.TIMEOUT</span></code> when the operating mode is either <code class="docutils literal notranslate"><span class="pre">TimerWiPy.PERIODIC</span></code> or
+<code class="docutils literal notranslate"><span class="pre">TimerWiPy.ONE_SHOT</span></code>. In the case that mode is <code class="docutils literal notranslate"><span class="pre">TimerWiPy.PWM</span></code> then trigger must be equal to
+<code class="docutils literal notranslate"><span class="pre">TimerWiPy.MATCH</span></code>.</p></li>
+</ul>
+</div></blockquote>
+<p>Returns a callback object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="machine.TimerWiPy.timerchannel.period">
+<span class="sig-name descname"><span class="pre">period</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#machine.TimerWiPy.timerchannel.period" title="Link to this definition"></a></dt>
+<dd><p>Get or set the timer channel period (in microseconds).</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Timer/index.html" class="btn btn-neutral float-left" title="machine.Timer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../UART/index.html" class="btn btn-neutral float-right" title="machine.UART" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Nah.
+      <span class="lastupdated">Last updated on 10 Aug 2024.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Versions and Downloads</span>
+    latest
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Versions</dt>
+      
+        <dd><a href="//en/latest">latest</a></dd>
+      
+    </dl>
+    <dl>
+      <dt>Downloads</dt>
+      
+        <dd><a href="//en/latest/micropython-docs.pdf">PDF</a></dd>
+      
+    </dl>
+    <hr/>
+    <dl>
+      <dt>External links</dt>
+        <dd>
+          <a href="https://www.micropython.org">micropython.org</a>
+        </dd>
+        <dd>
+          <a href="https://github.com/micropython/micropython">GitHub</a>
+        </dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

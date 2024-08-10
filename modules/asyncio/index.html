@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>asyncio – Asynchronous I/O scheduler for writing concurrent code. &mdash; Stub doc test 1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=d5a28fe3" />
+      <link rel="stylesheet" href="../../_static/customstyle.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=29a6c3e3"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=dcd1999c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="binascii – Binary/ASCII conversions." href="../binascii/index.html" />
+    <link rel="prev" title="array – Efficient arrays of numeric data." href="../array/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Stub doc test
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../library/index.html">MicroPython libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bar.html">bar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_typeshed.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">_typeshed</span></code> – Utility types for typeshed.</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MicroPython Module Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../_asyncio/index.html">_asyncio – Asynchronous I/O scheduler for writing concurrent code.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot/index.html">_boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_boot_fat/index.html">_boot_fat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_onewire/index.html">_onewire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_rp2/index.html">_rp2 – Functionality specific to the RP2.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_thread/index.html">_thread – Multithreading support.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../array/index.html">array – Efficient arrays of numeric data.</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">asyncio – Asynchronous I/O scheduler for writing concurrent code.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#core-functions">Core functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.Event"><code class="docutils literal notranslate"><span class="pre">Event</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.Lock"><code class="docutils literal notranslate"><span class="pre">Lock</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.Loop"><code class="docutils literal notranslate"><span class="pre">Loop</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.Server"><code class="docutils literal notranslate"><span class="pre">Server</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.Stream"><code class="docutils literal notranslate"><span class="pre">Stream</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.Task"><code class="docutils literal notranslate"><span class="pre">Task</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.ThreadSafeFlag"><code class="docutils literal notranslate"><span class="pre">ThreadSafeFlag</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.create_task"><code class="docutils literal notranslate"><span class="pre">create_task()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.current_task"><code class="docutils literal notranslate"><span class="pre">current_task()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.gather"><code class="docutils literal notranslate"><span class="pre">gather()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.get_event_loop"><code class="docutils literal notranslate"><span class="pre">get_event_loop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.new_event_loop"><code class="docutils literal notranslate"><span class="pre">new_event_loop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.open_connection"><code class="docutils literal notranslate"><span class="pre">open_connection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.sleep"><code class="docutils literal notranslate"><span class="pre">sleep()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.sleep_ms"><code class="docutils literal notranslate"><span class="pre">sleep_ms()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.start_server"><code class="docutils literal notranslate"><span class="pre">start_server()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.wait_for"><code class="docutils literal notranslate"><span class="pre">wait_for()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asyncio.wait_for_ms"><code class="docutils literal notranslate"><span class="pre">wait_for_ms()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../binascii/index.html">binascii – Binary/ASCII conversions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bluetooth/index.html">bluetooth – Low-level Bluetooth radio functionality.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../btree/index.html">btree – Simple BTree database.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cmath/index.html">cmath – Mathematical functions for complex numbers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../collections/index.html">collections – Collection and container types.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cryptolib/index.html">cryptolib – Cryptographic ciphers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deflate/index.html">deflate – Deflate compression &amp; decompression.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../errno/index.html">errno – System error codes.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp/index.html">esp – Functions related to the ESP8266 and ESP32.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../esp32/index.html">esp32 – Functionality specific to the ESP32.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../espnow/index.html">espnow – ESP-NOW <span class="xref std std-doc">asyncio</span> support.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framebuf/index.html">framebuf – Frame buffer manipulation.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gc/index.html">gc – Control the garbage collector.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gzip/index.html">gzip – Gzip compression &amp; decompression.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hashlib/index.html">hashlib – Hashing algorithms.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../heapq/index.html">heapq – Heap queue algorithm.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io/index.html">io – Input/output streams.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../json/index.html">json – JSON encoding and decoding.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lcd160cr/index.html">lcd160cr – Control of LCD160CR display.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../machine/index.html">machine – Functions related to the hardware.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math/index.html">math – Mathematical functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../micropython/index.html">micropython – Access and control MicroPython internals.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neopixel/index.html">neopixel – Control of WS2812 / NeoPixel LEDs.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/index.html">network – Network configuration.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openamp/index.html">openamp – Provides standard Asymmetric Multiprocessing (AMP) support.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../os/index.html">os – Basic “operating system” services.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform/index.html">platform – Access to underlying platform’s identifying data.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyb/index.html">pyb – Functions related to the board.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../random/index.html">random – Random numbers.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rp2/index.html">rp2 – Functionality specific to the RP2.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../select/index.html">select – Wait for events on a set of streams.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../socket/index.html">socket – Socket module.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ssl/index.html">ssl – TLS/SSL wrapper for socket objects.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stm/index.html">stm – Functionality specific to STM32 MCUs.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../struct/index.html">struct – Pack and unpack primitive data types.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sys/index.html">sys – System specific functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time/index.html">time – Time related functions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uctypes/index.html">uctypes – Access binary data in a structured way.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vfs/index.html">vfs – Virtual filesystem control.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wipy/index.html">wipy – WiPy specific features.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wm8960/index.html">wm8960</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zephyr/index.html">zephyr – Functionality specific to Zephyr.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlib/index.html">zlib – Zlib compression &amp; decompression.</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Stub doc test</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">MicroPython Module Reference</a></li>
+      <li class="breadcrumb-item active">asyncio – Asynchronous I/O scheduler for writing concurrent code.</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/modules/asyncio/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+  
+    <div class="wy-alert wy-alert-danger">
+      <p>
+        This is the documentation for the latest development branch of
+        MicroPython and may refer to features that are not available in released
+        versions.
+      </p>
+      <p>
+        If you are looking for the documentation for a specific release, use
+        the drop-down menu on the left and select the desired version.
+      </p>
+    </div>
+  
+  
+           <div itemprop="articleBody">
+             
+  <section id="asyncio-asynchronous-i-o-scheduler-for-writing-concurrent-code">
+<h1>asyncio – Asynchronous I/O scheduler for writing concurrent code.<a class="headerlink" href="#asyncio-asynchronous-i-o-scheduler-for-writing-concurrent-code" title="Link to this heading"></a></h1>
+<p id="module-asyncio">Asynchronous I/O scheduler for writing concurrent code.</p>
+<p><em>This module implements a subset of the corresponding</em> <a class="reference external" href="https://docs.micropython.org/en/latest/reference/glossary.html#term-CPython" title="(in MicroPython vlatest)"><span class="xref std std-term">CPython</span></a> <em>module,
+as described below. For more information, refer to the original
+CPython documentation:</em>
+<a class="reference external" href="https://docs.python.org/3.8/library/asyncio.html">asyncio</a></p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">blink</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">period_ms</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">led</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">led</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="n">period_ms</span><span class="p">)</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">led1</span><span class="p">,</span> <span class="n">led2</span><span class="p">):</span>
+    <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">blink</span><span class="p">(</span><span class="n">led1</span><span class="p">,</span> <span class="mi">700</span><span class="p">))</span>
+    <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">blink</span><span class="p">(</span><span class="n">led2</span><span class="p">,</span> <span class="mi">400</span><span class="p">))</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">10_000</span><span class="p">)</span>
+
+<span class="c1"># Running on a pyboard</span>
+<span class="kn">from</span> <span class="nn">pyb</span> <span class="kn">import</span> <span class="n">LED</span>
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">(</span><span class="n">LED</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">LED</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+
+<span class="c1"># Running on a generic board</span>
+<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span>
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">Pin</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+<section id="core-functions">
+<h2>Core functions<a class="headerlink" href="#core-functions" title="Link to this heading"></a></h2>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asyncio.Event" title="asyncio.Event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Event</span></code></a></p></td>
+<td><p>Create a new event which can be used to synchronise tasks.  Events start</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asyncio.Lock" title="asyncio.Lock"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Lock</span></code></a></p></td>
+<td><p>Create a new lock which can be used to coordinate tasks.  Locks start in</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asyncio.Loop" title="asyncio.Loop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Loop</span></code></a></p></td>
+<td><p>This represents the object which schedules and runs tasks.  It cannot be</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asyncio.Server" title="asyncio.Server"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Server</span></code></a></p></td>
+<td><p>This represents the server class returned from <a class="reference internal" href="#asyncio.start_server" title="asyncio.start_server"><code class="xref any py py-func docutils literal notranslate"><span class="pre">start_server</span></code></a>.  It can be used</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asyncio.Stream" title="asyncio.Stream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Stream</span></code></a></p></td>
+<td><p>This represents a TCP stream connection.  To minimise code this class implements</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asyncio.Task" title="asyncio.Task"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Task</span></code></a></p></td>
+<td><p>This object wraps a coroutine into a running task.  Tasks can be waited on</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asyncio.ThreadSafeFlag" title="asyncio.ThreadSafeFlag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ThreadSafeFlag</span></code></a></p></td>
+<td><p>Create a new flag which can be used to synchronise a task with code running</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asyncio.create_task" title="asyncio.create_task"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_task</span></code></a>(→ Task)</p></td>
+<td><p>Create a new task from the given coroutine and schedule it to run.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asyncio.current_task" title="asyncio.current_task"><code class="xref py py-obj docutils literal notranslate"><span class="pre">current_task</span></code></a>(→ Task)</p></td>
+<td><p>Return the <a class="reference internal" href="#asyncio.Task" title="asyncio.Task"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Task</span></code></a> object associated with the currently running task.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asyncio.gather" title="asyncio.gather"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gather</span></code></a>(→ Coroutine[List, Any, Any])</p></td>
+<td><p>Run all <em>awaitables</em> concurrently.  Any <em>awaitables</em> that are not tasks are</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asyncio.get_event_loop" title="asyncio.get_event_loop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_event_loop</span></code></a>(→ _typeshed.Incomplete)</p></td>
+<td><p>Return the event loop used to schedule and run tasks.  See <a class="reference internal" href="#asyncio.Loop" title="asyncio.Loop"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Loop</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asyncio.new_event_loop" title="asyncio.new_event_loop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">new_event_loop</span></code></a>(→ _typeshed.Incomplete)</p></td>
+<td><p>Reset the event loop and return it.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asyncio.open_connection" title="asyncio.open_connection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">open_connection</span></code></a>(→ Coroutine[Tuple, Any, Any])</p></td>
+<td><p>Open a TCP connection to the given <em>host</em> and <em>port</em>.  The <em>host</em> address will be</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asyncio.run" title="asyncio.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(→ _typeshed.Incomplete)</p></td>
+<td><p>Create a new task from the given coroutine and run it until it completes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asyncio.sleep" title="asyncio.sleep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sleep</span></code></a>(→ Coroutine[_typeshed.Incomplete, Any, Any])</p></td>
+<td><p>Sleep for <em>t</em> seconds (can be a float).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asyncio.sleep_ms" title="asyncio.sleep_ms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sleep_ms</span></code></a>(→ Coroutine[_typeshed.Incomplete, Any, Any])</p></td>
+<td><p>Sleep for <em>t</em> milliseconds.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asyncio.start_server" title="asyncio.start_server"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_server</span></code></a>(→ Coroutine[Server, Any, Any])</p></td>
+<td><p>Start a TCP server on the given <em>host</em> and <em>port</em>.  The <em>callback</em> will be</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#asyncio.wait_for" title="asyncio.wait_for"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wait_for</span></code></a>(→ Coroutine[_typeshed.Incomplete, Any, Any])</p></td>
+<td><p>Wait for the <em>awaitable</em> to complete, but cancel it if it takes longer</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#asyncio.wait_for_ms" title="asyncio.wait_for_ms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wait_for_ms</span></code></a>(→ Coroutine[_typeshed.Incomplete, Any, Any])</p></td>
+<td><p>Similar to <a class="reference internal" href="#asyncio.wait_for" title="asyncio.wait_for"><code class="xref any py py-func docutils literal notranslate"><span class="pre">wait_for</span></code></a> but <em>timeout</em> is an integer in milliseconds.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncio.Event">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">Event</span></span><a class="headerlink" href="#asyncio.Event" title="Link to this definition"></a></dt>
+<dd><p>Create a new event which can be used to synchronise tasks.  Events start
+in the cleared state.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Event.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#asyncio.Event.clear" title="Link to this definition"></a></dt>
+<dd><p>Clear the event.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Event.is_set">
+<span class="sig-name descname"><span class="pre">is_set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../library/builtins.html#bool" title="bool"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#asyncio.Event.is_set" title="Link to this definition"></a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the event is set, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Event.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#asyncio.Event.set" title="Link to this definition"></a></dt>
+<dd><p>Set the event.  Any tasks waiting on the event will be scheduled to run.</p>
+<p>Note: This must be called from within a task. It is not safe to call this
+from an IRQ, scheduler callback, or other thread. See <a class="reference internal" href="#asyncio.ThreadSafeFlag" title="asyncio.ThreadSafeFlag"><code class="xref any py py-class docutils literal notranslate"><span class="pre">ThreadSafeFlag</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Event.wait">
+<span class="sig-name descname"><span class="pre">wait</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asyncio.Event.wait" title="Link to this definition"></a></dt>
+<dd><p>Wait for the event to be set.  If the event is already set then it returns
+immediately.</p>
+<p>This is a coroutine.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncio.Lock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">Lock</span></span><a class="headerlink" href="#asyncio.Lock" title="Link to this definition"></a></dt>
+<dd><p>Create a new lock which can be used to coordinate tasks.  Locks start in
+the unlocked state.</p>
+<p>In addition to the methods below, locks can be used in an <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code> statement.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Lock.acquire">
+<span class="sig-name descname"><span class="pre">acquire</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asyncio.Lock.acquire" title="Link to this definition"></a></dt>
+<dd><p>Wait for the lock to be in the unlocked state and then lock it in an atomic
+way.  Only one task can acquire the lock at any one time.</p>
+<p>This is a coroutine.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Lock.locked">
+<span class="sig-name descname"><span class="pre">locked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../library/builtins.html#bool" title="bool"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#asyncio.Lock.locked" title="Link to this definition"></a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the lock is locked, otherwise <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Lock.release">
+<span class="sig-name descname"><span class="pre">release</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#asyncio.Lock.release" title="Link to this definition"></a></dt>
+<dd><p>Release the lock.  If any tasks are waiting on the lock then the next one in the
+queue is scheduled to run and the lock remains locked.  Otherwise, no tasks are
+waiting an the lock becomes unlocked.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncio.Loop">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">Loop</span></span><a class="headerlink" href="#asyncio.Loop" title="Link to this definition"></a></dt>
+<dd><p>This represents the object which schedules and runs tasks.  It cannot be
+created, use <a class="reference internal" href="#asyncio.get_event_loop" title="asyncio.get_event_loop"><code class="xref any py py-func docutils literal notranslate"><span class="pre">get_event_loop</span></code></a> instead.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Loop.call_exception_handler">
+<span class="sig-name descname"><span class="pre">call_exception_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#asyncio.Loop.call_exception_handler" title="Link to this definition"></a></dt>
+<dd><p>Call the current exception handler.  The argument <em>context</em> is passed through and
+is a dictionary containing keys: <code class="docutils literal notranslate"><span class="pre">'message'</span></code>, <code class="docutils literal notranslate"><span class="pre">'exception'</span></code>, <code class="docutils literal notranslate"><span class="pre">'future'</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Loop.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#asyncio.Loop.close" title="Link to this definition"></a></dt>
+<dd><p>Close the event loop.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Loop.create_task">
+<span class="sig-name descname"><span class="pre">create_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coro</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#asyncio.Task" title="asyncio.Task"><span class="pre">Task</span></a></span></span><a class="headerlink" href="#asyncio.Loop.create_task" title="Link to this definition"></a></dt>
+<dd><p>Create a task from the given <em>coro</em> and return the new <a class="reference internal" href="#asyncio.Task" title="asyncio.Task"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Task</span></code></a> object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Loop.default_exception_handler">
+<span class="sig-name descname"><span class="pre">default_exception_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#asyncio.Loop.default_exception_handler" title="Link to this definition"></a></dt>
+<dd><p>The default exception handler that is called.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Loop.get_exception_handler">
+<span class="sig-name descname"><span class="pre">get_exception_handler</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#asyncio.Loop.get_exception_handler" title="Link to this definition"></a></dt>
+<dd><p>Get the current exception handler.  Returns the handler, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if no
+custom handler is set.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Loop.run_forever">
+<span class="sig-name descname"><span class="pre">run_forever</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#asyncio.Loop.run_forever" title="Link to this definition"></a></dt>
+<dd><p>Run the event loop until <a class="reference internal" href="#asyncio.Loop.stop" title="asyncio.Loop.stop"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">stop()</span></code></a> is called.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Loop.run_until_complete">
+<span class="sig-name descname"><span class="pre">run_until_complete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">awaitable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#asyncio.Loop.run_until_complete" title="Link to this definition"></a></dt>
+<dd><p>Run the given <em>awaitable</em> until it completes.  If <em>awaitable</em> is not a task
+then it will be promoted to one.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Loop.set_exception_handler">
+<span class="sig-name descname"><span class="pre">set_exception_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#asyncio.Loop.set_exception_handler" title="Link to this definition"></a></dt>
+<dd><p>Set the exception handler to call when a Task raises an exception that is not
+caught.  The <em>handler</em> should accept two arguments: <code class="docutils literal notranslate"><span class="pre">(loop,</span> <span class="pre">context)</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Loop.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#asyncio.Loop.stop" title="Link to this definition"></a></dt>
+<dd><p>Stop the event loop.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncio.Server">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">Server</span></span><a class="headerlink" href="#asyncio.Server" title="Link to this definition"></a></dt>
+<dd><p>This represents the server class returned from <a class="reference internal" href="#asyncio.start_server" title="asyncio.start_server"><code class="xref any py py-func docutils literal notranslate"><span class="pre">start_server</span></code></a>.  It can be used
+in an <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code> statement to close the server upon exit.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Server.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#asyncio.Server.close" title="Link to this definition"></a></dt>
+<dd><p>Close the server.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Server.wait_closed">
+<span class="sig-name descname"><span class="pre">wait_closed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asyncio.Server.wait_closed" title="Link to this definition"></a></dt>
+<dd><p>Wait for the server to close.</p>
+<p>This is a coroutine.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncio.Stream">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">Stream</span></span><a class="headerlink" href="#asyncio.Stream" title="Link to this definition"></a></dt>
+<dd><p>This represents a TCP stream connection.  To minimise code this class implements
+both a reader and a writer, and both <code class="docutils literal notranslate"><span class="pre">StreamReader</span></code> and <code class="docutils literal notranslate"><span class="pre">StreamWriter</span></code> alias to
+this class.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Stream.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#asyncio.Stream.close" title="Link to this definition"></a></dt>
+<dd><p>Close the stream.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Stream.drain">
+<span class="sig-name descname"><span class="pre">drain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asyncio.Stream.drain" title="Link to this definition"></a></dt>
+<dd><p>Drain (write) all buffered output data out to the stream.</p>
+<p>This is a coroutine.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Stream.get_extra_info">
+<span class="sig-name descname"><span class="pre">get_extra_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#asyncio.Stream.get_extra_info" title="Link to this definition"></a></dt>
+<dd><p>Get extra information about the stream, given by <em>v</em>.  The valid values for <em>v</em> are:
+<code class="docutils literal notranslate"><span class="pre">peername</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Stream.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asyncio.Stream.read" title="Link to this definition"></a></dt>
+<dd><p>Read up to <em>n</em> bytes and return them.  If <em>n</em> is not provided or -1 then read all
+bytes until EOF.  The returned value will be an empty bytes object if EOF is
+encountered before any bytes are read.</p>
+<p>This is a coroutine.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Stream.readexactly">
+<span class="sig-name descname"><span class="pre">readexactly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../library/builtins.html#bytes" title="bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asyncio.Stream.readexactly" title="Link to this definition"></a></dt>
+<dd><p>Read exactly <em>n</em> bytes and return them as a bytes object.</p>
+<p>Raises an <code class="docutils literal notranslate"><span class="pre">EOFError</span></code> exception if the stream ends before reading <em>n</em> bytes.</p>
+<p>This is a coroutine.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Stream.readinto">
+<span class="sig-name descname"><span class="pre">readinto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buf</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../library/builtins.html#int" title="int"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asyncio.Stream.readinto" title="Link to this definition"></a></dt>
+<dd><p>Read up to n bytes into <em>buf</em> with n being equal to the length of <em>buf</em>.</p>
+<p>Return the number of bytes read into <em>buf</em>.</p>
+<p>This is a coroutine, and a MicroPython extension.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Stream.readline">
+<span class="sig-name descname"><span class="pre">readline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asyncio.Stream.readline" title="Link to this definition"></a></dt>
+<dd><p>Read a line and return it.</p>
+<p>This is a coroutine.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Stream.wait_closed">
+<span class="sig-name descname"><span class="pre">wait_closed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asyncio.Stream.wait_closed" title="Link to this definition"></a></dt>
+<dd><p>Wait for the stream to close.</p>
+<p>This is a coroutine.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Stream.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buf</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#asyncio.Stream.write" title="Link to this definition"></a></dt>
+<dd><p>Accumulated <em>buf</em> to the output buffer.  The data is only flushed when
+<a class="reference internal" href="#asyncio.Stream.drain" title="asyncio.Stream.drain"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">Stream.drain</span></code></a> is called.  It is recommended to call <a class="reference internal" href="#asyncio.Stream.drain" title="asyncio.Stream.drain"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">Stream.drain</span></code></a> immediately
+after calling this function.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncio.Task">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">Task</span></span><a class="headerlink" href="#asyncio.Task" title="Link to this definition"></a></dt>
+<dd><p>This object wraps a coroutine into a running task.  Tasks can be waited on
+using <code class="docutils literal notranslate"><span class="pre">await</span> <span class="pre">task</span></code>, which will wait for the task to complete and return
+the return value of the task.</p>
+<p>Tasks should not be created directly, rather use <a class="reference internal" href="#asyncio.create_task" title="asyncio.create_task"><code class="xref any py py-func docutils literal notranslate"><span class="pre">create_task</span></code></a> to create them.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.Task.cancel">
+<span class="sig-name descname"><span class="pre">cancel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#asyncio.Task.cancel" title="Link to this definition"></a></dt>
+<dd><p>Cancel the task by injecting <code class="docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code> into it.  The task may
+ignore this exception.  Cleanup code may be run by trapping it, or via
+<code class="docutils literal notranslate"><span class="pre">try</span> <span class="pre">...</span> <span class="pre">finally</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="asyncio.ThreadSafeFlag">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">ThreadSafeFlag</span></span><a class="headerlink" href="#asyncio.ThreadSafeFlag" title="Link to this definition"></a></dt>
+<dd><p>Create a new flag which can be used to synchronise a task with code running
+outside the asyncio loop, such as other threads, IRQs, or scheduler
+callbacks.  Flags start in the cleared state.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.ThreadSafeFlag.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#asyncio.ThreadSafeFlag.clear" title="Link to this definition"></a></dt>
+<dd><p>Clear the flag. This may be used to ensure that a possibly previously-set
+flag is clear before waiting for it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.ThreadSafeFlag.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.5/library/constants.html#None" title="(in Python v3.5)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#asyncio.ThreadSafeFlag.set" title="Link to this definition"></a></dt>
+<dd><p>Set the flag.  If there is a task waiting on the flag, it will be scheduled
+to run.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="asyncio.ThreadSafeFlag.wait">
+<span class="sig-name descname"><span class="pre">wait</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asyncio.ThreadSafeFlag.wait" title="Link to this definition"></a></dt>
+<dd><p>Wait for the flag to be set.  If the flag is already set then it returns
+immediately.  The flag is automatically reset upon return from <code class="docutils literal notranslate"><span class="pre">wait</span></code>.</p>
+<p>A flag may only be waited on by a single task at a time.</p>
+<p>This is a coroutine.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asyncio.create_task">
+<span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">create_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coro</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#asyncio.Task" title="asyncio.Task"><span class="pre">Task</span></a></span></span><a class="headerlink" href="#asyncio.create_task" title="Link to this definition"></a></dt>
+<dd><p>Create a new task from the given coroutine and schedule it to run.</p>
+<p>Returns the corresponding <a class="reference internal" href="#asyncio.Task" title="asyncio.Task"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Task</span></code></a> object.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asyncio.current_task">
+<span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">current_task</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#asyncio.Task" title="asyncio.Task"><span class="pre">Task</span></a></span></span><a class="headerlink" href="#asyncio.current_task" title="Link to this definition"></a></dt>
+<dd><p>Return the <a class="reference internal" href="#asyncio.Task" title="asyncio.Task"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Task</span></code></a> object associated with the currently running task.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asyncio.gather">
+<span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">gather</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">awaitables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_exceptions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asyncio.gather" title="Link to this definition"></a></dt>
+<dd><p>Run all <em>awaitables</em> concurrently.  Any <em>awaitables</em> that are not tasks are
+promoted to tasks.</p>
+<p>Returns a list of return values of all <em>awaitables</em>.</p>
+<p>This is a coroutine.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asyncio.get_event_loop">
+<span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">get_event_loop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#asyncio.get_event_loop" title="Link to this definition"></a></dt>
+<dd><p>Return the event loop used to schedule and run tasks.  See <a class="reference internal" href="#asyncio.Loop" title="asyncio.Loop"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Loop</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asyncio.new_event_loop">
+<span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">new_event_loop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#asyncio.new_event_loop" title="Link to this definition"></a></dt>
+<dd><p>Reset the event loop and return it.</p>
+<p>Note: since MicroPython only has a single event loop this function just
+resets the loop’s state, it does not create a new one.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asyncio.open_connection">
+<span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">open_connection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ssl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asyncio.open_connection" title="Link to this definition"></a></dt>
+<dd><p>Open a TCP connection to the given <em>host</em> and <em>port</em>.  The <em>host</em> address will be
+resolved using <a class="reference internal" href="../socket/index.html#socket.getaddrinfo" title="socket.getaddrinfo"><code class="xref any py py-func docutils literal notranslate"><span class="pre">socket.getaddrinfo</span></code></a>, which is currently a blocking call.
+If <em>ssl</em> is a <a class="reference internal" href="../ssl/index.html#ssl.SSLContext" title="ssl.SSLContext"><code class="xref any py py-class docutils literal notranslate"><span class="pre">ssl.SSLContext</span></code></a> object, this context is used to create the transport;
+if <em>ssl</em> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, a default context is used.</p>
+<p>Returns a pair of streams: a reader and a writer stream.
+Will raise a socket-specific <code class="docutils literal notranslate"><span class="pre">OSError</span></code> if the host could not be resolved or if
+the connection could not be made.</p>
+<p>This is a coroutine.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asyncio.run">
+<span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coro</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a></span></span><a class="headerlink" href="#asyncio.run" title="Link to this definition"></a></dt>
+<dd><p>Create a new task from the given coroutine and run it until it completes.</p>
+<p>Returns the value returned by <em>coro</em>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asyncio.sleep">
+<span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">sleep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asyncio.sleep" title="Link to this definition"></a></dt>
+<dd><p>Sleep for <em>t</em> seconds (can be a float).</p>
+<p>This is a coroutine.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asyncio.sleep_ms">
+<span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">sleep_ms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asyncio.sleep_ms" title="Link to this definition"></a></dt>
+<dd><p>Sleep for <em>t</em> milliseconds.</p>
+<p>This is a coroutine, and a MicroPython extension.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asyncio.start_server">
+<span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">start_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backlog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ssl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#asyncio.Server" title="asyncio.Server"><span class="pre">Server</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asyncio.start_server" title="Link to this definition"></a></dt>
+<dd><p>Start a TCP server on the given <em>host</em> and <em>port</em>.  The <em>callback</em> will be
+called with incoming, accepted connections, and be passed 2 arguments: reader
+and writer streams for the connection.</p>
+<p>If <em>ssl</em> is a <a class="reference internal" href="../ssl/index.html#ssl.SSLContext" title="ssl.SSLContext"><code class="xref any py py-class docutils literal notranslate"><span class="pre">ssl.SSLContext</span></code></a> object, this context is used to create the transport.</p>
+<p>Returns a <a class="reference internal" href="#asyncio.Server" title="asyncio.Server"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Server</span></code></a> object.</p>
+<p>This is a coroutine.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asyncio.wait_for">
+<span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">wait_for</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">awaitable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asyncio.wait_for" title="Link to this definition"></a></dt>
+<dd><p>Wait for the <em>awaitable</em> to complete, but cancel it if it takes longer
+than <em>timeout</em> seconds.  If <em>awaitable</em> is not a task then a task will be
+created from it.</p>
+<p>If a timeout occurs, it cancels the task and raises <code class="docutils literal notranslate"><span class="pre">asyncio.TimeoutError</span></code>:
+this should be trapped by the caller.  The task receives
+<code class="docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code> which may be ignored or trapped using <code class="docutils literal notranslate"><span class="pre">try...except</span></code>
+or <code class="docutils literal notranslate"><span class="pre">try...finally</span></code> to run cleanup code.</p>
+<p>Returns the return value of <em>awaitable</em>.</p>
+<p>This is a coroutine.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asyncio.wait_for_ms">
+<span class="sig-prename descclassname"><span class="pre">asyncio.</span></span><span class="sig-name descname"><span class="pre">wait_for_ms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">awaitable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Coroutine</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../_typeshed.html#typeshed.Incomplete" title="_typeshed.Incomplete"><span class="pre">Incomplete</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#asyncio.wait_for_ms" title="Link to this definition"></a></dt>
+<dd><p>Similar to <a class="reference internal" href="#asyncio.wait_for" title="asyncio.wait_for"><code class="xref any py py-func docutils literal notranslate"><span class="pre">wait_for</span></code></a> but <em>timeout</em> is an integer in milliseconds.</p>
+<p>This is a coroutine, and a MicroPython extension.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../array/index.html" class="btn btn-neutral float-left" title="array – Efficient arrays of numeric data." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../binascii/index.html" class="btn btn-neutral float-right" title="binascii – Binary/ASCII conversions." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Nah.
+      <span class="lastupdated">Last updated on 10 Aug 2024.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Versions and Downloads</span>
+    latest
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Versions</dt>
+      
+        <dd><a href="//en/latest">latest</a></dd>
+      
+    </dl>
+    <dl>
+      <dt>Downloads</dt>
+      
+        <dd><a href="//en/latest/micropython-docs.pdf">PDF</a></dd>
+      
+    </dl>
+    <hr/>
+    <dl>
+      <dt>External links</dt>
+        <dd>
+          <a href="https://www.micropython.org">micropython.org</a>
+        </dd>
+        <dd>
+          <a href="https://github.com/micropython/micropython">GitHub</a>
+        </dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
