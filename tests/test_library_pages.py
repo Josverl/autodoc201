@@ -7,7 +7,7 @@ import pytest
 from bs4 import BeautifulSoup
 import difflib
 import requests
-
+import re
 import unicodedata
 
 
@@ -126,11 +126,12 @@ def find_title(lines: List[str]):
 
 IGNORE_HEADINGS = {
     "- Functions",
+    "- Additional functions",
     "- Classes",
     "- Constants",
     "- Exceptions",
     "- Methods",
-    "- Constructor",
+    "- Constructors",
 }
 
 
@@ -177,7 +178,7 @@ def allow_different_parameters(diff_lines: List[str]):
                     r2.remove(l)
                 with contextlib.suppress(ValueError):
                     r2.remove(opposite)
-            elif l2 := diff_startswith(r2, f"{opposite}("):
+            elif l2 := first_startswith(r2, f"{opposite}("):
                 # also remove if the params dont match
                 with contextlib.suppress(ValueError):
                     r2.remove(l)
@@ -191,29 +192,36 @@ def allow_omit_class_different_parameters(diff_lines: List[str]):
     """
     functions, methods and classes can have different parameters in the local and web versions
     Does not deal with the case where the parameters are in a separate line ....
+
     """
     r2 = diff_lines.copy()
-    for l in diff_lines:
-        if "(" in l:
-            partial = l.split("(")[0].strip()
-            if "." in partial:
-                partial = "- " + partial.split(".", 1)[1]
-            opposite = f"{opp_change(l)} {partial[2:]}"
-            if opposite in r2:
-                with contextlib.suppress(ValueError):
-                    r2.remove(l)
-                with contextlib.suppress(ValueError):
-                    r2.remove(opposite)
-            elif l2 := diff_startswith(r2, f"{opposite}("):
-                # also remove if the params dont match
-                with contextlib.suppress(ValueError):
-                    r2.remove(l)
-                with contextlib.suppress(ValueError):
-                    r2.remove(l2)
+    for line in diff_lines:
+        # if "(" in line:
+        re_drop_class = r"([+-] (\w*? )?)(\w*\.)(.*)"  # r"([+-] )(\w+\.)(.*)"
+        subst_drop_class = "\\g<1>\\g<4>"
+        # get rid of any class name
+        l_short = re.sub(re_drop_class, subst_drop_class, line)
+
+        opposite = f"{opp_change(l_short)} {l_short[2:]}"
+        oppo2 = opposite.split("(")[0]
+        if opposite in r2:
+            with contextlib.suppress(ValueError):
+                r2.remove(line)
+            with contextlib.suppress(ValueError):
+                r2.remove(opposite)
+        elif oppo2 := first_startswith(r2, f"{opposite}("):
+            len1 = len(diff_lines)
+            # also remove if the params dont match
+            with contextlib.suppress(ValueError):
+                r2.remove(line)
+            with contextlib.suppress(ValueError):
+                r2.remove(oppo2)
+            len2 = len(diff_lines)
+            print(f"Removed {len1-len2} lines")
     return r2
 
 
-def diff_startswith(diff_lines: List[str], prefix: str):
+def first_startswith(diff_lines: List[str], prefix: str):
     for l in diff_lines:
         if l.startswith(prefix):
             return l
@@ -302,6 +310,9 @@ for f in fldr.glob("*.rst"):
         autoapifiles.append(f.relative_to(Path("docs")).with_suffix("").as_posix())
 
 
+MAX_MISSING = 5
+
+
 @pytest.mark.parametrize(
     "page",
     autoapifiles,
@@ -319,7 +330,7 @@ def test_library_page(page: str):
         for line in diff:
             print(line)
     newline = "\n"
-    assert len(diff) < 10, f"Diff= {newline.join(diff)}"
+    assert len(diff) <= MAX_MISSING, f"Diff= {newline.join(diff)}"
     # # Not exactly the same
     # sim = simularity(local_page, url)
     # print(f"Simularity for {page}: {sim}")
