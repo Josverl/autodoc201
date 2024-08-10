@@ -27,7 +27,7 @@ To Implement this the following steps are needed
             @overload
             def value(self, x: Any) -> None:
         ```
- [ ] configure autoapi to document class __inits__ as part of the class parameters , not of the __init__ method
+ [x] configure autoapi to document class __inits__ as part of the class parameters , not of the __init__ method
      This is the way the current docs are written , its best to keep it to the same method    
 
 
@@ -35,15 +35,39 @@ To Implement this the following steps are needed
     [ ] Update stubber to 
         [x] remove fewer of the .rst .. admonitions and other formatting ( --no-rst-clean option)
         [?] Merge the updated docstubs with the current stubs where some are manually updated
+        [ ] add a module docstring for the machine.xxxx modules that mostly document classes. ( current logic drops those)
+            these can also be manually added to the stubs
+        [ ] add new functionality to add values from the mcu-stubs into the doc-stubs 
 
-    [ ] add logic to mark the modules as originating from micropython-lib 
+
+    [ ] add logic to mark the modules as originating from micropython-lib ( Need more than the module name, likely the complete path ) 
     [ ] add port designations (need source for that)
 
  [x] add logic to add the micropython-lib modules 
  [x] Check for missing sections / functions / classes in the generated documentation.
-     There is a test `test_library_page` that tries to compare the generated docs with the source code, but it is not very reliable 
+     There is a test `test_library_page` that tries to compare the generated docs with the source code, but it is not completely reliable 
      as it is hard for to distinguish between intentional changes, and omissions and errors.
-     
+     the test uses a diff of the source code and the generated docs, 
+        - ignores moved lines (reordering of methods is common)
+        - ignores functions/methods with additional type information pr return or parameters 
+        - ignores Class.method / method notation differences
+        - ignores a number of common headings that are not always present in generated docs new style
+
+        The remainder of differences need to be manually checked and corrected.
+        these are written to a file `checks/check-library-<module>.md` for each module that has differences
+
+
+Manual stubs 
+-----------
+There are a few (stdlib)  Modules that likely need to be handcrafted or require additional care.
+    - asyncio, the current stubs are based off the .py version , which is now outdated
+    - stdlib modules 
+        - collections
+        - builtins    
+        - collections
+        - os / sys / gc 
+
+    
 
 
 ## You build it, you break it
@@ -53,10 +77,10 @@ To Implement this the following steps are needed
 - `pip install U -r docs/requirements.txt`
 - `cd docs`
 - `.\make html`  or `make html`
+- `pytest` 
 
 Vscode config is setup for Windows development with Ctrl-Shift-B to build the docs
 this includes additional cleanup of folders that `make clean` leaves untouched.
-
 
 
 ## Autodoc-Style Directives

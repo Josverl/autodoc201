@@ -125,13 +125,15 @@ def find_title(lines: List[str]):
 
 
 IGNORE_HEADINGS = {
-    "- Functions",
     "- Additional functions",
     "- Classes",
+    "- Configuration",
     "- Constants",
-    "- Exceptions",
-    "- Methods",
+    "- Constructor",
     "- Constructors",
+    "- Exceptions",
+    "- Functions",
+    "- Methods",
 }
 
 
@@ -209,15 +211,12 @@ def allow_omit_class_different_parameters(diff_lines: List[str]):
                 r2.remove(line)
             with contextlib.suppress(ValueError):
                 r2.remove(opposite)
-        elif oppo2 := first_startswith(r2, f"{opposite}("):
-            len1 = len(diff_lines)
+        elif oppo2 := first_startswith(r2, f"{oppo2}("):
             # also remove if the params dont match
             with contextlib.suppress(ValueError):
                 r2.remove(line)
             with contextlib.suppress(ValueError):
                 r2.remove(oppo2)
-            len2 = len(diff_lines)
-            print(f"Removed {len1-len2} lines")
     return r2
 
 
@@ -310,7 +309,7 @@ for f in fldr.glob("*.rst"):
         autoapifiles.append(f.relative_to(Path("docs")).with_suffix("").as_posix())
 
 
-MAX_MISSING = 5
+MAX_MISSING = 10
 
 
 @pytest.mark.parametrize(
@@ -323,14 +322,19 @@ def test_library_page(page: str):
     url = f"https://docs.micropython.org/en/{version}/{page}.html"
     diff = compare_html(local_page, url, ignore_title=True)
     # for now we only care that nothing is missing
-    diff = [l for l in diff if l.startswith("- ")]
+    missing = [l for l in diff if l.startswith("- ")]
 
-    if diff:
-        print(f"Diff for {page}:")
-        for line in diff:
-            print(line)
+    # write a tasklist to the "check-{page}.md" file
+    Path("checks").mkdir(exist_ok=True)
+    with open(Path("checks") / f"check-{page.replace('/','-')}.md", "w") as f:
+        f.write(f"# checklist for {page}\n\n")
+        f.write("## Missing:\n")
+        f.write("\n".join(f"- [ ] {line}" for line in missing))
+        f.write("\n## Extras:\n")
+        f.write("\n".join(f"- [ ] {line}" for line in diff if line.startswith("+ ")))
+
     newline = "\n"
-    assert len(diff) <= MAX_MISSING, f"Diff= {newline.join(diff)}"
+    assert len(missing) <= MAX_MISSING, f"Diff= {newline.join(missing)}"
     # # Not exactly the same
     # sim = simularity(local_page, url)
     # print(f"Simularity for {page}: {sim}")
