@@ -24,12 +24,6 @@ mem16: Incomplete
 mem32: int
 """\
 Read/write 32 bits of memory.
-
-Use subscript notation ``[...]`` to index these objects with the address of
-interest. Note that the address is the byte address, regardless of the size of
-memory being accessed.
-
-Example use (registers are specific to an stm32 microcontroller):
 """
 IDLE: Incomplete
 """IRQ wake values."""

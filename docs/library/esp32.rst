@@ -4,11 +4,11 @@
 ====================================================
 
 .. autoapimodule:: esp32
-    :no-members:
     :no-index:
-    :platform: esp32
+    :no-members:    
 
-
+The ``esp32`` module contains functions and classes specifically aimed at
+controlling ESP32 modules.
 
 Functions
 ---------
@@ -34,20 +34,6 @@ Functions
 .. autoapifunction:: idf_heap_info
     :no-index:    
 
-
-    .. note:: Free IDF heap memory in the `esp32.HEAP_DATA` region is available
-       to be automatically added to the MicroPython heap to prevent a
-       MicroPython allocation from failing. However, the information returned
-       here is otherwise *not* useful to troubleshoot Python allocation
-       failures. :func:`micropython.mem_info()` and :func:`gc.mem_free()` should
-       be used instead:
-
-       The "max new split" value in :func:`micropython.mem_info()` output
-       corresponds to the largest free block of ESP-IDF heap that could be
-       automatically added on demand to the MicroPython heap.
-
-       The result of :func:`gc.mem_free()` is the total of the current "free"
-       and "max new split" values printed by :func:`micropython.mem_info()`.
 
 Related constants
 ~~~~~~~~~~~~~~~~~
@@ -130,8 +116,8 @@ For more details see Espressif's `ESP-IDF RMT documentation.
     :no-index:
     :members:
     :undoc-members:
-    :private-members: 
-    :special-members:    
+    :private-members:
+
 
 
 
@@ -151,7 +137,7 @@ ESP32-S2 and ESP32-S3 chips.
     :members:
     :undoc-members:
     :private-members: 
-    :special-members:    
+
 
 
 Related constants
@@ -183,4 +169,5 @@ supports 32-bit signed integers and blobs.
     :members:
     :undoc-members:
     :private-members: 
-    :special-members:    
+
+

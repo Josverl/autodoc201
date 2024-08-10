@@ -10,7 +10,7 @@ controlling ESP32 modules.
 # source version: v1.23.0
 # origin module:: repos/micropython/docs/library/esp32.rst
 from __future__ import annotations
-from typing import Any, List, Optional, Tuple, Union
+from typing import Any, List, Optional, Tuple, Union, overload
 from _typeshed import Incomplete
 
 HEAP_DATA: Incomplete
@@ -76,8 +76,14 @@ class Partition:
         """
         ...
 
-    def readblocks(self, block_num, buf, offset: Optional[int] = 0) -> Incomplete: ...
-    def writeblocks(self, block_num, buf, offset: Optional[int] = 0) -> Incomplete: ...
+    @overload
+    def readblocks(self, block_num, buf) -> None: ...
+    @overload
+    def readblocks(self, block_num, buf, offset: int) -> None: ...
+    @overload
+    def writeblocks(self, block_num, buf) -> None: ...
+    @overload
+    def writeblocks(self, block_num, buf, offset: int) -> None: ...
     def ioctl(self, cmd, arg) -> Incomplete:
         """
         These methods implement the simple and :ref:`extended
@@ -138,7 +144,9 @@ class RMT:
 
     PULSE_MAX: int
     """Maximum integer that can be set for a pulse duration."""
-    def __init__(self, channel, *, pin=None, clock_div=8, idle_level=False, tx_carrier=None) -> None: ...
+    def __init__(
+        self, channel, *, pin=None, clock_div=8, idle_level=False, tx_carrier=None
+    ) -> None: ...
     @classmethod
     def source_freq(cls) -> Incomplete:
         """
